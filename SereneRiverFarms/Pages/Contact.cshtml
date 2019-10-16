@@ -1,0 +1,67 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact Us";
+    var contactResponse = ViewData["Message"];
+}
+
+<div class="content-row">
+    <div class="col-sma-6 page-content">
+        <div class="subtitle-container">
+            <h2 class="subtitle-container__subtitle">Contact Us</h2>
+        </div>
+        <p>Please fill out the form to get in touch with us.</p>
+
+
+        <div class="javascript-validation-results-contact-us"></div>
+        @{
+            if (@contactResponse != null)
+            {
+                <div class="form-response">
+                    @contactResponse
+                </div>
+            }
+        }
+        <form class="form contact-form" name="contactForm" onsubmit="return validateContactForm();" method="post">
+            <div class="form__required">** - Required Field</div>
+            <div class="form__input-container">
+                <label class="form__label" for="userName">Name **</label>
+                <input id="userName" class="form__input" type="text" name="userName" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userEmail">Email **</label>
+                <input id="userEmail" class="form__input" type="text" name="userEmail" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userSubject">Subject</label>
+                <input id="userSubject" class="form__input" type="text" name="userSubject" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userComments">Comments/Questions **</label>
+                <textarea id="userComments" class="form__input form__textarea" name="userComments"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <input asp-page-handler="ContactSection" id="contactButton" class="form__submit-button" type="submit" name="submitButton" value="Contact Us!" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image contact-us">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        setCurrentPage(5, "mobileNav");
+        setCurrentPage(5, "desktopNav");
+    });
+</script>
+
+<script type="text/javascript" src="assets/javascript/contact-form-validation.js?mod=10032019"></script>

@@ -1,0 +1,1244 @@
+﻿
+/***############### General Styling Reset and Setup: reset, grid, typography, general classes and divs.  Mobile-first styling setup. ***/
+/***########## Reset the styles, add box-sizing: border-box. ***/
+html, body, div, span, p, img, a, br, ul, li, ol, header, nav, footer, table, button, label, input, textarea, select, tr, td, th, h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/*For ease of development and maintainability, combine an element's width, padding, margin, and border into a final value, and enable this on all elements. */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/***########## Grid Column layout available.  Desktop and mobile settings.  Automatically make columns full width below a certain width. Very-small (vsm) 
+columns display at their designated widths at all device sizes, small (sma) above the first breakpoint, large (lar) above the next breakpoint. ***/
+.content {
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+}
+
+.content-row {
+    width: 100%;
+    padding: 0;
+}
+
+    .content-row:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .content-row.no-content-row-padding {
+        padding: 0;
+    }
+
+.col-sma-1, .col-sma-2, .col-sma-3, .col-sma-4, .col-sma-5, .col-sma-6, .col-sma-7, .col-sma-8, .col-sma-9, .col-sma-10, .col-sma-11, .col-sma-12,
+.col-lar-1, .col-lar-2, .col-lar-3, .col-lar-4, .col-lar-5, .col-lar-6, .col-lar-7, .col-lar-8, .col-lar-9, .col-lar-10, .col-lar-11, .col-lar-12 {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.col-vsm-1, .col-vsm-2, .col-vsm-3, .col-vsm-4, .col-vsm-5, .col-vsm-6, .col-vsm-7, .col-vsm-8, .col-vsm-9, .col-vsm-10, .col-vsm-11, .col-vsm-12 {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-vsm-1 {
+    width: 8.333333%;
+}
+
+.col-vsm-2 {
+    width: 16.666667%;
+}
+
+.col-vsm-3 {
+    width: 25%;
+}
+
+.col-vsm-4 {
+    width: 33.333333%;
+}
+
+.col-vsm-5 {
+    width: 41.666667%;
+}
+
+.col-vsm-6 {
+    width: 50%;
+}
+
+.col-vsm-7 {
+    width: 58.33333%;
+}
+
+.col-vsm-8 {
+    width: 66.666667%;
+}
+
+.col-vsm-9 {
+    width: 75%;
+}
+
+.col-vsm-10 {
+    width: 83.333333%;
+}
+
+.col-vsm-11 {
+    width: 91.666667%;
+}
+
+.col-vsm-12 {
+    width: 100%;
+}
+
+
+/* Switch to 12 columns at 700px for small columns and 1200px for large columns. */
+@media only screen and (min-width: 700px) {
+    .content-row {
+        padding: 10px 0 10px 0;
+    }
+
+        .content-row:first-of-type {
+            padding-top: 0;
+        }
+
+        .content-row:last-of-type {
+            padding-bottom: 0;
+        }
+
+    .col-sma-1, .col-sma-2, .col-sma-3, .col-sma-4, .col-sma-5, .col-sma-6, .col-sma-7, .col-sma-8, .col-sma-9, .col-sma-10, .col-sma-11, .col-sma-12 {
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-sma-1 {
+        width: 8.333333%;
+    }
+
+    .col-sma-2 {
+        width: 16.666667%;
+    }
+
+    .col-sma-3 {
+        width: 25%;
+    }
+
+    .col-sma-4 {
+        width: 33.333333%;
+    }
+
+    .col-sma-5 {
+        width: 41.666667%;
+    }
+
+    .col-sma-6 {
+        width: 50%;
+    }
+
+    .col-sma-7 {
+        width: 58.33333%;
+    }
+
+    .col-sma-8 {
+        width: 66.666667%;
+    }
+
+    .col-sma-9 {
+        width: 75%;
+    }
+
+    .col-sma-10 {
+        width: 83.333333%;
+    }
+
+    .col-sma-11 {
+        width: 91.666667%;
+    }
+
+    .col-sma-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .content-row {
+        padding: 25px 0 25px 0;
+    }
+
+        .content-row:first-of-type {
+            padding-top: 0;
+        }
+
+        .content-row:last-of-type {
+            padding-bottom: 0;
+        }
+
+    .col-lar-1, .col-lar-2, .col-lar-3, .col-lar-4, .col-lar-5, .col-lar-6, .col-lar-7, .col-lar-8, .col-lar-9, .col-lar-10, .col-lar-11, .col-lar-12 {
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-lar-1 {
+        width: 8.333333%;
+    }
+
+    .col-lar-2 {
+        width: 16.666667%;
+    }
+
+    .col-lar-3 {
+        width: 25%;
+    }
+
+    .col-lar-4 {
+        width: 33.333333%;
+    }
+
+    .col-lar-5 {
+        width: 41.666667%;
+    }
+
+    .col-lar-6 {
+        width: 50%;
+    }
+
+    .col-lar-7 {
+        width: 58.33333%;
+    }
+
+    .col-lar-8 {
+        width: 66.666667%;
+    }
+
+    .col-lar-9 {
+        width: 75%;
+    }
+
+    .col-lar-10 {
+        width: 83.333333%;
+    }
+
+    .col-lar-11 {
+        width: 91.666667%;
+    }
+
+    .col-lar-12 {
+        width: 100%;
+    }
+}
+
+/***########## General Styling and Typography settings. ***/
+body {
+    background-color: #f3f3f3;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    padding-bottom: 16px;
+    line-height: 22.4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    font-size: 0px;
+}
+/*Don't allow images to go offscreen horizontally */
+a:link, a:visited {
+    color: #000000;
+}
+
+a:hover {
+    color: #0000cc;
+}
+
+input, textarea, select {
+    outline: 0;
+    transition: 0.2s;
+}
+
+    input:focus, textarea:focus, select:focus {
+        box-shadow: 0px 0px 3px 3px rgba(0, 102, 204, 0.6);
+        transition: 0.2s;
+    }
+
+.body-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 300px;
+    padding: 0;
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+@media only screen and (min-width: 500px) {
+}
+
+@media only screen and (min-width: 700px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+}
+
+/***########## General layout settings and general classes. ***/
+.justify-content > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* General Resuable Classes */
+.sr-only {
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.width-100-percent {
+    width: 100%;
+}
+
+.clear-both {
+    clear: both;
+}
+
+/* Use .inner-wrapper for layouts where you want to have backgrounds go out of the site 'border' provided by .body-wrapper '*/
+.inner-wrapper {
+    position: relative;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (min-width: 700px) {
+    .float-right-above-a-breakpoint {
+        float: right;
+    }
+}
+
+/* Form Validation classes */
+.javascript-validation-results-contact-us {
+    display: none;
+    font-weight: bold;
+}
+
+    .javascript-validation-results-contact-us.show {
+        display: block;
+    }
+
+.required-field-needed {
+    box-shadow: 0px 0px 3px 3px rgba(204, 0, 0, 1);
+}
+/***########## End of General Styling Reset and Setup ****/
+
+
+
+
+
+/***############### Beginning of Website-specific style sheet. ****/
+
+/*Brand Colors: Tetrad Color Scheme, 30 deg. separation. */
+:root {
+    --color-1: #4dbd33; /* dark grass green */
+    --color-2: #268e80; /*cobalt-blue */
+    --color-3: #e2823d; /* orange-brown*/
+    --color-4: #db3b4a; /*pink-red*/
+    --color-1-semi-opacity: rgba(77, 189, 51, 0.8);
+    --color-2-semi-opacity: rgba(38, 142, 128, 0.4);
+    --color-3-semi-opacity: rgba(226, 130, 61, 0.5);
+    --color-2-very-low-opacity: rgba(38, 142, 128, 0.2);
+}
+
+
+input, textarea, select {
+    padding: 10px;
+    border: 1px solid #000000;
+    outline: 0;
+    transition: box-shadow 0.4s ease-out;
+}
+
+    input:focus, textarea:focus, select:focus {
+        box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
+        transition: box-shadow 0.4s ease-out;
+    }
+
+
+a, a:link, a:visited, a:hover {
+    transition: 0.4s ease-out;
+    font-weight: bold;
+}
+
+    a, a:link, a:visited {
+        color: var(--color-4);
+    }
+
+        a:hover {
+            color: var(--color-3);
+        }
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+h2 {
+    color: var(--color-2);
+    font-weight: bold;
+    padding: 0 0 15px 0;
+    text-align: center;
+}
+
+h3 {
+    color: var(--color-3);
+    padding: 0 0 12px 0;
+    text-align: left;
+}
+
+h4 {
+    padding: 0 0 12px 0;
+}
+
+/* General sitewide sections */
+.background-hero-image {
+    width: 100%;
+    min-height: 240px;
+}
+
+.list-with-bullet-points {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+
+.javascript-validation-results-contact-us { padding-bottom: 10px; }
+
+.form {
+}
+
+.form__input-container {
+    padding: 10px;
+}
+
+    .form__input-container:last-of-type {
+        padding-bottom: 0;
+    }
+
+.form__label {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding-bottom: 6px;
+}
+
+.form__input {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form__textarea {
+    min-height: 100px;
+}
+
+.form__submit-button {
+    border-radius: 15px;
+    background-color: var(--color-1);
+    cursor: pointer;
+    transition: 0.4s ease-in;
+}
+
+    .form__submit-button:hover {
+        background-color: #ffffff;
+        color: var(--color-1);
+        box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
+        transition: 0.4s ease-in;
+    }
+
+.sign-up-container {
+}
+
+.form-response { font-weight: bold; padding-bottom: 10px; }
+
+
+/*Header, nav*/
+#desktopNav {
+    display: none;
+}
+
+#mobileNav {
+    display: block;
+}
+
+.header {
+    min-height: 280px;
+    background: url("../images/hillside-farm.jpg") 0% 50%/cover no-repeat;
+}
+
+.main-title-container {
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    width: 165px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid var(--color-2-semi-opacity);
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: 0.4s ease-out;
+}
+
+    .main-title-container:hover {
+        border: 2px solid var(--color-2-very-low-opacity);
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: 0.4s ease-out;
+    }
+
+
+    .main-title-container .main-title__title {
+        font-size: 26px;
+        font-weight: bold;
+        color: var(--color-1);
+    }
+
+.subtitle-container { }
+
+
+/*Nav*/
+.nav {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    text-align: right;
+}
+
+.nav__nav-list-container {
+    padding: 10px 15px 10px 10px;
+}
+
+.nav .nav__nav-link {
+    display: inline-block;
+    padding-bottom: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+    .nav .nav__nav-link:hover {
+        color: var(--color-3);
+    }
+
+.nav .nav__nav-list-container .current-page {
+    text-decoration: underline;
+}
+
+/*Logo*/
+.logo-container {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+
+/*Login/Register*/
+.register-login a {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-2);
+}
+
+    .register-login a:hover {
+        color: var(--color-3);
+    }
+
+
+/*Footer*/
+.footer {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--color-1);
+}
+
+.footer__copyright, .footer__locations, .footer__phone, .footer__hours {
+    padding-bottom: 15px;
+}
+
+.footer__subheading {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.footer .footer__privacy-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+    .footer .footer__privacy-link:hover {
+        color: var(--color-4);
+    }
+
+    .footer__social-item {
+        display: inline-block;
+        padding-right: 40px;
+    }
+
+    .footer__social-item:last-of-type {
+        padding-right: 0;
+    }
+
+    .footer__social-item a {
+        color: #ffffff
+    }
+
+        .footer__social-item a:hover {
+            color: var(--color-4);
+        }
+
+
+/*Cookie Partial*/
+.cookie-policy {
+    position: absolute;
+    top: 250px;
+    left: 15px;
+    width: 250px;
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    background-color: rgba(240, 240, 240, 0.95);
+}
+
+    .cookie-policy.hide {
+        display: none;
+    }
+
+.cookie-policy__learn-more {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 15px;
+    margin-right: 50px;
+    background-color: #cccccc;
+}
+
+.cookie-policy__agree-to-cookies {
+    display: inline-block;
+    background-color: var(--color-1);
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/*Slideshow*/
+.slideshow {
+    position: static;
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    padding-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+
+.slideshow__image {
+    min-height: 200px;
+    padding-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background: 50% 50%/cover no-repeat;
+}
+
+.slideshow__header {
+    padding: 10px 10px;
+    border-radius: 15px 15px 0 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--color-1);
+    color: #ffffff;
+}
+
+.slideshow__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 0 0 15px 15px;
+    background-color: var(--color-1);
+}
+
+.slideshow__slide-button {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 12px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease-out;
+}
+
+    .slideshow__slide-button:hover {
+        box-shadow: 0px 0px 5px 5px var(--color-4);
+        transition: 0.4s ease-out;
+    }
+
+.slideshow__button-text {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-3);
+}
+
+#pausePlayButton {
+    background: url(../images/index/pause-button.png);
+    border-radius: 5px;
+}
+
+#slideButton3 {
+    margin-bottom: 10px;
+}
+
+.subheader {
+    text-align: center;
+}
+
+.page-content {
+    padding-bottom: 20px;
+}
+
+
+/*Index*/
+.index-section {
+    padding-bottom: 30px;
+}
+
+    .index-section.six .index-section {
+        padding-bottom: 0;
+    }
+
+.index-section__title h3 { text-align: center; }
+
+.index-section__bg-container {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.index-section__bg-image {
+    height: 200px;
+    transition: 0.4s ease-in;
+    cursor: pointer;
+}
+
+    .index-section__bg-image:hover {
+        transform: scale(1.20);
+        transition: 0.8s ease-in;
+    }
+
+.index-section__description {
+}
+
+.index-section__bg-image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.index-section.one .index-section__bg-image {
+    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+}
+
+.index-section.two .index-section__bg-image {
+    background: url('/assets/images/tractor-with-cargo-bay.jpg') 50% 30%/cover no-repeat;
+}
+
+.index-section.three .index-section__bg-image {
+    background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
+}
+
+.index-section.four .index-section__bg-image {
+    background: url('/assets/images/closeup-apples-in-a-cart.jpg') 50% 30%/cover no-repeat;
+}
+
+.index-section.five .index-section__bg-image {
+    background: url('/assets/images/farm-shed-sunset-golden-field.jpg') 50% 30%/cover no-repeat;
+}
+
+.index-section.six .index-section__bg-image {
+    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+}
+
+/*About Us*/
+.background-hero-image.about-us {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
+
+/*Our Farm*/
+.our-farm-tour-image {
+    height: 240px;
+    margin-bottom: 0;
+    background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
+}
+
+
+/*Products*/
+.background-hero-image.our-products {
+    margin-bottom: 30px;
+    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
+}
+
+.product {
+    padding-bottom: 40px;
+}
+
+.product__name h3 {
+    text-align: center;
+}
+
+.product__bg-image {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.product__description {
+    margin-bottom: 10px;
+}
+
+.product__price {
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.product.one .product__bg-image {
+    background: url('/assets/images/pear.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.two .product__bg-image {
+    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.three .product__bg-image {
+    background: url('/assets/images/blueberries.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.four .product__bg-image {
+    background: url('/assets/images/strawberries-in-wooden-basket.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.five .product__bg-image {
+    background: url('/assets/images/raspberries-in-pint-cartons.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.six .product__bg-image {
+    background: url('/assets/images/cherries-in-bowl.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.seven .product__bg-image {
+    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.eight .product__bg-image {
+    background: url('/assets/images/milk-glass-and-jug.jpg') 50% 30%/cover no-repeat;
+}
+
+.product.nine .product__bg-image {
+    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
+}
+
+
+#userState option { padding: 5px; }
+
+
+/*Events*/
+.background-hero-image.events {
+    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+}
+
+.event {
+    padding-bottom: 12px;
+}
+
+/*Contact Us*/
+.background-hero-image.contact-us {
+    background: url('/assets/images/tractor-with-cargo-bay.jpg') 50% 30%/cover no-repeat;
+}
+
+.contact-form .form__required {
+    color: #cc0000;
+}
+
+.contact-form .form__label {
+    color: var(--color-3);
+}
+
+.contact-form .required-field-needed {
+}
+
+
+/*Privacy Policy*/
+.background-hero-image.privacy-policy {
+    background: url('/assets/images/cows-in-golden-field-foggy-morning.jpg') 50% 30%/cover no-repeat;
+}
+
+
+/*Error 404*/
+.background-hero-image.error-404 {
+    background: url('/assets/images/cows-in-golden-field-foggy-morning.jpg') 50% 30%/cover no-repeat;
+}
+
+
+/*Error 500*/
+.background-hero-image.error-500 {
+    background: url('/assets/images/cows-in-golden-field-foggy-morning.jpg') 50% 30%/cover no-repeat;
+}
+
+
+
+@media only screen and (max-width: 1199px) {
+    /*Products*/
+    .product:nth-of-type(2n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+
+@media only screen and (min-width: 500px) {
+    /*Products*/
+    .product__bg-image {
+        height: 180px;
+    }
+}
+
+
+
+@media only screen and (min-width: 700px) {
+
+    h2 {
+        text-align: left;
+    }
+
+    /* General sitewide sections */
+    .main-title-container {
+        width: 335px;
+        padding: 15px;
+    }
+
+        .main-title-container .main-title__title {
+            font-size: 32px;
+        }
+
+    #mobileNav {
+        display: none;
+    }
+
+    #desktopNav {
+        display: block;
+    }
+
+    /*General Use */
+    .background-hero-image {
+    }
+
+    .page-content {
+        padding-bottom: 0px;
+    }
+
+    /*Footer*/
+    .footer__locations, .footer__phone, .footer__hours {
+        padding-bottom: 0px;
+    }
+
+    /*Slideshow*/
+    .slideshow__image {
+        min-height: 240px;
+    }
+
+    .slideshow__buttons {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
+    /*Cookie policy*/
+    .cookie-policy {
+        position: absolute;
+        top: 320px;
+        left: 2%;
+        width: 96%;
+        padding: 50px 30px;
+    }
+
+
+    /*Index page*/
+    .index-section.four, .index-section.five, .index-section.six {
+        padding-bottom: 0;
+    }
+
+
+    /*Products*/
+    .product__bg-image {
+        height: 280px;
+    }
+
+    /*Our Farm*/
+    .our-farm-tour-image {
+        height: 350px;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+
+    /* General sitewide sections */
+    .body-wrapper {
+        position: relative;
+        width: 1200px;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header {
+        min-height: 400px;
+        background: url("../images/hillside-farm.jpg") 0% 65%/cover no-repeat;
+    }
+
+    .main-title-container {
+        position: absolute;
+        top: 90px;
+        left: 40px;
+        width: 504px;
+    }
+
+        .main-title-container .main-title__title {
+            font-size: 50px;
+        }
+
+    /*Logo*/
+    .logo-container {
+        top: 20px;
+        left: 15px;
+        width: 60px;
+        height: 60px;
+    }
+
+    /*Nav*/
+    .nav {
+        position: absolute;
+        top: 15px;
+        left: 200px;
+    }
+
+    .nav__nav-list-container {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .nav__nav-item {
+        display: inline-block;
+        padding-bottom: 0;
+        padding-right: 30px;
+    }
+
+        .nav__nav-item:last-of-type {
+            padding-right: 0;
+        }
+
+    .nav .nav__nav-link {
+        padding-bottom: 0;
+        color: var(--color-4);
+    }
+
+    .footer__subheading {
+        font-size: 20px;
+    }
+
+
+    /*Register/login*/
+    .register-login {
+        position: absolute;
+        right: 50px;
+    }
+
+    .register-login__register {
+        display: inline-block;
+        padding-right: 30px;
+    }
+
+    .register-login__login {
+        display: inline-block;
+    }
+
+    .register-login__logout {
+        display: inline-block;
+        border-radius: 15px;
+        background-color: var(--color-3);
+        transition: 0.4s all ease-out;
+    }
+
+        .register-login__logout:hover {
+            background-color: var(--color-1);
+            transition: 0.4s all ease-out;
+        }
+
+
+    /*Slideshow*/
+    .slideshow {
+        position: relative;
+        width: 700px;
+        height: 100%;
+        padding-bottom: 0;
+        margin-left: auto;
+        margin-right: 0px;
+    }
+
+    .slideshow__image {
+        position: relative;
+        padding-bottom: 56.25%;
+    }
+
+    .slideshow__header {
+        font-size: 26px;
+    }
+
+    /*General use styles*/
+    .background-hero-image {
+        width: 100%;
+        min-height: 380px;
+    }
+
+
+    /*Login page*/
+    .login-form__button {
+        border-radius: 15px;
+        background-color: var(--color-1);
+    }
+
+
+    /*Index*/
+    .index-section__bg-image {
+        height: 220px;
+    }
+
+
+    /*Our Farm*/
+    .our-farm-tour-image {
+        height: 500px;
+    }
+
+
+    /*Products*/
+    .product:nth-of-type(4n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .product__bg-image {
+        height: 220px;
+    }
+
+
+    /*Contact Us*/
+    .form__input-container {
+        padding: 15px;
+    }
+
+    .form__label {
+        width: 35%;
+        padding-bottom: 0;
+        padding-right: 10px;
+    }
+
+    .form__input {
+        width: 65%;
+    }
+}

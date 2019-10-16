@@ -1,0 +1,128 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="content-row">
+    <div class="col-sma-4 page-content">
+        <div class="subtitle-container">
+            <h2 class="subtitle-container__subtitle">Fantastic Oregon Farm</h2>
+        </div>
+        <h3>Quality Local Produce and Dairy</h3>
+        <p>Pears, apples, pumpkins, berries, and more.</p>
+        <p>Buy fresh milk year round!</p>
+        <h3>Take a Tour and Sample our Products!</h3>
+        <p>Tours all summer and fall.</p>
+        <p>Located in the Willamette Valley in Oregon.</p>
+        <div class="sign-up-container"><a href="/OurFarm">Sign up now!</a></div>
+    </div>
+
+    <div class="col-sma-8">
+
+        <div class="slideshow">
+            <h3 class="slideshow__header"></h3>
+            <div class="slideshow__image"></div>
+            <div class="slideshow__buttons">
+                <div id="pausePlayButton" class="slideshow__slide-button"></div>
+                <div id="slideButton0" class="slideshow__slide-button">
+                    <div class="slideshow__button-text">1</div>
+                </div>
+                <div id="slideButton1" class="slideshow__slide-button">
+                    <div class="slideshow__button-text">2</div>
+                </div>
+                <div id="slideButton2" class="slideshow__slide-button">
+                    <div class="slideshow__button-text">3</div>
+                </div>
+                <div id="slideButton3" class="slideshow__slide-button">
+                    <div class="slideshow__button-text">4</div>
+                </div>
+                <div id="slideButton4" class="slideshow__slide-button">
+                    <div class="slideshow__button-text">5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-row">
+    <div class="col-sma-4">
+        <div class="index-section one">
+            <div class="index-section__title"><h3>From Our Farm: Pumpkin Time</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/OurProducts"></a>
+                </div>
+            </div>
+            <div class="index-section__description">A visitor favorite!</div>
+        </div>
+    </div>
+
+    <div class="col-sma-4">
+        <div class="index-section two">
+            <div class="index-section__title"><h3>Tour the Farm from a Tractor</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/OurFarm"></a>
+                </div>
+            </div>
+            <div class="index-section__description">Like no other farm tour!</div>
+        </div>
+    </div>
+    <div class="col-sma-4">
+        <div class="index-section three">
+            <div class="index-section__title"><h3>Scenic Cherry Trees</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/Events"></a>
+                </div>
+            </div>
+            <div class="index-section__description">
+                Take a hike through our cherry orchard on a scenic small hill.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-row">
+    <div class="col-sma-4">
+        <div class="index-section four">
+            <div class="index-section__title"><h3>From Our Farm: Fresh Apples</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/OurProducts"></a>
+                </div>
+            </div>
+            <div class="index-section__description">Now in regional supermarkets.</div>
+        </div>
+    </div>
+    <div class="col-sma-4">
+        <div class="index-section five">
+            <div class="index-section__title"><h3>Recent Photo from Our Farm</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/OurFarm"></a>
+                </div>
+            </div>
+            <div class="index-section__description">Our photographer had to try out the new camera.</div>
+        </div>
+    </div>
+    <div class="col-sma-4">
+        <div class="index-section six">
+            <div class="index-section__title"><h3>Peruse Our Produce</h3></div>
+            <div class="index-section__bg-container">
+                <div class="index-section__bg-image">
+                    <a class="index-section__bg-image-link" href="/OurProducts"></a>
+                </div>
+            </div>
+            <div class="index-section__description">We offer special orders for our valued customers.</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        setCurrentPage(0, "mobileNav");
+        setCurrentPage(0, "desktopNav");
+    });
+</script>
+
+<script type="text/javascript" src="~/assets/javascript/farm-index-slideshow.js"></script>

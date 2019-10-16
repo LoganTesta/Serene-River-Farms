@@ -1,0 +1,16 @@
+﻿
+/***############### Base reset and generic styles for print ***/
+/*Enable background-colors and background-images on (most) browsers. */
+* {
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+    color-adjust: exact !important; /* Firefox */
+}
+
+.noprint {
+    display: none;
+}
+/***########## End of General Reset and Setup ****/
+
+
+
+/***############### Website Specific Styles. ***/
