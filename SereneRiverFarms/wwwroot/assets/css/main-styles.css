@@ -671,19 +671,23 @@ h4 {
 
 /*Cookie Partial*/
 .cookie-policy {
-    position: absolute;
-    top: 250px;
-    left: 15px;
-    width: 250px;
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
     padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid rgba(0, 0, 0, 0.85);
     border-radius: 12px;
+    text-align: center;
     background-color: rgba(240, 240, 240, 0.95);
 }
 
     .cookie-policy.hide {
         display: none;
     }
+
+.cookie-policy__subheading { text-align: center; font-weight: bold; }
 
 .cookie-policy__learn-more {
     display: inline-block;
@@ -1047,10 +1051,9 @@ h4 {
 
     /*Cookie policy*/
     .cookie-policy {
-        position: absolute;
-        top: 320px;
-        left: 2%;
-        width: 96%;
+        bottom: 5%;
+        width: 100%;
+        max-width: 1200px;
         padding: 50px 30px;
     }
 
