@@ -630,6 +630,7 @@ h4 {
     padding: 40px 20px;
     text-align: center;
     background-color: var(--color-1);
+    color: #f9f9f9;
 }
 
 .footer__copyright, .footer__locations, .footer__phone, .footer__hours {
@@ -704,6 +705,7 @@ h4 {
     padding: 15px;
     border-radius: 15px;
     font-weight: bold;
+    color: #ffffff;
     cursor: pointer;
 }
 
