@@ -695,6 +695,7 @@ h4 {
     border-radius: 15px;
     margin-right: 50px;
     background-color: #cccccc;
+    cursor: pointer;
 }
 
 .cookie-policy__agree-to-cookies {
