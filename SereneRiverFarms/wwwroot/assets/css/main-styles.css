@@ -411,14 +411,14 @@ input, textarea, select {
 
 /*Brand Colors: Tetrad Color Scheme, 30 deg. separation. */
 :root {
-    --color-1: #4dbd33; /* dark grass green */
-    --color-2: #268e80; /*cobalt-blue */
-    --color-3: #e2823d; /* orange-brown*/
-    --color-4: #db3b4a; /*pink-red*/
-    --color-1-semi-opacity: rgba(77, 189, 51, 0.8);
-    --color-2-semi-opacity: rgba(38, 142, 128, 0.4);
-    --color-3-semi-opacity: rgba(226, 130, 61, 0.5);
-    --color-2-very-low-opacity: rgba(38, 142, 128, 0.2);
+    --color-1: #138510; /* dark grass green       (22,  133,  16)      */
+    --color-2: #0c6460; /* cobalt-blue            (12,  100,  97)      */
+    --color-3: #a45414; /* dark orange-brown      (164,  84,  20)      */
+    --color-4: #a31417; /* dark pink-red          (163,  20,  24)      */
+    --color-1-semi-opacity: rgba(22, 133, 16, 0.8);
+    --color-2-semi-opacity: rgba(12, 100, 97, 0.4);
+    --color-3-semi-opacity: rgba(164, 84, 20, 0.5);
+    --color-2-very-low-opacity: rgba(163, 20, 24, 0.2);
 }
 
 
