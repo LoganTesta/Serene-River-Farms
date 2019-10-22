@@ -14,6 +14,9 @@ namespace SereneRiverFarms.Pages
 {
     public class OurFarmModel : PageModel
     {
+
+        public string Message { get; set; }
+
         public void OnGet()
         {
 
@@ -51,7 +54,6 @@ namespace SereneRiverFarms.Pages
                 visitTime = "";
                 userComments = "";
             }
-
 
 
             if (userName == "" || userEmail == "" || userPhone == "" || partySize == "" || visitDate == "" || visitTime == "")
@@ -120,7 +122,7 @@ namespace SereneRiverFarms.Pages
                 BodyEmail += "<strong>Email:</strong> " + userEmail + "<br />";
                 BodyEmail += "<strong>Phone:</strong> " + userPhone + "<br />";
                 BodyEmail += "<strong>Party Size:</strong> " + partySize + "<br />";
-                BodyEmail += "<strong>Requested Tour Date and Time:</strong> " + visitDate + " at " + visitTime + "< br />";
+                BodyEmail += "<strong>Requested Tour Date and Time:</strong> " + visitDate + " at " + visitTime + "<br />";
                 BodyEmail += "<strong>Message/Comments:</strong> " + userComments;
 
 
@@ -136,7 +138,7 @@ namespace SereneRiverFarms.Pages
                 using (var destinationSmtp = new SmtpClient())
                 {
                     destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                    destinationSmtp.Authenticate("yourname", "yourpassword");
+                    destinationSmtp.Authenticate("youremail", "yourpassword");
                     destinationSmtp.Send(emailMessage);
                     destinationSmtp.Disconnect(true);
                     destinationSmtp.Dispose();

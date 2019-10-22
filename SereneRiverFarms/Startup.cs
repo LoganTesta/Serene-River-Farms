@@ -33,6 +33,12 @@ namespace SereneRiverFarms
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            //Alllow for Session Variables
+            services.AddSession();
+            services.AddMemoryCache();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,9 +61,18 @@ namespace SereneRiverFarms
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession(); //For Sessions
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            //Modified to allow Sessions
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            
+                     
+            });
         }
     }
 }

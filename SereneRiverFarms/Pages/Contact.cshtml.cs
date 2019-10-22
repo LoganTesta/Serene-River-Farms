@@ -45,7 +45,6 @@ namespace SereneRiverFarms.Pages
             }
 
 
-
             if (userName == "" || userEmail == "" || userComments == "")
             {
                 validForm = false;
@@ -126,7 +125,7 @@ namespace SereneRiverFarms.Pages
                 using (var destinationSmtp = new SmtpClient())
                 {
                     destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                    destinationSmtp.Authenticate("yourname", "yourpassword");
+                    destinationSmtp.Authenticate("youremail", "yourpassword");
                     destinationSmtp.Send(emailMessage);
                     destinationSmtp.Disconnect(true);
                     destinationSmtp.Dispose();
@@ -134,7 +133,6 @@ namespace SereneRiverFarms.Pages
                     contactFormResponse = "Thank you " + userName + ", we look forward to reading your comments and our reply will be sent to your email at: " + userEmail + ".";
                 }
             }
-
             ViewData["Message"] = "" + contactFormResponse;
         }
     }

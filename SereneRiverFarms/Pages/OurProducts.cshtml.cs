@@ -10,14 +10,155 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 
+using Microsoft.AspNetCore.Http;   //For Sessions
+
+using System.Collections;   //For ArrayLists
+
 namespace SereneRiverFarms.Pages
 {
     public class OurProductsModel : PageModel
     {
-        public void OnGet()
+
+        public string Message { get; set; }
+
+        ArrayList theSessionVariables = new ArrayList();
+        ArrayList productNames = new ArrayList();
+        ArrayList productPrices = new ArrayList();
+        ArrayList productSubtotals = new ArrayList();
+
+
+        public OurProductsModel()
         {
 
+            productNames.Add("Pears");
+            productNames.Add("Apples");
+            productNames.Add("Blueberries");
+            productNames.Add("Strawberries");
+            productNames.Add("Raspberries");
+            productNames.Add("Cherries");
+            productNames.Add("Pumpkins");
+            productNames.Add("Milk Gallons");
+            productNames.Add("12 Ounce Jam Jars");
+
+            productPrices.Add(2.50);
+            productPrices.Add(1.50);
+            productPrices.Add(3.00);
+            productPrices.Add(2.75);
+            productPrices.Add(4.50);
+            productPrices.Add(3.50);
+            productPrices.Add(1.79);
+            productPrices.Add(2.50);
+            productPrices.Add(6.00);
+
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+            productSubtotals.Add(0);
+
+            theSessionVariables.Add("numberOfPears");
+            theSessionVariables.Add("numberOfApples");
+            theSessionVariables.Add("numberOfBlueberries");
+            theSessionVariables.Add("numberOfStrawberries");
+            theSessionVariables.Add("numberOfRaspberries");
+            theSessionVariables.Add("numberOfCherries");
+            theSessionVariables.Add("numberOfPumpkins");
+            theSessionVariables.Add("numberOfMilkGallons");
+            theSessionVariables.Add("numberOf12OunceJamJars");
+
         }
+        public void OnGet()
+        {
+            HttpContext.Session.SetInt32("numberOfPears", 0);
+            HttpContext.Session.SetInt32("numberOfApples", 0);
+            HttpContext.Session.SetInt32("numberOfBlueberries", 0);
+            HttpContext.Session.SetInt32("numberOfStrawberries", 0);
+            HttpContext.Session.SetInt32("numberOfRaspberries", 0);
+            HttpContext.Session.SetInt32("numberOfCherries", 0);
+            HttpContext.Session.SetInt32("numberOfPumpkins", 0);
+            HttpContext.Session.SetInt32("numberOfMilkGallons", 0);
+            HttpContext.Session.SetInt32("numberOf12OunceJamJars", 0);
+            HttpContext.Session.SetString("Cart Total", "" + 0);
+        }
+
+
+
+        public void OnGetAddItem()
+        {
+            int productName = Convert.ToInt32(Request.Query["item"]);
+            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
+            int numberOfItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + sessionVariable) + 1);
+
+            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
+            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+
+            double newCartTotal = 0;
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                double priceOfEachItem = Convert.ToDouble(productPrices[i]);
+                productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
+
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ","")] = "$" + productSubtotals[i];  //Remove any spaces in a product name to prevent failed product matching.
+                newCartTotal += quantityOfEachItem * priceOfEachItem;
+            }
+            HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+        }
+
+
+        public void OnGetMinusItem()
+        {
+            int productName = Convert.ToInt32(Request.Query["item"]);
+            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
+            int numberOfItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + sessionVariable) - 1);
+            if(numberOfItem < 0)
+            {
+                numberOfItem = 0;
+            }
+
+            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
+            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+
+            double newCartTotal = 0;
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                double priceOfEachItem = Convert.ToDouble(productPrices[i]);
+                productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
+
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];
+                newCartTotal += quantityOfEachItem * priceOfEachItem;
+            }
+            HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+        }
+
+
+
+        public void OnGetResetCart()
+        {
+            //IMPORTANT: Afterwards, reset the session variables to 0 (products, product subtotals, and the cart total).
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                HttpContext.Session.SetInt32("" + Convert.ToString(theSessionVariables[i]), 0);
+                string sessionVariable = Convert.ToString(theSessionVariables[i]);
+                ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+            }
+            for (int i = 0; i < productSubtotals.Count; i++)
+            {
+                productSubtotals[i] = 0;
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = 0;  //Remove any spaces in a product name to prevent failed product matching.
+            }
+            HttpContext.Session.SetString("Cart Total", "0");
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+        }
+
+       
 
         public void OnPostEstimateSection()
         {
@@ -55,7 +196,6 @@ namespace SereneRiverFarms.Pages
                 userZipCode = "";
                 userComments = "";
             }
-
 
 
             if (userName == "" || userEmail == "" || userPhone == "" || userAddress == "" || userCity == "" || userState == "" || userZipCode == "")
@@ -128,7 +268,22 @@ namespace SereneRiverFarms.Pages
                 BodyEmail += "<strong>Phone:</strong> " + userPhone + "<br />";
                 BodyEmail += "<strong>Shipping Destination:</strong> " + userAddress + "<br />";
                 BodyEmail += " " + userCity + ", " + userState + " " + userZipCode + " <br />";
-                BodyEmail += "<strong>Addition Notes:</strong> " + userComments;
+                BodyEmail += "<strong>Additional Notes:</strong> " + userComments;
+
+                BodyEmail += "<br/ >";
+                BodyEmail += "<strong>Products Requested: </strong>" + "" + " <br/ >";
+
+                for (int i = 0; i < theSessionVariables.Count; i++)
+                {
+                    int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                    if(quantityOfEachItem > 0)
+                    {
+                        double productSubtotal = quantityOfEachItem * Convert.ToDouble(productPrices[i]);
+                        BodyEmail += "Product: " + Convert.ToString(productNames[i]) + ": " + quantityOfEachItem + " (Subtotal): $" + productSubtotal + ". <br />";
+                    }             
+                }
+                BodyEmail += "<strong>Estimate of Order Total:</strong> $" + HttpContext.Session.GetString("Cart Total") + ". <br />";
+                BodyEmail += " <br/ >";
 
 
                 var emailMessage = new MimeMessage();
@@ -143,18 +298,42 @@ namespace SereneRiverFarms.Pages
                 using (var destinationSmtp = new SmtpClient())
                 {
                     destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                    destinationSmtp.Authenticate("yourname", "yourpassword");
+                    destinationSmtp.Authenticate("youremail", "yourpassword");
                     destinationSmtp.Send(emailMessage);
                     destinationSmtp.Disconnect(true);
                     destinationSmtp.Dispose();
 
                     contactFormResponse = "Thank you " + userName + ", we will look over your request and send you an " +
                         "estimate soon.  Our reply will be sent to your email at: " + userEmail + ".";
+                    contactFormResponse += " Your Order Request: ";
+                    for (int i = 0; i < theSessionVariables.Count; i++)
+                    {
+                        int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                        double productSubtotal = quantityOfEachItem * Convert.ToDouble(productPrices[i]);
+
+                        if (quantityOfEachItem > 0)
+                        {
+                            contactFormResponse += " " + Convert.ToString(productNames[i]) + ": " + quantityOfEachItem + " (Sub: $" + productSubtotal + "), ";
+                        }
+                    }
+                    contactFormResponse += " Estimate of Order Total: $" + HttpContext.Session.GetString("Cart Total") + ". ";
+
+
+
+                    //IMPORTANT: Afterwards, reset the session variables to 0 (products, product subtotals, and the cart total).
+                    for (int i = 0; i < theSessionVariables.Count; i++)
+                    {       
+                       HttpContext.Session.SetInt32("" + Convert.ToString(theSessionVariables[i]), 0);
+                    }
+                    for (int i = 0; i < productSubtotals.Count; i++)
+                    {
+                        productSubtotals[i] = 0;
+                    }
+                    HttpContext.Session.SetString("Cart Total", "" + 0);
                 }
             }
 
             ViewData["Message"] = "" + contactFormResponse;
         }
-
     }
 }

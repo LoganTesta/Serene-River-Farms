@@ -516,13 +516,13 @@ h4 {
 .form__submit-button {
     border-radius: 15px;
     background-color: var(--color-1);
+    color: #ffffff;
     cursor: pointer;
     transition: 0.4s ease-in;
 }
 
     .form__submit-button:hover {
-        background-color: #ffffff;
-        color: var(--color-1);
+        background-color: var(--color-3);
         box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
         transition: 0.4s ease-in;
     }
@@ -935,10 +935,83 @@ h4 {
     background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
 }
 
-
 #userState option { padding: 5px; }
+.form__submit-button.estimate {
+ 
+}
+
+.reset-all {
+    width: 100px;
+    padding: 10px 5px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--color-4);
+    color: #f9f9f9;
+}
+
+.shopping-cart__total {
+    padding: 10px 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.item-table {
+}
+
+    .item-table th, .item-table td {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+.item { }
 
 
+
+.item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__add, .item__minus {
+    padding: 10px 5px;
+}
+
+
+
+.item__name { width: 30%; }
+.item__approximate-price { text-align: center; }
+.item__quantity { }
+.item__approximate-subtotal { }
+.item__add { }
+.item__minus { }
+
+.item__add__item {
+    width: 40px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-1);
+    color: #f9f9f9;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.item__minus__item {
+    width: 40px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-4);
+    color: #f9f9f9;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
 /*Events*/
 .background-hero-image.events {
     background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
@@ -1067,15 +1140,17 @@ h4 {
     }
 
 
+    /*Our Farm*/
+    .our-farm-tour-image {
+        height: 350px;
+    }
+
+
     /*Products*/
     .product__bg-image {
         height: 280px;
     }
 
-    /*Our Farm*/
-    .our-farm-tour-image {
-        height: 350px;
-    }
 }
 
 
@@ -1230,6 +1305,14 @@ h4 {
 
     .product__bg-image {
         height: 220px;
+    }
+
+
+    .item-table th, .item-table td {
+        display: table-cell;
+        padding: 10px 5px;
+        text-align: left;
+        font-weight: bold;
     }
 
 

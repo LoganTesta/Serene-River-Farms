@@ -3,6 +3,42 @@
 @{
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
+
+    var pearsSubtotal = ViewData["pearsSubtotal"];
+
+    var costOfPears = "$2.50";
+    var costOfApples = "$1.50";
+    var costOfBlueberries = "$3.00";
+    var costOfStrawberries = "$2.75";
+    var costOfRaspberries = "$4.50";
+    var costOfCherries = "$3.50";
+    var costOfPumpkins = "$1.79";
+    var costOfMilkGallons = "$2.50";
+    var costOf12OunceJamJars = "$6.00";
+
+
+    var numberOfPears = ViewData["numberOfPears"];
+    var numberOfApples = ViewData["numberOfApples"];
+    var numberOfBlueberries = ViewData["numberOfBlueberries"];
+    var numberOfStrawberries = ViewData["numberOfStrawberries"];
+    var numberOfRaspberries = ViewData["numberOfRaspberries"];
+    var numberOfCherries = ViewData["numberOfCherries"];
+    var numberOfPumpkins = ViewData["numberOfPumpkins"];
+    var numberOfMilkGallons = ViewData["numberOfMilkGallons"];
+    var numberOf12OunceJamJars = ViewData["numberOf12OunceJamJars"];
+
+    var subtotalPears = ViewData["subtotalPears"];
+    var subtotalApples = ViewData["subtotalApples"];
+    var subtotalBlueberries = ViewData["subtotalBlueberries"];
+    var subtotalStrawberries = ViewData["subtotalStrawberries"];
+    var subtotalRaspberries = ViewData["subtotalRaspberries"];
+    var subtotalCherries = ViewData["subtotalCherries"];
+    var subtotalPumpkins = ViewData["subtotalPumpkins"];
+    var subtotalMilkGallons = ViewData["subtotalMilkGallons"];
+    var subtotal12OunceJamJars = ViewData["subtotal12OunceJamJars"];
+
+
+    var cartTotal = ViewData["cartTotal"];
 }
 
 <div class="content-row">
@@ -45,19 +81,19 @@
         <div class="product__name"><h3>Strawberries</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!</div>
-        <div class="product__price">$3/lb</div>
+        <div class="product__price">$2.75/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product five">
         <div class="product__name"><h3>Raspberries</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Sweet and tart and a favorite in late summer.</div>
-        <div class="product__price">$4/lb</div>
+        <div class="product__price">$4.50/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product six">
         <div class="product__name"><h3>Cherries</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Very filling and tasty.</div>
-        <div class="product__price">$3/lb</div>
+        <div class="product__price">$3.50/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product seven">
         <div class="product__name"><h3>Pumpkin</h3></div>
@@ -66,7 +102,7 @@
             Our pumpkin patch is ready to provide you with your next jack-o'-latern.
             Also, rumor has it pumpkin goes well in pies.
         </div>
-        <div class="product__price">$1/lb</div>
+        <div class="product__price">$1.79/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product eight">
         <div class="product__name"><h3>Milk</h3></div>
@@ -75,13 +111,13 @@
             We love our cows and give them plenty of room to roam.  The result is happier
             cows and better tasting milk.
         </div>
-        <div class="product__price">$3/gallon</div>
+        <div class="product__price">$2.50/gallon</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product nine">
         <div class="product__name"><h3>Assorted Jams</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Nothing like fresh produce to make your day in a jam.</div>
-        <div class="product__price">$3-6/jar</div>
+        <div class="product__price">$4-8/jar</div>
     </div>
 </div>
 
@@ -96,6 +132,7 @@
             </p>
         </div>
         <div class="javascript-validation-results-contact-us"></div>
+
         @{
             if (@contactResponse != null)
             {
@@ -104,104 +141,199 @@
                 </div>
             }
         }
-    <form class="form estimate-form" name="estimateForm" onsubmit="return validateEstimateForm();" method="post">
-        <div class="form__required">** - Required Field</div>
-        <div class="form__input-container">
-            <label class="form__label" for="userName">Your Name **</label>
-            <input id="userName" class="form__input" type="text" name="userName" />
-            <div class="clear-both"></div>
+
+        <form class="form estimate-form" name="estimateForm" onsubmit="return validateEstimateForm();" method="post">
+            <div class="form__required">** - Required Field</div>
+            <div class="form__input-container">
+                <label class="form__label" for="userName">Your Name **</label>
+                <input id="userName" class="form__input" type="text" name="userName" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userEmail">Email **</label>
+                <input id="userEmail" class="form__input" type="text" name="userEmail" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userPhone">Phone (10 digits, only numbers) **</label>
+                <input id="userPhone" class="form__input" type="tel" name="userPhone" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userAddress">Address **</label>
+                <input id="userAddress" class="form__input" type="text" name="userAddress" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userCity">City **</label>
+                <input id="userCity" class="form__input" type="text" name="userCity" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userState">State **</label>
+                <select id="userState" class="form__input" type="text" name="userState">
+                    <option value=""></option>
+                    <option value="AL">AL</option>
+                    <option value="AZ">AZ</option>
+                    <option value="AR">AR</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="IA">IA</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="ME">ME</option>
+                    <option value="MD">MD</option>
+                    <option value="MA">MA</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MS">MS</option>
+                    <option value="MO">MO</option>
+                    <option value="MT">MT</option>
+                    <option value="NE">NE</option>
+                    <option value="NV">NV</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NY">NY</option>
+                    <option value="NC">NC</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="DC">DC</option>
+                    <option value="WV">WV</option>
+                    <option value="WI">WI</option>
+                    <option value="WU">WY</option>
+                </select>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="userZipCode">ZIP Code **</label>
+                <input id="userZipCode" class="form__input" type="text" name="userZipCode" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label class="form__label" for="additionalNotes">Additional Notes </label>
+                <textarea id="additionalNotes" class="form__input form__textarea" name="additionalNotes"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <input asp-page-handler="EstimateSection" id="submitEstimateButton" class="form__submit-button estimate" type="submit" name="submitButton" value="Submit Estimate!" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sma-6">
+        <div class="estimate-container">
+            <div>
+                <div class="shopping-cart__total">Total: @cartTotal</div>
+                <div class="reset-all">Reset All</div>
+            </div>
+            <table id="estimateTable" class="item-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Approximate Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Add</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tr class="item">
+                    <td class="item__name">Pears</td>
+                    <td class="item__approximate-price">@costOfPears</td>
+                    <td class="item__quantity">@numberOfPears</td>
+                    <td class="item__approximate-subtotal">@subtotalPears</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Apples</td>
+                    <td class="item__approximate-price">@costOfApples</td>
+                    <td class="item__quantity">@numberOfApples</td>
+                    <td class="item__approximate-subtotal">@subtotalApples</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Blueberries</td>
+                    <td class="item__approximate-price">@costOfBlueberries</td>
+                    <td class="item__quantity">@numberOfBlueberries</td>
+                    <td class="item__approximate-subtotal">@subtotalBlueberries</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Strawberries</td>
+                    <td class="item__approximate-price">@costOfStrawberries</td>
+                    <td class="item__quantity">@numberOfStrawberries</td>
+                    <td class="item__approximate-subtotal">@subtotalStrawberries</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Raspberries</td>
+                    <td class="item__approximate-price">@costOfRaspberries</td>
+                    <td class="item__quantity">@numberOfRaspberries</td>
+                    <td class="item__approximate-subtotal">@subtotalRaspberries</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Cherries</td>
+                    <td class="item__approximate-price">@costOfCherries</td>
+                    <td class="item__quantity">@numberOfCherries</td>
+                    <td class="item__approximate-subtotal">@subtotalCherries</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Pumpkin</td>
+                    <td class="item__approximate-price">@costOfPumpkins</td>
+                    <td class="item__quantity">@numberOfPumpkins</td>
+                    <td class="item__approximate-subtotal">@subtotalPumpkins</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">Gallon Milk</td>
+                    <td class="item__approximate-price">@costOfMilkGallons</td>
+                    <td class="item__quantity">@numberOfMilkGallons</td>
+                    <td class="item__approximate-subtotal">@subtotalMilkGallons</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tr class="item">
+                    <td class="item__name">12oz. Jam Jar</td>
+                    <td class="item__approximate-price">@costOf12OunceJamJars</td>
+                    <td class="item__quantity">@numberOf12OunceJamJars</td>
+                    <td class="item__approximate-subtotal">@subtotal12OunceJamJars</td>
+                    <td class="item__add"><div class="item__add__item">+</div></td>
+                    <td class="item__minus"><div class="item__minus__item">-</div></td>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
         </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userEmail">Email **</label>
-            <input id="userEmail" class="form__input" type="text" name="userEmail" />
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userPhone">Phone (10 digits, only numbers) **</label>
-            <input id="userPhone" class="form__input" type="tel" name="userPhone" />
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userAddress">Address **</label>
-            <input id="userAddress" class="form__input" type="text" name="userAddress" />
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userCity">City **</label>
-            <input id="userCity" class="form__input" type="text" name="userCity" />
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userState">State **</label>
-            <select id="userState" class="form__input" type="text" name="userState">
-                <option value=""></option>
-                <option value="AL">AL</option>
-                <option value="AZ">AZ</option>
-                <option value="AR">AR</option>
-                <option value="CA">CA</option>
-                <option value="CO">CO</option>
-                <option value="CT">CT</option>
-                <option value="DE">DE</option>
-                <option value="FL">FL</option>
-                <option value="GA">GA</option>
-                <option value="ID">ID</option>
-                <option value="IL">IL</option>
-                <option value="IN">IN</option>
-                <option value="IA">IA</option>
-                <option value="KS">KS</option>
-                <option value="KY">KY</option>
-                <option value="LA">LA</option>
-                <option value="ME">ME</option>
-                <option value="MD">MD</option>
-                <option value="MA">MA</option>
-                <option value="MI">MI</option>
-                <option value="MN">MN</option>
-                <option value="MS">MS</option>
-                <option value="MO">MO</option>
-                <option value="MT">MT</option>
-                <option value="NE">NE</option>
-                <option value="NV">NV</option>
-                <option value="NH">NH</option>
-                <option value="NJ">NJ</option>
-                <option value="NM">NM</option>
-                <option value="NY">NY</option>
-                <option value="NC">NC</option>
-                <option value="ND">ND</option>
-                <option value="OH">OH</option>
-                <option value="OK">OK</option>
-                <option value="OR">OR</option>
-                <option value="PA">PA</option>
-                <option value="RI">RI</option>
-                <option value="SC">SC</option>
-                <option value="SD">SD</option>
-                <option value="TN">TN</option>
-                <option value="TX">TX</option>
-                <option value="UT">UT</option>
-                <option value="VT">VT</option>
-                <option value="VA">VA</option>
-                <option value="WA">WA</option>
-                <option value="DC">DC</option>
-                <option value="WV">WV</option>
-                <option value="WI">WI</option>
-                <option value="WU">WY</option>
-            </select>
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="userZipCode">ZIP Code **</label>
-            <input id="userZipCode" class="form__input" type="text" name="userZipCode" />
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <label class="form__label" for="additionalNotes">Additional Notes </label>
-            <textarea id="additionalNotes" class="form__input form__textarea" name="additionalNotes"></textarea>
-            <div class="clear-both"></div>
-        </div>
-        <div class="form__input-container">
-            <input asp-page-handler="EstimateSection" id="submitEstimateButton" class="form__submit-button estimate" type="submit" name="submitButton" value="Submit Estimate!" />
-            <div class="form__errors"></div>
-        </div>
-    </form>
     </div>
 </div>
 
@@ -213,3 +345,67 @@
 </script>
 
 <script type="text/javascript" src="assets/javascript/our-products-validation.js?mod=10102019"></script>
+
+<script type="text/javascript">
+    var numberOfCartItems = 9;
+
+    for (let i = 0; i < numberOfCartItems; i++) {
+        $(".item__add__item").eq(i).on("click", function () {
+             updateCart("AddItem", i);
+        });
+    }
+
+    for (let i = 0; i < numberOfCartItems; i++) {
+        $(".item__minus__item").eq(i).on("click", function () {
+             updateCart("MinusItem", i);
+        });
+    }
+
+    $(".reset-all").eq(0).on("click", function () {
+         resetCart("ResetCart", -1);
+    })
+
+    function updateCart(actionString, itemID) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                var parser = new DOMParser();
+                var ajaxDocument = parser.parseFromString(this.responseText, "text/html");
+
+                var productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
+                var productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
+                var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+
+                document.getElementsByClassName("item__quantity")[itemID].innerHTML = productQuantity.innerHTML;
+                document.getElementsByClassName("item__approximate-subtotal")[itemID].innerHTML = productApproximateTotal.innerHTML;
+                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;       
+            }
+        };
+        xhttp.open("GET", "/OurProducts?handler=" + actionString + "&item=" + itemID, false);
+        xhttp.send();
+    }
+
+
+    function resetCart(actionString, itemID) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                var parser = new DOMParser();
+                var ajaxDocument = parser.parseFromString(this.responseText, "text/html");
+                for (var i = 0; i < numberOfCartItems; i++) {
+
+                    var productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[i];
+                    var productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[i];
+
+                    document.getElementsByClassName("item__quantity")[i].innerHTML = productQuantity.innerHTML;
+                    document.getElementsByClassName("item__approximate-subtotal")[i].innerHTML = productApproximateTotal.innerHTML;
+                }
+                var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;
+            }
+        };
+        xhttp.open("GET", "/OurProducts?handler=" + actionString + "&item=" + itemID, false);
+        xhttp.send();
+    }
+
+</script>
