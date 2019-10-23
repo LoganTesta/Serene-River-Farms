@@ -421,6 +421,9 @@ input, textarea, select {
     --color-2-very-low-opacity: rgba(163, 20, 24, 0.2);
 }
 
+.inner-wrapper {
+    padding: 20px 10px 20px 10px;
+}
 
 input, textarea, select {
     padding: 10px;
@@ -1160,16 +1163,15 @@ h4 {
 
     /* General sitewide sections */
     .body-wrapper {
-        position: relative;
+    }
+
+    .inner-wrapper {
         width: 1200px;
-        padding: 0;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .header {
-        min-height: 400px;
-        background: url("../images/hillside-farm.jpg") 0% 65%/cover no-repeat;
+        min-height: 460px;
+        background: url("../images/hillside-farm.jpg") 0% 63%/cover no-repeat;
     }
 
     .main-title-container {
@@ -1254,7 +1256,7 @@ h4 {
     /*Slideshow*/
     .slideshow {
         position: relative;
-        width: 700px;
+        width: 600px;
         height: 100%;
         padding-bottom: 0;
         margin-left: auto;
