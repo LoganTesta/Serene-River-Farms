@@ -4,8 +4,6 @@
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
 
-    var pearsSubtotal = ViewData["pearsSubtotal"];
-
     var costOfPears = "$2.50";
     var costOfApples = "$1.50";
     var costOfBlueberries = "$3.00";
@@ -16,12 +14,11 @@
     var costOfMilkGallons = "$2.50";
     var costOf12OunceJamJars = "$6.00";
 
-
     var numberOfPears = ViewData["numberOfPears"];
-    var numberOfApples = ViewData["numberOfApples"];
+    var numberOfApples =  ViewData["numberOfApples"];
     var numberOfBlueberries = ViewData["numberOfBlueberries"];
     var numberOfStrawberries = ViewData["numberOfStrawberries"];
-    var numberOfRaspberries = ViewData["numberOfRaspberries"];
+    var numberOfRaspberries =ViewData["numberOfRaspberries"];
     var numberOfCherries = ViewData["numberOfCherries"];
     var numberOfPumpkins = ViewData["numberOfPumpkins"];
     var numberOfMilkGallons = ViewData["numberOfMilkGallons"];
@@ -243,7 +240,7 @@
     </div>
     <div class="col-sma-6">
         <div class="estimate-container">
-            <div>
+            <div class="estimate-container__header">
                 <div class="shopping-cart__total">Total: @cartTotal</div>
                 <div class="reset-all">Reset All</div>
             </div>

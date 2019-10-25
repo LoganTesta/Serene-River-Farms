@@ -70,6 +70,8 @@ namespace SereneRiverFarms.Pages
             theSessionVariables.Add("numberOfMilkGallons");
             theSessionVariables.Add("numberOf12OunceJamJars");
 
+           
+
         }
         public void OnGet()
         {
@@ -83,6 +85,26 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetInt32("numberOfMilkGallons", 0);
             HttpContext.Session.SetInt32("numberOf12OunceJamJars", 0);
             HttpContext.Session.SetString("Cart Total", "" + 0);
+
+            ViewData["numberOfPears"] = "0";
+            ViewData["numberOfApples"] = "0";
+            ViewData["numberOfBlueberries"] = "0";
+            ViewData["numberOfStrawberries"] = "0";
+            ViewData["numberOfRaspberries"] = "0";
+            ViewData["numberOfCherries"] = "0";
+            ViewData["numberOfPumpkins"] = "0";
+            ViewData["numberOfMilkGallons"] = "0";
+            ViewData["numberOf12OunceJamJars"] = "0";
+
+            ViewData["subtotalPears"] = "$0";
+            ViewData["subtotalApples"] = "$0";
+            ViewData["subtotalBlueberries"] = "$0";
+            ViewData["subtotalStrawberries"] = "$0";
+            ViewData["subtotalRaspberries"] = "$0";
+            ViewData["subtotalCherries"] = "$0";
+            ViewData["subtotalPumpkins"] = "$0";
+            ViewData["subtotalMilkGallons"] = "$0";
+            ViewData["subtotal12OunceJamJars"] = "$0";
         }
 
 
@@ -152,7 +174,7 @@ namespace SereneRiverFarms.Pages
             for (int i = 0; i < productSubtotals.Count; i++)
             {
                 productSubtotals[i] = 0;
-                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = 0;  //Remove any spaces in a product name to prevent failed product matching.
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$0";  //Remove any spaces in a product name to prevent failed product matching.
             }
             HttpContext.Session.SetString("Cart Total", "0");
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
@@ -327,7 +349,7 @@ namespace SereneRiverFarms.Pages
                     }
                     for (int i = 0; i < productSubtotals.Count; i++)
                     {
-                        productSubtotals[i] = 0;
+                        productSubtotals[i] = "$0";
                     }
                     HttpContext.Session.SetString("Cart Total", "" + 0);
                 }
