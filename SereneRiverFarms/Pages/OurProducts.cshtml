@@ -359,7 +359,7 @@
 <script type="text/javascript" src="assets/javascript/our-products-validation.js?mod=10102019"></script>
 
 <script type="text/javascript">
-    var numberOfCartItems = 9;
+    let numberOfCartItems = 9;
 
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".item__add__item").eq(i).on("click", function () {
@@ -377,47 +377,47 @@
         resetCart("ResetCart", -1);
     })
 
+
     function updateCart(actionString, itemID) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                var parser = new DOMParser();
-                var ajaxDocument = parser.parseFromString(this.responseText, "text/html");
+        $.ajax({
+            method: "GET",
+            url: "/OurProducts?handler=" + actionString + "&item=" + itemID,
+            data: '',
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
 
-                var productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
-                var productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
-                var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                let productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
+                let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
+                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
 
-                document.getElementsByClassName("item__quantity")[itemID].innerHTML = productQuantity.innerHTML;
-                document.getElementsByClassName("item__approximate-subtotal")[itemID].innerHTML = productApproximateTotal.innerHTML;
-                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;
+                $(".item__quantity").eq(itemID).html(productQuantity.innerHTML);
+                $(".item__approximate-subtotal").eq(itemID).html(productApproximateTotal.innerHTML);
+                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
             }
-        };
-        xhttp.open("GET", "/OurProducts?handler=" + actionString + "&item=" + itemID, false);
-        xhttp.send();
+        });
     }
 
-
     function resetCart(actionString, itemID) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                var parser = new DOMParser();
-                var ajaxDocument = parser.parseFromString(this.responseText, "text/html");
-                for (var i = 0; i < numberOfCartItems; i++) {
+        $.ajax({
+            method: "GET",
+            url: "/OurProducts?handler=" + actionString + "&item=" + itemID,
+            data: '',
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+                for (let i = 0; i < numberOfCartItems; i++) {
 
-                    var productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[i];
-                    var productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[i];
+                    let productQuantity = ajaxDocument.getElementsByClassName("item__quantity")[i];
+                    let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[i];
 
-                    document.getElementsByClassName("item__quantity")[i].innerHTML = productQuantity.innerHTML;
-                    document.getElementsByClassName("item__approximate-subtotal")[i].innerHTML = productApproximateTotal.innerHTML;
+                    $(".item__quantity").eq(i).html(productQuantity.innerHTML);
+                    $(".item__approximate-subtotal").eq(i).html(productApproximateTotal.innerHTML);
                 }
                 var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
-                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;
+                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
             }
-        };
-        xhttp.open("GET", "/OurProducts?handler=" + actionString + "&item=" + itemID, false);
-        xhttp.send();
+        });
     }
 
 </script>
