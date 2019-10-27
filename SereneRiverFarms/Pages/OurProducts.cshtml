@@ -1,24 +1,39 @@
 ﻿@page
 @model SereneRiverFarms.Pages.OurProductsModel
+@using System.Collections;   @*For ArrayLists*@
+
 @{
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
 
-    var costOfPears = "$2.50";
-    var costOfApples = "$1.50";
-    var costOfBlueberries = "$3.00";
-    var costOfStrawberries = "$2.75";
-    var costOfRaspberries = "$4.50";
-    var costOfCherries = "$3.50";
-    var costOfPumpkins = "$1.79";
-    var costOfMilkGallons = "$2.50";
-    var costOf12OunceJamJars = "$6.00";
+
+
+    product pear = new product("Pear", "Pears", 2.50, "", "");
+    product apple = new product("Apple", "Apples", 1.50, "", "");
+    product blueberries = new product("Blueberries", "Blueberries", 3.00, "", "");
+    product strawberries = new product("Strawberries", "Strawberries", 2.75, "", "");
+    product raspberries = new product("Raspberries", "Raspberries", 4.50, "", "");
+    product cherries = new product("Cherries", "Cherries", 3.50, "", "");
+    product pumpkin = new product("Pumpkin", "Pumpkins", 1.79, "", "");
+    product milkGallon = new product("Milk Gallon", "Milk Gallons", 2.50, "", "");
+    product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", 6.00, "", "");
+    List<product> products = new List<product>();
+    products.Add(pear);
+    products.Add(apple);
+    products.Add(blueberries);
+    products.Add(strawberries);
+    products.Add(raspberries);
+    products.Add(cherries);
+    products.Add(pumpkin);
+    products.Add(milkGallon);
+    products.Add(jamJar12Ounce);
+
 
     var numberOfPears = ViewData["numberOfPears"];
-    var numberOfApples =  ViewData["numberOfApples"];
+    var numberOfApples = ViewData["numberOfApples"];
     var numberOfBlueberries = ViewData["numberOfBlueberries"];
     var numberOfStrawberries = ViewData["numberOfStrawberries"];
-    var numberOfRaspberries =ViewData["numberOfRaspberries"];
+    var numberOfRaspberries = ViewData["numberOfRaspberries"];
     var numberOfCherries = ViewData["numberOfCherries"];
     var numberOfPumpkins = ViewData["numberOfPumpkins"];
     var numberOfMilkGallons = ViewData["numberOfMilkGallons"];
@@ -57,64 +72,64 @@
 </div>
 <div class="content-row">
     <div class="col-vsm-6 col-lar-3 product one">
-        <div class="product__name"><h3>Fresh Pears</h3></div>
+        <div class="product__name"><h3>Fresh @products[0].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Fun to eat or bake in cakes.</div>
-        <div class="product__price">$2.50/lb</div>
+        <div class="product__price">$@products[0].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product two">
-        <div class="product__name"><h3>Fresh Apples</h3></div>
+        <div class="product__name"><h3>Fresh @products[1].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Assorted varieties!</div>
-        <div class="product__price">$1.50/lb</div>
+        <div class="product__price">$@products[1].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product three">
-        <div class="product__name"><h3>Blueberries</h3></div>
+        <div class="product__name"><h3>@products[2].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Delicious summer blueberries.</div>
-        <div class="product__price">$3/lb</div>
+        <div class="product__price">$@products[2].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product four">
-        <div class="product__name"><h3>Strawberries</h3></div>
+        <div class="product__name"><h3>@products[3].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!</div>
-        <div class="product__price">$2.75/lb</div>
+        <div class="product__price">$@products[3].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product five">
-        <div class="product__name"><h3>Raspberries</h3></div>
+        <div class="product__name"><h3>@products[4].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Sweet and tart and a favorite in late summer.</div>
-        <div class="product__price">$4.50/lb</div>
+        <div class="product__price">$@products[4].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product six">
-        <div class="product__name"><h3>Cherries</h3></div>
+        <div class="product__name"><h3>@products[5].namePlural</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Very filling and tasty.</div>
-        <div class="product__price">$3.50/lb</div>
+        <div class="product__price">$@products[5].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product seven">
-        <div class="product__name"><h3>Pumpkin</h3></div>
+        <div class="product__name"><h3>@products[6].name</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">
             Our pumpkin patch is ready to provide you with your next jack-o'-latern.
             Also, rumor has it pumpkin goes well in pies.
         </div>
-        <div class="product__price">$1.79/lb</div>
+        <div class="product__price">$@products[6].price/lb</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product eight">
-        <div class="product__name"><h3>Milk</h3></div>
+        <div class="product__name"><h3>@products[7].name</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">
             We love our cows and give them plenty of room to roam.  The result is happier
             cows and better tasting milk.
         </div>
-        <div class="product__price">$2.50/gallon</div>
+        <div class="product__price">$@products[7].price/gallon</div>
     </div>
     <div class="col-vsm-6 col-lar-3 product nine">
         <div class="product__name"><h3>Assorted Jams</h3></div>
         <div class="product__bg-image"></div>
         <div class="product__description">Nothing like fresh produce to make your day in a jam.</div>
-        <div class="product__price">$4-8/jar</div>
+        <div class="product__price">$@products[8].price, $4-8/jar</div>
     </div>
 </div>
 
@@ -255,79 +270,79 @@
                         <th>Remove</th>
                     </tr>
                 </thead>
-                <tr class="item">
-                    <td class="item__name">Pears</td>
-                    <td class="item__approximate-price">@costOfPears</td>
-                    <td class="item__quantity">@numberOfPears</td>
-                    <td class="item__approximate-subtotal">@subtotalPears</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Apples</td>
-                    <td class="item__approximate-price">@costOfApples</td>
-                    <td class="item__quantity">@numberOfApples</td>
-                    <td class="item__approximate-subtotal">@subtotalApples</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Blueberries</td>
-                    <td class="item__approximate-price">@costOfBlueberries</td>
-                    <td class="item__quantity">@numberOfBlueberries</td>
-                    <td class="item__approximate-subtotal">@subtotalBlueberries</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Strawberries</td>
-                    <td class="item__approximate-price">@costOfStrawberries</td>
-                    <td class="item__quantity">@numberOfStrawberries</td>
-                    <td class="item__approximate-subtotal">@subtotalStrawberries</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Raspberries</td>
-                    <td class="item__approximate-price">@costOfRaspberries</td>
-                    <td class="item__quantity">@numberOfRaspberries</td>
-                    <td class="item__approximate-subtotal">@subtotalRaspberries</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Cherries</td>
-                    <td class="item__approximate-price">@costOfCherries</td>
-                    <td class="item__quantity">@numberOfCherries</td>
-                    <td class="item__approximate-subtotal">@subtotalCherries</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Pumpkin</td>
-                    <td class="item__approximate-price">@costOfPumpkins</td>
-                    <td class="item__quantity">@numberOfPumpkins</td>
-                    <td class="item__approximate-subtotal">@subtotalPumpkins</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">Gallon Milk</td>
-                    <td class="item__approximate-price">@costOfMilkGallons</td>
-                    <td class="item__quantity">@numberOfMilkGallons</td>
-                    <td class="item__approximate-subtotal">@subtotalMilkGallons</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
-                <tr class="item">
-                    <td class="item__name">12oz. Jam Jar</td>
-                    <td class="item__approximate-price">@costOf12OunceJamJars</td>
-                    <td class="item__quantity">@numberOf12OunceJamJars</td>
-                    <td class="item__approximate-subtotal">@subtotal12OunceJamJars</td>
-                    <td class="item__add"><div class="item__add__item">+</div></td>
-                    <td class="item__minus"><div class="item__minus__item">-</div></td>
-                </tr>
                 <tbody>
+                    <tr class="item">
+                        <td class="item__name">@products[0].namePlural</td>
+                        <td class="item__approximate-price">@products[0].price</td>
+                        <td class="item__quantity">@numberOfPears</td>
+                        <td class="item__approximate-subtotal">@subtotalPears</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[1].namePlural</td>
+                        <td class="item__approximate-price">@products[1].price</td>
+                        <td class="item__quantity">@numberOfApples</td>
+                        <td class="item__approximate-subtotal">@subtotalApples</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[2].namePlural</td>
+                        <td class="item__approximate-price">@products[2].price</td>
+                        <td class="item__quantity">@numberOfBlueberries</td>
+                        <td class="item__approximate-subtotal">@subtotalBlueberries</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[3].namePlural</td>
+                        <td class="item__approximate-price">@products[3].price</td>
+                        <td class="item__quantity">@numberOfStrawberries</td>
+                        <td class="item__approximate-subtotal">@subtotalStrawberries</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[4].namePlural</td>
+                        <td class="item__approximate-price">@products[4].price</td>
+                        <td class="item__quantity">@numberOfRaspberries</td>
+                        <td class="item__approximate-subtotal">@subtotalRaspberries</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[5].namePlural</td>
+                        <td class="item__approximate-price">@products[5].price</td>
+                        <td class="item__quantity">@numberOfCherries</td>
+                        <td class="item__approximate-subtotal">@subtotalCherries</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">Pumpkin</td>
+                        <td class="item__approximate-price">@products[6].price</td>
+                        <td class="item__quantity">@numberOfPumpkins</td>
+                        <td class="item__approximate-subtotal">@subtotalPumpkins</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[7].namePlural</td>
+                        <td class="item__approximate-price">@products[7].price</td>
+                        <td class="item__quantity">@numberOfMilkGallons</td>
+                        <td class="item__approximate-subtotal">@subtotalMilkGallons</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
+                    <tr class="item">
+                        <td class="item__name">@products[8].namePlural</td>
+                        <td class="item__approximate-price">@products[8].price</td>
+                        <td class="item__quantity">@numberOf12OunceJamJars</td>
+                        <td class="item__approximate-subtotal">@subtotal12OunceJamJars</td>
+                        <td class="item__add"><div class="item__add__item">+</div></td>
+                        <td class="item__minus"><div class="item__minus__item">-</div></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -348,18 +363,18 @@
 
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".item__add__item").eq(i).on("click", function () {
-             updateCart("AddItem", i);
+            updateCart("AddItem", i);
         });
     }
 
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".item__minus__item").eq(i).on("click", function () {
-             updateCart("MinusItem", i);
+            updateCart("MinusItem", i);
         });
     }
 
     $(".reset-all").eq(0).on("click", function () {
-         resetCart("ResetCart", -1);
+        resetCart("ResetCart", -1);
     })
 
     function updateCart(actionString, itemID) {
@@ -375,7 +390,7 @@
 
                 document.getElementsByClassName("item__quantity")[itemID].innerHTML = productQuantity.innerHTML;
                 document.getElementsByClassName("item__approximate-subtotal")[itemID].innerHTML = productApproximateTotal.innerHTML;
-                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;       
+                document.getElementsByClassName("shopping-cart__total")[0].innerHTML = shoppingCartTotal.innerHTML;
             }
         };
         xhttp.open("GET", "/OurProducts?handler=" + actionString + "&item=" + itemID, false);
