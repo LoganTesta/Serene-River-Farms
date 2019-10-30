@@ -576,6 +576,7 @@ h4 {
     }
 
 .subtitle-container { }
+.subheader-divider { margin-bottom: 25px; border-bottom: 2px solid var(--color-1); } 
 
 
 /*Nav*/
@@ -1187,6 +1188,7 @@ h4 {
 
 
 @media only screen and (min-width: 1200px) {
+    h2 { font-size: 30px; }
 
     /* General sitewide sections */
     .body-wrapper {
