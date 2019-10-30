@@ -419,7 +419,7 @@ input, textarea, select {
     --color-2-semi-opacity: rgba(12, 100, 97, 0.4);
     --color-3-semi-opacity: rgba(164, 84, 20, 0.5);
     --color-4-semi-opacity: rgba(163, 20, 24, 0.5);
-    --color-2-very-low-opacity: rgba(163, 20, 24, 0.2);
+    --color-2-very-low-opacity: rgba(12, 100, 97, 0.2);
 }
 
 .inner-wrapper {
@@ -564,8 +564,7 @@ h4 {
 }
 
     .main-title-container:hover {
-        border: 2px solid var(--color-2-very-low-opacity);
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.1);
         transition: 0.4s ease-in;
     }
 
