@@ -1156,7 +1156,7 @@ li { padding-bottom: 10px; }
     .cookie-policy {
         bottom: 5%;
         width: 100%;
-        max-width: 1200px;
+        max-width: 1600px;
         padding: 50px 30px;
     }
 
@@ -1369,5 +1369,16 @@ li { padding-bottom: 10px; }
 
     .form__input {
         width: 65%;
+    }
+}
+
+
+
+@media only screen and (min-width: 1600px) {
+
+    /*Cookie policy*/
+    .cookie-policy {
+        left: 15%;
+        width: 70%;
     }
 }
