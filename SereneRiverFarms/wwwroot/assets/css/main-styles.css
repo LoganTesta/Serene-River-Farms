@@ -1039,6 +1039,7 @@ li { padding-bottom: 10px; }
     cursor: pointer;
     font-weight: bold;
 }
+
 /*Events*/
 .background-hero-image.events {
     background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
@@ -1062,6 +1063,23 @@ li { padding-bottom: 10px; }
 }
 
 .contact-form .required-field-needed {
+}
+
+
+/*Register page*/
+#registerForm { }
+.background-hero-image.register {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
+/*Login page*/
+.background-hero-image.login {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
+/*Logged output page */
+.background-hero-image.logout {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
 
@@ -1280,13 +1298,17 @@ li { padding-bottom: 10px; }
 
     .register-login__logout {
         display: inline-block;
+        font-size: 18px;
+        border: 2px solid var(--color-2-semi-opacity);
         border-radius: 15px;
-        background-color: var(--color-3);
+        font-weight: bold;
+        color: var(--color-2);
+        background-color: rgba(255, 255, 255, 0.6);
         transition: 0.4s all ease-in;
     }
 
-        .register-login__logout:hover {
-            background-color: var(--color-1);
+        .register-login__logout:hover {        
+            background-color: rgba(255, 255, 255, 0.2);
             transition: 0.4s all ease-in;
         }
 

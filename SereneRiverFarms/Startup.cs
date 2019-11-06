@@ -24,7 +24,6 @@ namespace SereneRiverFarms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -32,8 +31,8 @@ namespace SereneRiverFarms
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+           //Disabled for authentication reasons.  
+           // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             //Alllow for Session Variables
             services.AddSession();
@@ -64,14 +63,15 @@ namespace SereneRiverFarms
             app.UseSession(); //For Sessions
             app.UseCookiePolicy();
 
+            //Allow Authentication.  Important: this must be called before app.UseMVC();
+            app.UseAuthentication();
+
             //Modified to allow Sessions
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            
-                     
+                    template: "{controller}/{action=Index}/{id?}");                   
             });
         }
     }

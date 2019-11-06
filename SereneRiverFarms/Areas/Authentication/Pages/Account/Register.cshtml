@@ -1,0 +1,58 @@
+﻿@page
+@model RegisterModel
+@{
+     ViewData["Title"] = "Register";
+}
+
+
+<div class="content-row">
+    <div class="col-sma-6 page-content">
+        <div class="subtitle-container">
+            <h2 class="subtitle-container__subtitle">Register Here</h2>
+            <div class="subheader-divider"></div>
+        </div>
+
+        <form asp-route-returnUrl="@Model.ReturnUrl" class="form login-form" id="registerForm" name="registerForm" method="post">
+            <div class="" asp-validation-summary="All"></div>
+            <div class="form__required">** - Required Field</div>
+            <div class="form__input-container">
+                <label asp-for="Input.userName" class="form__label" for="userName">Your UserName **</label>
+                <input asp-for="Input.userName" id="userName" class="form__input" type="text" name="userName" />
+                <span asp-validation-for="Input.userName"></span>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label asp-for="Input.userEmail" class="form__label" for="userEmail">Email **</label>
+                <input asp-for="Input.userEmail" id="userEmail" class="form__input" type="text" name="userEmail" />
+                <span asp-validation-for="Input.userEmail"></span>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label asp-for="Input.userPassword" class="form__label" for="userPassword">Password **</label>
+                <input asp-for="Input.userPassword" id="userPassword" class="form__input" type="password" name="userPassword" />
+                <span asp-validation-for="Input.userPassword"></span>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <label asp-for="Input.userConfirmPassword" class="form__label" for="userConfirmPassword">Password **</label>
+                <input asp-for="Input.userConfirmPassword" id="userConfirmPassword" class="form__input" type="password" name="userConfirmPassword" />
+                <span asp-validation-for="Input.userConfirmPassword"></span>
+                <div class="clear-both"></div>
+            </div>
+            <div class="form__input-container">
+                <input id="registerButton" class="form__submit-button" type="submit" name="submitButton" value="Register!" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image register">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+    });
+</script>
