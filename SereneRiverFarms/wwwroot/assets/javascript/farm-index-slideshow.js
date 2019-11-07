@@ -95,7 +95,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 1) {
-            slideshowHeader.html("Some of Our Cherry Trees");
+            slideshowHeader.html("Some of our Cherry Trees");
             currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
             slideButton0.css("opacity", 0.40);
             slideButton1.css("opacity", 1.0);
@@ -103,7 +103,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 2) {
-            slideshowHeader.html("One of Our Tractors at Work");
+            slideshowHeader.html("One of our Tractors at Work");
             currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
             slideButton0.css("opacity", 0.40);
             slideButton1.css("opacity", 0.40);
@@ -111,7 +111,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 3) {
-            slideshowHeader.html("One of Our Pastures");
+            slideshowHeader.html("Some of our Farmland");
             currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
             slideButton0.css("opacity", 0.40);
             slideButton1.css("opacity", 0.40);

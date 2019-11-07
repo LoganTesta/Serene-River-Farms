@@ -534,9 +534,24 @@ li { padding-bottom: 10px; }
     }
 
 .sign-up-container {
+    width: 131px;
+    border-radius: 15px;
+    background-color: var(--color-1);
 }
 
-.form-response { font-weight: bold; padding-bottom: 10px; }
+    .sign-up-container .sign-up-container__link {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        border-radius: 15px;
+        color: #ffffff;
+    }
+
+    .form-response {
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
 
 
 /*Header, nav*/
@@ -818,7 +833,7 @@ li { padding-bottom: 10px; }
 }
 
     .index-section__bg-container:hover {
-        box-shadow: 0 0 5px 5px var(--color-3-semi-opacity);
+        box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
 
