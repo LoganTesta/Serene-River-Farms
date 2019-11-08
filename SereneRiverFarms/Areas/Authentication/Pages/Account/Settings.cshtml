@@ -1,12 +1,13 @@
 ﻿@page
 @model SereneRiverFarms.Areas.Authentication.Pages.Account.SettingsModel
 @{
-       var updateUserNameResponse = ViewData["updateUserNameResponse"];
+    var updatePasswordResponse = "" + ViewData["updatePasswordResponse"];
 }
 
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser> SignInManager
 @inject UserManager<SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser> UserManager
+
 
 <div class="content-row">
     <div class="col-sma-6 page-content">
@@ -15,38 +16,27 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="settings-form-container">
-            <div><h3>Adjust UserName</h3></div>
-            <p>@updateUserNameResponse</p>
-            <div><p><strong>Current UserName: @UserManager.GetUserName(User)</strong></p></div>
-            <form asp-route-returnUrl="@Model.ReturnUrl" class="form settings-form" id="changeUserNameForm" name="changeUserNameForm" method="post">
-                <div class="" asp-validation-summary="All"></div>
-                <div class="form__input-container">
-                    <label class="form__label" for="userNameNew">New UserName **</label>
-                    <input id="userNameNew" class="form__input" type="text" name="userNameNew" />
-                    <span></span>
-                    <div class="clear-both"></div>
-                </div>
-                <div class="form__input-container">
-                    <input id="changeUserNameButton" asp-page-handler="ChangeUserNameSection" class="form__submit-button" type="submit" name="changeUserNameButton" value="Change UserName!" />
-                    <div class="form__errors"></div>
-                </div>
-            </form>
-        </div>
-        @*<div class="settings-form-container">
+            <div><p><strong>UserName: @UserManager.GetUserName(User)</strong></p></div>
             <div><h3>Change Password</h3></div>
-            <div></div>
-            <form  asp-route-returnUrl="@Model.ReturnUrl" class="form settings-form" id="changePasswordForm" name="changePasswordForm" method="">
+            <p>@updatePasswordResponse</p>
+            <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" method="post">
                 <div class="" asp-validation-summary="All"></div>
                 <div class="form__input-container">
-                    <label asp-for="Input.userPassword" class="form__label" for="userPassword">Enter New Password **</label>
-                    <input asp-for="Input.userPassword" id="userPassword" class="form__input" type="password" name="userPassword" />
-                    <span asp-validation-for="Input.userPassword"></span>
+                    <label asp-for="Input.CurrentPassword" class="form__label">Current Password **</label>
+                    <input asp-for="Input.CurrentPassword" class="form__input" type="password" />
+                    <span asp-validation-for="Input.CurrentPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
-                    <label asp-for="Input.userConfirmPassword" class="form__label" for="userConfirmPassword">Confirm New Password **</label>
-                    <input asp-for="Input.userConfirmPassword" id="userConfirmPassword" class="form__input" type="password" name="userConfirmPassword" />
-                    <span asp-validation-for="Input.userConfirmPassword"></span>
+                    <label asp-for="Input.NewPassword" class="form__label">Enter New Password **</label>
+                    <input asp-for="Input.NewPassword" class="form__input" type="password" />
+                    <span asp-validation-for="Input.NewPassword"></span>
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <label asp-for="Input.ConfirmPassword" class="form__label">Confirm New Password **</label>
+                    <input asp-for="Input.ConfirmPassword" class="form__input" type="password" />
+                    <span asp-validation-for="Input.ConfirmPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
@@ -54,8 +44,7 @@
                     <div class="form__errors"></div>
                 </div>
             </form>
-        </div>*@
-
+        </div>
     </div>
     <div class="col-sma-6">
         <div class="background-hero-image register">

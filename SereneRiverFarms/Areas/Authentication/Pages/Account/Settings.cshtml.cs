@@ -13,94 +13,96 @@ using Microsoft.Extensions.Logging;
 using SereneRiverFarms.Areas.Authentication.Data;
 
 
+using Microsoft.AspNetCore.Http;   //For Sessions
+using System.Collections;   //For ArrayLists
+
 namespace SereneRiverFarms.Areas.Authentication.Pages.Account
 {
     [AllowAnonymous]
     public class SettingsModel : PageModel
     {
 
-        public string updateUserNameResponse { get; set; }
-
         private readonly SignInManager<SereneRiverFarmsUser> _signInManager;
         private readonly UserManager<SereneRiverFarmsUser> _userManager;
-        private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly ILogger<SettingsModel> _logger;
+
+        public string updatePasswordResponse { get; set; }
+
 
         public SettingsModel(
             UserManager<SereneRiverFarmsUser> userManager,
             SignInManager<SereneRiverFarmsUser> signInManager,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            ILogger<SettingsModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
         }
 
         [BindProperty]
         public InputModel Input { get; set; }
 
-        public string ReturnUrl { get; set; }
-
-
-        public void OnPostChangeUserNameSection()
-        {
-            bool validForm = true;
-            string updateUserNameResponse = "";
-
-            string userNameNew = System.Web.HttpUtility.HtmlEncode(Request.Form["userNameNew"]);
-            if(userNameNew == "")
-            {
-                validForm = false; 
-            }
-
-            if (userNameNew.Length < 3 || userNameNew.Length > 40)
-            {
-                validForm = false;
-            }
-          
-            if (validForm == false)
-            {
-                updateUserNameResponse = "The username must be between 3 and 40 characters in length.";
-            }
-
-            
-            ViewData["updateUserNameResponse"] = "" + updateUserNameResponse;
-        }
-
         public class InputModel
         {
+            [Required]
+            [DataType(DataType.Password)]
+            [Display(Name = "Current Password")]
+            public string CurrentPassword { get; set; }
 
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 7)]
             [DataType(DataType.Password)]
-            [Display(Name = "userPassword")]
-            public string userPassword { get; set; }
+            [Display(Name = "New password")]
+            public string NewPassword { get; set; }
 
+
+            [Required]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("userConfirmPassword", ErrorMessage = "The password and confirmation password do not match.")]
-            public string userConfirmPassword { get; set; }
+            [Display(Name = "Confirm new password")]
+            [Compare("NewPassword", ErrorMessage = "The password and confirmation password do not match.")]
+            public string ConfirmPassword { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
-        {
-            ReturnUrl = returnUrl;
+        {         
+            HttpContext.Session.SetString("updatePasswordResponse", "");
         }
 
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                string contactFormResponse = "";
-                ViewData["Message"] = "" + contactFormResponse;
+                return Page();
+            }
+            var user = await _userManager.GetUserAsync(User);
+            if(user == null)
+            {
+                return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
             }
 
-            //If we made it here, something went wrong so redisplay the form.
-            return Page();
+            var updatePasswordResult = await _userManager.ChangePasswordAsync(user, Input.CurrentPassword, Input.NewPassword);
+
+            if (!updatePasswordResult.Succeeded)
+            {
+                foreach(var error in updatePasswordResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return Page();
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            _logger.LogInformation("The user changed their password successfully.");
+
+
+            updatePasswordResponse = "You have successfully updated your password!";
+            HttpContext.Session.SetString("updatePasswordResponse", "" + Convert.ToString(updatePasswordResponse));
+            ViewData["updatePasswordResponse"] = HttpContext.Session.GetString("updatePasswordResponse");
+
+            return RedirectToPage();
+
         }
     }
 }
