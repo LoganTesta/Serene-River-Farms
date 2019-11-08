@@ -564,7 +564,7 @@ li { padding-bottom: 10px; }
 }
 
 .header {
-    min-height: 280px;
+    min-height: 300px;
     background: url("../images/hillside-farm.jpg") 0% 50%/cover no-repeat;
 }
 
@@ -599,7 +599,7 @@ li { padding-bottom: 10px; }
 /*Nav*/
 .nav {
     position: absolute;
-    top: 30px;
+    top: 60px;
     right: 0px;
     text-align: right;
 }
@@ -635,6 +635,12 @@ li { padding-bottom: 10px; }
 
 
 /*Login/Register*/
+.register-login {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+
 .register-login a {
     font-size: 18px;
     font-weight: bold;
@@ -645,6 +651,30 @@ li { padding-bottom: 10px; }
         color: var(--color-3);
     }
 
+.register-login__register {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.register-login__login {
+    display: inline-block;
+}
+
+.register-login__logout {
+    display: inline-block;
+    font-size: 18px;
+    border: 2px solid var(--color-2-semi-opacity);
+    border-radius: 15px;
+    font-weight: bold;
+    color: var(--color-2);
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 0.4s all ease-in;
+}
+
+    .register-login__logout:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: 0.4s all ease-in;
+    }
 
 /*Footer*/
 .footer {
@@ -1097,6 +1127,10 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
+/*Settings page*/
+.settings-form-container {
+    padding-bottom: 50px;
+}
 
 /*Privacy Policy*/
 .background-hero-image.privacy-policy {
@@ -1299,6 +1333,7 @@ li { padding-bottom: 10px; }
     /*Register/login*/
     .register-login {
         position: absolute;
+        top: 40px;
         right: 50px;
     }
 
@@ -1306,27 +1341,6 @@ li { padding-bottom: 10px; }
         display: inline-block;
         padding-right: 30px;
     }
-
-    .register-login__login {
-        display: inline-block;
-    }
-
-    .register-login__logout {
-        display: inline-block;
-        font-size: 18px;
-        border: 2px solid var(--color-2-semi-opacity);
-        border-radius: 15px;
-        font-weight: bold;
-        color: var(--color-2);
-        background-color: rgba(255, 255, 255, 0.6);
-        transition: 0.4s all ease-in;
-    }
-
-        .register-login__logout:hover {        
-            background-color: rgba(255, 255, 255, 0.2);
-            transition: 0.4s all ease-in;
-        }
-
 
     /*Slideshow*/
     .slideshow {
