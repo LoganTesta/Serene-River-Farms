@@ -635,16 +635,25 @@ li { padding-bottom: 10px; }
 
 
 /*Login/Register*/
+.register-login-username {
+    position: absolute;
+    top: 220px;
+    left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
 .register-login {
     position: absolute;
-    top: 12px;
-    right: 10px;
+    top: 260px;
+    left: 10px;
 }
 
 .register-login a {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    color: var(--color-2);
+    color: #ffffff;
 }
 
     .register-login a:hover {
@@ -653,7 +662,7 @@ li { padding-bottom: 10px; }
 
 .register-login__register {
     display: inline-block;
-    padding-right: 20px;
+    padding-right: 15px;
 }
 
 .register-login__login {
@@ -662,7 +671,8 @@ li { padding-bottom: 10px; }
 
 .register-login__logout {
     display: inline-block;
-    font-size: 18px;
+    padding: 5px;
+    font-size: 16px;
     border: 2px solid var(--color-2-semi-opacity);
     border-radius: 15px;
     font-weight: bold;
@@ -1338,13 +1348,33 @@ li { padding-bottom: 10px; }
     .register-login {
         position: absolute;
         top: 40px;
+        left: auto;
         right: 50px;
+    }
+
+    .register-login-username {
+        position: absolute;
+        top: 10px;
+        left: auto;
+        right: 70px;
+        font-size: 18px;
+        color: var(--color-2);
     }
 
     .register-login__register {
         display: inline-block;
         padding-right: 30px;
     }
+
+    .register-login a {
+        font-size: 18px;
+        color: var(--color-2);
+    }
+
+    .register-login__logout {
+        font-size: 18px;
+    }
+
 
     /*Slideshow*/
     .slideshow {
