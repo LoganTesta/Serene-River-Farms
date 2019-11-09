@@ -13,9 +13,6 @@ using Microsoft.Extensions.Logging;
 using SereneRiverFarms.Areas.Identity.Data;
 
 
-using Microsoft.AspNetCore.Http;   //For Sessions
-using System.Collections;   //For ArrayLists
-
 namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
     [Authorize]  //Restricts access to this page to only signed in users.
@@ -66,7 +63,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
         public void OnGet(string returnUrl = null)
         {         
-            HttpContext.Session.SetString("updatePasswordResponse", "");
+
         }
 
 
