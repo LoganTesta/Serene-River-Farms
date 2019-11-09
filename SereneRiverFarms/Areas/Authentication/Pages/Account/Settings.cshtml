@@ -1,7 +1,7 @@
 ﻿@page
 @model SereneRiverFarms.Areas.Authentication.Pages.Account.SettingsModel
 @{
-    var updatePasswordResponse = "" + ViewData["updatePasswordResponse"];
+
 }
 
 @using Microsoft.AspNetCore.Identity
@@ -18,7 +18,7 @@
         <div class="settings-form-container">
             <div><p><strong>UserName: @UserManager.GetUserName(User)</strong></p></div>
             <div><h3>Change Password</h3></div>
-            <p>@updatePasswordResponse</p>
+            <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
             <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" method="post">
                 <div class="" asp-validation-summary="All"></div>
                 <div class="form__input-container">

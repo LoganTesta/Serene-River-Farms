@@ -26,9 +26,6 @@ namespace SereneRiverFarms.Areas.Authentication.Pages.Account
         private readonly UserManager<SereneRiverFarmsUser> _userManager;
         private readonly ILogger<SettingsModel> _logger;
 
-        public string updatePasswordResponse { get; set; }
-
-
         public SettingsModel(
             UserManager<SereneRiverFarmsUser> userManager,
             SignInManager<SereneRiverFarmsUser> signInManager,
@@ -41,6 +38,9 @@ namespace SereneRiverFarms.Areas.Authentication.Pages.Account
 
         [BindProperty]
         public InputModel Input { get; set; }
+
+        [TempData]
+        public string updatePasswordResponse { get; set; }
 
         public class InputModel
         {
@@ -95,14 +95,8 @@ namespace SereneRiverFarms.Areas.Authentication.Pages.Account
 
             await _signInManager.RefreshSignInAsync(user);
             _logger.LogInformation("The user changed their password successfully.");
-
-
-            updatePasswordResponse = "You have successfully updated your password!";
-            HttpContext.Session.SetString("updatePasswordResponse", "" + Convert.ToString(updatePasswordResponse));
-            ViewData["updatePasswordResponse"] = HttpContext.Session.GetString("updatePasswordResponse");
-
+            updatePasswordResponse = user.UserName + ", you have successfully updated your password!";
             return RedirectToPage();
-
         }
     }
 }

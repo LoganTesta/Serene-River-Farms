@@ -1132,6 +1132,8 @@ li { padding-bottom: 10px; }
     padding-bottom: 50px;
 }
 
+.settings-message { padding-bottom: 15px; font-weight: bold; }
+
 /*Privacy Policy*/
 .background-hero-image.privacy-policy {
     background: url('/assets/images/cows-in-golden-field-foggy-morning.jpg') 50% 30%/cover no-repeat;
