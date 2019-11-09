@@ -420,6 +420,7 @@ input, textarea, select {
     --color-3-semi-opacity: rgba(164, 84, 20, 0.5);
     --color-4-semi-opacity: rgba(163, 20, 24, 0.5);
     --color-2-very-low-opacity: rgba(12, 100, 97, 0.2);
+    --color-1-lighter-green: rgba(75, 182, 69, 1);
 }
 
 .inner-wrapper {
@@ -534,10 +535,16 @@ li { padding-bottom: 10px; }
     }
 
 .sign-up-container {
-    width: 131px;
+    width: 152px;
     border-radius: 15px;
     background-color: var(--color-1);
+    transition: 0.4s ease-in;
 }
+
+    .sign-up-container:hover {
+        background-color: var(--color-1-lighter-green);
+        transition: 0.4s ease-in;
+    }
 
     .sign-up-container .sign-up-container__link {
         display: inline-block;
@@ -545,6 +552,7 @@ li { padding-bottom: 10px; }
         height: 100%;
         padding: 15px;
         border-radius: 15px;
+        font-size: 18px;
         color: #ffffff;
     }
 
@@ -617,7 +625,7 @@ li { padding-bottom: 10px; }
 }
 
     .nav .nav__nav-link:hover {
-        color: var(--color-3);
+        color: rgba(201, 201, 201, 1);
     }
 
 .nav .nav__nav-list-container .current-page {
@@ -657,7 +665,7 @@ li { padding-bottom: 10px; }
 }
 
     .register-login a:hover {
-        color: var(--color-3);
+        color: rgba(201, 201, 201, 1);
     }
 
 .register-login__register {
@@ -682,14 +690,19 @@ li { padding-bottom: 10px; }
 }
 
     .register-login__logout:hover {
-        background-color: rgba(255, 255, 255, 0.2);
+        color: rgba(201, 201, 201, 1);
+        background-color: var(--color-1-semi-opacity);
         transition: 0.4s all ease-in;
     }
 
 .register-login__link.current-page { text-decoration: underline; }
 
-/*Footer*/
-.footer {
+
+
+
+
+    /*Footer*/
+    .footer {
     padding: 40px 20px;
     text-align: center;
     background-color: var(--color-1);
@@ -1353,6 +1366,10 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
         color: var(--color-4);
     }
+       
+    .nav .nav__nav-link:hover {
+            color: #ffffff;
+        }
 
     .footer__subheading {
         font-size: 20px;
@@ -1388,6 +1405,14 @@ li { padding-bottom: 10px; }
 
     .register-login__logout {
         font-size: 18px;
+    }
+
+    .register-login a:hover {
+        color: #ffffff;
+    }
+
+    .register-login__logout:hover {
+        color: #ffffff;
     }
 
 
