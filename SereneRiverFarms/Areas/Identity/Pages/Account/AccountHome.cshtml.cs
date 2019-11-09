@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
-    public class UserIndexModel : PageModel
+    public class AccountHomeModel : PageModel
     {
         public void OnGet()
         {

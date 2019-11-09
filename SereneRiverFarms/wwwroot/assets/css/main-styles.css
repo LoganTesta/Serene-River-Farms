@@ -1139,12 +1139,27 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
-/*Settings page*/
-.settings-form-container {
-    padding-bottom: 50px;
+/*Account Home page*/
+.account-info__user-name { font-weight: bold; }
+
+.account-nav {
+    font-size: 18px;
 }
 
+.account-nav__link {
+    font-size: 18px;
+}
+
+    /*Settings page*/
+    .settings-form-container {
+        padding-bottom: 50px;
+    }
+
 .settings-message { padding-bottom: 15px; font-weight: bold; }
+
+.background-hero-image.settings {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
 
 /*Privacy Policy*/
 .background-hero-image.privacy-policy {

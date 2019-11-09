@@ -1,7 +1,7 @@
 ﻿@page
-@model SereneRiverFarms.Areas.Identity.Pages.Account.UserIndexModel
+@model SereneRiverFarms.Areas.Identity.Pages.Account.AccountHomeModel
 @{
-    ViewData["Title"] = "UserIndex";
+    ViewData["Title"] = "Account Home";
 }
 
 @using Microsoft.AspNetCore.Identity
@@ -12,10 +12,12 @@
 <div class="content-row">
     <div class="col-sma-6 page-content">
         <div class="subtitle-container">
-            <h2 class="subtitle-container__subtitle">Your Index</h2>
+            <h2 class="subtitle-container__subtitle">Account Home</h2>
             <div class="subheader-divider"></div>
         </div>
-        <div class="">Your Account, @UserManager.GetUserName(User)</div>
+        <div class="account-info">
+            <div class="account-info__user-name">Name: @UserManager.GetUserName(User)</div>
+        </div>
         <h3></h3>
         <p></p>
         <h3></h3>
@@ -25,14 +27,16 @@
         </ul>
     </div>
     <div class="col-sma-6">
-        <div class="background-hero-image user-index">
-
+        <h3>Manage Account</h3>
+        <div class="account-nav">
+            <a class="account-nav__link" href="/Identity/Account/Settings">Settings</a>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
-        setCurrentPage(2, ".register-login", ".register-login__link");
-        setCurrentPage(2, ".register-login", ".register-login__link");
+        setCurrentPage(0, ".register-login", ".register-login__link");
+        setCurrentPage(0, ".register-login", ".register-login__link");
     });
+</script>
