@@ -676,6 +676,8 @@ li { padding-bottom: 10px; }
         transition: 0.4s all ease-in;
     }
 
+.register-login__link.current-page { text-decoration: underline; }
+
 /*Footer*/
 .footer {
     padding: 40px 20px;

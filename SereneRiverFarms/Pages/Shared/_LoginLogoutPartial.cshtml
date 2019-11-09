@@ -7,7 +7,7 @@
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="" class="">
         <div class="register-login">
-            <div class="register-login__register"><a asp-area="Identity" asp-page="/Account/Settings" title="Manage">Settings</a></div>
+            <div class="register-login__register"><a asp-area="Identity" asp-page="/Account/Settings" class="register-login__link">Settings</a></div>
             <button type="submit" class="register-login__logout">Logout</button>
         </div>
     </form>
@@ -15,7 +15,7 @@
 else
 {
     <div class="register-login">
-        <div class="register-login__register"><a asp-area="Identity" asp-page="/Account/Register">Register</a></div>
-        <div class="register-login__login"><a asp-area="Identity" asp-page="/Account/Login">Login</a></div>
+        <div class="register-login__register"><a asp-area="Identity" asp-page="/Account/Register" class="register-login__link">Register</a></div>
+        <div class="register-login__login"><a asp-area="Identity" asp-page="/Account/Login" class="register-login__link">Login</a></div>
     </div>
 }
