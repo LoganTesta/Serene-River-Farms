@@ -10,15 +10,15 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using SereneRiverFarms.Areas.Authentication.Data;
+using SereneRiverFarms.Areas.Identity.Data;
 
 
 using Microsoft.AspNetCore.Http;   //For Sessions
 using System.Collections;   //For ArrayLists
 
-namespace SereneRiverFarms.Areas.Authentication.Pages.Account
+namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [Authorize]  //Restricts access to this page to only signed in users.
     public class SettingsModel : PageModel
     {
 

@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SereneRiverFarms.Areas.Authentication.Data;
+using SereneRiverFarms.Areas.Identity.Data;
 using SereneRiverFarms.Models;
 
-[assembly: HostingStartup(typeof(SereneRiverFarms.Areas.Authentication.IdentityHostingStartup))]
-namespace SereneRiverFarms.Areas.Authentication
+[assembly: HostingStartup(typeof(SereneRiverFarms.Areas.Identity.IdentityHostingStartup))]
+namespace SereneRiverFarms.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

@@ -10,10 +10,10 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using SereneRiverFarms.Areas.Authentication.Data;
+using SereneRiverFarms.Areas.Identity.Data;
 
 
-namespace SereneRiverFarms.Areas.Authentication.Pages.Account
+namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel

@@ -135,7 +135,7 @@ namespace SereneRiverFarms.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser", b =>
+            modelBuilder.Entity("SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -196,7 +196,7 @@ namespace SereneRiverFarms.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser")
+                    b.HasOne("SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -204,7 +204,7 @@ namespace SereneRiverFarms.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser")
+                    b.HasOne("SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -217,7 +217,7 @@ namespace SereneRiverFarms.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser")
+                    b.HasOne("SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -225,7 +225,7 @@ namespace SereneRiverFarms.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SereneRiverFarms.Areas.Authentication.Data.SereneRiverFarmsUser")
+                    b.HasOne("SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

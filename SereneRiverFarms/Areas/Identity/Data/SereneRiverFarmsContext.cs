@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SereneRiverFarms.Areas.Authentication.Data;
+using SereneRiverFarms.Areas.Identity.Data;
 
 
 namespace SereneRiverFarms.Models

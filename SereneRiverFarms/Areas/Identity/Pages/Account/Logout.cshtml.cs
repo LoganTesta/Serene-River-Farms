@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using SereneRiverFarms.Areas.Authentication.Data;
+using SereneRiverFarms.Areas.Identity.Data;
 
 
-namespace SereneRiverFarms.Areas.Authentication.Pages.Account
+namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LogoutModel : PageModel

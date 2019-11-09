@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
 
-namespace SereneRiverFarms.Areas.Authentication.Data
+namespace SereneRiverFarms.Areas.Identity.Data
 {
     public class SereneRiverFarmsUser : IdentityUser
     {
