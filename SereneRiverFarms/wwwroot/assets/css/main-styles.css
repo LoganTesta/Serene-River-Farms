@@ -1162,6 +1162,8 @@ li { padding-bottom: 10px; }
 }
 
 .account-nav__link {
+    display: block;
+    padding-bottom: 15px;
     font-size: 18px;
 }
 
