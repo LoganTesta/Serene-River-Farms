@@ -1167,16 +1167,16 @@ li { padding-bottom: 10px; }
     font-size: 18px;
 }
 
-    /*Settings page*/
-    .settings-form-container {
-        padding-bottom: 50px;
-    }
+.account-benefits { padding-bottom: 20px; }
+
+
+/*Settings page*/
+.settings-form-container {
+    padding-bottom: 50px;
+}
 
 .settings-message { padding-bottom: 15px; font-weight: bold; }
 
-.background-hero-image.settings {
-    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
-}
 
 /*Privacy Policy*/
 .background-hero-image.privacy-policy {

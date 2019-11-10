@@ -16,21 +16,32 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="account-info">
-            <div class="account-info__user-name">Name: @UserManager.GetUserName(User)</div>
+            <p class="account-info__user-name">Name: @UserManager.GetUserName(User)</p>
         </div>
-        <h3></h3>
-        <p></p>
-        <h3></h3>
-        <ul class="list-with-bullet-points">
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="account-benefits">
+            <h3>Benefits of Having an Account</h3>
+            <ul class="list-with-bullet-points">
+                <li>Get 20% off tour visits.  Redeem on visit by providing your email.</li>
+                <li>Get 20% off shipping.</li>
+                <li>Special Offers</li>
+            </ul>
+        </div>
+        <div class="account-specials">
+            <h3>This Month's Special Offer</h3>
+            <h4>Jam Bazaar!</h4>
+            <p>
+                Visit the Farm Store in person and get 40% off the original price on any jam, first 5! While supplies last. Just show this on your device or printed out.
+                Only for registered users in store!
+            </p>
+        </div>
+
     </div>
     <div class="col-sma-6">
         <h3>Manage Account</h3>
         <div class="account-nav">
+            <a class="account-nav__link" href="/Identity/Account/AccountHome">Account Home</a>
             <a class="account-nav__link" href="/Identity/Account/Settings">Settings</a>
-            <a class="account-nav__link" href="/Identity/Account/DeleteAccount">Delete Account</a>
+            <a class="account-nav__link" href="/Identity/Account/DeleteAccount">Remove Account</a>
         </div>
     </div>
 </div>
