@@ -607,7 +607,7 @@ li { padding-bottom: 10px; }
 /*Nav*/
 .nav {
     position: absolute;
-    top: 60px;
+    top: 52px;
     right: 0px;
     text-align: right;
 }
@@ -821,8 +821,6 @@ li { padding-bottom: 10px; }
 .slideshow__buttons {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 15px;
-    padding-bottom: 15px;
     border-radius: 0 0 15px 15px;
     background-color: var(--color-1);
 }
@@ -833,7 +831,7 @@ li { padding-bottom: 10px; }
     width: 40px;
     height: 40px;
     margin-top: 10px;
-    margin-left: 12px;
+    margin-left: 8px;
     background-color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
@@ -1262,6 +1260,10 @@ li { padding-bottom: 10px; }
     .slideshow__buttons {
         padding-top: 0;
         padding-bottom: 0;
+    }
+
+    .slideshow__slide-button {
+        margin-left: 12px;
     }
 
 
