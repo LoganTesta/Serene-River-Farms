@@ -529,8 +529,8 @@ li { padding-bottom: 10px; }
 }
 
     .form__submit-button:hover {
-        background-color: var(--color-3);
-        box-shadow: 0 0 4px 6px var(--color-1-semi-opacity);
+        background-color: var(--color-1-lighter-green);
+        box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
 
@@ -625,7 +625,7 @@ li { padding-bottom: 10px; }
 }
 
     .nav .nav__nav-link:hover {
-        color: rgba(201, 201, 201, 1);
+        color: var(--color-3);
     }
 
 .nav .nav__nav-list-container .current-page {
@@ -665,7 +665,7 @@ li { padding-bottom: 10px; }
 }
 
     .register-login a:hover {
-        color: rgba(201, 201, 201, 1);
+        color: var(--color-4);
     }
 
 .register-login__register {
@@ -699,7 +699,7 @@ li { padding-bottom: 10px; }
 .register-login__link.current-page { text-decoration: underline; }
 
 .register-benefits {
-    
+    padding-bottom: 15px; 
 }
 
 

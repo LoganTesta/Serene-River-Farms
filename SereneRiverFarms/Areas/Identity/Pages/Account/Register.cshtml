@@ -16,7 +16,7 @@
             <div class="" asp-validation-summary="All"></div>
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
-                <label asp-for="Input.userName" class="form__label" for="userName">Your UserName **</label>
+                <label asp-for="Input.userName" class="form__label" for="userName">User Name **</label>
                 <input asp-for="Input.userName" id="userName" class="form__input" type="text" name="userName" />
                 <span asp-validation-for="Input.userName"></span>
                 <div class="clear-both"></div>
@@ -48,9 +48,12 @@
     <div class="col-sma-6">
         <div class="register-benefits">
             <h3>Benefits of Registering an Account</h3>
-            <p>Get 20% off tour visits.  Redeem on visit by providing your email.</p>
-            <p>Get 20% off shipping.</p>
-            <p>Special Offers</p>
+            <ul class="list-with-bullet-points">
+                <li>Get 20% off tour visits.  Redeem on visit by providing your email.</li>
+                <li>Get 20% off shipping.</li>
+                <li>Special Offers</li>
+            </ul>
+
         </div>
         <div class="background-hero-image register">
 
