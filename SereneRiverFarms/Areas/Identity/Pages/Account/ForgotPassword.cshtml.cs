@@ -1,9 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using SereneRiverFarms.Areas.Identity.Data;
 
+using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Identity.UI.Services;   //For IEmail Sender
 
 using MailKit.Net.Smtp;
 using MailKit.Security;
@@ -12,18 +21,22 @@ using MimeKit;
 
 namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
-
+    [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
 
         public string Message { get; set; }
+        private readonly UserManager<SereneRiverFarmsUser> _userManager;
+        private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel()
+
+        public ForgotPasswordModel(UserManager<SereneRiverFarmsUser> userManager, IEmailSender emailSender)
         {
-
+            _userManager = userManager;
+            _emailSender = emailSender;
         }
 
-        public void OnPostForgotPasswordSection()
+        public async Task<IActionResult> OnPostForgotPasswordSection()
         {
             bool validForm = true;
             string contactFormResponse = "";
@@ -90,45 +103,29 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
             if (!validForm)
             {
-                contactFormResponse += "Sorry, form not valid";
+                contactFormResponse += "Sorry, form not valid.";
             }
             else if (validForm)
             {
+                var code = await _userManager.FindByEmailAsync(userEmail);
+                var callbackUrl = Url.Page(
+                    "/ResetPassword",
+                    pageHandler: null,
+                    values: new { code },
+                    protocol: Request.Scheme);
 
-                //Construct the Email
-                string FromName = "Serene River Farms";
-                string FromEmail = "contact@sereneriverfarms.com";
-                string ToEmail = userEmail;
-                string EmailSubject = "Reset Password Request";
+                await _emailSender.SendEmailAsync(
+                    userEmail,
+                    "Reset Password",
+                    $"Please reset your password by <a href=''>clicking here to go to the reset page</a>.");
 
-                string BodyEmail = "<strong>From:</strong> " + FromName + "<br />";
-                BodyEmail += "<strong>Email:</strong> " + userEmail + "<br />";
-                BodyEmail += "<strong>Subject:</strong> Reset your Password<br />";
-                BodyEmail += "<strong>Message/Comments:</strong> It looks like you recently requested to reset your password.  Click this link " +
-                    "to go to the password reset page.";
+                ViewData["Message"] = contactFormResponse;
+                contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
+                return RedirectToPage("./ForgotPasswordEmailSent");
 
-
-                var emailMessage = new MimeMessage();
-                emailMessage.From.Add(new MailboxAddress(FromName, FromEmail));
-                emailMessage.To.Add(new MailboxAddress("Serene River Farms", ToEmail));
-
-                emailMessage.Subject = EmailSubject;
-                BodyBuilder emailBody = new BodyBuilder();
-                emailBody.HtmlBody = "" + BodyEmail;
-                emailMessage.Body = emailBody.ToMessageBody();
-
-                using (var destinationSmtp = new SmtpClient())
-                {
-                    destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
-                    destinationSmtp.Authenticate("youremail", "yourpassword");
-                    destinationSmtp.Send(emailMessage);
-                    destinationSmtp.Disconnect(true);
-                    destinationSmtp.Dispose();
-
-                    contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
-                }
             }
             ViewData["Message"] = contactFormResponse;
+            return Page();
         }
     }
 }

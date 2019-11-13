@@ -1160,9 +1160,16 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
+/*Forgot Password Email Sent page*/
+.background-hero-image.forgot-password-email-sent {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
 
 /*Account Home page*/
-.account-info__user-name { font-weight: bold; }
+.account-info__user-name {
+    font-weight: bold;
+}
 
 .account-nav {
     font-size: 18px;
