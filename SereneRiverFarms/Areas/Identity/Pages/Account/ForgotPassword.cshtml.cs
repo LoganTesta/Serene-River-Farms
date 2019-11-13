@@ -107,7 +107,15 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             }
             else if (validForm)
             {
-                var code = await _userManager.FindByEmailAsync(userEmail);
+                var user = await _userManager.FindByEmailAsync(userEmail);
+                if(user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+                {
+                    //Don't let the user know that their provided username does not exist.
+                    return RedirectToPage("./ForgotPasswordEmailSent");
+                }
+
+
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.Page(
                     "/ResetPassword",
                     pageHandler: null,
@@ -117,10 +125,10 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
                 await _emailSender.SendEmailAsync(
                     userEmail,
                     "Reset Password",
-                    $"Please reset your password by <a href=''>clicking here to go to the reset page</a>.");
+                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here to go to the reset page</a>.");
 
-                ViewData["Message"] = contactFormResponse;
                 contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
+                ViewData["Message"] = contactFormResponse;
                 return RedirectToPage("./ForgotPasswordEmailSent");
 
             }

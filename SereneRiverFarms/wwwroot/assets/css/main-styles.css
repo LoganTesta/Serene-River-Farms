@@ -1165,6 +1165,15 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
+/*Reset Password page*/
+.background-hero-image.reset-password {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
+/*Reset Password Results page*/
+.background-hero-image.reset-password-results {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
 
 /*Account Home page*/
 .account-info__user-name {
