@@ -5,8 +5,6 @@
 }
 
 
-
-
 <div class="content-row">
     <div class="col-sma-6 page-content">
         <div class="subtitle-container">
@@ -16,10 +14,8 @@
         <div class="">
             <p class=""><strong>Note: if you proceed to delete your account your info cannot be recovered!!</strong></p>
         </div>
-        <form class="form login-form" name="deleteAccountForm" method="post">
+        <form class="form delete-account-form" name="deleteAccountForm" method="post">
             <div asp-validation-summary="All" class=""></div>
-
-
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
                 <label asp-for="Input.userPassword" class="form__label" for="userPassword">Password **</label>
@@ -27,8 +23,6 @@
                 <span asp-validation-for="Input.userPassword" class=""></span>
                 <div class="clear-both"></div>
             </div>
-
-
             <div class="form__input-container">
                 <input id="deleteAccountButton" class="form__submit-button" type="submit" name="deleteAccountButton" value="Delete Account" />
                 <div class="form__errors"></div>

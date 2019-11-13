@@ -1143,6 +1143,9 @@ li { padding-bottom: 10px; }
 }
 
 /*Login page*/
+.forgot-password { padding-top: 40px; }
+.register-new-user { padding-top: 20px; }
+
 .background-hero-image.login {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
@@ -1151,6 +1154,12 @@ li { padding-bottom: 10px; }
 .background-hero-image.logout {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
+
+/*Forgot Password page*/
+.background-hero-image.forgot-password {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
 
 /*Account Home page*/
 .account-info__user-name { font-weight: bold; }
@@ -1449,10 +1458,6 @@ li { padding-bottom: 10px; }
 
 
     /*Login page*/
-    .login-form__button {
-        border-radius: 15px;
-        background-color: var(--color-1);
-    }
 
 
     /*Index*/

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,43 +9,37 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 
-namespace SereneRiverFarms.Pages
+
+namespace SereneRiverFarms.Areas.Identity.Pages.Account
 {
-    public class ContactModel : PageModel
+
+    public class ForgotPasswordModel : PageModel
     {
+
         public string Message { get; set; }
 
-        public void OnGet()
+        public ForgotPasswordModel()
         {
-            Message = "Your contact page.";
+
         }
 
-        public void OnPostContactSection()
+        public void OnPostForgotPasswordSection()
         {
             bool validForm = true;
             string contactFormResponse = "";
 
-            string userName = "";
             string userEmail = "";
-            string userSubject = "";
-            string userComments = "";
             try
             {
-                userName = System.Web.HttpUtility.HtmlEncode(Request.Form["userName"]);
                 userEmail = System.Web.HttpUtility.HtmlEncode(Request.Form["userEmail"]);
-                userSubject = System.Web.HttpUtility.HtmlEncode(Request.Form["userSubject"]);
-                userComments = System.Web.HttpUtility.HtmlEncode(Request.Form["userComments"]);
             }
             catch (Exception)
             {
-                userName = "";
                 userEmail = "";
-                userSubject = "";
-                userComments = "";
             }
 
 
-            if (userName == "" || userEmail == "" || userComments == "")
+            if (userEmail == "")
             {
                 validForm = false;
                 contactFormResponse = "Sorry, form not valid, please fill in all required (**) input fields. ";
@@ -96,21 +90,22 @@ namespace SereneRiverFarms.Pages
 
             if (!validForm)
             {
-                contactFormResponse += "";
+                contactFormResponse += "Sorry, form not valid";
             }
             else if (validForm)
             {
 
                 //Construct the Email
-                string FromName = userName;
-                string FromEmail = userEmail;
-                string ToEmail = "contact@sereneriverfarms.com";
-                string EmailSubject = userSubject;
+                string FromName = "Serene River Farms";
+                string FromEmail = "contact@sereneriverfarms.com";
+                string ToEmail = userEmail;
+                string EmailSubject = "Reset Password Request";
 
-                string BodyEmail = "<strong>From:</strong> " + userName + "<br />";
+                string BodyEmail = "<strong>From:</strong> " + FromName + "<br />";
                 BodyEmail += "<strong>Email:</strong> " + userEmail + "<br />";
-                BodyEmail += "<strong>Subject:</strong> " + userSubject + "<br />";
-                BodyEmail += "<strong>Message/Comments:</strong> " + userComments;
+                BodyEmail += "<strong>Subject:</strong> Reset your Password<br />";
+                BodyEmail += "<strong>Message/Comments:</strong> It looks like you recently requested to reset your password.  Click this link " +
+                    "to go to the password reset page.";
 
 
                 var emailMessage = new MimeMessage();
@@ -130,10 +125,10 @@ namespace SereneRiverFarms.Pages
                     destinationSmtp.Disconnect(true);
                     destinationSmtp.Dispose();
 
-                    contactFormResponse = "Thank you " + userName + ", we look forward to reading your comments and our reply will be sent to your email at: " + userEmail + ".";
+                    contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
                 }
             }
-            ViewData["Message"] = "" + contactFormResponse;
+            ViewData["Message"] = contactFormResponse;
         }
     }
 }

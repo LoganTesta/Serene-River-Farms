@@ -115,7 +115,7 @@ namespace SereneRiverFarms.Pages
                 //Construct the Email
                 string FromName = userName;
                 string FromEmail = userEmail;
-                string ToEmail = "contact@riverfrontsandwiches.com";
+                string ToEmail = "contact@sereneriverfarms.com";
                 string EmailSubject = "Serene River Farms: Request a Tour Date!";
 
                 string BodyEmail = "<strong>From:</strong> " + userName + "<br />";
