@@ -108,29 +108,44 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             else if (validForm)
             {
                 var user = await _userManager.FindByEmailAsync(userEmail);
-                if(user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+                if(user == null  || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
-                    //Don't let the user know that their provided username does not exist.
+                    //If the provided user name doesn't exist, redirect anyway.
                     return RedirectToPage("./ForgotPasswordEmailSent");
                 }
 
-
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.Page(
-                    "/ResetPassword",
+                    "/Account/ResetPassword",
                     pageHandler: null,
                     values: new { code },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(
-                    userEmail,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here to go to the reset page</a>.");
 
-                contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
-                ViewData["Message"] = contactFormResponse;
-                return RedirectToPage("./ForgotPasswordEmailSent");
+                string BodyEmail = $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here to go to the reset page</a>.";
 
+                var emailMessage = new MimeMessage();
+                emailMessage.From.Add(new MailboxAddress("Serene River Farms", "contact@sereneriverfarms.com"));
+                emailMessage.To.Add(new MailboxAddress("" + userEmail, userEmail));
+
+                emailMessage.Subject = "Reset Password Request";
+                BodyBuilder emailBody = new BodyBuilder();
+                emailBody.HtmlBody = "" + BodyEmail;
+                emailMessage.Body = emailBody.ToMessageBody();
+
+
+                using (var destinationSmtp = new SmtpClient())
+                {
+                    destinationSmtp.Connect("cmx5.my-hosting-panel.com", 465, true);
+                    destinationSmtp.Authenticate("youremail", "yourpassword");
+                    destinationSmtp.Send(emailMessage);
+                    destinationSmtp.Disconnect(true);
+                    destinationSmtp.Dispose();
+
+                    contactFormResponse = "Your request to reset your password has been sent to " + userEmail + ".";
+                    ViewData["Message"] = contactFormResponse;
+                    return RedirectToPage("./ForgotPasswordEmailSent");
+                }
             }
             ViewData["Message"] = contactFormResponse;
             return Page();

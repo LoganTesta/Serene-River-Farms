@@ -78,8 +78,8 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.userEmail);
             if (user == null)
             {
-                    //Don't let the user know that the provided user does not exist.
-                    return RedirectToPage("./ResetPasswordResults");
+                //If the provided user name doesn't exist, redirect anyway.
+                return RedirectToPage("./ResetPasswordResults");
             }
 
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.NewPassword);

@@ -75,26 +75,12 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new SereneRiverFarmsUser { UserName = Input.userEmail, Email = Input.userEmail };
+                var user = new SereneRiverFarmsUser { UserName = Input.userEmail, Email = Input.userEmail, EmailConfirmed = true };
                 var result = await _userManager.CreateAsync(user, Input.userPassword);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password");
-
-
-
-                    //I commented this out since I'm not using it.  
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
-                    //var callbackUrl = Url.Page(
-                    //    "/Account/ConfirmEmal",
-                    //    pageHandler: null,
-                    //    values: new { userId = user.Id, code = code },
-                    //    protocol: Request.Scheme);
-
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
