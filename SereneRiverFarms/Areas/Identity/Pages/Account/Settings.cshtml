@@ -20,23 +20,24 @@
             <div><p><strong>UserName: @UserManager.GetUserName(User)</strong></p></div>
             <div><h3>Change Password</h3></div>
             <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
-            <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" method="post">
+            <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" onsubmit="return validateChangePasswordForm();" method="post">
+                <div class="javascript-validation-results-contact-us"></div>
                 <div class="" asp-validation-summary="All"></div>
                 <div class="form__input-container">
                     <label asp-for="Input.CurrentPassword" class="form__label">Current Password **</label>
-                    <input asp-for="Input.CurrentPassword" class="form__input" type="password" />
+                    <input asp-for="Input.CurrentPassword" id="userCurrentPassword" class="form__input" type="password" />
                     <span asp-validation-for="Input.CurrentPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
                     <label asp-for="Input.NewPassword" class="form__label">Enter New Password **</label>
-                    <input asp-for="Input.NewPassword" class="form__input" type="password" />
+                    <input asp-for="Input.NewPassword" id="userNewPassword" class="form__input" type="password" />
                     <span asp-validation-for="Input.NewPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
                     <label asp-for="Input.ConfirmPassword" class="form__label">Confirm New Password **</label>
-                    <input asp-for="Input.ConfirmPassword" class="form__input" type="password" />
+                    <input asp-for="Input.ConfirmPassword" id="userConfirmPassword" class="form__input" type="password" />
                     <span asp-validation-for="Input.ConfirmPassword"></span>
                     <div class="clear-both"></div>
                 </div>
@@ -62,3 +63,4 @@
     });
 </script>
 
+<script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11142019"></script>
