@@ -3,31 +3,12 @@
 let clickedSubmit = false;
 
 
-function validateRegisterForm() {
+function validateResetPasswordForm() {
     if (clickedSubmit) {
-        let userName = $("#userName").val().trim();
         let userEmail = $("#userEmail").val().trim();
-        let userPassword = $("#userPassword").val().trim();
+        let userPassword = $("#userNewPassword").val().trim();
         let userConfirmPassword = $("#userConfirmPassword").val().trim();
         let validForm = true;
-
-
-        let validName = true;
-        if (userName === null || userName === "") {
-            validName = false;
-        }
-
-        /* Check password length. */
-        if (userName.length < 3) {
-            validName = false;
-        }
-
-        if (validName) {
-            $("#userName").removeClass("required-field-needed");
-        } else {
-            validForm = false;
-            $("#userName").addClass("required-field-needed");
-        }
 
 
         /*If the @ position is at the start (or less) position of value 0, validForm = false. */
@@ -86,10 +67,10 @@ function validateRegisterForm() {
 
 
         if (validPassword) {
-            $("#userPassword").removeClass("required-field-needed");
+            $("#userNewPassword").removeClass("required-field-needed");
         } else {
             validForm = false;
-            $("#userPassword").addClass("required-field-needed");
+            $("#userNewPassword").addClass("required-field-needed");
         }
 
         if (validConfirmPassword) {
@@ -115,33 +96,29 @@ function validateRegisterForm() {
 }
 
 
-function setClickedRegisterButtonTrue() {
+function setClickedResetPasswordButtonTrue() {
     let elementWithFocus = $(':focus')[0];
-    if (registerButton === elementWithFocus) {
+    if (resetPasswordButton === elementWithFocus) {
         clickedSubmit = true;
     }
 }
 
-$("#registerButton").on("click", function () {
-    setClickedRegisterButtonTrue();
+$("#resetPasswordButton").on("click", function () {
+    setClickedResetPasswordButtonTrue();
 });
 
-$("#registerButton").on("click", function () {
-    validateRegisterForm()
-});
-
-$("#userName").on("change", function () {
-    validateRegisterForm();
+$("#resetPasswordButton").on("click", function () {
+    validateResetPasswordForm()
 });
 
 $("#userEmail").on("change", function () {
-    validateRegisterForm();
+    validateResetPasswordForm();
 });
 
-$("#userPassword").on("change", function () {
-    validateRegisterForm();
+$("#userNewPassword").on("change", function () {
+    validateResetPasswordForm();
 });
 
 $("#userConfirmPassword").on("change", function () {
-    validateRegisterForm();
+    validateResetPasswordForm();
 });
