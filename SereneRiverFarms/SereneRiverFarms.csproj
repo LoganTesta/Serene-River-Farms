@@ -17,4 +17,8 @@
     <Folder Include="Areas\Identity\Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\assets\javascript\login-validation.js" />
+  </ItemGroup>
+
 </Project>

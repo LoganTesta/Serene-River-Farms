@@ -12,7 +12,8 @@
             <div class="subheader-divider"></div>
         </div>
 
-        <form class="form login-form" name="loginForm" method="post">
+        <form class="form login-form" name="loginForm" onsubmit="return validateLoginForm();" method="post">
+            <div class="javascript-validation-results-contact-us"></div>
             <div asp-validation-summary="All" class=""></div>
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
@@ -23,12 +24,12 @@
             </div>
             <div class="form__input-container">
                 <label asp-for="Input.userPassword" class="form__label" for="userPassword">Password **</label>
-                <input asp-for="Input.userPassword" id="userPassword" class="form__input" type="password" name="userPassword" />
+                <input asp-for="Input.userPassword" class="form__input" id="userPassword" type="password" name="userPassword" />
                 <span asp-validation-for="Input.userPassword" class=""></span>
                 <div class="clear-both"></div>
             </div>
             <div class="form__input-container">
-                <input id="contactButton" class="form__submit-button" type="submit" name="submitButton" value="Sign In!" />
+                <input id="loginButton" class="form__submit-button" type="submit" name="loginButton" value="Sign In!" />
                 <div class="form__errors"></div>
             </div>
         </form>
@@ -52,3 +53,5 @@
         setCurrentPage(1, ".register-login", ".register-login__link");
     });
 </script>
+
+<script type="text/javascript" src="/assets/javascript/login-validation.js?mod=11132019"></script>
