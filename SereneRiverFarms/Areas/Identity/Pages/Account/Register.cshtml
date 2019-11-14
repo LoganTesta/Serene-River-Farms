@@ -12,7 +12,8 @@
             <div class="subheader-divider"></div>
         </div>
 
-        <form asp-route-returnUrl="@Model.ReturnUrl" class="form register-form" id="registerForm" name="registerForm" method="post">
+        <form asp-route-returnUrl="@Model.ReturnUrl" class="form register-form" id="registerForm" name="registerForm" onsubmit="return validateRegisterForm();" method="post">
+            <div class="javascript-validation-results-contact-us"></div>
             <div class="" asp-validation-summary="All"></div>
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
@@ -40,7 +41,7 @@
                 <div class="clear-both"></div>
             </div>
             <div class="form__input-container">
-                <input id="registerButton" class="form__submit-button" type="submit" name="submitButton" value="Register!" />
+                <input id="registerButton" class="form__submit-button" type="submit" name="registerButton" value="Register!" />
                 <div class="form__errors"></div>
             </div>
         </form>
@@ -67,3 +68,5 @@
         setCurrentPage(0, ".register-login", ".register-login__link");
     });
 </script>
+
+<script type="text/javascript" src="/assets/javascript/register-validation.js?mod=11132019"></script>

@@ -3,11 +3,31 @@
 let clickedSubmit = false;
 
 
-function validateLoginForm() {
+function validateRegisterForm() {
     if (clickedSubmit) {
+        let userName = $("#userName").val().trim();
         let userEmail = $("#userEmail").val().trim();
         let userPassword = $("#userPassword").val().trim();
+        let userConfirmPassword = $("#userConfirmPassword").val().trim();
         let validForm = true;
+
+
+        let validName = true;
+        if (userName === null || userName === "") {
+            validName = false;
+        }
+
+        /* Check password length. */
+        if (userName.length < 3) {
+            validName = false;
+        }
+
+        if (validName) {
+            $("#userName").removeClass("required-field-needed");
+        } else {
+            validForm = false;
+            $("#userName").addClass("required-field-needed");
+        }
 
 
         /*If the @ position is at the start (or less) position of value 0, validForm=false. */
@@ -46,12 +66,38 @@ function validateLoginForm() {
             validPassword = false;
         }
 
+
+        let validConfirmPassword = true;
+        if (userConfirmPassword === null || userConfirmPassword === "") {
+            validConfirmPassword = false;
+        }
+
+        /* Check second password length. */
+        if (userConfirmPassword.length < 7) {
+            validConfirmPassword = false;
+        }
+
+
+        /* Check if the two passwords match. */
+        if (userPassword !== userConfirmPassword) {
+            validPassword = false;
+            validConfirmPassword = false;
+        }
+
+
         if (validPassword) {
             $("#userPassword").removeClass("required-field-needed");
         } else {
             validForm = false;
             $("#userPassword").addClass("required-field-needed");
-        }     
+        }
+
+        if (validConfirmPassword) {
+            $("#userConfirmPassword").removeClass("required-field-needed");
+        } else {
+            validForm = false;
+            $("#userConfirmPassword").addClass("required-field-needed");
+        }
 
 
         if (validForm === false) {
@@ -69,25 +115,33 @@ function validateLoginForm() {
 }
 
 
-function setClickedLoginButtonTrue() {
+function setClickedRegisterButtonTrue() {
     let elementWithFocus = $(':focus')[0];
-    if (loginButton === elementWithFocus) {
+    if (registerButton === elementWithFocus) {
         clickedSubmit = true;
     }
 }
 
-$("#loginButton").on("click", function () {
-    setClickedLoginButtonTrue();
+$("#registerButton").on("click", function () {
+    setClickedRegisterButtonTrue();
 });
 
-$("#loginButton").on("click", function () {
-    validateLoginForm()
+$("#registerButton").on("click", function () {
+    validateRegisterForm()
+});
+
+$("#userName").on("change", function () {
+    validateRegisterForm();
 });
 
 $("#userEmail").on("change", function () {
-    validateLoginForm();
+    validateRegisterForm();
 });
 
 $("#userPassword").on("change", function () {
-    validateLoginForm();
+    validateRegisterForm();
+});
+
+$("#userConfirmPassword").on("change", function () {
+    validateRegisterForm();
 });

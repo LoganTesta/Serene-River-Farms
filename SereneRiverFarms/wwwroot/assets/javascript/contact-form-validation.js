@@ -11,10 +11,6 @@ function validateContactForm() {
         let validContactForm = true;
 
 
-        let atPosition = userEmail.indexOf("@");
-        let dotPosition = userEmail.lastIndexOf(".");
-        let lastEmailCharacter = userEmail.length - 1;
-
         let validName = true;
         if (userName === null || userName === "") {
             validName = false;
@@ -32,6 +28,10 @@ function validateContactForm() {
         /* There must be at least 1 character after the @ position and the last dot position. */
         /* There must be at least two characters after the last "." symbol.  */
         let validEmail = true;
+        let atPosition = userEmail.indexOf("@");
+        let dotPosition = userEmail.lastIndexOf(".");
+        let lastEmailCharacter = userEmail.length - 1;
+
         if (userEmail === null || userEmail === "") {
             validEmail = false;
         } else if (atPosition <= 0) {
