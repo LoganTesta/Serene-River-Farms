@@ -14,7 +14,8 @@
         <div class="">
             <p class=""><strong>Note: if you proceed to delete your account your info cannot be recovered!!</strong></p>
         </div>
-        <form class="form delete-account-form" name="deleteAccountForm" method="post">
+        <form class="form delete-account-form" name="deleteAccountForm" onsubmit="return validateDeleteAccountForm();" method="post">
+            <div class="javascript-validation-results-contact-us"></div>
             <div asp-validation-summary="All" class=""></div>
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
@@ -43,3 +44,5 @@
     document.addEventListener("DOMContentLoaded", function () {
     });
 </script>
+
+<script type="text/javascript" src="/assets/javascript/delete-account-validation.js?mod=11142019"></script>
