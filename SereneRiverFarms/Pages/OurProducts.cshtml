@@ -135,7 +135,7 @@
 </div>
 
 <div class="content-row">
-    <div class="col-sma-6">
+    <div class="col-sma-5">
         <h3>Special Order: Request an Estimate from Our Farm</h3>
         <div>
             <p>
@@ -254,7 +254,7 @@
             </div>
         </form>
     </div>
-    <div class="col-sma-6">
+    <div class="col-sma-7">
         <div class="estimate-container">
             <div class="estimate-container__header">
                 <div class="shopping-cart__total">Total: @cartTotal</div>
@@ -263,81 +263,91 @@
             <table id="estimateTable" class="item-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Approximate Price</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
-                        <th>Add</th>
-                        <th>Remove</th>
+                        <th class="item__names">Name</th>
+                        <th class="item__photos">Photo</th>
+                        <th class="item__approximate-prices">Approximate Price</th>
+                        <th class="item__quantities">Quantity</th>
+                        <th class="item__approximate-subtotals">Subtotal</th>
+                        <th class="item__add-icons">Add</th>
+                        <th class="item__minus-icons">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="item">
+                    <tr class="item zero">
                         <td class="item__name">@products[0].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[0].price</td>
                         <td class="item__quantity">@numberOfPears</td>
                         <td class="item__approximate-subtotal">@subtotalPears</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item one">
                         <td class="item__name">@products[1].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[1].price</td>
                         <td class="item__quantity">@numberOfApples</td>
                         <td class="item__approximate-subtotal">@subtotalApples</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item two">
                         <td class="item__name">@products[2].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[2].price</td>
                         <td class="item__quantity">@numberOfBlueberries</td>
                         <td class="item__approximate-subtotal">@subtotalBlueberries</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item three">
                         <td class="item__name">@products[3].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[3].price</td>
                         <td class="item__quantity">@numberOfStrawberries</td>
                         <td class="item__approximate-subtotal">@subtotalStrawberries</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item four">
                         <td class="item__name">@products[4].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[4].price</td>
                         <td class="item__quantity">@numberOfRaspberries</td>
                         <td class="item__approximate-subtotal">@subtotalRaspberries</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item five">
                         <td class="item__name">@products[5].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[5].price</td>
                         <td class="item__quantity">@numberOfCherries</td>
                         <td class="item__approximate-subtotal">@subtotalCherries</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
-                        <td class="item__name">Pumpkin</td>
+                    <tr class="item six">
+                        <td class="item__name">@products[6].price</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[6].price</td>
                         <td class="item__quantity">@numberOfPumpkins</td>
                         <td class="item__approximate-subtotal">@subtotalPumpkins</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item seven">
                         <td class="item__name">@products[7].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[7].price</td>
                         <td class="item__quantity">@numberOfMilkGallons</td>
                         <td class="item__approximate-subtotal">@subtotalMilkGallons</td>
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item">
+                    <tr class="item eight">
                         <td class="item__name">@products[8].namePlural</td>
+                        <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">@products[8].price</td>
                         <td class="item__quantity">@numberOf12OunceJamJars</td>
                         <td class="item__approximate-subtotal">@subtotal12OunceJamJars</td>

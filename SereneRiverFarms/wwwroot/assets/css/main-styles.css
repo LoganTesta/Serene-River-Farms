@@ -1075,14 +1075,21 @@ li { padding-bottom: 10px; }
     padding: 5px 5px;
 }
 
+.item-table .item__names {  }
+.item-table .item__photos {  }
+.item-table .item__approximate-prices { }
+.item-table .item__quantities {  }
+.item-table .item__approximate-subtotals { }
+.item-table .item__add { }
+.item-table .item__minus { }
 
-
-.item__name { width: 30%; margin-top: 50px; }
-.item__approximate-price { text-align: center; }
-.item__quantity { }
-.item__approximate-subtotal { }
-.item__add { }
-.item__minus { }
+.item-table .item__name {  }
+.item-table .item__photo { }
+.item-table .item__approximate-price { }
+.item-table .item__quantity {  }
+.item-table .item__approximate-subtotal { }
+.item-table .item__add-icons { }
+.item-table .item__minus-icons { }
 
 .item__add__item {
     width: 50px;
@@ -1112,6 +1119,45 @@ li { padding-bottom: 10px; }
     cursor: pointer;
     font-weight: bold;
 }
+
+.item__photo-image { width: 80px; height: 60px; margin-left: auto; margin-right: auto; }
+
+.item.zero .item__photo-image {
+    background: url('/assets/images/pear.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.one .item__photo-image {
+    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.two .item__photo-image {
+    background: url('/assets/images/blueberries.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.three .item__photo-image {
+    background: url('/assets/images/strawberries-in-wooden-basket.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.four .item__photo-image {
+    background: url('/assets/images/raspberries-in-pint-cartons.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.five .item__photo-image {
+    background: url('/assets/images/cherries-in-bowl.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.six .item__photo-image {
+    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.seven .item__photo-image {
+    background: url('/assets/images/milk-glass-and-jug.jpg') 50% 30%/cover no-repeat;
+}
+
+.item.eight .item__photo-image {
+    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
+}
+
 
 /*Events*/
 .background-hero-image.events {
@@ -1517,6 +1563,8 @@ li { padding-bottom: 10px; }
         text-align: left;
         font-weight: bold;
     }
+    
+    .item-table .item__approximate-price { padding-left: 20px; }
 
 
     /*Contact Us*/
