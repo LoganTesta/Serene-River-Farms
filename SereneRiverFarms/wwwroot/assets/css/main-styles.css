@@ -1056,8 +1056,10 @@ li { padding-bottom: 10px; }
 
 .item-table {
 }
+
     .item-table th {
         padding: 5px 5px;
+        font-size: 18px;
     }
 
     .item-table th, .item-table td {
@@ -1068,8 +1070,6 @@ li { padding-bottom: 10px; }
     }
 
 .item { }
-
-
 
 .item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__add, .item__minus {
     padding: 5px 5px;
@@ -1083,7 +1083,7 @@ li { padding-bottom: 10px; }
 .item-table .item__add { }
 .item-table .item__minus { }
 
-.item-table .item__name {  }
+.item-table .item__name { margin-top: 50px; font-size: 19px; }
 .item-table .item__photo { }
 .item-table .item__approximate-price { }
 .item-table .item__quantity {  }
@@ -1561,7 +1561,6 @@ li { padding-bottom: 10px; }
         display: table-cell;
         padding: 10px 5px;
         text-align: left;
-        font-weight: bold;
     }
     
     .item-table .item__approximate-price { padding-left: 20px; }
