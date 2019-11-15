@@ -16,11 +16,6 @@ function validateChangePasswordForm() {
             validPassword = false;
         }
 
-        /* Check current password length. */
-        if (userCurrentPassword.length < 7) {
-            validPassword = false;
-        }
-
         if (validPassword) {
             $("#userCurrentPassword").removeClass("required-field-needed");
         } else {
@@ -35,7 +30,7 @@ function validateChangePasswordForm() {
         }
 
         /* Check new password length. */
-        if (userNewPassword.length < 7) {
+        if (userNewPassword.length < 7 || userNewPassword.length > 100) {
             validNewPassword = false;
         }
 
@@ -46,7 +41,7 @@ function validateChangePasswordForm() {
         }
 
         /* Check confirm password length. */
-        if (userConfirmPassword.length < 7) {
+        if (userConfirmPassword.length < 7 || userConfirmPassword.length > 100) {
             validConfirmPassword = false;
         }
 

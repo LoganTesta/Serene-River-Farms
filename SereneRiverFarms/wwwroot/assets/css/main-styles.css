@@ -645,8 +645,11 @@ li { padding-bottom: 10px; }
 /*Login/Register*/
 .register-login-username {
     position: absolute;
-    top: 220px;
+    top: 215px;
     left: 10px;
+    max-width: 205px;
+    height: 40px;
+    overflow: scroll;
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
@@ -1300,6 +1303,11 @@ li { padding-bottom: 10px; }
         padding: 50px 30px;
     }
 
+    /*Login/Register*/
+    .register-login-username {
+        overflow: initial;
+    }
+
 
     /*Index page*/
     .index-section.four, .index-section.five, .index-section.six {
@@ -1417,9 +1425,12 @@ li { padding-bottom: 10px; }
 
     .register-login-username {
         position: absolute;
-        top: 10px;
+        top: 80px;
         left: auto;
-        right: 70px;
+        right: 20px;
+        width: auto;
+        height: auto;
+        max-width: none;
         font-size: 18px;
         color: var(--color-2);
     }

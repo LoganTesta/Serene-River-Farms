@@ -43,7 +43,7 @@ function validateResetPasswordForm() {
         }
 
         /* Check password length. */
-        if (userPassword.length < 7) {
+        if (userPassword.length < 7 || userPassword.length > 100) {
             validPassword = false;
         }
 
@@ -54,7 +54,7 @@ function validateResetPasswordForm() {
         }
 
         /* Check second password length. */
-        if (userConfirmPassword.length < 7) {
+        if (userConfirmPassword.length < 7 || userConfirmPassword.length > 100) {
             validConfirmPassword = false;
         }
 

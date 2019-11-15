@@ -18,7 +18,7 @@ function validateRegisterForm() {
         }
 
         /* Check password length. */
-        if (userName.length < 3) {
+        if (userName.length < 3 || userName.length > 40) {
             validName = false;
         }
 
@@ -62,7 +62,7 @@ function validateRegisterForm() {
         }
 
         /* Check password length. */
-        if (userPassword.length < 7) {
+        if (userPassword.length < 7 || userPassword.length > 100) {
             validPassword = false;
         }
 
@@ -73,7 +73,7 @@ function validateRegisterForm() {
         }
 
         /* Check second password length. */
-        if (userConfirmPassword.length < 7) {
+        if (userConfirmPassword.length < 7 || userConfirmPassword.length > 100) {
             validConfirmPassword = false;
         }
 
