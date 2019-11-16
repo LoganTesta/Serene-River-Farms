@@ -1376,15 +1376,6 @@ li { padding-bottom: 10px; }
         padding-top: 0px;
     }
 
-    .shopping-cart__total {
-        text-align: left;
-    }
-
-    .reset-all {
-        margin-left: auto;
-        margin-right: 0;
-    }
-
 }
 
 
@@ -1567,8 +1558,17 @@ li { padding-bottom: 10px; }
     .item-table .item__name {
         margin-top: 0px;
     }
+
     .item-table .item__approximate-price { padding-left: 20px; }
 
+    .shopping-cart__total {
+        text-align: left;
+    }
+
+    .reset-all {
+        margin-left: auto;
+        margin-right: 0;
+    }
 
     /*Contact Us*/
     .form__input-container {
