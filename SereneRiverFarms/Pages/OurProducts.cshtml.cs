@@ -23,21 +23,21 @@ namespace SereneRiverFarms.Pages
 
         ArrayList theSessionVariables = new ArrayList();
         List<string> productNames = new List<string>();
-        List<double> productPrices = new List<double>();
-        List<double> productSubtotals = new List<double>();
+        List<decimal> productPrices = new List<decimal>();
+        List<decimal> productSubtotals = new List<decimal>();
 
         //These products are used for the .cs part of the page, 
         //the products on the .cshtml page are used for that part of the page.
         List<product> products = new List<product>();
-        product pear = new product("Pear", "Pears", 2.50, "", "");
-        product apple = new product("Apple", "Apples", 1.50, "", "");
-        product blueberries = new product("Blueberries", "Blueberries", 3.00, "", "");
-        product strawberries = new product("Strawberries", "Strawberries", 2.75, "", "");
-        product raspberries = new product("Raspberries", "Raspberries", 4.50, "", "");
-        product cherries = new product("Cherries", "Cherries", 3.50, "", "");
-        product pumpkin = new product("Pumpkin", "Pumpkins", 1.79, "", "");
-        product milkGallon = new product("Milk Gallon", "Milk Gallons", 2.50, "", "");
-        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", 6.00, "", "");
+        product pear = new product("Pear", "Pears", 2.50M, "", "");
+        product apple = new product("Apple", "Apples", 1.50M, "", "");
+        product blueberries = new product("Blueberries", "Blueberries", 3.00M, "", "");
+        product strawberries = new product("Strawberries", "Strawberries", 2.75M, "", "");
+        product raspberries = new product("Raspberries", "Raspberries", 4.50M, "", "");
+        product cherries = new product("Cherries", "Cherries", 3.50M, "", "");
+        product pumpkin = new product("Pumpkin", "Pumpkins", 1.79M, "", "");
+        product milkGallon = new product("Milk Gallon", "Milk Gallons", 2.50M, "", "");
+        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", 6.00M, "", "");
 
 
 
@@ -103,6 +103,9 @@ namespace SereneRiverFarms.Pages
             ViewData["subtotalPumpkins"] = "$0";
             ViewData["subtotalMilkGallons"] = "$0";
             ViewData["subtotal12OunceJamJars"] = "$0";
+
+            HttpContext.Session.SetString("Cart Total", "0");
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
         }
 
 
@@ -116,11 +119,11 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
             ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
 
-            double newCartTotal = 0;
+            decimal newCartTotal = 0;
             for (int i = 0; i < theSessionVariables.Count; i++)
             {
                 int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
-                double priceOfEachItem = Convert.ToDouble(productPrices[i]);
+                decimal priceOfEachItem = productPrices[i];
                 productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
 
                 ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];  //Remove any spaces in a product name to prevent failed product matching.
@@ -145,11 +148,11 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
             ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
 
-            double newCartTotal = 0;
+            decimal newCartTotal = 0;
             for (int i = 0; i < theSessionVariables.Count; i++)
             {
                 int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
-                double priceOfEachItem = Convert.ToDouble(productPrices[i]);
+                decimal priceOfEachItem = productPrices[i];
                 productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
 
                 ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];
@@ -299,7 +302,7 @@ namespace SereneRiverFarms.Pages
                     int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
                     if (quantityOfEachItem > 0)
                     {
-                        double productSubtotal = quantityOfEachItem * Convert.ToDouble(productPrices[i]);
+                        decimal productSubtotal = quantityOfEachItem * productPrices[i];
                         BodyEmail += "Product: " + Convert.ToString(productNames[i]) + ": " + quantityOfEachItem + " (Subtotal): $" + productSubtotal + ". <br />";
                     }
                 }
@@ -330,7 +333,7 @@ namespace SereneRiverFarms.Pages
                     for (int i = 0; i < theSessionVariables.Count; i++)
                     {
                         int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
-                        double productSubtotal = quantityOfEachItem * Convert.ToDouble(productPrices[i]);
+                        decimal productSubtotal = quantityOfEachItem * productPrices[i];
 
                         if (quantityOfEachItem > 0)
                         {

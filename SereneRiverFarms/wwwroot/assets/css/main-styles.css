@@ -1083,7 +1083,7 @@ li { padding-bottom: 10px; }
 .item-table .item__add { }
 .item-table .item__minus { }
 
-.item-table .item__name { margin-top: 50px; font-size: 19px; }
+.item-table .item__name { margin-top: 60px; font-size: 19px; }
 .item-table .item__photo { }
 .item-table .item__approximate-price { }
 .item-table .item__quantity {  }
@@ -1562,7 +1562,11 @@ li { padding-bottom: 10px; }
         padding: 10px 5px;
         text-align: left;
     }
-    
+
+
+    .item-table .item__name {
+        margin-top: 0px;
+    }
     .item-table .item__approximate-price { padding-left: 20px; }
 
 
