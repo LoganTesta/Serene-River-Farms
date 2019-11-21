@@ -55,13 +55,14 @@ function validateEstimateForm() {
         }
 
 
+        //Check the phone's length and if it is an integer.
         let validPhone = true;
         if (userPhone === null || userPhone === "") {
             validPhone = false;
         }
 
-        /* Phone validation needs more work here. */
-        if (userPhone.length !== 10) {
+        var userPhoneCheck = /^\d{10}$/;
+        if (userPhoneCheck.test(userPhone) === false) {
             validPhone = false;
         }
 
@@ -112,12 +113,12 @@ function validateEstimateForm() {
         }
 
 
+         //Check the Zip Codes' length and if it is an integer.
         let validZipCode = true;
         if (userZipCode === null || userZipCode === "") {
             validZipCode = false;
         }
 
-        //Check the Zip Codes' length and if it is an integer.
         let zipCodeRegularExpression = /^\d{5}$/;
         let userZipCodeIsA5DigitNumber = zipCodeRegularExpression.test(userZipCode);
         if (userZipCodeIsA5DigitNumber === false) {

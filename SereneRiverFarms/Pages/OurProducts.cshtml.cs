@@ -269,6 +269,24 @@ namespace SereneRiverFarms.Pages
             }
 
 
+            int userPhoneInteger;
+            bool userPhoneIsNumeric = int.TryParse(userPhone, out userPhoneInteger);
+            if (userPhone.Length != 10 || !userPhoneIsNumeric)
+            {
+                validForm = false;
+                contactFormResponse += "Phone must be exactly 10 chars in length.";
+            }
+
+
+            int userZipCodeInteger;
+            bool userZipCodeIsNumeric = int.TryParse(userZipCode, out userZipCodeInteger);
+            if(userZipCode.Length != 5 || !userZipCodeIsNumeric)
+            {
+                validForm = false;
+                contactFormResponse += "Zip code must be a number exactly 5 digits in length.";
+            }
+
+
 
             if (!validForm)
             {
