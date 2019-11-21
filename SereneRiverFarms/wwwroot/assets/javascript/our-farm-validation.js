@@ -54,13 +54,14 @@ function validateSetUpTourForm() {
         }
 
 
+        //Check the phone's length and if it is an integer.
         let validPhone = true;
         if (userPhone === null || userPhone === "") {
             validPhone = false;
         }
 
-        /* Phone validation needs more work here. */
-        if (userPhone.length !== 10) {
+        var userPhoneCheck = /^\d{10}$/;
+        if (userPhoneCheck.test(userPhone) === false) {
             validPhone = false;
         }
 

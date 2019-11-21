@@ -104,6 +104,14 @@ namespace SereneRiverFarms.Pages
             }
 
 
+            Int64 userPhoneInteger;
+            bool userPhoneIsNumeric = Int64.TryParse(userPhone, out userPhoneInteger);
+            if (userPhone.Length != 10 || !userPhoneIsNumeric)
+            {
+                validForm = false;
+                contactFormResponse += "Phone must be exactly 10 digits in length, no dashes. ";
+            }
+
 
             if (!validForm)
             {
