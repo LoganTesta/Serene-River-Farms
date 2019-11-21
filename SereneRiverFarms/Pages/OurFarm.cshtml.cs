@@ -114,7 +114,7 @@ namespace SereneRiverFarms.Pages
 
             Int64 partySizeInteger;
             bool partySizeIsNumeric = Int64.TryParse(partySize, out partySizeInteger);
-            if (partySize.Length < 1 || userPhone.Length > 2 || !partySizeIsNumeric)
+            if (partySizeInteger < 1 || partySizeInteger > 99 || !partySizeIsNumeric)
             {
                 validForm = false;
                 contactFormResponse += "Party size must be an integer of between 1-99. ";
