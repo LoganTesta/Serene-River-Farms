@@ -112,6 +112,15 @@ namespace SereneRiverFarms.Pages
                 contactFormResponse += "Phone must be exactly 10 digits in length, no dashes. ";
             }
 
+            Int64 partySizeInteger;
+            bool partySizeIsNumeric = Int64.TryParse(partySize, out partySizeInteger);
+            if (partySize.Length < 1 || userPhone.Length > 2 || !partySizeIsNumeric)
+            {
+                validForm = false;
+                contactFormResponse += "Party size must be an integer of between 1-99. ";
+            }
+
+
 
             if (!validForm)
             {

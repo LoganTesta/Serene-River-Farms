@@ -73,10 +73,23 @@ function validateSetUpTourForm() {
         }
 
 
+        //Check if the party size is a number, if it is, then convert it to a float, and check if it is an integer.
         let validPartySize = true;
         if (partySize === null || partySize === "") {
             validPartySize = false;
         }
+
+        let partySizeIsNumeric = $.isNumeric(partySize);
+        let partySizeToNumber = -1;
+        if (partySizeIsNumeric) {
+            partySizeToNumber = parseFloat(partySize);
+        }
+        if (partySizeIsNumeric === false || Math.floor(partySizeToNumber) !== partySizeToNumber) {
+            validPartySize = false;
+        }
+        if (partySizeToNumber < 1 || partySizeToNumber > 99) {
+            validPartySize = false;
+        }   
 
         if (validPartySize) {
             $("#partySize").removeClass("required-field-needed");
