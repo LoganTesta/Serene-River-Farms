@@ -51,47 +51,46 @@ namespace SereneRiverFarms.Pages
                 contactFormResponse = "Sorry, form not valid, please fill in all required (**) input fields. ";
             }
 
-            if (validForm)
+
+            if (!userEmail.Contains("@"))
             {
-                if (!userEmail.Contains("@"))
-                {
-                    validForm = false;
-                    contactFormResponse += "Email must contain at least 1 @ symbol. ";
-                }
-
-                if (!userEmail.Contains("."))
-                {
-                    validForm = false;
-                    contactFormResponse += "Email must contain at least 1 period (.). ";
-                }
-
-                int atSymbolIndex = userEmail.IndexOf("@");
-                int lastPeriodSymbol = userEmail.LastIndexOf(".");
-                int userEmailLength = userEmail.Length;
-
-
-                //Ensure at least 1 char before first @ symbol.
-                if (!(atSymbolIndex > 0))
-                {
-                    validForm = false;
-                    contactFormResponse += "Email must have at least one chracter before first @. ";
-                }
-
-                //Verify that at least 1 @ symbol comes before the last period, and that there is at least
-                //one char in between them.
-                if (!(atSymbolIndex + 1 < lastPeriodSymbol))
-                {
-                    validForm = false;
-                    contactFormResponse += "Email must have at least 1 @ symbol before the last period (.). ";
-                }
-
-                //Verify that there are at least 2 chars after the last period.
-                if (!(lastPeriodSymbol + 2 < userEmailLength))
-                {
-                    validForm = false;
-                    contactFormResponse += "Email must contain at least two characters after the last period (.). ";
-                }
+                validForm = false;
+                contactFormResponse += "Email must contain at least 1 @ symbol. ";
             }
+
+            if (!userEmail.Contains("."))
+            {
+                validForm = false;
+                contactFormResponse += "Email must contain at least 1 period (.). ";
+            }
+
+            int atSymbolIndex = userEmail.IndexOf("@");
+            int lastPeriodSymbol = userEmail.LastIndexOf(".");
+            int userEmailLength = userEmail.Length;
+
+
+            //Ensure at least 1 char before first @ symbol.
+            if (!(atSymbolIndex > 0))
+            {
+                validForm = false;
+                contactFormResponse += "Email must have at least one chracter before first @. ";
+            }
+
+            //Verify that at least 1 @ symbol comes before the last period, and that there is at least
+            //one char in between them.
+            if (!(atSymbolIndex + 1 < lastPeriodSymbol))
+            {
+                validForm = false;
+                contactFormResponse += "Email must have at least 1 @ symbol before the last period (.). ";
+            }
+
+            //Verify that there are at least 2 chars after the last period.
+            if (!(lastPeriodSymbol + 2 < userEmailLength))
+            {
+                validForm = false;
+                contactFormResponse += "Email must contain at least two characters after the last period (.). ";
+            }
+
 
 
             if (!validForm)
