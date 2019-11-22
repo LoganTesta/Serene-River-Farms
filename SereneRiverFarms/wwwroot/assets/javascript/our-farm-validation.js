@@ -60,7 +60,7 @@ function validateSetUpTourForm() {
             validPhone = false;
         }
 
-        var userPhoneCheck = /^\d{10}$/;
+        let userPhoneCheck = /^\d{10}$/;
         if (userPhoneCheck.test(userPhone) === false) {
             validPhone = false;
         }

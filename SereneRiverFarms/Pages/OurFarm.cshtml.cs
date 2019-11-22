@@ -121,6 +121,78 @@ namespace SereneRiverFarms.Pages
             }
 
 
+            //Check that the date is either the current date or a date in the future.
+            if (visitDate != "")
+            {
+                char[] dateCharacters = visitDate.ToCharArray();
+                string yearString = "";
+                string monthString = "";
+                string dayString = "";
+
+                int sectionOfDate = 0;
+                for (int i = 0; i < dateCharacters.Length; i++)
+                {
+                    char dash = '-';
+
+                    if (!dateCharacters[i].Equals(dash))
+                    {
+
+                        if (sectionOfDate == 0)
+                        {
+                            yearString += dateCharacters[i];
+                        }
+                        else if (sectionOfDate == 1)
+                        {
+                            monthString += dateCharacters[i];
+                        }
+                        else if (sectionOfDate == 2)
+                        {
+                            dayString += dateCharacters[i];
+                        }
+                    }
+                    else
+                    {
+                        sectionOfDate++;
+                    }
+                }
+
+                Int32 year;
+                bool isYearInt = Int32.TryParse(yearString, out year);
+                int month;
+                bool isMonthInt = int.TryParse(monthString, out month);
+                int day;
+                bool isDayInt = int.TryParse(dayString, out day);
+
+                if (!isYearInt || !isMonthInt || !isDayInt)
+                {
+                    validForm = false;
+                    contactFormResponse += " Incorrect date format entered.";
+                }
+                else
+                {
+                    DateTime currentDate = DateTime.Now;
+
+                    if (year < currentDate.Year)
+                    {
+                        validForm = false;
+                        contactFormResponse += " Incorrect year entered, please choose either the current or the next year.";
+                    }
+                    else if (year == currentDate.Year)
+                    {
+                        if (month < currentDate.Month || (month == currentDate.Month & day < currentDate.Day))
+                        {
+                            validForm = false;
+                            contactFormResponse += " Please choose a date that is in the future.";
+                        }
+                    }
+                    else if (year > (currentDate.Year + 1))
+                    {
+                        contactFormResponse += " Please schedule a date either later this or next year.";
+                    }
+                }
+            }
+
+
 
             if (!validForm)
             {
