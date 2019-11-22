@@ -121,7 +121,7 @@ namespace SereneRiverFarms.Pages
             }
 
 
-            //Check that the date is either the current date or a date in the future.
+            //More advanced date validation.
             if (visitDate != "")
             {
                 char[] dateCharacters = visitDate.ToCharArray();
@@ -179,7 +179,7 @@ namespace SereneRiverFarms.Pages
                     }
                     else if (year == currentDate.Year)
                     {
-                        if (month < currentDate.Month || (month == currentDate.Month & day < currentDate.Day))
+                        if (month < currentDate.Month || (month == currentDate.Month & day < (currentDate.Day + 1)))
                         {
                             validForm = false;
                             contactFormResponse += " Please choose a date that is in the future.";

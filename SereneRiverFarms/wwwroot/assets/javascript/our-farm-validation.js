@@ -13,7 +13,7 @@ function validateSetUpTourForm() {
         let visitTime = $("#visitTime").val().trim();
         let userComments = $("#userComments").val().trim();
         let validContactForm = true;
-
+        let dateFeedback = "";
 
         let validName = true;
         if (userName === null || userName === "") {
@@ -104,6 +104,51 @@ function validateSetUpTourForm() {
             validVisitDate = false;
         }
 
+        //More advanced date validation.
+        let sectionOfDate = 0;
+        let yearString = "";
+        let monthString = "";
+        let dayString = "";
+
+        for (let i = 0; i < visitDate.length; i++) {
+
+            if (visitDate[i] !== "-") {
+                if (sectionOfDate === 0) {
+                    yearString += visitDate[i];
+                } else if (sectionOfDate === 1) {
+                    monthString += visitDate[i];
+                } else if (sectionOfDate === 2) {
+                    dayString += visitDate[i];
+                }
+            } else {
+                sectionOfDate++;
+            }
+        }
+
+        let year = parseInt(yearString);
+        let month = parseInt(monthString); 
+        let day = parseInt(dayString);
+
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let currentMonth = 1 + currentDate.getMonth();
+        let currentDay = currentDate.getDate();
+
+        if (year < currentYear) {
+            validVisitDate = false;
+            dateFeedback = " Please provide a date ranging from tomorrow to later this or next year.";
+
+        } else if (year === currentYear) {
+            if (month < currentMonth || (month === currentMonth && day < (currentDay + 1))) {
+                validVisitDate = false;
+                dateFeedback = " Please provide a date ranging from tomorrow to later this or next year.";
+            }
+
+        } else if (year > (currentYear + 1)) {
+            validVisitDate = false;
+            dateFeedback = " Please provide a date ranging from tomorrow to later this or next year.";
+        }
+
         if (validVisitDate) {
             $("#visitDate").removeClass("required-field-needed");
         } else {
@@ -128,7 +173,7 @@ function validateSetUpTourForm() {
 
         if (validContactForm === false) {
             $(".javascript-validation-results-contact-us").eq(0).addClass("show");
-            $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format.");
+            $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format." + dateFeedback);
             return false;
         } else if (validContactForm) {
             $("javascript-validation-results-contact-us").eq(0).removeClass("show");
