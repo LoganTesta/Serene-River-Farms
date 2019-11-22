@@ -1165,8 +1165,13 @@ li { padding-bottom: 10px; }
 }
 
 .event {
-    padding-bottom: 12px;
+    padding-bottom: 15px;
 }
+
+.event__date { display: inline-block; font-weight: bold; }
+
+.past-events-subheading { padding-top: 20px; }
+
 
 /*Contact Us*/
 .background-hero-image.contact-us {
