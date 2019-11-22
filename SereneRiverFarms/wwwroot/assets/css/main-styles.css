@@ -421,6 +421,8 @@ input, textarea, select {
     --color-4-semi-opacity: rgba(163, 20, 24, 0.5);
     --color-2-very-low-opacity: rgba(12, 100, 97, 0.2);
     --color-1-lighter-green: rgba(75, 182, 69, 1);
+    --color-1-medium-opacity: rgba(22, 133, 16, 0.4);
+    --color-2-medium-opacity: rgba(12, 100, 97, 0.4);
 }
 
 .inner-wrapper {
@@ -708,10 +710,14 @@ li { padding-bottom: 10px; }
 
 /*Footer*/
 .footer {
-    padding: 40px 20px;
     text-align: center;
-    background-color: var(--color-1);
+    background: url("../images/hillside-farm.jpg") 0% 90%/cover no-repeat;
     color: #f9f9f9;
+}
+
+.footer__background {
+    padding: 40px 20px;
+    background-color: var(--color-2-medium-opacity);
 }
 
 .footer__copyright, .footer__locations, .footer__phone, .footer__hours {
