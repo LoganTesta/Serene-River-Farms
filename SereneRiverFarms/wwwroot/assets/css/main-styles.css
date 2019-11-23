@@ -441,7 +441,6 @@ input, textarea, select {
         transition: box-shadow 0.4s ease-in;
     }
 
-
 a, a:link, a:visited, a:hover {
     transition: 0.4s ease-in;
     font-weight: bold;
@@ -801,7 +800,7 @@ li { padding-bottom: 10px; }
 .slideshow {
     position: static;
     width: 100%;
-    max-width: 700px;
+    max-width: 560px;
     height: 100%;
     padding-bottom: 40px;
     margin-left: auto;
@@ -879,6 +878,30 @@ li { padding-bottom: 10px; }
 
 
 /*Index*/
+.index-content-1 {
+    padding: 0px 0 5px 15px;
+    text-align: left;
+}
+.index-content-2 {
+    padding: 5px 15px 5px 0;
+    text-align: right;
+}
+.index-content-3 {
+    padding: 5px 0 0px 15px;
+    text-align: left;
+}
+
+.index-content-1__h3 {
+    text-align: left;
+}
+.index-content-2__h3 {
+    text-align: right;
+}
+.index-content-3__h3 {
+    text-align: left;
+}
+.index-content__detail { display: block; padding-bottom: 12px; }
+
 .index-section {
     padding-bottom: 30px;
 }
@@ -1348,7 +1371,7 @@ li { padding-bottom: 10px; }
     }
 
     .slideshow__slide-button {
-        margin-left: 12px;
+        margin-left: 10px;
     }
 
 
@@ -1509,7 +1532,7 @@ li { padding-bottom: 10px; }
     /*Slideshow*/
     .slideshow {
         position: relative;
-        width: 600px;
+        width: 560px;
         height: 100%;
         padding-bottom: 0;
         margin-left: auto;
@@ -1524,6 +1547,10 @@ li { padding-bottom: 10px; }
     .slideshow__header {
         font-size: 26px;
     }
+    .slideshow__slide-button {
+        margin-left: 12px;
+    }
+
 
     /*General use styles*/
     .background-hero-image {
