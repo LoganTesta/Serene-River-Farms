@@ -2,6 +2,15 @@
 @model SereneRiverFarms.Areas.Identity.Pages.Account.SettingsModel
 @{
     ViewData["Title"] = "Settings";
+    var updateEmailResponse= ViewData["updateEmailResponse"];
+
+    var currentUser = UserManager.GetUserName(User);
+
+    var userId = UserManager.GetUserId(User);
+
+    var currentUserName = UserManager.FindByNameAsync(UserManager.GetUserName(User)).Result.UserName;
+    var currentUserEmail = UserManager.FindByNameAsync(UserManager.GetUserName(User)).Result.Email;
+
 }
 
 
@@ -17,32 +26,49 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="settings-form-container">
-            <div><p><strong>UserName: @UserManager.GetUserName(User)</strong></p></div>
+            <div><p><strong>UserName: @currentUser</strong></p></div>
+            <div><p><strong>Email: @currentUserEmail</strong></p></div>
+            <div><h3>Update Email</h3></div>
+            <p>@updateEmailResponse</p>
+            <form class="form settings-change-email-form" id="changeEmailForm" name="changeEmailForm" onsubmit="return validateChangeEmailForm();" method="post">
+                <div class="javascript-validation-results-contact-us"></div>
+                <div class="" asp-validation-summary="ModelOnly"></div>
+                <div class="form__input-container">
+                    <label asp-for="InputEmail.NewEmail" class="form__label">New Email **</label>
+                    <input asp-for="InputEmail.NewEmail" id="userNewEmail" class="form__input" type="email" />
+                    <span asp-validation-for="InputEmail.NewEmail"></span>
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <input asp-page-handler="ChangeEmailSection" id="changeEmailButton" class="form__submit-button" type="submit" name="changeEmailButton" value="Update Email!" />
+                    <div class="form__errors"></div>
+                </div>
+            </form>
             <div><h3>Change Password</h3></div>
             <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
             <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" onsubmit="return validateChangePasswordForm();" method="post">
                 <div class="javascript-validation-results-contact-us"></div>
-                <div class="" asp-validation-summary="All"></div>
+                <div class="" asp-validation-summary="ModelOnly"></div>
                 <div class="form__input-container">
-                    <label asp-for="Input.CurrentPassword" class="form__label">Current Password **</label>
-                    <input asp-for="Input.CurrentPassword" id="userCurrentPassword" class="form__input" type="password" />
-                    <span asp-validation-for="Input.CurrentPassword"></span>
+                    <label asp-for="InputPassword.CurrentPassword" class="form__label">Current Password **</label>
+                    <input asp-for="InputPassword.CurrentPassword" id="userCurrentPassword" class="form__input" type="password" />
+                    <span asp-validation-for="InputPassword.CurrentPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
-                    <label asp-for="Input.NewPassword" class="form__label">Enter New Password **</label>
-                    <input asp-for="Input.NewPassword" id="userNewPassword" class="form__input" type="password" />
-                    <span asp-validation-for="Input.NewPassword"></span>
+                    <label asp-for="InputPassword.NewPassword" class="form__label">Enter New Password **</label>
+                    <input asp-for="InputPassword.NewPassword" id="userNewPassword" class="form__input" type="password" />
+                    <span asp-validation-for="InputPassword.NewPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
-                    <label asp-for="Input.ConfirmPassword" class="form__label">Confirm New Password **</label>
-                    <input asp-for="Input.ConfirmPassword" id="userConfirmPassword" class="form__input" type="password" />
-                    <span asp-validation-for="Input.ConfirmPassword"></span>
+                    <label asp-for="InputPassword.ConfirmPassword" class="form__label">Confirm New Password **</label>
+                    <input asp-for="InputPassword.ConfirmPassword" id="userConfirmPassword" class="form__input" type="password" />
+                    <span asp-validation-for="InputPassword.ConfirmPassword"></span>
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">
-                    <input id="changePasswordButton" class="form__submit-button" type="submit" name="changePasswordButton" value="Change Password!" />
+                    <input asp-page-handler="ChangePasswordSection" id="changePasswordButton" class="form__submit-button" type="submit" name="changePasswordButton" value="Change Password!" />
                     <div class="form__errors"></div>
                 </div>
             </form>

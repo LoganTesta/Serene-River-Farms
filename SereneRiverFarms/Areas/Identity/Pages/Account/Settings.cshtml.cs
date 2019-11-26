@@ -33,14 +33,28 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
+
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputChangeEmailModel InputEmail { get; set; }
+        public InputChangePasswordModel InputPassword { get; set; }
 
         [TempData]
+        public string updateEmailResponse { get; set; }
         public string updatePasswordResponse { get; set; }
 
-        public class InputModel
+
+        public class InputChangeEmailModel
         {
+            /*For Email changes.*/
+            [Required]
+            [DataType(DataType.EmailAddress)]
+            [Display(Name = "New Email")]
+            public string NewEmail { get; set; }
+        }
+
+        public class InputChangePasswordModel
+        {
+            /*For password changes*/
             [Required]
             [DataType(DataType.Password)]
             [Display(Name = "Current Password")]
@@ -67,23 +81,52 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
         }
 
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostChangeEmailSectionAsync(string returnUrl = null)
+        {
+
+            //First check if the server side C# validation passed.
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            var user =  await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
+            }
+
+            var currentUserName = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.UserName;
+            String startingUserEmail =  _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
+
+            var emailToken =  await _userManager.GenerateChangeEmailTokenAsync(user, InputEmail.NewEmail);
+            var updateEmailResult =  await _userManager.ChangeEmailAsync(user, InputEmail.NewEmail, emailToken);
+
+            var newUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
+            updateEmailResponse = "Success! " + currentUserName + ", your email has been updated from " + startingUserEmail + " to " + newUserEmail + ".";
+            ViewData["updateEmailResponse"] = updateEmailResponse;
+            return Page();
+
+        }
+
+        public async Task<IActionResult> OnPostChangePasswordSectionAsync(string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
             var user = await _userManager.GetUserAsync(User);
-            if(user == null)
+            if (user == null)
             {
                 return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
             }
 
-            var updatePasswordResult = await _userManager.ChangePasswordAsync(user, Input.CurrentPassword, Input.NewPassword);
+            var updatePasswordResult = await _userManager.ChangePasswordAsync(user, InputPassword.CurrentPassword, InputPassword.NewPassword);
 
             if (!updatePasswordResult.Succeeded)
             {
-                foreach(var error in updatePasswordResult.Errors)
+                foreach (var error in updatePasswordResult.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
