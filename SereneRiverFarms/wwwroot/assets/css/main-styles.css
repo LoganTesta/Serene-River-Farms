@@ -738,6 +738,8 @@ li { padding-bottom: 10px; }
 
     .footer .footer__privacy-link:hover {
         color: var(--color-4);
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.8);
     }
 
     .footer__social-item {
