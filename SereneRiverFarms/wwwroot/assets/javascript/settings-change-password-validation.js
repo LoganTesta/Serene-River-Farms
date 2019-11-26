@@ -1,10 +1,57 @@
 ﻿
-/* JavaScript Contact Form Validation. */
-let clickedSubmit = false;
+/* JavaScript Form Validation. */
+let clickedSubmitChangeEmail = false;
+let clickedSubmitChangePassword = false;
+
+function validateChangeEmailForm() {
+    if (clickedSubmitChangeEmail) {
+        let userNewEmail = $("#userNewEmail").val().trim();
+        let validForm = true;
+
+
+        /*If the @ position is at the start (or less) position of value 0,  validContactForm = false. */
+        /* There must be at least 1 character after the @ position and the last dot position. */
+        /* There must be at least two characters after the last "." symbol.  */
+        let validNewEmail = true;
+        let atPosition = userNewEmail.indexOf("@");
+        let dotPosition = userNewEmail.lastIndexOf(".");
+        let lastEmailCharacter = userNewEmail.length - 1;
+
+        if (userNewEmail === null || userNewEmail === "") {
+            validNewEmail = false;
+        } else if (atPosition <= 0) {
+            validNewEmail = false;
+        } else if (atPosition + 1 >= dotPosition) {
+            validNewEmail = false;
+        } else if (dotPosition + 1 >= lastEmailCharacter) {
+            validNewEmail = false;
+        }
+
+        if (validNewEmail) {
+            $("#userNewEmail").removeClass("required-field-needed");
+        } else {
+            validForm = false;
+            $("#userNewEmail").addClass("required-field-needed");
+        }
+
+
+        if (validForm === false) {
+            $(".javascript-validation-results-contact-us.zero").eq(0).addClass("show");
+            $(".javascript-validation-results-contact-us.zero").eq(0).html("Please fill all required fields in the correct format.");
+            return false;
+        } else if (validForm) {
+            $("javascript-validation-results-contact-us.zero").eq(0).removeClass("show");
+            $("javascript-validation-results-contact-us.zero").eq(0).html("");
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
 
 
 function validateChangePasswordForm() {
-    if (clickedSubmit) {
+    if (clickedSubmitChangePassword) {
         let userCurrentPassword = $("#userCurrentPassword").val().trim();
         let userNewPassword = $("#userNewPassword").val().trim();
         let userConfirmPassword = $("#userConfirmPassword").val().trim();
@@ -69,12 +116,12 @@ function validateChangePasswordForm() {
 
 
         if (validForm === false) {
-            $(".javascript-validation-results-contact-us").eq(0).addClass("show");
-            $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format.");
+            $(".javascript-validation-results-contact-us.one").eq(0).addClass("show");
+            $(".javascript-validation-results-contact-us.one").eq(0).html("Please fill all required fields in the correct format.");
             return false;
         } else if (validForm) {
-            $("javascript-validation-results-contact-us").eq(0).removeClass("show");
-            $("javascript-validation-results-contact-us").eq(0).html("");
+            $("javascript-validation-results-contact-us.one").eq(0).removeClass("show");
+            $("javascript-validation-results-contact-us.one").eq(0).html("");
             return true;
         }
     } else {
@@ -83,10 +130,32 @@ function validateChangePasswordForm() {
 }
 
 
+/*Change email related functions/event handlers.*/
+function setClickedChangeEmailButtonTrue() {
+    let elementWithFocus = $(':focus')[0];
+    if (changeEmailButton === elementWithFocus) {
+        clickedSubmitChangeEmail = true;
+    }
+}
+
+$("#changeEmailButton").on("click", function () {
+    setClickedChangeEmailButtonTrue();
+});
+
+$("#changeEmailButton").on("click", function () {
+    validateChangeEmailForm()
+});
+
+$("#userNewEmail").on("change", function () {
+    validateChangeEmailForm();
+});
+
+
+/*Change password related functions/event handlers.*/
 function setClickedChangePasswordButtonTrue() {
     let elementWithFocus = $(':focus')[0];
     if (changePasswordButton === elementWithFocus) {
-        clickedSubmit = true;
+        clickedSubmitChangePassword = true;
     }
 }
 

@@ -5,14 +5,10 @@
     var updateEmailResponse= ViewData["updateEmailResponse"];
 
     var currentUser = UserManager.GetUserName(User);
-
     var userId = UserManager.GetUserId(User);
-
     var currentUserName = UserManager.FindByNameAsync(UserManager.GetUserName(User)).Result.UserName;
     var currentUserEmail = UserManager.FindByNameAsync(UserManager.GetUserName(User)).Result.Email;
-
 }
-
 
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<SereneRiverFarms.Areas.Identity.Data.SereneRiverFarmsUser> SignInManager
@@ -31,7 +27,7 @@
             <div><h3>Update Email</h3></div>
             <p>@updateEmailResponse</p>
             <form class="form settings-change-email-form" id="changeEmailForm" name="changeEmailForm" onsubmit="return validateChangeEmailForm();" method="post">
-                <div class="javascript-validation-results-contact-us"></div>
+                <div class="javascript-validation-results-contact-us zero"></div>
                 <div class="" asp-validation-summary="ModelOnly"></div>
                 <div class="form__input-container">
                     <label asp-for="InputEmail.NewEmail" class="form__label">New Email **</label>
@@ -44,10 +40,12 @@
                     <div class="form__errors"></div>
                 </div>
             </form>
+        </div>
+        <div class="settings-form-container">
             <div><h3>Change Password</h3></div>
             <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
             <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" onsubmit="return validateChangePasswordForm();" method="post">
-                <div class="javascript-validation-results-contact-us"></div>
+                <div class="javascript-validation-results-contact-us one"></div>
                 <div class="" asp-validation-summary="ModelOnly"></div>
                 <div class="form__input-container">
                     <label asp-for="InputPassword.CurrentPassword" class="form__label">Current Password **</label>
@@ -89,4 +87,4 @@
     });
 </script>
 
-<script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11142019"></script>
+<script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11262019"></script>

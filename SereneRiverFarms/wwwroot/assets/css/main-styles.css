@@ -1279,12 +1279,13 @@ li { padding-bottom: 10px; }
 }
 
 .account-nav {
+    padding-top: 5px;
     font-size: 18px;
 }
 
 .account-nav__link {
     display: block;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     font-size: 18px;
 }
 
