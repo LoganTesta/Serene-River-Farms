@@ -537,6 +537,7 @@ li { padding-bottom: 10px; }
 
 .sign-up-container {
     width: 152px;
+    margin-top: 5px;
     border-radius: 15px;
     background-color: var(--color-1);
     transition: 0.4s ease-in;
@@ -544,6 +545,7 @@ li { padding-bottom: 10px; }
 
     .sign-up-container:hover {
         background-color: var(--color-1-lighter-green);
+        box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
 
@@ -887,17 +889,20 @@ li { padding-bottom: 10px; }
     text-align: right;
 }
 .index-content-3 {
-    padding: 5px 0 0px 15px;
+    padding: 5px 0 0px 25px;
     text-align: left;
 }
 
 .index-content-1__h3 {
+    margin-left: -12px;
     text-align: left;
 }
 .index-content-2__h3 {
+    margin-right: -8px;
     text-align: right;
 }
 .index-content-3__h3 {
+    padding-left: 12px;
     text-align: left;
 }
 .index-content__detail { display: block; padding-bottom: 12px; }
