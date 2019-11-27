@@ -1,38 +1,26 @@
 ﻿
-/* JavaScript Contact Form Validation. */
+/* JavaScript Form Validation. */
 let clickedSubmit = false;
 
 
 function validateLoginForm() {
     if (clickedSubmit) {
-        let userEmail = $("#userEmail").val().trim();
+        let userName = $("#userName").val().trim();
         let userPassword = $("#userPassword").val().trim();
         let validForm = true;
 
+        let validName = true;
 
-        /*If the @ position is at the start (or less) position of value 0, validForm = false. */
-        /* There must be at least 1 character after the @ position and the last dot position. */
-        /* There must be at least two characters after the last "." symbol.  */
-        let validEmail = true;
-        let atPosition = userEmail.indexOf("@");
-        let dotPosition = userEmail.lastIndexOf(".");
-        let lastEmailCharacter = userEmail.length - 1;
 
-        if (userEmail === null || userEmail === "") {
-            validEmail = false;
-        } else if (atPosition <= 0) {
-            validEmail = false;
-        } else if (atPosition + 1 >= dotPosition) {
-            validEmail = false;
-        } else if (dotPosition + 1 >= lastEmailCharacter) {
-            validEmail = false;
-        }
+        if (userName === null || userName === "") {
+            validName = false;
+        } 
 
-        if (validEmail) {
-            $("#userEmail").removeClass("required-field-needed");
+        if (validName) {
+            $("#userName").removeClass("required-field-needed");
         } else {
             validForm = false;
-            $("#userEmail").addClass("required-field-needed");
+            $("#userName").addClass("required-field-needed");
         }
 
 
@@ -84,7 +72,7 @@ $("#loginButton").on("click", function () {
     validateLoginForm()
 });
 
-$("#userEmail").on("change", function () {
+$("#userName").on("change", function () {
     validateLoginForm();
 });
 
