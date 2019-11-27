@@ -36,7 +36,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            public string userEmail { get; set; }
+            public string userName { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
@@ -62,7 +62,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
             if(ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Input.userEmail, Input.userPassword, false, false);
+                var result = await _signInManager.PasswordSignInAsync(Input.userName, Input.userPassword, false, false);
                 if(result.Succeeded)
                 {
                     _logger.LogInformation("User logged in");

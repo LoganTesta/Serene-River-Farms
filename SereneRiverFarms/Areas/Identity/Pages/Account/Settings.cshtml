@@ -28,11 +28,9 @@
             <p>@updateEmailResponse</p>
             <form class="form settings-change-email-form" id="changeEmailForm" name="changeEmailForm" onsubmit="return validateChangeEmailForm();" method="post">
                 <div class="javascript-validation-results-contact-us zero"></div>
-                <div class="" asp-validation-summary="ModelOnly"></div>
                 <div class="form__input-container">
-                    <label asp-for="InputEmail.NewEmail" class="form__label">New Email **</label>
-                    <input asp-for="InputEmail.NewEmail" id="userNewEmail" class="form__input" type="email" />
-                    <span asp-validation-for="InputEmail.NewEmail"></span>
+                    <label class="form__label">New Email **</label>
+                    <input id="userNewEmail" name="userNewEmail" class="form__input" type="email" />
                     <div class="clear-both"></div>
                 </div>
                 <div class="form__input-container">

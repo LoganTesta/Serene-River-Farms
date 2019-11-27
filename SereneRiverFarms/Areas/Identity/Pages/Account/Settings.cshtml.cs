@@ -18,7 +18,6 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
     [Authorize]  //Restricts access to this page to only signed in users.
     public class SettingsModel : PageModel
     {
-
         private readonly SignInManager<SereneRiverFarmsUser> _signInManager;
         private readonly UserManager<SereneRiverFarmsUser> _userManager;
         private readonly ILogger<SettingsModel> _logger;
@@ -33,24 +32,13 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
+        public string updateEmailResponse { get; set; }
 
         [BindProperty]
-        public InputChangeEmailModel InputEmail { get; set; }
         public InputChangePasswordModel InputPassword { get; set; }
 
         [TempData]
-        public string updateEmailResponse { get; set; }
         public string updatePasswordResponse { get; set; }
-
-
-        public class InputChangeEmailModel
-        {
-            /*For Email changes.*/
-            [Required]
-            [DataType(DataType.EmailAddress)]
-            [Display(Name = "New Email")]
-            public string NewEmail { get; set; }
-        }
 
         public class InputChangePasswordModel
         {
@@ -83,39 +71,103 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostChangeEmailSectionAsync(string returnUrl = null)
         {
+            //Validate email.
+            bool validForm = true;
+            string userNewEmail = "";
 
-            //First check if the server side C# validation passed.
-            if(!ModelState.IsValid)
+            try
+            {
+                userNewEmail = System.Web.HttpUtility.HtmlEncode(Request.Form["userNewEmail"]);
+            }
+            catch (Exception)
+            {
+                userNewEmail = "";
+            }
+
+
+            bool validNewEmail = true;
+            if (userNewEmail == "")
+            {
+                validNewEmail = false;
+                updateEmailResponse = "Sorry, form not valid, please fill in all required (**) input fields. ";
+            }
+
+
+            if (!userNewEmail.Contains("@"))
+            {
+                validNewEmail = false;
+                updateEmailResponse += "Email must contain at least 1 @ symbol. ";
+            }
+
+            if (!userNewEmail.Contains("."))
+            {
+                validNewEmail = false;
+                updateEmailResponse += "Email must contain at least 1 period (.). ";
+            }
+
+            int atSymbolIndex = userNewEmail.IndexOf("@");
+            int lastPeriodSymbol = userNewEmail.LastIndexOf(".");
+            int userEmailLength = userNewEmail.Length;
+
+
+            //Ensure at least 1 char before first @ symbol.
+            if (!(atSymbolIndex > 0))
+            {
+                validNewEmail = false;
+                updateEmailResponse += "Email must have at least one chracter before first @. ";
+            }
+
+            //Verify that at least 1 @ symbol comes before the last period, and that there is at least
+            //one char in between them.
+            if (!(atSymbolIndex + 1 < lastPeriodSymbol))
+            {
+                validNewEmail = false;
+                updateEmailResponse += "Email must have at least 1 @ symbol before the last period (.). ";
+            }
+
+            //Verify that there are at least 2 chars after the last period.
+            if (!(lastPeriodSymbol + 2 < userEmailLength))
+            {
+                validNewEmail = false;
+                updateEmailResponse += "Email must contain at least two characters after the last period (.). ";
+            }
+
+            if (validNewEmail == false)
+            {
+                validForm = false;
+                updateEmailResponse += " Please enter a valid email.";
+            }
+
+            if (validForm) { 
+                var user = await _userManager.GetUserAsync(User);
+                
+                if (user == null)
+                {
+                    return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
+                }
+                var currentUserName = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.UserName;
+                String startingUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
+                var emailToken = await _userManager.GenerateChangeEmailTokenAsync(user, userNewEmail);
+                var updateEmailResult = await _userManager.ChangeEmailAsync(user, userNewEmail, emailToken);
+                
+                var newUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
+                updateEmailResponse = "Success! " + currentUserName + ", your email has been updated from " + startingUserEmail + " to " + newUserEmail + ".";
+                ViewData["updateEmailResponse"] = updateEmailResponse;
+                return Page();
+            } else
             {
                 return Page();
             }
-
-            var user =  await _userManager.GetUserAsync(User);
-
-            if (user == null)
-            {
-                return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
-            }
-
-            var currentUserName = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.UserName;
-            String startingUserEmail =  _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
-
-            var emailToken =  await _userManager.GenerateChangeEmailTokenAsync(user, InputEmail.NewEmail);
-            var updateEmailResult =  await _userManager.ChangeEmailAsync(user, InputEmail.NewEmail, emailToken);
-
-            var newUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
-            updateEmailResponse = "Success! " + currentUserName + ", your email has been updated from " + startingUserEmail + " to " + newUserEmail + ".";
-            ViewData["updateEmailResponse"] = updateEmailResponse;
-            return Page();
-
         }
 
         public async Task<IActionResult> OnPostChangePasswordSectionAsync(string returnUrl = null)
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -135,7 +187,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
 
             await _signInManager.RefreshSignInAsync(user);
             _logger.LogInformation("The user changed their password successfully.");
-            updatePasswordResponse = user.UserName + ", you have successfully updated your password!";
+            updatePasswordResponse += "" + user.UserName + ", you have successfully updated your password!";
             return RedirectToPage();
         }
     }
