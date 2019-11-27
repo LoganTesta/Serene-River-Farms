@@ -27,7 +27,7 @@
             <div><p><strong>Email: @currentUserEmail</strong></p></div>
             <div><h3>Update Name</h3></div>
             <p>@updateNameResponse</p>
-            <form class="form settings-change-name-form" id="changeNameForm" name="changeNameForm" method="post">
+            <form class="form settings-change-name-form" id="changeNameForm" onsubmit="return validateChangeNameForm();" name="changeNameForm" method="post">
                 <div class="javascript-validation-results-contact-us zero"></div>
                 <div class="form__input-container">
                     <label class="form__label">New User Name **</label>

@@ -1,7 +1,46 @@
 ﻿
 /* JavaScript Form Validation. */
+let clickedSubmitNameEmail = false;
 let clickedSubmitChangeEmail = false;
 let clickedSubmitChangePassword = false;
+
+
+function validateChangeNameForm() {
+    if (clickedSubmitChangeName) {
+        let userNewName = $("#userNewName").val().trim();
+        let validForm = true;
+
+
+        let validNewName = true;
+        if (userNewName === null || userNewName === "") {
+            validNewName = false;
+        } 
+        if (userNewName.length < 3 || userNewName.length > 40) {
+            validNewName = false;
+        }
+
+        if (validNewName) {
+            $("#userNewName").removeClass("required-field-needed");
+        } else {
+            validForm = false;
+            $("#userNewName").addClass("required-field-needed");
+        }
+
+
+        if (validForm === false) {
+            $(".javascript-validation-results-contact-us.zero").eq(0).addClass("show");
+            $(".javascript-validation-results-contact-us.zero").eq(0).html("User name must be between 3-40 characters.  Please fill all required fields in the correct format.");
+            return false;
+        } else if (validForm) {
+            $("javascript-validation-results-contact-us.one").eq(0).removeClass("show");
+            $("javascript-validation-results-contact-us.one").eq(0).html("");
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+
 
 function validateChangeEmailForm() {
     if (clickedSubmitChangeEmail) {
@@ -128,6 +167,27 @@ function validateChangePasswordForm() {
         return false;
     }
 }
+
+
+/*Change name related functions/event handlers.*/
+function setClickedChangeNameButtonTrue() {
+    let elementWithFocus = $(':focus')[0];
+    if (changeNameButton === elementWithFocus) {
+        clickedSubmitChangeName = true;
+    }
+}
+
+$("#changeNameButton").on("click", function () {
+    setClickedChangeNameButtonTrue();
+});
+
+$("#changeNameButton").on("click", function () {
+    validateChangeNameForm()
+});
+
+$("#userNewName").on("change", function () {
+    validateChangeNameForm();
+});
 
 
 /*Change email related functions/event handlers.*/

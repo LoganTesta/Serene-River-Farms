@@ -88,14 +88,20 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             bool validNewName = true;
             if (userNewName == "")
             {
+                validNewName = false;         
+            }
+            if(userNewName.Length < 3 || userNewName.Length > 40)
+            {
                 validNewName = false;
-                updateNameResponse += "Please enter your desired new user name. ";
             }
 
 
             if (validNewName == false)
             {
                 validForm = false;
+                updateNameResponse += "Please enter your desired new user name between 3 and 40 characters length. ";
+            } else
+            {
                 updateNameResponse += " Please fill out all fields in the peoper format.";
             }
 
@@ -127,6 +133,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             }
             else
             {
+                ViewData["updateNameResponse"] = updateNameResponse;
                 return Page();
             }
         }
@@ -225,6 +232,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
                 return RedirectToPage();
             } else
             {
+                ViewData["updateEmailResponse"] = updateEmailResponse;
                 return Page();
             }
         }
