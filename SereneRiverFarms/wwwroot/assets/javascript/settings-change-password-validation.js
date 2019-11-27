@@ -36,12 +36,12 @@ function validateChangeEmailForm() {
 
 
         if (validForm === false) {
-            $(".javascript-validation-results-contact-us.zero").eq(0).addClass("show");
-            $(".javascript-validation-results-contact-us.zero").eq(0).html("Please fill all required fields in the correct format.");
+            $(".javascript-validation-results-contact-us.one").eq(0).addClass("show");
+            $(".javascript-validation-results-contact-us.one").eq(0).html("Please fill all required fields in the correct format.");
             return false;
         } else if (validForm) {
-            $("javascript-validation-results-contact-us.zero").eq(0).removeClass("show");
-            $("javascript-validation-results-contact-us.zero").eq(0).html("");
+            $("javascript-validation-results-contact-us.one").eq(0).removeClass("show");
+            $("javascript-validation-results-contact-us.one").eq(0).html("");
             return true;
         }
     } else {
@@ -116,12 +116,12 @@ function validateChangePasswordForm() {
 
 
         if (validForm === false) {
-            $(".javascript-validation-results-contact-us.one").eq(0).addClass("show");
-            $(".javascript-validation-results-contact-us.one").eq(0).html("Please fill all required fields in the correct format.");
+            $(".javascript-validation-results-contact-us.two").eq(0).addClass("show");
+            $(".javascript-validation-results-contact-us.two").eq(0).html("Please fill all required fields in the correct format.");
             return false;
         } else if (validForm) {
-            $("javascript-validation-results-contact-us.one").eq(0).removeClass("show");
-            $("javascript-validation-results-contact-us.one").eq(0).html("");
+            $("javascript-validation-results-contact-us.two").eq(0).removeClass("show");
+            $("javascript-validation-results-contact-us.two").eq(0).html("");
             return true;
         }
     } else {

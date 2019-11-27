@@ -2,6 +2,7 @@
 @model SereneRiverFarms.Areas.Identity.Pages.Account.SettingsModel
 @{
     ViewData["Title"] = "Settings";
+    var updateNameResponse = ViewData["updateNameResponse"];
     var updateEmailResponse= ViewData["updateEmailResponse"];
 
     var currentUser = UserManager.GetUserName(User);
@@ -24,10 +25,26 @@
         <div class="settings-form-container">
             <div><p><strong>UserName: @currentUser</strong></p></div>
             <div><p><strong>Email: @currentUserEmail</strong></p></div>
+            <div><h3>Update Name</h3></div>
+            <p>@updateNameResponse</p>
+            <form class="form settings-change-name-form" id="changeNameForm" name="changeNameForm" method="post">
+                <div class="javascript-validation-results-contact-us zero"></div>
+                <div class="form__input-container">
+                    <label class="form__label">New User Name **</label>
+                    <input id="userNewName" name="userNewName" class="form__input" type="text" />
+                    <div class="clear-both"></div>
+                </div>
+                <div class="form__input-container">
+                    <input asp-page-handler="ChangeNameSection" id="changeNameButton" class="form__submit-button" type="submit" name="changeNameButton" value="Update User Name!" />
+                    <div class="form__errors"></div>
+                </div>
+            </form>
+        </div>
+        <div class="settings-form-container">
             <div><h3>Update Email</h3></div>
             <p>@updateEmailResponse</p>
             <form class="form settings-change-email-form" id="changeEmailForm" name="changeEmailForm" onsubmit="return validateChangeEmailForm();" method="post">
-                <div class="javascript-validation-results-contact-us zero"></div>
+                <div class="javascript-validation-results-contact-us one"></div>
                 <div class="form__input-container">
                     <label class="form__label">New Email **</label>
                     <input id="userNewEmail" name="userNewEmail" class="form__input" type="email" />
@@ -43,7 +60,7 @@
             <div><h3>Change Password</h3></div>
             <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
             <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" onsubmit="return validateChangePasswordForm();" method="post">
-                <div class="javascript-validation-results-contact-us one"></div>
+                <div class="javascript-validation-results-contact-us two"></div>
                 <div class="" asp-validation-summary="ModelOnly"></div>
                 <div class="form__input-container">
                     <label asp-for="InputPassword.CurrentPassword" class="form__label">Current Password **</label>
@@ -85,4 +102,4 @@
     });
 </script>
 
-<script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11262019"></script>
+<script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11262019V2"></script>

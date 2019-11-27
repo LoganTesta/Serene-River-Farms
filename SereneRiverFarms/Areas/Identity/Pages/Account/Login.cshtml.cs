@@ -35,7 +35,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [DataType(DataType.Text)]
             public string userName { get; set; }
 
             [Required]

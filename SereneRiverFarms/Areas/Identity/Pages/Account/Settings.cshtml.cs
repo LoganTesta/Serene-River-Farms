@@ -32,6 +32,7 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
+        public string updateNameResponse { get; set; }
         public string updateEmailResponse { get; set; }
 
         [BindProperty]
@@ -66,6 +67,68 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
         public void OnGet(string returnUrl = null)
         {         
 
+        }
+
+        public async Task<IActionResult> OnPostChangeNameSectionAsync(string returnUrl = null)
+        {
+            //Validate name.
+            bool validForm = true;
+            string userNewName = "";
+
+            try
+            {
+                userNewName = System.Web.HttpUtility.HtmlEncode(Request.Form["userNewName"]);
+            }
+            catch (Exception)
+            {
+                userNewName = "";
+            }
+
+
+            bool validNewName = true;
+            if (userNewName == "")
+            {
+                validNewName = false;
+                updateNameResponse += "Please enter your desired new user name. ";
+            }
+
+
+            if (validNewName == false)
+            {
+                validForm = false;
+                updateNameResponse += " Please fill out all fields in the peoper format.";
+            }
+
+            if (validForm)
+            {
+                var user = await _userManager.GetUserAsync(User);
+
+                if (user == null)
+                {
+                    return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
+                }
+                var currentUserName = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.UserName;
+                var currentUserId = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Id;
+
+
+
+                var changeNameUser = await _userManager.FindByIdAsync(currentUserId);
+                changeNameUser.UserName = "" + userNewName;
+                await _userManager.UpdateAsync(changeNameUser);
+                await _signInManager.RefreshSignInAsync(user);
+
+
+                ViewData["updateNameResponse"] = updateNameResponse;
+
+                ViewData["currentUser"] =""+ await _userManager.FindByIdAsync(currentUserId);
+                ViewData["currentUserName"] = "" + changeNameUser.UserName;
+
+                return RedirectToPage();   //This is critical to prevent a potential error.
+            }
+            else
+            {
+                return Page();
+            }
         }
 
 
@@ -146,14 +209,20 @@ namespace SereneRiverFarms.Areas.Identity.Pages.Account
                     return NotFound($"Unable to load the user with Id '{_userManager.GetUserId(User)}'.");
                 }
                 var currentUserName = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.UserName;
+                var currentUserId = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Id;
+
                 String startingUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
                 var emailToken = await _userManager.GenerateChangeEmailTokenAsync(user, userNewEmail);
                 var updateEmailResult = await _userManager.ChangeEmailAsync(user, userNewEmail, emailToken);
-                
+
+
                 var newUserEmail = _userManager.FindByNameAsync(_userManager.GetUserName(User)).Result.Email;
                 updateEmailResponse = "Success! " + currentUserName + ", your email has been updated from " + startingUserEmail + " to " + newUserEmail + ".";
                 ViewData["updateEmailResponse"] = updateEmailResponse;
-                return Page();
+
+
+                await _signInManager.RefreshSignInAsync(user);
+                return RedirectToPage();
             } else
             {
                 return Page();
