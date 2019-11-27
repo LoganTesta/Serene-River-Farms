@@ -1512,9 +1512,9 @@ li { padding-bottom: 10px; }
 
     .register-login-username {
         position: absolute;
-        top: 80px;
+        top: 90px;
         left: auto;
-        right: 20px;
+        right: 50px;
         width: auto;
         height: auto;
         max-width: none;
