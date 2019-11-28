@@ -1219,13 +1219,36 @@ li { padding-bottom: 10px; }
 
 /*Blog*/
 .background-hero-image.blog {
-    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/farm-barn-pond.jpg') 50% 30%/cover no-repeat;
 }
 
 .blog {
     padding-bottom: 30px;
 }
-.blog__date { padding-bottom: 10px; font-weight: bold; }
+.blog__title { width: 100%; }
+.blog__date {
+    display: inline-block;
+    padding-right: 8px;
+    font-weight: bold;
+}
+.blog__photo {
+    float: right;
+    width: 240px;
+    height: 160px;
+    margin: 0 0 5px 15px; 
+}
+.blog__body { }
+
+
+.blog.zero .blog__photo {
+    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+}
+.blog.one .blog__photo {
+    background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+.blog.two .blog__photo {
+    background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
+}
 
 /*Contact Us*/
 .background-hero-image.contact-us {
