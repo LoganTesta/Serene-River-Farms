@@ -1,0 +1,66 @@
+﻿@page
+@model SereneRiverFarms.Pages.BlogModel
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<div class="content-row">
+    <div class="col-sma-6 page-content">
+        <div class="subtitle-container">
+            <h2 class="subtitle-container__subtitle">Blog</h2>
+            <div class="subheader-divider"></div>
+        </div>
+        <div class="blog">
+            <h3>It's Pumpkin Time!  Guided Pumpkin Patch tour and free Hot Apply Cider!</h3>
+            <div class="blog__date">
+                October 20, 2019
+            </div>
+            <div class="blog__body">
+                <p>
+                    There's still time to pick up your pumpkins for Halloween.  We have an upcoming Pumpkin Tour this weekend on October 26
+                    where visitors can get a guided tour of the pumpkin patch.
+                </p>
+                <p>
+                    Learn a bit about the process of growing quality pumpkins from one of our farmers and then pick out some pumpkins for your family!
+                    There will be free hot apple cider too!
+                </p>
+            </div>
+        </div>
+        <div class="blog">
+            <h3>Summer 5k Recap</h3>
+            <div class="blog__date">
+                July 25, 2019
+            </div>
+            <div class="blog__body">
+                <p>
+                    This years' Summer 5k was a great success, over 150 runners participated in our event.  The top 3 winners recieved a brass medal,
+                    4lb, 3lb, or 2lb of free blueberries, and a free pie.  Thank you to all participants, we look forward to the next 5k here at the farm!
+                </p>
+            </div>
+        </div>
+        <div class="blog">
+            <h3>Spring 5k Recap</h3>
+            <div class="blog__date">
+                April 24, 2019
+            </div>
+            <div class="blog__body">
+                <p>
+                    This years' Spring 5k was a great success.  Over 120 runners participated in our event.  The top 3 winners recieved a brass medal,
+                    and $50, $25, or $15 gift cards to our Farm Store.  Thank you to all participants!
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image blog">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        setCurrentPage(5, "#mobileNav", ".nav__nav-link");
+        setCurrentPage(5, "#desktopNav", ".nav__nav-link");
+    });
+</script>

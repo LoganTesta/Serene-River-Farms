@@ -1217,6 +1217,16 @@ li { padding-bottom: 10px; }
 .past-events-subheading { padding-top: 20px; }
 
 
+/*Blog*/
+.background-hero-image.blog {
+    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+}
+
+.blog {
+    padding-bottom: 30px;
+}
+.blog__date { padding-bottom: 10px; font-weight: bold; }
+
 /*Contact Us*/
 .background-hero-image.contact-us {
     background: url('/assets/images/tractor-with-cargo-bay.jpg') 50% 30%/cover no-repeat;
