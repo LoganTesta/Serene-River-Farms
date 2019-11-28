@@ -575,7 +575,7 @@ li { padding-bottom: 10px; }
 }
 
 .header {
-    min-height: 300px;
+    min-height: 315px;
     background: url("../images/hillside-farm.jpg") 0% 50%/cover no-repeat;
 }
 
@@ -610,7 +610,7 @@ li { padding-bottom: 10px; }
 /*Nav*/
 .nav {
     position: absolute;
-    top: 52px;
+    top: 32px;
     right: 0px;
     text-align: right;
 }
@@ -648,7 +648,7 @@ li { padding-bottom: 10px; }
 /*Login/Register*/
 .register-login-username {
     position: absolute;
-    top: 215px;
+    top: 230px;
     left: 10px;
     max-width: 205px;
     height: 40px;
@@ -660,7 +660,7 @@ li { padding-bottom: 10px; }
 
 .register-login {
     position: absolute;
-    top: 260px;
+    top: 275px;
     left: 10px;
 }
 
@@ -1219,7 +1219,7 @@ li { padding-bottom: 10px; }
 
 /*Blog*/
 .background-hero-image.blog {
-    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
 }
 
 .blog {
@@ -1480,7 +1480,7 @@ li { padding-bottom: 10px; }
     .nav {
         position: absolute;
         top: 15px;
-        left: 200px;
+        left: 185px;
     }
 
     .nav__nav-list-container {
