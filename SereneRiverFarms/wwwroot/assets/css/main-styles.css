@@ -960,7 +960,6 @@ li { padding-bottom: 10px; }
 }
 
 
-
 .index-section.one .index-section__bg-image {
     background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
 }
@@ -987,7 +986,19 @@ li { padding-bottom: 10px; }
 
 /*About Us*/
 .background-hero-image.about-us {
+    margin-bottom: 40px;
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
+}
+
+.map-location__header { text-align: center; }
+.map-location__text {
+    text-align: center;
+}
+.map-location__map {
+    width: 100%;
+    height: 240px;
+    max-width: 1500px;
+    background: url('/assets/images/serene-river-farms-map.png') 50% 30%/cover no-repeat;
 }
 
 
@@ -1443,6 +1454,13 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
     }
 
+    /*About */
+    .background-hero-image.about-us {
+        margin-bottom: 0px;
+    }
+        .map-location__map {
+        height: 400px;
+    }
 
     /*Our Farm*/
     .our-farm-tour-image {
@@ -1616,6 +1634,12 @@ li { padding-bottom: 10px; }
         height: 220px;
     }
 
+
+    /*About*/
+    .map-location__map {
+        width: 1150px;
+        height: 700px;
+    }
 
     /*Our Farm*/
     .our-farm-tour-image {
