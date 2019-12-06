@@ -89,7 +89,7 @@ function runSlideShow() {
             currentSlideNumber = 0;
         }
         if (currentSlideNumber === 0) {
-            slideshowImageLink.attr("href", "/Products");
+            slideshowImageLink.attr("href", "/OurProducts");
             slideshowHeader.html("Summer Fresh Berries");
             currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
             slideButton0.css("opacity", 1.0);
@@ -125,7 +125,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 1.0);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 4) {
-            slideshowImageLink.attr("href", "/Products");
+            slideshowImageLink.attr("href", "/Events");
             slideshowHeader.html("Apples Galore!");
             currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
             slideButton0.css("opacity", 0.40);
