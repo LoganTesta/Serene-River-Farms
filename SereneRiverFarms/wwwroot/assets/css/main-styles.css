@@ -839,7 +839,9 @@ li { padding-bottom: 10px; }
         transition: transform 2.0s ease-in;
     }
 
-    .slideshow__image a { display: block; }
+.slideshow__image-link {
+    display: block;
+}
 
     .slideshow__header {
         padding: 10px 10px;

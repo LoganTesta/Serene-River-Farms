@@ -23,6 +23,8 @@ let slideButton2 = $("#slideButton2");
 let slideButton3 = $("#slideButton3");
 let slideButton4 = $("#slideButton4");
 
+let slideshowImageLink = $(".slideshow__image-link").eq(0);
+
 $("#slideButton0").on("click", function () {
     setSlide(0);
 });
@@ -87,6 +89,7 @@ function runSlideShow() {
             currentSlideNumber = 0;
         }
         if (currentSlideNumber === 0) {
+            slideshowImageLink.attr("href", "/Products");
             slideshowHeader.html("Summer Fresh Berries");
             currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
             slideButton0.css("opacity", 1.0);
@@ -95,6 +98,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 1) {
+            slideshowImageLink.attr("href", "/OurFarm");
             slideshowHeader.html("Some of our Cherry Trees");
             currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
             slideButton0.css("opacity", 0.40);
@@ -103,6 +107,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 2) {
+            slideshowImageLink.attr("href", "/OurFarm");
             slideshowHeader.html("One of our Tractors at Work");
             currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
             slideButton0.css("opacity", 0.40);
@@ -111,6 +116,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 0.40);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 3) {
+            slideshowImageLink.attr("href", "/About");
             slideshowHeader.html("Some of our Farmland");
             currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
             slideButton0.css("opacity", 0.40);
@@ -119,6 +125,7 @@ function runSlideShow() {
             slideButton3.css("opacity", 1.0);
             slideButton4.css("opacity", 0.40);
         } else if (currentSlideNumber === 4) {
+            slideshowImageLink.attr("href", "/Products");
             slideshowHeader.html("Apples Galore!");
             currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
             slideButton0.css("opacity", 0.40);
