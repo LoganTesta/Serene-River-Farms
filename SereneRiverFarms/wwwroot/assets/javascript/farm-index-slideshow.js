@@ -72,15 +72,12 @@ function runSlideShow() {
     }
     if (paused === false) {
         if (slideshowCounter === 0) {
-            currentSlide.css("opacity", 0);
-            currentSlide.fadeTo(1500, 1);
+            currentSlide.fadeTo(1000, 1);
         }
-
-        if (slideshowCounter === 450) {
-            currentSlide.fadeTo(750, 0);
+        if (slideshowCounter === 600) {
+            currentSlide.fadeTo(1000, 0);
         }
-
-        if (slideshowCounter >= 525) {
+        if (slideshowCounter >= 700) {
             slideshowCounter = -1;
             currentSlideNumber++;
         }
