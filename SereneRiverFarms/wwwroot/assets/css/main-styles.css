@@ -716,6 +716,8 @@ li { padding-bottom: 10px; }
     color: #f9f9f9;
 }
 
+.footer p { padding-bottom: 8px; }
+
 .footer__background {
     padding: 40px 20px;
     background-color: var(--color-2-medium-opacity);
@@ -726,6 +728,7 @@ li { padding-bottom: 10px; }
 }
 
 .footer__subheading {
+    padding-bottom: 16px;
     font-weight: bold;
     color: #ffffff;
 }
