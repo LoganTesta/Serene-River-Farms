@@ -1057,19 +1057,24 @@ li { padding-bottom: 10px; }
     text-align: center;
 }
 .product__quantity__and-add {
-    
-}
-.product__quantity {
-    font-weight: bold;
+    padding-top: 15px;
 }
 .product__add {
     width: 108px;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
     font-weight: bold;
     background-color: var(--color-1);
     color: #ffffff;
     cursor: pointer;
+}
+
+.product__quantity {
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
 }
 
 
@@ -1504,6 +1509,13 @@ li { padding-bottom: 10px; }
     /*Products*/
     .product__bg-image {
         height: 280px;
+    }
+    .product__add {
+        float: left;
+    }
+    .product__quantity {
+        float: left;
+        padding-left: 15px;
     }
 
     .estimate-container {

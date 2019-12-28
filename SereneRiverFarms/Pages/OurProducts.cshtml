@@ -79,7 +79,8 @@
         <div class="product__price">$@products[0].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfPears</div>
+            <div class="product__quantity">@numberOfPears</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product two">
@@ -89,7 +90,8 @@
         <div class="product__price">$@products[1].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfApples</div>
+            <div class="product__quantity">@numberOfApples</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product three">
@@ -99,7 +101,8 @@
         <div class="product__price">$@products[2].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfBlueberries</div>
+            <div class="product__quantity">@numberOfBlueberries</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product four">
@@ -109,7 +112,8 @@
         <div class="product__price">$@products[3].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfStrawberries</div>
+            <div class="product__quantity">@numberOfStrawberries</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product five">
@@ -119,7 +123,8 @@
         <div class="product__price">$@products[4].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfRaspberries</div>
+            <div class="product__quantity">@numberOfRaspberries</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product six">
@@ -129,7 +134,8 @@
         <div class="product__price">$@products[5].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfCherries</div>
+            <div class="product__quantity">@numberOfCherries</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product seven">
@@ -142,7 +148,8 @@
         <div class="product__price">$@products[6].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @subtotalPumpkins</div>
+            <div class="product__quantity">@numberOfPumpkins</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product eight">
@@ -155,7 +162,8 @@
         <div class="product__price">$@products[7].price/gallon</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOfMilkGallons</div>
+            <div class="product__quantity">@numberOfMilkGallons</div>
+            <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-lar-3 product nine">
@@ -165,7 +173,8 @@
         <div class="product__price">$@products[8].price, $4-8/jar</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">In cart: @numberOf12OunceJamJars</div>
+            <div class="product__quantity">@numberOf12OunceJamJars</div>
+            <div class="clear-both"></div>
         </div>
     </div>
 </div>
@@ -466,7 +475,7 @@
                     let itemQuantity = ajaxDocument.getElementsByClassName("item__quantity")[i];
                     let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[i];
 
-                    $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
+                    $(".product__quantity").eq(i).html(productQuantity.innerHTML);
                     $(".item__quantity").eq(i).html(itemQuantity.innerHTML);
                     $(".item__approximate-subtotal").eq(i).html(productApproximateTotal.innerHTML);
                 }
