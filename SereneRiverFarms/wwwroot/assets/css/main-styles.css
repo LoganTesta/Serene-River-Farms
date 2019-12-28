@@ -1069,13 +1069,20 @@ li { padding-bottom: 10px; }
     background-color: var(--color-1);
     color: #ffffff;
     cursor: pointer;
+    transition: 0.4s ease-in;
 }
+    .product__add:hover {
+        background-color: var(--color-1-lighter-green);
+        box-shadow: 0 0 3px 5px var(--color-3-semi-opacity);
+        transition: 0.4s ease-in;
+    }
 
-.product__quantity {
-    padding-top: 10px;
-    font-weight: bold;
-    text-align: center;
-}
+
+    .product__quantity {
+        padding-top: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
 
 
 .product.one .product__bg-image {
@@ -1515,7 +1522,7 @@ li { padding-bottom: 10px; }
     }
     .product__quantity {
         float: left;
-        padding-left: 15px;
+        padding-left: 20px;
     }
 
     .estimate-container {
