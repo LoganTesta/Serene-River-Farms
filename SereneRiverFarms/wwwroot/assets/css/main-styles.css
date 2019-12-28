@@ -1056,6 +1056,21 @@ li { padding-bottom: 10px; }
     font-size: 18px;
     text-align: center;
 }
+.product__quantity__and-add {
+    
+}
+.product__quantity {
+    font-weight: bold;
+}
+.product__add {
+    width: 108px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: var(--color-1);
+    color: #ffffff;
+    cursor: pointer;
+}
 
 
 .product.one .product__bg-image {
