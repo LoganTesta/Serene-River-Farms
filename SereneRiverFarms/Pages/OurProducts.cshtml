@@ -29,15 +29,15 @@
     products.Add(jamJar12Ounce);
 
 
-    var numberOfPears = ViewData["numberOfPears"];
-    var numberOfApples = ViewData["numberOfApples"];
-    var numberOfBlueberries = ViewData["numberOfBlueberries"];
-    var numberOfStrawberries = ViewData["numberOfStrawberries"];
-    var numberOfRaspberries = ViewData["numberOfRaspberries"];
-    var numberOfCherries = ViewData["numberOfCherries"];
-    var numberOfPumpkins = ViewData["numberOfPumpkins"];
-    var numberOfMilkGallons = ViewData["numberOfMilkGallons"];
-    var numberOf12OunceJamJars = ViewData["numberOf12OunceJamJars"];
+    int numberOfPears = Convert.ToInt32(ViewData["numberOfPears"]);
+    int numberOfApples = Convert.ToInt32(ViewData["numberOfApples"]);
+    int numberOfBlueberries = Convert.ToInt32(ViewData["numberOfBlueberries"]);
+    int numberOfStrawberries = Convert.ToInt32(ViewData["numberOfStrawberries"]);
+    int numberOfRaspberries = Convert.ToInt32(ViewData["numberOfRaspberries"]);
+    int numberOfCherries = Convert.ToInt32(ViewData["numberOfCherries"]);
+    int numberOfPumpkins = Convert.ToInt32(ViewData["numberOfPumpkins"]);
+    int numberOfMilkGallons = Convert.ToInt32(ViewData["numberOfMilkGallons"]);
+    int numberOf12OunceJamJars = Convert.ToInt32(ViewData["numberOf12OunceJamJars"]);
 
     var subtotalPears = ViewData["subtotalPears"];
     var subtotalApples = ViewData["subtotalApples"];
@@ -79,7 +79,14 @@
         <div class="product__price">$@products[0].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfPears</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfPears > 0)
+                    {
+                        @numberOfPears
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -90,7 +97,14 @@
         <div class="product__price">$@products[1].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfApples</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfApples > 0)
+                    {
+                        @numberOfApples
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -101,7 +115,14 @@
         <div class="product__price">$@products[2].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfBlueberries</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfBlueberries > 0)
+                    {
+                        @numberOfBlueberries
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -112,7 +133,14 @@
         <div class="product__price">$@products[3].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfStrawberries</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfStrawberries > 0)
+                    {
+                        @numberOfStrawberries
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -123,7 +151,14 @@
         <div class="product__price">$@products[4].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfRaspberries</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfRaspberries > 0)
+                    {
+                        @numberOfRaspberries
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -134,7 +169,14 @@
         <div class="product__price">$@products[5].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfCherries</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfCherries > 0)
+                    {
+                        @numberOfCherries
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -148,7 +190,14 @@
         <div class="product__price">$@products[6].price/lb</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfPumpkins</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfPumpkins > 0)
+                    {
+                        @numberOfPumpkins
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -162,7 +211,14 @@
         <div class="product__price">$@products[7].price/gallon</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOfMilkGallons</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfMilkGallons > 0)
+                    {
+                        @numberOfMilkGallons
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
@@ -173,7 +229,14 @@
         <div class="product__price">$@products[8].price, $4-8/jar</div>
         <div class="product__quantity__and-add">
             <div class="product__add">Add to Cart</div>
-            <div class="product__quantity">@numberOf12OunceJamJars</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOf12OunceJamJars > 0)
+                    {
+                        @numberOf12OunceJamJars
+                    }
+                }
+            </div>
             <div class="clear-both"></div>
         </div>
     </div>
