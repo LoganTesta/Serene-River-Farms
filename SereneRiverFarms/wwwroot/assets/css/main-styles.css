@@ -979,27 +979,27 @@ li { padding-bottom: 10px; }
 
 
 .index-section.one .index-section__bg-image {
-    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/pumpkin-patch-sunny-field-in-fall-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.two .index-section__bg-image {
-    background: url('/assets/images/tractor-with-cargo-bay.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/tractor-with-cargo-bay-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.three .index-section__bg-image {
-    background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/cherry-trees-on-hill-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.four .index-section__bg-image {
-    background: url('/assets/images/closeup-apples-in-a-cart.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/closeup-apples-in-a-cart-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.five .index-section__bg-image {
-    background: url('/assets/images/farm-shed-sunset-golden-field.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/farm-shed-sunset-golden-field-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.six .index-section__bg-image {
-    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/index/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
 
 /*About Us*/
