@@ -979,27 +979,27 @@ li { padding-bottom: 10px; }
 
 
 .index-section.one .index-section__bg-image {
-    background: url('/assets/images/index/pumpkin-patch-sunny-field-in-fall-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.two .index-section__bg-image {
-    background: url('/assets/images/index/tractor-with-cargo-bay-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/tractor-with-cargo-bay-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.three .index-section__bg-image {
-    background: url('/assets/images/index/cherry-trees-on-hill-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/cherry-trees-on-hill-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.four .index-section__bg-image {
-    background: url('/assets/images/index/closeup-apples-in-a-cart-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/closeup-apples-in-a-cart-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.five .index-section__bg-image {
-    background: url('/assets/images/index/farm-shed-sunset-golden-field-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/farm-shed-sunset-golden-field-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .index-section.six .index-section__bg-image {
-    background: url('/assets/images/index/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
 
 /*About Us*/
@@ -1086,39 +1086,39 @@ li { padding-bottom: 10px; }
 
 
 .product.one .product__bg-image {
-    background: url('/assets/images/pear.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/pear-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.two .product__bg-image {
-    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.three .product__bg-image {
-    background: url('/assets/images/blueberries.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/blueberries-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.four .product__bg-image {
-    background: url('/assets/images/strawberries-in-wooden-basket.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/strawberries-in-wooden-basket-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.five .product__bg-image {
-    background: url('/assets/images/raspberries-in-pint-cartons.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/raspberries-in-pint-cartons-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.six .product__bg-image {
-    background: url('/assets/images/cherries-in-bowl.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/cherries-in-bowl-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.seven .product__bg-image {
-    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/pumpkins-bunch-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.eight .product__bg-image {
-    background: url('/assets/images/milk-glass-and-jug.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/milk-glass-and-jug-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .product.nine .product__bg-image {
-    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/jars-of-jams-on-table-small.jpg') 50% 30%/cover no-repeat;
 }
 
 #userState option { padding: 5px; }
