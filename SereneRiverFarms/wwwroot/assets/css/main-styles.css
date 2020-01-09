@@ -936,10 +936,10 @@ li { padding-bottom: 10px; }
 .index-content__detail { display: block; padding-bottom: 12px; }
 
 .index-section {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 
-    .index-section.six .index-section {
+    .index-section.five, .index-section.six {
         padding-bottom: 0;
     }
 
@@ -1001,6 +1001,7 @@ li { padding-bottom: 10px; }
 .index-section.six .index-section__bg-image {
     background: url('/assets/images/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
+
 
 /*About Us*/
 .background-hero-image.about-us {
