@@ -1224,39 +1224,39 @@ li { padding-bottom: 10px; }
 .item__photo-image { width: 80px; height: 60px; margin-left: auto; margin-right: auto; }
 
 .item.zero .item__photo-image {
-    background: url('/assets/images/pear.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/pear-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.one .item__photo-image {
-    background: url('/assets/images/apple-harvesting-barrel.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.two .item__photo-image {
-    background: url('/assets/images/blueberries.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/blueberries-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.three .item__photo-image {
-    background: url('/assets/images/strawberries-in-wooden-basket.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/strawberries-in-wooden-basket-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.four .item__photo-image {
-    background: url('/assets/images/raspberries-in-pint-cartons.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/raspberries-in-pint-cartons-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.five .item__photo-image {
-    background: url('/assets/images/cherries-in-bowl.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/cherries-in-bowl-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.six .item__photo-image {
-    background: url('/assets/images/pumpkins-bunch.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/pumpkins-bunch-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.seven .item__photo-image {
-    background: url('/assets/images/milk-glass-and-jug.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/milk-glass-and-jug-small.jpg') 50% 30%/cover no-repeat;
 }
 
 .item.eight .item__photo-image {
-    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
+    background: url('/assets/images/jars-of-jams-on-table-small.jpg') 50% 30%/cover no-repeat;
 }
 
 
