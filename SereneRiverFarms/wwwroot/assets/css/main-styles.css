@@ -958,7 +958,7 @@ li { padding-bottom: 10px; }
     }
 
 .index-section__bg-image {
-    height: 200px;
+    height: 120px;
     transition: 0.4s ease-in;
     cursor: pointer;
 }
@@ -1409,6 +1409,13 @@ li { padding-bottom: 10px; }
 
 
 @media only screen and (max-width: 699px) {
+    /*Index*/
+    .index-section:nth-of-type(2n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
     /*Products*/
     .product:nth-of-type(2n + 1) {
         content: "";
@@ -1416,8 +1423,6 @@ li { padding-bottom: 10px; }
         clear: both;
     }
 }
-
-
 
 @media only screen and (min-width: 700px) and (max-width: 1199px) {
     /*Products*/
@@ -1428,9 +1433,25 @@ li { padding-bottom: 10px; }
     }
 }
 
+@media only screen and (min-width: 700px){
+    /*Index*/
+    .index-section:nth-of-type(3n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
 
 
 @media only screen and (min-width: 500px) {
+    /*Index*/
+    .index-section__bg-image {
+        height: 200px;
+        transition: 0.4s ease-in;
+        cursor: pointer;
+    }
+
     /*Products*/
     .product__bg-image {
         height: 180px;
@@ -1440,7 +1461,6 @@ li { padding-bottom: 10px; }
 
 
 @media only screen and (min-width: 700px) {
-
     h2 {
         text-align: left;
     }
@@ -1510,6 +1530,7 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
     }
 
+
     /*About */
     .background-hero-image.about-us {
         margin-bottom: 0px;
@@ -1545,6 +1566,12 @@ li { padding-bottom: 10px; }
 
 
 @media only screen and (min-width: 1000px) {
+    /*Index*/
+    .index-section__bg-image {
+        height: 220px;
+    }
+
+    /*Products*/
     .product__bg-image {
         height: 240px;
     }
@@ -1701,7 +1728,7 @@ li { padding-bottom: 10px; }
 
     /*Index*/
     .index-section__bg-image {
-        height: 220px;
+        height: 240px;
     }
 
 
