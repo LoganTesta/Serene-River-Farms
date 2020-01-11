@@ -1550,13 +1550,6 @@ li { padding-bottom: 10px; }
     .product__bg-image {
         height: 180px;
     }
-    .product__add {
-        float: left;
-    }
-    .product__quantity {
-        float: left;
-        padding-left: 20px;
-    }
 
     .estimate-container {
         padding-top: 0px;
