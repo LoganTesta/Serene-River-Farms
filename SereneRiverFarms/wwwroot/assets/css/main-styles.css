@@ -1261,7 +1261,27 @@ li { padding-bottom: 10px; }
 
 
 /*Recipes*/
+.background-hero-image.recipes {
+    background: url('/assets/images/kitchen-area.jpg') 50% 30%/cover no-repeat;
+}
 
+.recipe { padding-bottom: 40px; }
+.recipe__photo {
+    width: 300px;
+    height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.recipe__subheading { padding-top: 20px; }
+    .recipe__subheading:nth-of-type(1) { padding-top: 0; }
+
+    .recipe.zero .recipe__photo {
+        background: url('/assets/images/apple-cider.jpg') 50% 30%/cover no-repeat;
+    }
+.recipe.one .recipe__photo {
+    background: url('/assets/images/blueberry-muffin.png') 50% 30%/cover no-repeat;
+}
 
 
 /*Events*/
@@ -1559,6 +1579,18 @@ li { padding-bottom: 10px; }
         padding-top: 0px;
     }
 
+
+    /*Recipes*/
+    .recipe__photo {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .recipes__list {
+        position: relative;
+        left: 20px;
+    }
+
 }
 
 
@@ -1616,7 +1648,7 @@ li { padding-bottom: 10px; }
     .nav {
         position: absolute;
         top: 15px;
-        left: 185px;
+        left: 175px;
     }
 
     .nav__nav-list-container {
