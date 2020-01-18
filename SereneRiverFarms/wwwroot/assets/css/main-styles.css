@@ -846,21 +846,21 @@ li { padding-bottom: 10px; }
     display: block;
 }
 
-    .slideshow__header {
-        padding: 10px 10px;
-        border-radius: 12px 12px 0 0;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-        background-color: var(--color-1);
-        color: #ffffff;
-    }
+.slideshow__header {
+    padding: 10px 10px;
+    border-radius: 12px 12px 0 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: var(--color-1);
+}
 
 .slideshow__buttons {
     display: flex;
     flex-wrap: wrap;
     border-radius: 0 0 12px 12px;
-    background-color: var(--color-1);
+    background-color: #ffffff;
 }
 
 .slideshow__slide-button {
@@ -870,7 +870,7 @@ li { padding-bottom: 10px; }
     height: 40px;
     margin-top: 10px;
     margin-left: 8px;
-    background-color: #ffffff;
+    background-color: var(--color-1);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.4s ease-in;
@@ -886,7 +886,7 @@ li { padding-bottom: 10px; }
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: var(--color-3);
+    color: #ffffff;
 }
 
 #pausePlayButton {
