@@ -824,13 +824,22 @@ li { padding-bottom: 10px; }
 }
 
 
-.slideshow-image-wrapper { overflow: hidden; }
+.slideshow-image-wrapper { }
+
+.slideshow__image-link {
+    display: block;
+    overflow: hidden;
+    border: 2px solid var(--color-1);
+    border-radius: 10px;
+}
+
 
 .slideshow__image {
     min-height: 200px;
     padding-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
     background: 50% 50%/cover no-repeat;
     transition: 1.2s ease-in;
     transform: scale(1.10); 
@@ -841,10 +850,6 @@ li { padding-bottom: 10px; }
         transform: scale(1.25) translateX(-50px);
         transition: transform 2.0s ease-in;
     }
-
-.slideshow__image-link {
-    display: block;
-}
 
 .slideshow__header {
     padding: 10px 10px;
