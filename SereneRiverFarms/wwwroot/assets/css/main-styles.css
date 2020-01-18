@@ -830,7 +830,7 @@ li { padding-bottom: 10px; }
     display: block;
     overflow: hidden;
     border: 2px solid var(--color-1);
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 
@@ -839,7 +839,7 @@ li { padding-bottom: 10px; }
     padding-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     background: 50% 50%/cover no-repeat;
     transition: 1.2s ease-in;
     transform: scale(1.10); 
