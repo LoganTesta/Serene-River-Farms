@@ -874,32 +874,25 @@ li { padding-bottom: 10px; }
 .slideshow__slide-button {
     display: block;
     float: left;
-    width: 40px;
-    height: 40px;
+    width: 16px;
+    height: 16px;
     margin-top: 10px;
-    margin-left: 8px;
+    margin-left: 12px;
     background-color: var(--color-1);
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.4s ease-in;
 }
 
     .slideshow__slide-button:hover {
-        box-shadow: 0px 0px 5px 5px var(--color-4);
+        box-shadow: 0px 0px 4px 4px var(--color-4);
         transition: 0.4s ease-in;
     }
 
-.slideshow__button-text {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: #ffffff;
-}
 
 #pausePlayButton {
     background: url(../images/index/pause-button.png);
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 #slideButton3 {
@@ -1539,10 +1532,6 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
     }
 
-    .slideshow__slide-button {
-        margin-left: 10px;
-    }
-
 
     /*Cookie policy*/
     .cookie-policy {
@@ -1748,9 +1737,6 @@ li { padding-bottom: 10px; }
 
     .slideshow__header {
         font-size: 26px;
-    }
-    .slideshow__slide-button {
-        margin-left: 12px;
     }
 
 
