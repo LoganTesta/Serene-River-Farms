@@ -863,9 +863,9 @@ li { padding-bottom: 10px; }
 }
 
 .slideshow__buttons {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 15px;
+    width: 168px;
+    margin-left: auto;
+    margin-right: 25px;
     border-radius: 0 0 12px 12px;
     background-color: #ffffff;
 }
@@ -889,10 +889,12 @@ li { padding-bottom: 10px; }
         transition: 0.2s ease-in;
     }
 
-#pausePlayButton {
-    background: url(../images/index/pause-button.png);
-    border-radius: 1px;
-}
+    #pausePlayButton {
+        margin-left: 0;
+        background: url(../images/index/pause-button.png);
+        border-radius: 1px;
+    }
+
     #pausePlayButton:hover {
         box-shadow: 0px 0px 3px 4px var(--color-4);
     }
