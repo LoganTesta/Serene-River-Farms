@@ -1044,9 +1044,21 @@ li { padding-bottom: 10px; }
 .product {
     padding-bottom: 40px;
 }
+.product__name {
+    position: relative;
+}
 
 .product__name h3 {
     text-align: center;
+}
+
+.product__quantity {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: #138510;
 }
 
 .product__bg-image {
@@ -1063,7 +1075,7 @@ li { padding-bottom: 10px; }
     font-size: 18px;
     text-align: center;
 }
-.product__quantity__and-add {
+.product__add-container {
     padding-top: 15px;
 }
 .product__add {
@@ -1082,13 +1094,6 @@ li { padding-bottom: 10px; }
         background-color: var(--color-1-lighter-green);
         box-shadow: 0 0 3px 5px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
-    }
-
-
-    .product__quantity {
-        padding-top: 10px;
-        font-weight: bold;
-        text-align: center;
     }
 
 
