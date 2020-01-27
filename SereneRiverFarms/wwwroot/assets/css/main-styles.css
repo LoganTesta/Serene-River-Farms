@@ -1042,20 +1042,22 @@ li { padding-bottom: 10px; }
 
 /*Products*/
 .product {
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 .product__name {
     position: relative;
+    min-height: 55px;
 }
 
 .product__name h3 {
+    padding-bottom: 5px;
     text-align: center;
 }
 
 .product__quantity {
-    position: absolute;
-    top: 7px;
-    right: 10px;
+    display: block;
+    padding-right: 5px;
+    padding-bottom: 10px; 
     font-weight: bold;
     text-align: center;
     color: #138510;
@@ -1585,6 +1587,24 @@ li { padding-bottom: 10px; }
 
 
     /*Products*/
+    .product { padding-bottom: 40px; }
+
+    .product__name { min-height: 0px; }
+
+    .product__name h3 {
+        display: block;
+        padding-bottom: 12px;
+    }
+
+    .product__quantity {
+        display: block;
+        position: absolute;
+        top: 7px;
+        right: 10px;
+        padding-right: 0;
+        margin-bottom: 0;
+    }
+
     .product__bg-image {
         height: 180px;
     }
