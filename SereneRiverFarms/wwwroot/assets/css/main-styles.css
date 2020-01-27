@@ -606,7 +606,10 @@ li { padding-bottom: 10px; }
         color: var(--color-1);
     }
 
-.subtitle-container { }
+.subtitle-container { position: relative; }
+.subtitle-container__note {
+    padding-bottom: 10px;
+}
 .subheader-divider { margin-bottom: 25px; border-bottom: 2px solid var(--color-1); } 
 
 
@@ -1034,11 +1037,6 @@ li { padding-bottom: 10px; }
 
 
 /*Products*/
-.background-hero-image.our-products {
-    margin-bottom: 30px;
-    background: url('/assets/images/jars-of-jams-on-table.jpg') 50% 30%/cover no-repeat;
-}
-
 .product {
     padding-bottom: 40px;
 }
@@ -1503,6 +1501,13 @@ li { padding-bottom: 10px; }
         .main-title-container .main-title__title {
             font-size: 32px;
         }
+
+    .subtitle-container__note {
+        position: absolute;
+        top: 12px;
+        right: 0;
+        padding-bottom: 0;
+    }
 
     #mobileNav {
         display: none;
