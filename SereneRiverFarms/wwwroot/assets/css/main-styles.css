@@ -1173,11 +1173,15 @@ li { padding-bottom: 10px; }
 }
 
     .item-table th {
+        display: none;
+        width: 100%;
         padding: 5px 5px;
         font-size: 18px;
+        text-align: center;
+        font-weight: bold;
     }
 
-    .item-table th, .item-table td {
+    .item-table td {
         display: inline-block;
         width: 100%;
         text-align: center;
@@ -1190,36 +1194,26 @@ li { padding-bottom: 10px; }
     padding: 5px 5px;
 }
 
-.item-table .item__names {  }
-.item-table .item__photos {  }
-.item-table .item__approximate-prices { }
-.item-table .item__quantities {  }
-.item-table .item__approximate-subtotals { }
-.item-table .item__add { }
-.item-table .item__minus { }
 
 .item-table .item__name { margin-top: 60px; font-size: 19px; }
-.item-table .item__photo { }
-.item-table .item__approximate-price { }
-.item-table .item__quantity {  }
-.item-table .item__approximate-subtotal { }
-.item-table .item__add-icons { }
-.item-table .item__minus-icons { }
-
-.item__add__item {
-    width: 50px;
-    height: 50px;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--color-1);
-    color: #f9f9f9;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 24px;
-    cursor: pointer;
-    font-weight: bold;
+.item-table .item.zero .item__name {
+    margin-top: 0px;
 }
+
+    .item__add__item {
+        width: 50px;
+        height: 50px;
+        padding-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: var(--color-1);
+        color: #f9f9f9;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 24px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 .item__minus__item {
     width: 50px;
     height: 50px;
@@ -1623,6 +1617,10 @@ li { padding-bottom: 10px; }
 
     .estimate-container {
         padding-top: 0px;
+    }
+
+    item-table th {
+        display: table-cell;
     }
 
 
