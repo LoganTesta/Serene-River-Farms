@@ -1314,34 +1314,40 @@ li { padding-bottom: 10px; }
 
 /*Blog*/
 .background-hero-image.blog {
+    margin-bottom: 30px;
     background: url('/assets/images/farm-barn-pond.jpg') 50% 30%/cover no-repeat;
 }
 
-.blog {
+.blog-post {
     padding-bottom: 30px;
 }
-.blog__title { width: 100%; }
-.blog__date {
+.blog-post__title {
+    width: 100%;
+}
+.blog-post__date {
     display: inline-block;
     padding-right: 8px;
     font-weight: bold;
 }
-.blog__photo {
-    float: right;
+.blog-post__photo {
     width: 240px;
     height: 160px;
-    margin: 0 0 5px 15px; 
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.blog__body { }
+
+.blog-post__body {
+}
 
 
-.blog.zero .blog__photo {
+.blog-post.zero .blog-post__photo {
     background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
 }
-.blog.one .blog__photo {
+.blog-post.one .blog-post__photo {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
-.blog.two .blog__photo {
+.blog-post.two .blog-post__photo {
     background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
 }
 
@@ -1636,6 +1642,13 @@ li { padding-bottom: 10px; }
         float: right;
         width: 50%;
         margin-left: 30px;
+        margin-bottom: 0;
+    }
+
+    .blog-post__photo {
+        float: right;
+        margin-left: 5px;
+        margin-right: 0;
     }
 
 }
