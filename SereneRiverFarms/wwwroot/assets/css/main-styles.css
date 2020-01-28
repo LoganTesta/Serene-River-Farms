@@ -1188,7 +1188,7 @@ li { padding-bottom: 10px; }
         font-weight: bold;
     }
 
-.item { }
+.item { width: 50%; float: left; }
 
 .item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__add, .item__minus {
     padding: 5px 5px;
@@ -1196,9 +1196,6 @@ li { padding-bottom: 10px; }
 
 
 .item-table .item__name { margin-top: 60px; font-size: 19px; }
-.item-table .item.zero .item__name {
-    margin-top: 0px;
-}
 
     .item__add__item {
         width: 50px;
@@ -1619,10 +1616,6 @@ li { padding-bottom: 10px; }
         padding-top: 0px;
     }
 
-    item-table th {
-        display: table-cell;
-    }
-
 
     /*Recipes*/
     .recipe__photo {
@@ -1851,6 +1844,10 @@ li { padding-bottom: 10px; }
         text-align: left;
     }
 
+    .item {
+        width: 100%;
+        float: none;
+    }
 
     .item-table .item__name {
         margin-top: 0px;
