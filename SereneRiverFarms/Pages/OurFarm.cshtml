@@ -91,24 +91,3 @@
 </script>
 
 <script type="text/javascript" src="assets/javascript/our-farm-validation.js?mod=11212019"></script>
-
-<script type="text/javascript">
-
-    $("#setUpTourButton").on("click", function (event) {
-        updateMessage(event, "/OurFarm?handler=SetUpTourSection");
-    });
-
-    function updateMessage(event, actionString) {
-        event.preventDefault();
-        $.post(actionString, $('form').serialize(), function (data, status) {
-
-            let parser = new DOMParser();
-            let ajaxDocument = parser.parseFromString(data, "text/html");
-
-            let formResponse = ajaxDocument.getElementsByClassName("form-response")[0].innerHTML;
-
-            $(".form-response").eq(0).html(formResponse);
-        });
-    }
-
-</script>
