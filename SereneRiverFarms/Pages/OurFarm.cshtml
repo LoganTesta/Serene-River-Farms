@@ -21,14 +21,11 @@
         <h3 class="subheader">Schedule a Tour!</h3>
         <div class="javascript-validation-results-contact-us"></div>
         @{
-            if (@contactResponse != null)
-            {
-                <div class="form-response">
-                    @contactResponse
-                </div>
-            }
+            <div class="form-response">
+                @contactResponse
+            </div>
         }
-        <form class="form set-up-tour-form" name="setUpTourForm" onsubmit="return validateSetUpTourForm();" method="post">
+        <form class="form set-up-tour-form" id="setUpTourForm" name="setUpTourForm" onsubmit="return validateSetUpTourForm();" method="post">
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
                 <label class="form__label" for="userName">Name **</label>
@@ -87,10 +84,31 @@
 </div>
 
 <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
         setCurrentPage(1, "#mobileNav", ".nav__nav-link");
         setCurrentPage(1, "#desktopNav", ".nav__nav-link");
-        });
+    });
 </script>
 
 <script type="text/javascript" src="assets/javascript/our-farm-validation.js?mod=11212019"></script>
+
+<script type="text/javascript">
+
+    $("#setUpTourButton").on("click", function (event) {
+        updateMessage(event, "/OurFarm?handler=SetUpTourSection");
+    });
+
+    function updateMessage(event, actionString) {
+        event.preventDefault();
+        $.post(actionString, $('form').serialize(), function (data, status) {
+
+            let parser = new DOMParser();
+            let ajaxDocument = parser.parseFromString(data, "text/html");
+
+            let formResponse = ajaxDocument.getElementsByClassName("form-response")[0].innerHTML;
+
+            $(".form-response").eq(0).html(formResponse);
+        });
+    }
+
+</script>

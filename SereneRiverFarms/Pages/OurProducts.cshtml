@@ -53,14 +53,14 @@
     var cartTotal = ViewData["cartTotal"];
 }
 
-    <div class="content-row no-content-row-padding">
-        <div class="col-sma-12 page-content">
-            <div class="subtitle-container">
-                <h2 class="subtitle-container__subtitle">Our Products</h2><div class="subtitle-container__note"> *** All products while available, some are seasonal.</div>
-                <div class="subheader-divider"></div>
-            </div>
+<div class="content-row no-content-row-padding">
+    <div class="col-sma-12 page-content">
+        <div class="subtitle-container">
+            <h2 class="subtitle-container__subtitle">Our Products</h2><div class="subtitle-container__note"> *** All products while available, some are seasonal.</div>
+            <div class="subheader-divider"></div>
         </div>
     </div>
+</div>
 <div class="content-row small-content-row-padding-top ">
     <div class="col-vsm-6 col-sma-4 col-lar-3 product one">
         <div class="product__name">
@@ -263,15 +263,12 @@
         <div class="javascript-validation-results-contact-us"></div>
 
         @{
-            if (@contactResponse != null)
-            {
-                <div class="form-response">
-                    @contactResponse
-                </div>
-            }
+            <div class="form-response">
+                @contactResponse
+            </div>
         }
 
-        <form class="form estimate-form" name="estimateForm" onsubmit="return validateEstimateForm();" method="post">
+        <form class="form estimate-form" id="estimateForm" name="estimateForm" onsubmit="return validateEstimateForm();" method="post">
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
                 <label class="form__label" for="userName">Your Name **</label>
@@ -554,6 +551,27 @@
                 var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
                 $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
             }
+        });
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    $("#submitEstimateButton").on("click", function (event) {
+        updateMessage(event, "/OurProducts?handler=EstimateSection");
+    });
+
+    function updateMessage(event, actionString) {
+        event.preventDefault();
+        $.post(actionString, $('form').serialize(), function (data, status) {
+
+            let parser = new DOMParser();
+            let ajaxDocument = parser.parseFromString(data, "text/html");
+
+            let formResponse = ajaxDocument.getElementsByClassName("form-response")[0].innerHTML;
+
+            $(".form-response").eq(0).html(formResponse);
         });
     }
 
