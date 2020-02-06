@@ -10,57 +10,65 @@
             <h2 class="subtitle-container__subtitle">Blog</h2>
             <div class="subheader-divider"></div>
         </div>
-        <div class="background-hero-image blog">
-
+        <div class="blog-controls">
+            <div class="blog-controls__condense-blog-posts button-container">Condense Blog Posts</div>
         </div>
-        <div class="blog-post zero">
-            <h3 class="blog-post__title">It's Pumpkin Time!  Guided Pumpkin Patch Tour and Free Hot Apply Cider!</h3>
-            <div class="blog-post__photo"></div>
-            <div class="blog-post__body">
-                <p>
+        <div class="blogs-container">
+            <div class="blog-post zero">
+                <h3 class="blog-post__title">It's Pumpkin Time!  Guided Pumpkin Patch Tour and Free Hot Apply Cider!</h3>
+                <div class="blog-post__photo"></div>
+                <div class="blog-post__body">
                     <span class="blog-post__date">
                         October 20, 2019
                     </span>
-                    There's still time to pick up your pumpkins for Halloween.  We have an upcoming Pumpkin Tour this weekend on October 26
-                    where visitors can get a guided tour of the pumpkin patch.
-                </p>
-                <p>
-                    Learn a bit about the process of growing quality pumpkins from one of our farmers and then pick out some pumpkins for your family!
-                    There will be free hot apple cider too!
-                </p>
+                    <div class="blog-post__text">
+                        <p>
+                            There's still time to pick up your pumpkins for Halloween.  We have an upcoming Pumpkin Tour this weekend on October 26
+                            where visitors can get a guided tour of the pumpkin patch.
+                        </p>
+                        <p>
+                            Learn a bit about the process of growing quality pumpkins from one of our farmers and then pick out some pumpkins for your family!
+                            There will be free hot apple cider too!
+                        </p>
+                    </div>
+                    <span class="blog-post__text-continued">...</span>
+                </div>
+                <div class="clear-both"></div>
             </div>
-
-
-
-            <div class="clear-both"></div>
-        </div>
-        <div class="blog-post one">
-            <h3 class="blog-post__title">Summer 5k Recap</h3>
-            <div class="blog-post__photo"></div>
-            <div class="blog-post__body">
-                <p>
+            <div class="blog-post one">
+                <h3 class="blog-post__title">Summer 5k Recap</h3>
+                <div class="blog-post__photo"></div>
+                <div class="blog-post__body">
                     <span class="blog-post__date">
                         July 25, 2019
                     </span>
-                    This years' Summer 5k was a great success, over 150 runners participated in our event.  The top 3 winners received a brass medal,
-                    4lb, 3lb, or 2lb of free blueberries, and a free pie.  Thank you to all participants, we look forward to the next 5k here at the farm!
-                </p>
+                    <div class="blog-post__text">
+                        <p>
+                            This years' Summer 5k was a great success, over 150 runners participated in our event.  The top 3 winners received a brass medal,
+                            4lb, 3lb, or 2lb of free blueberries, and a free pie.  Thank you to all participants, we look forward to the next 5k here at the farm!
+                        </p>
+                    </div>
+                    <span class="blog-post__text-continued">...</span>
+                </div>
+                <div class="clear-both"></div>
             </div>
-            <div class="clear-both"></div>
-        </div>
-        <div class="blog two">
-            <h3 class="blog-post__title">Spring 5k Recap</h3>
-            <div class="blog-post__photo"></div>
-            <div class="blog-post__body">
-                <p>
+            <div class="blog-post two">
+                <h3 class="blog-post__title">Spring 5k Recap</h3>
+                <div class="blog-post__photo"></div>
+                <div class="blog-post__body">
                     <span class="blog-post__date">
                         April 24, 2019
                     </span>
-                    This years' Spring 5k was a great success.  Over 120 runners participated in our event.  The top 3 winners received a brass medal,
-                    and $50, $25, or $15 gift cards to our Farm Store.  Thank you to all participants!
-                </p>
+                    <div class="blog-post__text">
+                        <p>
+                            This years' Spring 5k was a great success.  Over 120 runners participated in our event.  The top 3 winners received a brass medal,
+                            and $50, $25, or $15 gift cards to our Farm Store.  Thank you to all participants!
+                        </p>
+                    </div>
+                    <span class="blog-post__text-continued">...</span>
+                </div>
+                <div class="clear-both"></div>
             </div>
-            <div class="clear-both"></div>
         </div>
     </div>
 </div>
@@ -70,4 +78,15 @@
         setCurrentPage(5, "#mobileNav", ".nav__nav-link");
         setCurrentPage(5, "#desktopNav", ".nav__nav-link");
     });
+</script>
+<script type="text/javascript">
+
+    $(".blog-controls__condense-blog-posts").eq(0).on("click", function () {
+
+        let numberOfBlogPosts = $(".blog-post").length;
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            $(".blog-post").eq(i).toggleClass("condense");
+        }
+    })
+
 </script>
