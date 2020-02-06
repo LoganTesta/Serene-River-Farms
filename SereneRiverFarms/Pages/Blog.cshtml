@@ -81,12 +81,33 @@
 </script>
 <script type="text/javascript">
 
-    $(".blog-controls__condense-blog-posts").eq(0).on("click", function () {
+    let numberOfBlogPosts = $(".blog-post").length;
+    let allCondensed = false;
 
-        let numberOfBlogPosts = $(".blog-post").length;
-        for (let i = 0; i < numberOfBlogPosts; i++) {
-            $(".blog-post").eq(i).toggleClass("condense");
+    $(".blog-controls__condense-blog-posts").eq(0).on("click", function () {
+        let numberOfCondensedBlogPosts = $(".blog-post.condense").length;
+        if (numberOfCondensedBlogPosts === 0) {
+            allCondensed = false; //If all the blog posts are already opened then set allCondensed to false.
         }
-    })
+
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            if (allCondensed === false) {
+                $(".blog-post").eq(i).addClass("condense");
+            } else {
+                $(".blog-post").eq(i).removeClass("condense");
+            }
+        }
+        allCondensed = !allCondensed;
+    });
+
+    $(".blog-post__text-continued").eq(0).on("click", function () {
+        $(this).parents(".blog-post").eq(0).removeClass("condense");
+    });
+    $(".blog-post__text-continued").eq(1).on("click", function () {
+        $(this).parents(".blog-post").eq(0).removeClass("condense");
+    });
+    $(".blog-post__text-continued").eq(2).on("click", function () {
+        $(this).parents(".blog-post").eq(0).removeClass("condense");
+    });
 
 </script>

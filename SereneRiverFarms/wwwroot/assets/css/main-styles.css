@@ -1346,7 +1346,7 @@ li { padding-bottom: 10px; }
 
 .blog-post__body { }
 
-.blog-post__text-continued { display: none; font-weight: bold; }
+.blog-post__text-continued { display: none; font-weight: bold; cursor: pointer; }
 
 .blog-post.condense .blog-post__photo {
     width: 120px;
