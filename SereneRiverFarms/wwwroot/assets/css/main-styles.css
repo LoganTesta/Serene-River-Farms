@@ -1348,7 +1348,7 @@ li { padding-bottom: 10px; }
 
 .blog-post__body { }
 
-.blog-post__text-continued { display: none; font-weight: bold; cursor: pointer; }
+.blog-post__text-continued { display: none; }
 
 .blog-post.condense .blog-post__photo {
     width: 120px;
@@ -1361,17 +1361,28 @@ li { padding-bottom: 10px; }
     overflow: hidden;
 }
 
-.blog-post.condense .blog-post__text-continued {
+.blog-post__text-continued.show {
     display: block;
     position: relative;
     top: -21px;
     left: -20px;
     float: right;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.blog-post.zero .blog-post__photo {
-    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+.blog-post__minimize-post { 
+    display: none;
 }
+    .blog-post__minimize-post.show {
+        display: block;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .blog-post.zero .blog-post__photo {
+        background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+    }
 .blog-post.one .blog-post__photo {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }

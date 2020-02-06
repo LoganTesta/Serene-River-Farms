@@ -11,7 +11,7 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="blog-controls">
-            <div class="blog-controls__condense-blog-posts button-container">Condense, Open Posts</div>
+            <div class="blog-controls__condense-blog-posts button-container">Condense/Open Posts</div>
         </div>
         <div class="blogs-container">
             <div class="blog-post zero">
@@ -32,6 +32,7 @@
                         </p>
                     </div>
                     <span class="blog-post__text-continued">...</span>
+                    <span class="blog-post__minimize-post">(Condense)</span>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -49,6 +50,7 @@
                         </p>
                     </div>
                     <span class="blog-post__text-continued">...</span>
+                    <span class="blog-post__minimize-post">(Condense)</span>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -66,6 +68,7 @@
                         </p>
                     </div>
                     <span class="blog-post__text-continued">...</span>
+                    <span class="blog-post__minimize-post">(Condense)</span>
                 </div>
                 <div class="clear-both"></div>
             </div>
@@ -93,8 +96,11 @@
         for (let i = 0; i < numberOfBlogPosts; i++) {
             if (allCondensed === false) {
                 $(".blog-post").eq(i).addClass("condense");
+                $(".blog-post__text-continued").eq(i).addClass("show");
             } else {
                 $(".blog-post").eq(i).removeClass("condense");
+                $(".blog-post__text-continued").eq(i).removeClass("show");
+                $(".blog-post__minimize-post").eq(i).removeClass("show");
             }
         }
         allCondensed = !allCondensed;
@@ -102,12 +108,37 @@
 
     $(".blog-post__text-continued").eq(0).on("click", function () {
         $(this).parents(".blog-post").eq(0).removeClass("condense");
+        $(this).removeClass("show");
+        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
     });
     $(".blog-post__text-continued").eq(1).on("click", function () {
         $(this).parents(".blog-post").eq(0).removeClass("condense");
+        $(this).removeClass("show");
+        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
     });
     $(".blog-post__text-continued").eq(2).on("click", function () {
         $(this).parents(".blog-post").eq(0).removeClass("condense");
+        $(this).removeClass("show");
+        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
+    });
+
+
+    $(".blog-post__minimize-post").eq(0).on("click", function () {
+        $(this).parents(".blog-post").eq(0).addClass("condense");
+        $(this).siblings(".blog-post__text-continued").addClass("show");
+        $(this).removeClass("show");
+    });
+
+    $(".blog-post__minimize-post").eq(1).on("click", function () {
+        $(this).parents(".blog-post").eq(0).addClass("condense");
+        $(this).siblings(".blog-post__text-continued").addClass("show");
+        $(this).removeClass("show");
+    });
+
+    $(".blog-post__minimize-post").eq(2).on("click", function () {
+        $(this).parents(".blog-post").eq(0).addClass("condense");
+        $(this).siblings(".blog-post__text-continued").addClass("show");
+        $(this).removeClass("show");
     });
 
 </script>
