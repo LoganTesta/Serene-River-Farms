@@ -16,16 +16,14 @@
         <p>Guided Tours Available Friday, Saturday, Sunday 11:00am-3:00pm March-November.</p>
         <p>Winter months December-February: tours available Friday, Saturday, Sunday 11:00am-3:00pm on request.</p>
         <p>Questions: call us at 503-882-8888 or <a href="/Contact">contact us here</a>.</p>
-    </div>
-    <div class="col-sma-6">
-        <h3 class="subheader">Schedule a Tour!</h3>
-        <div class="javascript-validation-results-contact-us"></div>
-        @{
-            <div class="form-response">
-                @contactResponse
-            </div>
-        }
         <form class="form set-up-tour-form" id="setUpTourForm" name="setUpTourForm" onsubmit="return validateSetUpTourForm();" method="post">
+            <h3 class="subheader">Schedule a Tour!</h3>
+            <div class="javascript-validation-results-contact-us"></div>
+            @{
+                <div class="form-response">
+                    @contactResponse
+                </div>
+            }
             <div class="form__required">** - Required Field</div>
             <div class="form__input-container">
                 <label class="form__label" for="userName">Name **</label>
@@ -72,6 +70,11 @@
                 <div class="form__errors"></div>
             </div>
         </form>
+    </div>
+    <div class="col-sma-6">
+        <div class="background-hero-image our-farm">
+
+        </div>
     </div>
 </div>
 

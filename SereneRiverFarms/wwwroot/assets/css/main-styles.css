@@ -1033,6 +1033,12 @@ li { padding-bottom: 10px; }
 
 
 /*Our Farm*/
+.background-hero-image.our-farm {
+    background: url('/assets/images/farm-barn-pond.jpg') 50% 30%/cover no-repeat;
+}
+
+.set-up-tour-form { padding-top: 15px; }
+
 .our-farm-tour-image {
     height: 240px;
     margin-bottom: 0;
