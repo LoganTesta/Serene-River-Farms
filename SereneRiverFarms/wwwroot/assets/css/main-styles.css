@@ -1320,6 +1320,16 @@ li { padding-bottom: 10px; }
     cursor: pointer;
 }
 
+.blog-controls__toggle-order-title {
+    width: 206px;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
 .blog-post {
     position: relative;
     padding-bottom: 30px;
@@ -1683,8 +1693,20 @@ li { padding-bottom: 10px; }
         margin-right: 0;
     }
 
+    .blog-controls {
+        position: relative;
+        width: 448px;
+        left: 707px;
+    }
+
     .blog-controls__condense-blog-posts {
+        display: inline-block;
         margin-right: 0;
+    }
+
+    .blog-controls__toggle-order-title {
+        display: inline-block;
+        margin-right: 15px;
     }
 
     .blog-post.condense .blog-post__photo {

@@ -11,7 +11,9 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="blog-controls">
+            <div class="blog-controls__toggle-order-title button-container">Toggle Order By Title</div>
             <div class="blog-controls__condense-blog-posts button-container">Condense/Open Posts</div>
+            <div class="clear-both"></div>
         </div>
         <div class="blogs-container">
             <div class="blog-post zero">
@@ -121,5 +123,31 @@
             $(this).removeClass("show");
         });
     }
+
+
+    let orderByAsc = false;
+    $(".blog-controls__toggle-order-title").on("click", function () {
+        orderByAsc = !orderByAsc;
+        let titles = [];
+        let posts = [];
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            titles[i] = $(".blog-post__title").eq(i).html();
+            posts[i] = $(".blog-post").eq(i).get(0).outerHTML; 
+        }
+        titles.sort();
+
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            let currentTitle = $(".blog-post__title").eq(i).html();
+            for (let j = 0; j < numberOfBlogPosts; j++) {
+                if (titles[j] === currentTitle) {
+                    if (orderByAsc) {
+                        $(".blog-post").eq(i).get(0).outerHTML = "" + posts[j];
+                    } else {
+                         $(".blog-post").eq(i).get(0).outerHTML = "" +  posts[numberOfBlogPosts -1 - j];
+                    }
+                }
+            }
+        }
+    });
 
 </script>
