@@ -11,7 +11,8 @@
             <div class="subheader-divider"></div>
         </div>
         <div class="blog-controls">
-            <div class="blog-controls__toggle-order-title button-container">Toggle Order By Title</div>
+            <div class="blog-controls__toggle-order-date button-container">Order By Date</div>
+            <div class="blog-controls__toggle-order-title button-container">Order By Title</div>
             <div class="blog-controls__condense-blog-posts button-container">Condense/Open Posts</div>
             <div class="clear-both"></div>
         </div>
@@ -128,9 +129,9 @@
         }
     }
 
-    let orderByAsc = false;
+    let orderByTitleAsc = false;
     $(".blog-controls__toggle-order-title").on("click", function () {
-        orderByAsc = !orderByAsc;
+        orderByTitleAsc = !orderByTitleAsc;
         let titles = [];
         let posts = [];
         for (let i = 0; i < numberOfBlogPosts; i++) {
@@ -143,7 +144,70 @@
             let currentTitle = $(".blog-post__title").eq(i).html();
             for (let j = 0; j < numberOfBlogPosts; j++) {
                 if (titles[j] === currentTitle) {
-                    if (orderByAsc) {
+                    if (orderByTitleAsc) {
+                        $(".blog-post").eq(i).get(0).outerHTML = "" + posts[j];
+                    } else {
+                         $(".blog-post").eq(i).get(0).outerHTML = "" +  posts[numberOfBlogPosts -1 - j];
+                    }
+                }
+            }
+        }
+        setupTextEvents();
+    });
+
+    let orderByDateAsc = false;
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    $(".blog-controls__toggle-order-date").on("click", function () {
+        orderByDateAsc = !orderByDateAsc;
+        let dates = [];
+        let posts = [];
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            let date = $(".blog-post__date").eq(i).html();
+            date = $.trim(date);
+            let splitDate = date.split(" ");
+
+            let currentSplitDate0 = splitDate[0];
+            splitDate[0] = splitDate[2];
+            splitDate[2] = currentSplitDate0;
+
+            let currentSplitDate1 = splitDate[1];
+            splitDate[1] = splitDate[2];
+            splitDate[2] = currentSplitDate1;
+
+            let newMonth = months.indexOf(splitDate[1]);
+
+            splitDate[1] = newMonth;
+
+            let finalDate = splitDate.join(" ");
+
+            dates[i] = ""+ finalDate;
+            posts[i] = $(".blog-post").eq(i).get(0).outerHTML; 
+        }
+        dates.sort();
+
+        for (let i = 0; i < numberOfBlogPosts; i++) {
+            let currentDate = $(".blog-post__date").eq(i).html();
+            currentDate = $.trim(currentDate);
+
+            let splitDate = currentDate.split(" ");
+
+            let currentSplitDate0 = splitDate[0];
+            splitDate[0] = splitDate[2];
+            splitDate[2] = currentSplitDate0;
+
+            let currentSplitDate1 = splitDate[1];
+            splitDate[1] = splitDate[2];
+            splitDate[2] = currentSplitDate1;
+
+            let newMonth = months.indexOf(splitDate[1]);
+            
+            splitDate[1] = newMonth;
+            let finalDate = splitDate.join(" ");
+
+            for (let j = 0; j < numberOfBlogPosts; j++) {
+                if (dates[j] === finalDate) {
+                    if (orderByDateAsc) {
                         $(".blog-post").eq(i).get(0).outerHTML = "" + posts[j];
                     } else {
                          $(".blog-post").eq(i).get(0).outerHTML = "" +  posts[numberOfBlogPosts -1 - j];
