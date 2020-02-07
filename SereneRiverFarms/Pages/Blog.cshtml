@@ -164,49 +164,19 @@
         let posts = [];
         for (let i = 0; i < numberOfBlogPosts; i++) {
             let date = $(".blog-post__date").eq(i).html();
-            date = $.trim(date);
-            let splitDate = date.split(" ");
+            let newDate = rearrangeDate(date);
 
-            let currentSplitDate0 = splitDate[0];
-            splitDate[0] = splitDate[2];
-            splitDate[2] = currentSplitDate0;
-
-            let currentSplitDate1 = splitDate[1];
-            splitDate[1] = splitDate[2];
-            splitDate[2] = currentSplitDate1;
-
-            let newMonth = months.indexOf(splitDate[1]);
-
-            splitDate[1] = newMonth;
-
-            let finalDate = splitDate.join(" ");
-
-            dates[i] = ""+ finalDate;
+            dates[i] = newDate;
             posts[i] = $(".blog-post").eq(i).get(0).outerHTML; 
         }
         dates.sort();
 
         for (let i = 0; i < numberOfBlogPosts; i++) {
             let currentDate = $(".blog-post__date").eq(i).html();
-            currentDate = $.trim(currentDate);
-
-            let splitDate = currentDate.split(" ");
-
-            let currentSplitDate0 = splitDate[0];
-            splitDate[0] = splitDate[2];
-            splitDate[2] = currentSplitDate0;
-
-            let currentSplitDate1 = splitDate[1];
-            splitDate[1] = splitDate[2];
-            splitDate[2] = currentSplitDate1;
-
-            let newMonth = months.indexOf(splitDate[1]);
-            
-            splitDate[1] = newMonth;
-            let finalDate = splitDate.join(" ");
+            let newDate = rearrangeDate(currentDate);
 
             for (let j = 0; j < numberOfBlogPosts; j++) {
-                if (dates[j] === finalDate) {
+                if (dates[j] === newDate) {
                     if (orderByDateAsc) {
                         $(".blog-post").eq(i).get(0).outerHTML = "" + posts[j];
                     } else {
@@ -217,5 +187,28 @@
         }
         setupTextEvents();
     });
+
+    function rearrangeDate(inputDate) {
+        let date = inputDate;
+
+        date = $.trim(date);
+        let splitDate = date.split(" ");
+
+        let currentSplitDate0 = splitDate[0];
+        splitDate[0] = splitDate[2];
+        splitDate[2] = currentSplitDate0;
+
+        let currentSplitDate1 = splitDate[1];
+        splitDate[1] = splitDate[2];
+        splitDate[2] = currentSplitDate1;
+
+        let newMonth = months.indexOf(splitDate[1]);
+
+        splitDate[1] = newMonth;
+
+        let finalDate = splitDate.join(" ");
+
+        return finalDate;
+    }
 
 </script>
