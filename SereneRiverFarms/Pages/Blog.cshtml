@@ -106,39 +106,20 @@
         allCondensed = !allCondensed;
     });
 
-    $(".blog-post__text-continued").eq(0).on("click", function () {
-        $(this).parents(".blog-post").eq(0).removeClass("condense");
-        $(this).removeClass("show");
-        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
-    });
-    $(".blog-post__text-continued").eq(1).on("click", function () {
-        $(this).parents(".blog-post").eq(0).removeClass("condense");
-        $(this).removeClass("show");
-        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
-    });
-    $(".blog-post__text-continued").eq(2).on("click", function () {
-        $(this).parents(".blog-post").eq(0).removeClass("condense");
-        $(this).removeClass("show");
-        $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
-    });
+    for (let i = 0; i < numberOfBlogPosts; i++) {
+        $(".blog-post__text-continued").eq(i).on("click", function () {
+            $(this).parents(".blog-post").eq(0).removeClass("condense");
+            $(this).removeClass("show");
+            $(this).siblings(".blog-post__minimize-post").eq(0).addClass("show");
+        });
+    }
 
-
-    $(".blog-post__minimize-post").eq(0).on("click", function () {
-        $(this).parents(".blog-post").eq(0).addClass("condense");
-        $(this).siblings(".blog-post__text-continued").addClass("show");
-        $(this).removeClass("show");
-    });
-
-    $(".blog-post__minimize-post").eq(1).on("click", function () {
-        $(this).parents(".blog-post").eq(0).addClass("condense");
-        $(this).siblings(".blog-post__text-continued").addClass("show");
-        $(this).removeClass("show");
-    });
-
-    $(".blog-post__minimize-post").eq(2).on("click", function () {
-        $(this).parents(".blog-post").eq(0).addClass("condense");
-        $(this).siblings(".blog-post__text-continued").addClass("show");
-        $(this).removeClass("show");
-    });
+    for (let i = 0; i < numberOfBlogPosts; i++) {
+        $(".blog-post__minimize-post").eq(i).on("click", function () {
+            $(this).parents(".blog-post").eq(0).addClass("condense");
+            $(this).siblings(".blog-post__text-continued").addClass("show");
+            $(this).removeClass("show");
+        });
+    }
 
 </script>
