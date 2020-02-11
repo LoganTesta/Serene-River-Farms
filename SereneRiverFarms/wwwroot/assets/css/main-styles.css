@@ -425,10 +425,6 @@ input, textarea, select {
     --color-2-medium-opacity: rgba(12, 100, 97, 0.4);
 }
 
-.inner-wrapper {
-    padding: 20px 10px 20px 10px;
-}
-
 input, textarea, select {
     padding: 10px;
     border: 1px solid #000000;
