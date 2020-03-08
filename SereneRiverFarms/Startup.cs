@@ -31,15 +31,20 @@ namespace SereneRiverFarms
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-           //Disabled for authentication reasons.  
-           // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //Disabled for authentication reasons.  
+            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             //Alllow for Session Variables
             services.AddSession();
             services.AddMemoryCache();
             services.AddMvc();
-        }
 
+            services.AddHttpsRedirection(options =>
+            {
+                options.HttpsPort = 443;
+            });
+        }
+    
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
