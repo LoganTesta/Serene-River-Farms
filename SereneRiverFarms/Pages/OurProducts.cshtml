@@ -79,6 +79,8 @@
         <div class="product__price">$@products[0].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -101,6 +103,8 @@
         <div class="product__price">$@products[1].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -123,6 +127,8 @@
         <div class="product__price">$@products[2].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -145,6 +151,8 @@
         <div class="product__price">$@products[3].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -167,6 +175,8 @@
         <div class="product__price">$@products[4].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -189,6 +199,8 @@
         <div class="product__price">$@products[5].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -214,6 +226,8 @@
         <div class="product__price">$@products[6].price/lb</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -239,6 +253,8 @@
         <div class="product__price">$@products[7].price/gallon</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -261,6 +277,8 @@
         <div class="product__price">$@products[8].price, $4-8/jar</div>
         <div class="product__add-container">
             <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
             <div class="product__add-quantity">+</div>
             <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
@@ -505,23 +523,73 @@
     let numberOfCartItems = 9;
 
     for (let i = 0; i < numberOfCartItems; i++) {
-        $(".product__add").eq(i).on("click", function () {
-            updateCart("AddItem", i);
+        $(".product__minus-quantity").eq(i).on("click", function () {
+              adjustProductSetQuantity(i, "decrease");
         });
-        $(".item__add__item").eq(i).on("click", function () {
-            updateCart("AddItem", i);
+        
+        $(".product__add-quantity").eq(i).on("click", function () {
+              adjustProductSetQuantity(i, "increase");
+        });
+
+        $(".product__add").eq(i).on("click", function () {
+            let itemQuantity = $(".product__input-quantity").eq(i).val();
+            setCartQuantity("SetItemQuantity", i, itemQuantity);
         });
     }
+
 
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".item__minus__item").eq(i).on("click", function () {
             updateCart("MinusItem", i);
         });
+
+        $(".item__add__item").eq(i).on("click", function () {
+            updateCart("AddItem", i);
+        });
     }
+
 
     $(".reset-all").eq(0).on("click", function () {
         resetCart("ResetCart", -1);
     })
+
+
+    function adjustProductSetQuantity(itemNumber, change) {
+        if (change === "decrease") {
+            let newValue = "" + (parseInt($(".product__input-quantity").eq(itemNumber).val()) - 1);
+            $(".product__input-quantity").eq(itemNumber).val(newValue);
+        } else if (change === "increase") {
+            let newValue = "" + (parseInt($(".product__input-quantity").eq(itemNumber).val()) + 1);
+            $(".product__input-quantity").eq(itemNumber).val(newValue);
+        }
+    }
+
+
+    function setCartQuantity(actionString, itemID, itemQuantity) {
+        $.ajax({
+            method: "GET",
+            url: "/OurProducts?handler=" + actionString + "&item=" + itemID + "&itemQuantity=" + itemQuantity,
+            data: '',
+            success: function (response) {
+                alert("setting");
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
+
+                let itemQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
+                let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
+                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+
+                $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
+                $(".item__quantity").eq(itemID).html(itemQuantity.innerHTML);
+                $(".item__approximate-subtotal").eq(itemID).html(productApproximateTotal.innerHTML);
+                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+            }
+        });
+    }
+
+
 
 
     function updateCart(actionString, itemID) {

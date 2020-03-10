@@ -110,6 +110,31 @@ namespace SereneRiverFarms.Pages
 
 
 
+        public void OnGetSetItemQuantity()
+        {
+            int productName = Convert.ToInt32(Request.Query["item"]);
+            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
+            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]); 
+
+            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
+            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+
+            decimal newCartTotal = 0;
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                decimal priceOfEachItem = productPrices[i];
+                productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
+
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];  //Remove any spaces in a product name to prevent failed product matching.
+                newCartTotal += quantityOfEachItem * priceOfEachItem;
+            }
+            HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
+        }
+
+
+
+
         public void OnGetAddItem()
         {
             int productName = Convert.ToInt32(Request.Query["item"]);

@@ -1096,6 +1096,20 @@ li { padding-bottom: 10px; }
     cursor: pointer;
     user-select: none;
 }
+
+.product__input-quantity {
+    width: 52px;
+    margin-bottom: 15px; 
+    border-radius: 5px;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .product__add-quantity {
     width: 38px;
     height: 38px;
@@ -1715,13 +1729,19 @@ li { padding-bottom: 10px; }
     .product__minus-quantity {
         display: inline-block;
         margin-bottom: 0;
-        margin-right: 12px;
+        margin-right: 5px;
+    }
+
+    .product__input-quantity {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 5px;
     }
 
     .product__add-quantity {
         display: inline-block;
         margin-bottom: 0;
-        margin-right: 12px;
+        margin-right: 5px;
     }
 
     .product__add {
