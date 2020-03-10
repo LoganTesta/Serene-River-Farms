@@ -851,8 +851,8 @@ li { padding-bottom: 10px; }
 }
 
     .slideshow__image:hover {
-        transform: scale(1.25) translateX(-50px);
-        transition: transform 2.0s ease-in;
+        transform: scale(1.30) translateX(-30px);
+        transition: transform 1.5s ease-in;
     }
 
 .slideshow__header {
@@ -1924,6 +1924,10 @@ input::-webkit-inner-spin-button {
         position: relative;
         padding-bottom: 56.25%;
     }
+
+        .slideshow__image:hover {
+            transform: scale(1.30) translateX(-60px);
+        }
 
     .slideshow__header {
         font-size: 26px;
