@@ -43,7 +43,6 @@ namespace SereneRiverFarms.Pages
 
         public OurProductsModel()
         {
-
             products.Add(pear);
             products.Add(apple);
             products.Add(blueberries);
@@ -71,6 +70,8 @@ namespace SereneRiverFarms.Pages
             theSessionVariables.Add("numberOfMilkGallons");
             theSessionVariables.Add("numberOf12OunceJamJars");
         }
+
+
         public void OnGet()
         {
             HttpContext.Session.SetInt32("numberOfPears", 0);
@@ -109,7 +110,6 @@ namespace SereneRiverFarms.Pages
         }
 
 
-
         public void OnGetSetItemQuantity()
         {
             int productName = Convert.ToInt32(Request.Query["item"]);
@@ -130,9 +130,8 @@ namespace SereneRiverFarms.Pages
                 newCartTotal += quantityOfEachItem * priceOfEachItem;
             }
             HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
         }
-
-
 
 
         public void OnGetAddItem()
@@ -156,7 +155,6 @@ namespace SereneRiverFarms.Pages
             }
             HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
-
         }
 
 
@@ -186,7 +184,6 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
         }
-
 
 
         public void OnGetResetCart()

@@ -571,7 +571,6 @@
             url: "/OurProducts?handler=" + actionString + "&item=" + itemID + "&itemQuantity=" + itemQuantity,
             data: '',
             success: function (response) {
-                alert("setting");
                 let parser = new DOMParser();
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
