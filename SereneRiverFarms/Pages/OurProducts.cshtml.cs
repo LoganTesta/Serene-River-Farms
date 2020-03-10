@@ -53,7 +53,7 @@ namespace SereneRiverFarms.Pages
             products.Add(milkGallon);
             products.Add(jamJar12Ounce);
 
-            for (int i=0; i<products.Count; i++)
+            for (int i = 0; i < products.Count; i++)
             {
                 productNames.Add(products[i].namePlural);
                 productPrices.Add(products[i].price);
@@ -114,7 +114,15 @@ namespace SereneRiverFarms.Pages
         {
             int productName = Convert.ToInt32(Request.Query["item"]);
             string sessionVariable = Convert.ToString(theSessionVariables[productName]);
-            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]); 
+            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]);
+            if (numberOfItem < 0)
+            {
+                numberOfItem = 0;
+            }
+            if (numberOfItem > 100)
+            {
+                numberOfItem = 100;
+            }
 
             HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
             ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
@@ -139,6 +147,10 @@ namespace SereneRiverFarms.Pages
             int productName = Convert.ToInt32(Request.Query["item"]);
             string sessionVariable = Convert.ToString(theSessionVariables[productName]);
             int numberOfItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + sessionVariable) + 1);
+            if (numberOfItem > 100)
+            {
+                numberOfItem = 100;
+            }
 
             HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
             ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);

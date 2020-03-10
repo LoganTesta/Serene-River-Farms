@@ -557,10 +557,14 @@
     function adjustProductSetQuantity(itemNumber, change) {
         if (change === "decrease") {
             let newValue = "" + (parseInt($(".product__input-quantity").eq(itemNumber).val()) - 1);
-            $(".product__input-quantity").eq(itemNumber).val(newValue);
+            if (0 <= newValue && newValue <= 100) {
+                $(".product__input-quantity").eq(itemNumber).val(newValue);
+            }
         } else if (change === "increase") {
             let newValue = "" + (parseInt($(".product__input-quantity").eq(itemNumber).val()) + 1);
-            $(".product__input-quantity").eq(itemNumber).val(newValue);
+            if (0 <= newValue && newValue <= 100) {
+                $(".product__input-quantity").eq(itemNumber).val(newValue);
+            }
         }
     }
 
@@ -587,9 +591,6 @@
             }
         });
     }
-
-
-
 
     function updateCart(actionString, itemID) {
         $.ajax({
