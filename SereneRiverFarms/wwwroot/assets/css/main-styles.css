@@ -416,7 +416,7 @@ input, textarea, select {
     --color-3: #a45414; /* dark orange-brown      (164,  84,  20)      */
     --color-4: #a31417; /* dark pink-red          (163,  20,  24)      */
     --color-1-semi-opacity: rgba(22, 133, 16, 0.8);
-    --color-2-semi-opacity: rgba(12, 100, 97, 0.4);
+    --color-2-semi-opacity: rgba(12, 100, 97, 0.8);
     --color-3-semi-opacity: rgba(164, 84, 20, 0.5);
     --color-4-semi-opacity: rgba(163, 20, 24, 0.5);
     --color-2-very-low-opacity: rgba(12, 100, 97, 0.2);
@@ -1093,7 +1093,7 @@ li { padding-bottom: 10px; }
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    background-color: var(--color-1);
+    background-color: var(--color-4);
     color: #ffffff;
     cursor: pointer;
     user-select: none;
@@ -1145,13 +1145,13 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    background-color: var(--color-1);
+    background-color: var(--color-2);
     color: #ffffff;
     cursor: pointer;
     transition: 0.4s ease-in;
 }
     .product__add:hover {
-        background-color: var(--color-1-lighter-green);
+        background-color: var(--color-2-semi-opacity);
         box-shadow: 0 0 3px 5px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
