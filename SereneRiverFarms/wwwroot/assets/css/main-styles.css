@@ -1049,12 +1049,11 @@ li { padding-bottom: 10px; }
 .product {
     padding-bottom: 60px;
 }
-.product__name {
-    position: relative;
-    min-height: 47px;
+.product__header {
+
 }
 
-.product__name h3 {
+.product__name {
     padding-bottom: 2px;
     text-align: center;
 }
@@ -1071,11 +1070,11 @@ li { padding-bottom: 10px; }
 .product__bg-image {
     width: 100%;
     height: 120px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .product__description {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .product__price {
@@ -1089,7 +1088,7 @@ li { padding-bottom: 10px; }
     padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
@@ -1104,7 +1103,7 @@ li { padding-bottom: 10px; }
     width: 55px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;
     -moz-appearance: textfield;
 }
@@ -1121,7 +1120,7 @@ input::-webkit-inner-spin-button {
     padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
@@ -1132,7 +1131,7 @@ input::-webkit-inner-spin-button {
 }
 
 .product__add-container {
-    padding-top: 10px;
+    padding-top: 8px;
     font-size: 0;
 }
 
@@ -1707,13 +1706,13 @@ input::-webkit-inner-spin-button {
 
 
     /*Products*/
-    .product { padding-bottom: 40px; }
+    .product { padding-bottom: 60px; }
 
-    .product__name { min-height: 0px; }
+    .product__header { min-height: 0px; }
 
-    .product__name h3 {
+    .product__name {
         display: block;
-        padding-bottom: 12px;
+        padding-bottom: 8px;
     }
 
     .product__quantity {
@@ -1727,7 +1726,6 @@ input::-webkit-inner-spin-button {
 
     .product__bg-image {
         height: 180px;
-        margin-bottom: 12px;
     }
 
     .estimate-container {
@@ -1975,11 +1973,6 @@ input::-webkit-inner-spin-button {
 
     .product__bg-image {
         height: 220px;
-    }
-
-
-    .product__add-container {
-        padding-top: 15px;
     }
 
     .product__minus-quantity {
