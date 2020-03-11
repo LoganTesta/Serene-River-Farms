@@ -1050,7 +1050,7 @@ li { padding-bottom: 10px; }
     padding-bottom: 60px;
 }
 .product__header {
-
+    position: relative;
 }
 
 .product__name {
@@ -1718,10 +1718,11 @@ input::-webkit-inner-spin-button {
     .product__quantity {
         display: block;
         position: absolute;
-        top: 4px;
-        right: 10px;
+        top: 2px;
+        right: 5px;
         padding-right: 0;
         padding-bottom: 0;
+        font-size: 18px;
     }
 
     .product__bg-image {
@@ -1968,7 +1969,8 @@ input::-webkit-inner-spin-button {
     }
 
     .product__quantity {
-        top: 7px;
+        top: 5px;
+        right: 8px;
     }
 
     .product__bg-image {
