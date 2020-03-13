@@ -1092,7 +1092,7 @@ li { padding-bottom: 10px; }
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    background-color: var(--color-4);
+    background-color: var(--color-1);
     color: #ffffff;
     cursor: pointer;
     user-select: none;
@@ -1101,10 +1101,13 @@ li { padding-bottom: 10px; }
 .product__input-quantity {
     display: block;
     width: 55px;
+    padding: 8px 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    border: 2px solid var(--color-1);
     border-radius: 5px;
+    color: var(--color-1);
 }
 
 .product .product__input-quantity {
@@ -1147,12 +1150,13 @@ li { padding-bottom: 10px; }
     text-align: center;
     font-weight: bold;
     background-color: var(--color-2);
+    background: linear-gradient(170deg, var(--color-2) 35%, var(--color-2-semi-opacity) 70%, var(--color-2) 100%);
     color: #ffffff;
     cursor: pointer;
     transition: 0.4s ease-in;
+    user-select: none;
 }
-    .product__add:hover {
-        background-color: var(--color-2-semi-opacity);
+    .product__add:hover { 
         box-shadow: 0 0 3px 5px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
