@@ -1246,7 +1246,14 @@ li { padding-bottom: 10px; }
         font-weight: bold;
     }
 
-.item { width: 50%; float: left; }
+.item {
+    width: 50%;
+    float: left;
+}
+
+    .item.hide {
+        display: none;
+    }
 
 .item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__add, .item__minus {
     padding: 5px 5px;

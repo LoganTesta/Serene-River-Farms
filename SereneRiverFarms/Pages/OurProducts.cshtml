@@ -422,7 +422,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="item zero">
+                    <tr class="item zero @(@numberOfPears <= 0 ? "hide" : "")">
                         <td class="item__name">@products[0].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[0].price</td>
@@ -431,7 +431,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item one">
+                    <tr class="item one @(@numberOfApples <= 0 ? "hide" : "")">
                         <td class="item__name">@products[1].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[1].price</td>
@@ -440,7 +440,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item two">
+                    <tr class="item two @(@numberOfBlueberries <= 0 ? "hide" : "")">
                         <td class="item__name">@products[2].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[2].price</td>
@@ -449,7 +449,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item three">
+                    <tr class="item three @(@numberOfStrawberries <= 0 ? "hide" : "")">
                         <td class="item__name">@products[3].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[3].price</td>
@@ -458,7 +458,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item four">
+                    <tr class="item four @(@numberOfRaspberries <= 0 ? "hide" : "")">
                         <td class="item__name">@products[4].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[4].price</td>
@@ -467,7 +467,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item five">
+                    <tr class="item five @(@numberOfCherries <= 0 ? "hide" : "")">
                         <td class="item__name">@products[5].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[5].price</td>
@@ -476,7 +476,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item six">
+                    <tr class="item six @(@numberOfPumpkins <= 0 ? "hide" : "")">
                         <td class="item__name">@products[6].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[6].price</td>
@@ -485,7 +485,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item seven">
+                    <tr class="item seven @(@numberOfMilkGallons <= 0 ? "hide" : "")">
                         <td class="item__name">@products[7].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[7].price</td>
@@ -494,7 +494,7 @@
                         <td class="item__add"><div class="item__add__item">+</div></td>
                         <td class="item__minus"><div class="item__minus__item">-</div></td>
                     </tr>
-                    <tr class="item eight">
+                    <tr class="item eight @(@numberOf12OunceJamJars <= 0 ? "hide" : "")">
                         <td class="item__name">@products[8].namePlural</td>
                         <td class="item__photo"><div class="item__photo-image"></div></td>
                         <td class="item__approximate-price">$@products[8].price</td>
@@ -579,15 +579,14 @@
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
                 let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
-
-                let itemQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
-                let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
+                let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
                 let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
 
                 $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
-                $(".item__quantity").eq(itemID).html(itemQuantity.innerHTML);
-                $(".item__approximate-subtotal").eq(itemID).html(productApproximateTotal.innerHTML);
+                $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+
+                reAddEventListeners();
             }
         });
     }
@@ -602,15 +601,14 @@
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
                 let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
-
-                let itemQuantity = ajaxDocument.getElementsByClassName("item__quantity")[itemID];
-                let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[itemID];
+                let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
                 let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
 
                 $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
-                $(".item__quantity").eq(itemID).html(itemQuantity.innerHTML);
-                $(".item__approximate-subtotal").eq(itemID).html(productApproximateTotal.innerHTML);
+                $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+
+                reAddEventListeners();
             }
         });
     }
@@ -623,21 +621,29 @@
             success: function (response) {
                 let parser = new DOMParser();
                 let ajaxDocument = parser.parseFromString(response, "text/html");
-                for (let i = 0; i < numberOfCartItems; i++) {
 
-                    let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[i];
-
-                    let itemQuantity = ajaxDocument.getElementsByClassName("item__quantity")[i];
-                    let productApproximateTotal = ajaxDocument.getElementsByClassName("item__approximate-subtotal")[i];
-
-                    $(".product__quantity").eq(i).html(productQuantity.innerHTML);
-                    $(".item__quantity").eq(i).html(itemQuantity.innerHTML);
-                    $(".item__approximate-subtotal").eq(i).html(productApproximateTotal.innerHTML);
-                }
+                let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
                 var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+
+                $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+
+                reAddEventListeners();
             }
         });
+    }
+
+    //Recreate event listeners for - and + buttons.
+    function reAddEventListeners() {
+        for (let i = 0; i < numberOfCartItems; i++) {
+            $(".item__minus__item").eq(i).on("click", function () {
+                updateCart("MinusItem", i);
+            });
+
+            $(".item__add__item").eq(i).on("click", function () {
+                updateCart("AddItem", i);
+            });
+        }
     }
 
 </script>

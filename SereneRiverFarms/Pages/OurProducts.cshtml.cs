@@ -131,6 +131,7 @@ namespace SereneRiverFarms.Pages
             for (int i = 0; i < theSessionVariables.Count; i++)
             {
                 int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                ViewData["numberOf" + Convert.ToString(productNames[i]).Replace(" ", "")] = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
                 decimal priceOfEachItem = productPrices[i];
                 productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
 
@@ -159,6 +160,7 @@ namespace SereneRiverFarms.Pages
             for (int i = 0; i < theSessionVariables.Count; i++)
             {
                 int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                ViewData["numberOf" + Convert.ToString(productNames[i]).Replace(" ", "")] = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
                 decimal priceOfEachItem = productPrices[i];
                 productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
 
@@ -187,6 +189,7 @@ namespace SereneRiverFarms.Pages
             for (int i = 0; i < theSessionVariables.Count; i++)
             {
                 int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                ViewData["numberOf" + Convert.ToString(productNames[i]).Replace(" ", "")] = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
                 decimal priceOfEachItem = productPrices[i];
                 productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
 
