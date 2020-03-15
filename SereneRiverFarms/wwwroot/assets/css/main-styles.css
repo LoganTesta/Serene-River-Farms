@@ -425,6 +425,13 @@ input, textarea, select {
     --color-2-medium-opacity: rgba(12, 100, 97, 0.4);
 }
 
+@media only screen and (max-width: 700px) {
+    .col-vsm-1, .col-vsm-2, .col-vsm-3, .col-vsm-4, .col-vsm-5, .col-vsm-6, .col-vsm-7, .col-vsm-8, .col-vsm-9, .col-vsm-10, .col-vsm-11, .col-vsm-12 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
 input, textarea, select {
     padding: 10px;
     border: 1px solid #000000;
@@ -472,7 +479,9 @@ h4 {
     padding: 0 0 12px 0;
 }
 
-li { padding-bottom: 10px; }
+li {
+    padding-bottom: 10px;
+}
 
 /* General sitewide sections */
 .content-row.small-content-row-padding-top {
@@ -490,7 +499,9 @@ li { padding-bottom: 10px; }
 }
 
 
-.javascript-validation-results-contact-us { padding-bottom: 10px; }
+.javascript-validation-results-contact-us {
+    padding-bottom: 10px;
+}
 
 .form {
 }
@@ -521,8 +532,12 @@ li { padding-bottom: 10px; }
     min-height: 100px;
 }
 
-.form__submit-button { padding: 15px; }
-.form__submit-button:hover { }
+.form__submit-button {
+    padding: 15px;
+}
+
+    .form__submit-button:hover {
+    }
 
 
 .button-container {
@@ -536,6 +551,7 @@ li { padding-bottom: 10px; }
     cursor: pointer;
     transition: 0.4s ease-in;
 }
+
     .button-container:hover {
         background-color: var(--color-1-lighter-green);
         box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
@@ -562,10 +578,10 @@ li { padding-bottom: 10px; }
         color: #ffffff;
     }
 
-    .form-response {
-        font-weight: bold;
-        padding-bottom: 10px;
-    }
+.form-response {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
 
 
 /*Header, nav*/
@@ -606,11 +622,18 @@ li { padding-bottom: 10px; }
         color: var(--color-1);
     }
 
-.subtitle-container { position: relative; }
+.subtitle-container {
+    position: relative;
+}
+
 .subtitle-container__note {
     padding-bottom: 10px;
 }
-.subheader-divider { margin-bottom: 25px; border-bottom: 2px solid var(--color-1); } 
+
+.subheader-divider {
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-1);
+}
 
 
 /*Nav*/
@@ -670,15 +693,15 @@ li { padding-bottom: 10px; }
     left: 10px;
 }
 
-.register-login a {
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-    .register-login a:hover {
-        color: var(--color-4);
+    .register-login a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
     }
+
+        .register-login a:hover {
+            color: var(--color-4);
+        }
 
 .register-login__register {
     display: inline-block;
@@ -708,10 +731,12 @@ li { padding-bottom: 10px; }
         transition: 0.4s all ease-in;
     }
 
-.register-login__link.current-page { text-decoration: underline; }
+.register-login__link.current-page {
+    text-decoration: underline;
+}
 
 .register-benefits {
-    padding-bottom: 15px; 
+    padding-bottom: 15px;
 }
 
 
@@ -722,7 +747,9 @@ li { padding-bottom: 10px; }
     color: #f9f9f9;
 }
 
-.footer p { padding-bottom: 8px; }
+    .footer p {
+        padding-bottom: 8px;
+    }
 
 .footer__background {
     padding: 40px 20px;
@@ -751,30 +778,30 @@ li { padding-bottom: 10px; }
         box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.8);
     }
 
-    .footer__social-item {
-        display: inline-block;
-        padding-right: 40px;
-    }
+.footer__social-item {
+    display: inline-block;
+    padding-right: 40px;
+}
 
     .footer__social-item:last-of-type {
         padding-right: 0;
     }
 
-        .footer__social-item i {
-            border-radius: 0px;
-  
-        }
-            .footer__social-item i::before {
-                color: #ffffff;
-                transition: 0.4s ease-in;
-            }
+    .footer__social-item i {
+        border-radius: 0px;
+    }
 
-        .footer__social-item a:hover i::before {
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.8);
-            color: var(--color-4);
+        .footer__social-item i::before {
+            color: #ffffff;
             transition: 0.4s ease-in;
         }
+
+    .footer__social-item a:hover i::before {
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.8);
+        color: var(--color-4);
+        transition: 0.4s ease-in;
+    }
 
 
 /*Cookie Partial*/
@@ -795,7 +822,10 @@ li { padding-bottom: 10px; }
         display: none;
     }
 
-.cookie-policy__subheading { text-align: center; font-weight: bold; }
+.cookie-policy__subheading {
+    text-align: center;
+    font-weight: bold;
+}
 
 .cookie-policy__learn-more {
     display: inline-block;
@@ -829,7 +859,8 @@ li { padding-bottom: 10px; }
     background-color: #ffffff;
 }
 
-.slideshow-image-wrapper { }
+.slideshow-image-wrapper {
+}
 
 .slideshow__image-link {
     display: block;
@@ -846,7 +877,7 @@ li { padding-bottom: 10px; }
     border-radius: 15px;
     background: 50% 50%/cover no-repeat;
     transition: 1.2s ease-in;
-    transform: scale(1.10); 
+    transform: scale(1.10);
     cursor: pointer;
 }
 
@@ -891,19 +922,19 @@ li { padding-bottom: 10px; }
         transition: 0.2s ease-in;
     }
 
-    #pausePlayButton {
-        margin-left: 0;
-        background: url(../images/index/pause-button.png);
-        border-radius: 1px;
-    }
+#pausePlayButton {
+    margin-left: 0;
+    background: url(../images/index/pause-button.png);
+    border-radius: 1px;
+}
 
     #pausePlayButton:hover {
         box-shadow: 0px 0px 3px 4px var(--color-4);
     }
 
-    #slideButton3 {
-        margin-bottom: 10px;
-    }
+#slideButton3 {
+    margin-bottom: 10px;
+}
 
 .subheader {
     text-align: center;
@@ -919,10 +950,12 @@ li { padding-bottom: 10px; }
     padding: 0px 0 5px 30px;
     text-align: left;
 }
+
 .index-content-2 {
     padding: 5px 15px 5px 0;
     text-align: right;
 }
+
 .index-content-3 {
     padding: 5px 0 0px 25px;
     text-align: left;
@@ -932,15 +965,21 @@ li { padding-bottom: 10px; }
     margin-left: -12px;
     text-align: left;
 }
+
 .index-content-2__h3 {
     margin-right: -8px;
     text-align: right;
 }
+
 .index-content-3__h3 {
     padding-left: 12px;
     text-align: left;
 }
-.index-content__detail { display: block; padding-bottom: 12px; }
+
+.index-content__detail {
+    display: block;
+    padding-bottom: 12px;
+}
 
 .index-section {
     padding-bottom: 60px;
@@ -950,7 +989,9 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
     }
 
-.index-section__title h3 { text-align: center; }
+.index-section__title h3 {
+    text-align: center;
+}
 
 .index-section__bg-container {
     overflow: hidden;
@@ -1016,10 +1057,14 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
-.map-location__header { text-align: center; }
+.map-location__header {
+    text-align: center;
+}
+
 .map-location__text {
     text-align: center;
 }
+
 .map-location__map {
     width: 100%;
     height: 240px;
@@ -1033,7 +1078,9 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/farm-barn-pond.jpg') 50% 30%/cover no-repeat;
 }
 
-.set-up-tour-form { padding-top: 15px; }
+.set-up-tour-form {
+    padding-top: 15px;
+}
 
 .our-farm-tour-image {
     max-width: 960px;
@@ -1049,6 +1096,7 @@ li { padding-bottom: 10px; }
 .product {
     padding-bottom: 60px;
 }
+
 .product__header {
     position: relative;
 }
@@ -1061,7 +1109,7 @@ li { padding-bottom: 10px; }
 .product__quantity {
     display: block;
     padding-right: 5px;
-    padding-bottom: 5px; 
+    padding-bottom: 5px;
     font-weight: bold;
     text-align: center;
     color: #138510;
@@ -1083,11 +1131,11 @@ li { padding-bottom: 10px; }
 }
 
 .product__minus-quantity {
-    width: 38px;
-    height: 38px;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    padding-top: 8px;
+    margin-right: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
     text-align: center;
@@ -1099,11 +1147,10 @@ li { padding-bottom: 10px; }
 }
 
 .product__input-quantity {
-    display: block;
-    width: 55px;
-    padding: 8px 10px;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    width: 52px;
+    padding: 6px 8px;
+    margin-right: 5px;
     margin-bottom: 10px;
     border: 2px solid var(--color-1);
     border-radius: 5px;
@@ -1120,11 +1167,10 @@ li { padding-bottom: 10px; }
 }
 
 .product__add-quantity {
-    width: 38px;
-    height: 38px;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    padding-top: 8px;
     margin-bottom: 10px;
     border-radius: 5px;
     text-align: center;
@@ -1136,14 +1182,17 @@ li { padding-bottom: 10px; }
 }
 
 .product__add-container {
+    width: 130px;
     padding-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 0;
 }
 
 .product__add {
     width: 108px;
-    height: 38px;
-    padding-top: 10px;
+    height: 34px;
+    padding-top: 8px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
@@ -1156,7 +1205,8 @@ li { padding-bottom: 10px; }
     transition: 0.4s ease-in;
     user-select: none;
 }
-    .product__add:hover { 
+
+    .product__add:hover {
         box-shadow: 0 0 3px 5px var(--color-3-semi-opacity);
         transition: 0.4s ease-in;
     }
@@ -1198,13 +1248,17 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/jars-of-jams-on-table-small.jpg') 50% 30%/cover no-repeat;
 }
 
-#userState option { padding: 5px; }
+#userState option {
+    padding: 5px;
+}
+
 .form__submit-button.estimate {
- 
 }
 
 
-.estimate-container { padding-top: 30px; }
+.estimate-container {
+    padding-top: 30px;
+}
 
 .estimate-container__header {
     padding-bottom: 30px;
@@ -1264,22 +1318,25 @@ li { padding-bottom: 10px; }
 }
 
 
-.item-table .item__name { margin-top: 60px; }
+.item-table .item__name {
+    margin-top: 60px;
+}
 
-    .item__add__item {
-        width: 50px;
-        height: 50px;
-        padding-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: var(--color-1);
-        color: #f9f9f9;
-        text-align: center;
-        border-radius: 5px;
-        font-size: 24px;
-        cursor: pointer;
-        font-weight: bold;
-    }
+.item__add__item {
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-1);
+    color: #f9f9f9;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .item__minus__item {
     width: 50px;
     height: 50px;
@@ -1295,7 +1352,12 @@ li { padding-bottom: 10px; }
     font-weight: bold;
 }
 
-.item__photo-image { width: 80px; height: 60px; margin-left: auto; margin-right: auto; }
+.item__photo-image {
+    width: 80px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .item.zero .item__photo-image {
     background: url('/assets/images/pear-small.jpg') 50% 30%/cover no-repeat;
@@ -1339,7 +1401,10 @@ li { padding-bottom: 10px; }
     background: url('/assets/images/kitchen-area.jpg') 50% 30%/cover no-repeat;
 }
 
-.recipe { padding-bottom: 40px; }
+.recipe {
+    padding-bottom: 40px;
+}
+
 .recipe__photo {
     width: 300px;
     height: 220px;
@@ -1347,12 +1412,19 @@ li { padding-bottom: 10px; }
     margin-right: auto;
     margin-bottom: 15px;
 }
-.recipe__subheading { padding-top: 20px; }
-    .recipe__subheading:nth-of-type(1) { padding-top: 0; }
 
-    .recipe.zero .recipe__photo {
-        background: url('/assets/images/apple-cider.jpg') 50% 30%/cover no-repeat;
+.recipe__subheading {
+    padding-top: 20px;
+}
+
+    .recipe__subheading:nth-of-type(1) {
+        padding-top: 0;
     }
+
+.recipe.zero .recipe__photo {
+    background: url('/assets/images/apple-cider.jpg') 50% 30%/cover no-repeat;
+}
+
 .recipe.one .recipe__photo {
     background: url('/assets/images/blueberry-muffin.jpg') 50% 30%/cover no-repeat;
 }
@@ -1367,16 +1439,22 @@ li { padding-bottom: 10px; }
     padding-bottom: 15px;
 }
 
-.event__date { display: inline-block; font-weight: bold; }
+.event__date {
+    display: inline-block;
+    font-weight: bold;
+}
 
-.past-events-subheading { padding-top: 20px; }
+.past-events-subheading {
+    padding-top: 20px;
+}
 
 
 /*Blog*/
-.blog-controls { }
+.blog-controls {
+}
 
 .blog-controls__toggle-order-date {
-    width: 146px; 
+    width: 146px;
     padding: 10px;
     margin-bottom: 15px;
     margin-left: auto;
@@ -1410,9 +1488,11 @@ li { padding-bottom: 10px; }
     position: relative;
     padding-bottom: 30px;
 }
+
 .blog-post__title {
     width: 100%;
 }
+
 .blog-post__date {
     float: left;
     display: inline-block;
@@ -1421,7 +1501,8 @@ li { padding-bottom: 10px; }
     font-weight: bold;
 }
 
-.blog-post.condense .blog-post__text { }
+.blog-post.condense .blog-post__text {
+}
 
 .blog-post__photo {
     width: 240px;
@@ -1432,15 +1513,19 @@ li { padding-bottom: 10px; }
     transition: 0.6s ease-in;
 }
 
-.blog-post__body { }
+.blog-post__body {
+}
 
-.blog-post__text-continued { display: none; }
+.blog-post__text-continued {
+    display: none;
+}
 
 .blog-post.condense .blog-post__photo {
     width: 120px;
     height: 80px;
     transition: 0.6s ease-in;
 }
+
 .blog-post.condense .blog-post__text {
     padding-right: 42px;
     max-height: 24px;
@@ -1457,21 +1542,24 @@ li { padding-bottom: 10px; }
     cursor: pointer;
 }
 
-.blog-post__minimize-post { 
+.blog-post__minimize-post {
     display: none;
 }
+
     .blog-post__minimize-post.show {
         display: block;
         font-weight: bold;
         cursor: pointer;
     }
 
-    .blog-post.zero .blog-post__photo {
-        background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
-    }
+.blog-post.zero .blog-post__photo {
+    background: url('/assets/images/pumpkin-patch-sunny-field-in-fall.jpg') 50% 30%/cover no-repeat;
+}
+
 .blog-post.one .blog-post__photo {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
+
 .blog-post.two .blog-post__photo {
     background: url('/assets/images/cherry-trees-on-hill.jpg') 50% 30%/cover no-repeat;
 }
@@ -1494,14 +1582,21 @@ li { padding-bottom: 10px; }
 
 
 /*Register page*/
-#registerForm { }
+#registerForm {
+}
+
 .background-hero-image.register {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
 }
 
 /*Login page*/
-.forgot-password { padding-top: 40px; }
-.register-new-user { padding-top: 20px; }
+.forgot-password {
+    padding-top: 40px;
+}
+
+.register-new-user {
+    padding-top: 20px;
+}
 
 .background-hero-image.login {
     background: url('/assets/images/strawberry-bushes-in-a-row.jpg') 50% 30%/cover no-repeat;
@@ -1548,7 +1643,9 @@ li { padding-bottom: 10px; }
     font-size: 18px;
 }
 
-.account-benefits { padding-bottom: 20px; }
+.account-benefits {
+    padding-bottom: 20px;
+}
 
 
 /*Settings page*/
@@ -1556,7 +1653,10 @@ li { padding-bottom: 10px; }
     padding-bottom: 50px;
 }
 
-.settings-message { padding-bottom: 15px; font-weight: bold; }
+.settings-message {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
 
 
 /*Privacy Policy*/
@@ -1603,7 +1703,7 @@ li { padding-bottom: 10px; }
     }
 }
 
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 700px) {
     /*Index*/
     .index-section:nth-of-type(3n + 1) {
         content: "";
@@ -1708,7 +1808,8 @@ li { padding-bottom: 10px; }
     .background-hero-image.about-us {
         margin-bottom: 0px;
     }
-        .map-location__map {
+
+    .map-location__map {
         height: 400px;
     }
 
@@ -1719,9 +1820,13 @@ li { padding-bottom: 10px; }
 
 
     /*Products*/
-    .product { padding-bottom: 60px; }
+    .product {
+        padding-bottom: 60px;
+    }
 
-    .product__header { min-height: 0px; }
+    .product__header {
+        min-height: 0px;
+    }
 
     .product__name {
         display: block;
@@ -1789,7 +1894,6 @@ li { padding-bottom: 10px; }
     .blog-post.condense .blog-post__photo {
         margin-bottom: 0;
     }
-
 }
 
 
@@ -1809,7 +1913,9 @@ li { padding-bottom: 10px; }
 
 
 @media only screen and (min-width: 1200px) {
-    h2 { font-size: 30px; }
+    h2 {
+        font-size: 30px;
+    }
 
     /* General sitewide sections */
     .body-wrapper {
@@ -1869,8 +1975,8 @@ li { padding-bottom: 10px; }
         padding-bottom: 0;
         color: var(--color-4);
     }
-       
-    .nav .nav__nav-link:hover {
+
+        .nav .nav__nav-link:hover {
             color: #ffffff;
         }
 
@@ -2011,6 +2117,12 @@ li { padding-bottom: 10px; }
         margin-bottom: 0;
     }
 
+    .product__add-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .product__add {
         display: inline-block;
     }
@@ -2021,7 +2133,9 @@ li { padding-bottom: 10px; }
         float: none;
     }
 
-    .item-table tr { font-size: 0; }
+    .item-table tr {
+        font-size: 0;
+    }
 
     .item-table th, .item-table td {
         display: inline-block;
@@ -2032,24 +2146,30 @@ li { padding-bottom: 10px; }
     .item-table .item__names {
         width: 160px;
     }
+
     .item-table .item__photos {
         width: 90px;
     }
+
     .item-table .item__approximate-prices {
         width: 98px;
         padding-left: 15px;
     }
-    .item-table .item__quantities { 
+
+    .item-table .item__quantities {
         width: 92px;
     }
-    .item-table .item__approximate-subtotals { 
-        width: 85px; 
+
+    .item-table .item__approximate-subtotals {
+        width: 85px;
     }
-    .item-table .item__add-icons { 
+
+    .item-table .item__add-icons {
         width: 60px;
     }
-    .item-table .item__minus-icons { 
-        width: 80px; 
+
+    .item-table .item__minus-icons {
+        width: 80px;
     }
 
 
@@ -2057,22 +2177,28 @@ li { padding-bottom: 10px; }
         width: 160px;
         margin-top: 0px;
     }
+
     .item-table .item__photo {
         width: 90px;
     }
+
     .item-table .item__approximate-price {
         width: 98px;
         padding-left: 15px;
     }
+
     .item-table .item__quantity {
         width: 92px;
     }
+
     .item-table .item__approximate-subtotal {
         width: 85px;
     }
+
     .item-table .item__add {
         width: 60px;
     }
+
     .item-table .item__minus {
         width: 80px;
     }
