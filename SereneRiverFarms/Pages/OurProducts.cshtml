@@ -65,6 +65,16 @@
     <div class="col-vsm-6 col-sma-4 col-lar-3 product one">
         <div class="product__header">
             <h3 class="product__name">Fresh @products[0].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Fun to eat or bake in cakes.</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[0].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfPears > 0)
@@ -73,22 +83,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Fun to eat or bake in cakes.</div>
-        <div class="product__price">$@products[0].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product two">
         <div class="product__header">
             <h3 class="product__name">Fresh @products[1].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Assorted varieties!</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[1].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfApples > 0)
@@ -97,22 +107,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Assorted varieties!</div>
-        <div class="product__price">$@products[1].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product three">
         <div class="product__header">
             <h3 class="product__name">@products[2].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Delicious summer blueberries.</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[2].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfBlueberries > 0)
@@ -121,22 +131,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Delicious summer blueberries.</div>
-        <div class="product__price">$@products[2].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product four">
         <div class="product__header">
             <h3 class="product__name">@products[3].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[3].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfStrawberries > 0)
@@ -145,22 +155,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!</div>
-        <div class="product__price">$@products[3].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product five">
         <div class="product__header">
             <h3 class="product__name">@products[4].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Sweet and tart and a favorite in late summer.</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[4].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfRaspberries > 0)
@@ -169,22 +179,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Sweet and tart and a favorite in late summer.</div>
-        <div class="product__price">$@products[4].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product six">
         <div class="product__header">
             <h3 class="product__name">@products[5].namePlural</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Very filling and tasty.</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[5].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfCherries > 0)
@@ -193,22 +203,25 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Very filling and tasty.</div>
-        <div class="product__price">$@products[5].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product seven">
         <div class="product__header">
             <h3 class="product__name">@products[6].name</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">
+            Our pumpkin patch is ready to provide you with your next jack-o'-latern.
+            Also, rumor has it pumpkin goes well in pies.
+        </div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[6].price/lb</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfPumpkins > 0)
@@ -217,25 +230,25 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">
-            Our pumpkin patch is ready to provide you with your next jack-o'-latern.
-            Also, rumor has it pumpkin goes well in pies.
-        </div>
-        <div class="product__price">$@products[6].price/lb</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product eight">
         <div class="product__header">
             <h3 class="product__name">@products[7].name</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">
+            We love our cows and give them plenty of room to roam.  The result is happier
+            cows and better tasting milk.
+        </div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[7].price/gallon</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfMilkGallons > 0)
@@ -244,25 +257,22 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">
-            We love our cows and give them plenty of room to roam.  The result is happier
-            cows and better tasting milk.
-        </div>
-        <div class="product__price">$@products[7].price/gallon</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>
     <div class="col-vsm-6 col-sma-4 col-lar-3 product nine">
         <div class="product__header">
             <h3 class="product__name">Assorted Jams</h3>
+        </div>
+        <div class="product__bg-image"></div>
+        <div class="product__description">Nothing like fresh produce to make your day in a jam.</div>
+        <div class="product__add-container">
+            <div class="product__price">$@products[8].price, $4-8/jar</div>
+            <div class="product__minus-quantity">-</div>
+            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+            <div class="product__add-quantity">+</div>
+            <div class="product__add">Add to Cart</div>
             <div class="product__quantity">
                 @{
                     if (@numberOf12OunceJamJars > 0)
@@ -271,16 +281,6 @@
                     }
                 }
             </div>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Nothing like fresh produce to make your day in a jam.</div>
-        <div class="product__price">$@products[8].price, $4-8/jar</div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
             <div class="clear-both"></div>
         </div>
     </div>

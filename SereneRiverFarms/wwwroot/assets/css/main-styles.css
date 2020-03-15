@@ -1098,7 +1098,7 @@ li {
 }
 
 .product__header {
-    position: relative;
+
 }
 
 .product__name {
@@ -1108,8 +1108,9 @@ li {
 
 .product__quantity {
     display: block;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
     font-weight: bold;
     text-align: center;
     color: #138510;
@@ -1126,8 +1127,10 @@ li {
 }
 
 .product__price {
+    padding-left: 8px;
+    padding-bottom: 8px;
     font-size: 18px;
-    text-align: center;
+    text-align: left;
 }
 
 .product__minus-quantity {
@@ -1182,8 +1185,8 @@ li {
 }
 
 .product__add-container {
+    position: relative;
     width: 130px;
-    padding-top: 8px;
     margin-left: auto;
     margin-right: auto;
     font-size: 0;
