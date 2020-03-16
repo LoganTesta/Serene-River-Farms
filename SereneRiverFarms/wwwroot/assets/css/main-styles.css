@@ -1130,6 +1130,7 @@ li {
 
 .product__price {
     display: inline-block;
+    max-width: 95px;
     padding-bottom: 8px;
     font-size: 18px;
     text-align: left;
@@ -1845,6 +1846,7 @@ li {
 
     .product__price {
         display: block;
+        max-width: none;
         text-align: center;
     }
 
