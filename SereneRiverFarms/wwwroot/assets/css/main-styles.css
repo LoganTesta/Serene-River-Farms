@@ -1121,7 +1121,7 @@ li {
 .product__bg-image {
     width: 100%;
     height: 120px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .product__description {
@@ -1844,6 +1844,7 @@ li {
     }
 
     .product__price {
+        display: block;
         text-align: center;
     }
 
