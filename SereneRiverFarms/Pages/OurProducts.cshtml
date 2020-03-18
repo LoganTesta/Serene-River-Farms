@@ -641,8 +641,11 @@
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
-                var shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
 
+                for (let i = 0; i < numberOfCartItems; i++) {
+                    document.getElementsByClassName("product__quantity")[i].innerHTML = "";
+                }
                 $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
 
