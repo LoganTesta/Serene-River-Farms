@@ -1111,18 +1111,26 @@ li {
     float: right;
     padding-top: 2px;
     font-weight: bold;
-    color: #138510;
+    color: var(--color-1);
 }
 
     .product__quantity:after {
         clear: both;
     }
 
-.product__bg-image {
-    width: 100%;
-    height: 120px;
-    margin-bottom: 5px;
+.product .product__quantity-link {
+    color: var(--color-1);
 }
+
+    .product .product__quantity-link:hover {
+        color: var(--color-3);
+    }
+
+    .product__bg-image {
+        width: 100%;
+        height: 120px;
+        margin-bottom: 5px;
+    }
 
 .product__description {
     margin-bottom: 5px;
