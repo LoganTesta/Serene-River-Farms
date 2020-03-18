@@ -50,8 +50,17 @@
     var subtotal12OunceJamJars = ViewData["subtotal12OunceJamJars"];
 
 
+    var numberOfItems = ViewData["numberOfItems"];
     var cartTotal = ViewData["cartTotal"];
 }
+
+<div class="shopping-cart">
+    <div class="shopping-cart__image show">
+        <a class="shopping-cart__link" href="#estimateContainer">
+            <div class="shopping-cart__number-of-items">@numberOfItems</div>
+        </a>
+    </div>
+</div>
 
 <div class="content-row no-content-row-padding">
     <div class="col-sma-12 page-content">
@@ -424,7 +433,7 @@
     <div class="col-sma-7">
         <div class="estimate-container">
             <div class="estimate-container__header">
-                <div class="shopping-cart__total">Total: @cartTotal</div>
+                <div class="estimate-cart__total">Total: @cartTotal</div>
                 <div class="reset-all">Reset All</div>
             </div>
             <table id="estimateTable" class="item-table">
@@ -542,11 +551,11 @@
 
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".product__minus-quantity").eq(i).on("click", function () {
-              adjustProductSetQuantity(i, "decrease");
+            adjustProductSetQuantity(i, "decrease");
         });
-        
+
         $(".product__add-quantity").eq(i).on("click", function () {
-              adjustProductSetQuantity(i, "increase");
+            adjustProductSetQuantity(i, "increase");
         });
 
         $(".product__add").eq(i).on("click", function () {
@@ -598,11 +607,13 @@
 
                 let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
-                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                let shoppingCart = ajaxDocument.getElementsByClassName("shopping-cart")[0];
+                let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
                 $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
                 $(".item-table").eq(0).html(itemTable.innerHTML);
-                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+                $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
+                $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
 
                 reAddEventListeners();
             }
@@ -620,11 +631,13 @@
 
                 let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
-                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                let shoppingCart = ajaxDocument.getElementsByClassName("shopping-cart")[0];
+                let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
                 $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
                 $(".item-table").eq(0).html(itemTable.innerHTML);
-                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+                $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
+                $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
 
                 reAddEventListeners();
             }
@@ -641,13 +654,15 @@
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
-                let shoppingCartTotal = ajaxDocument.getElementsByClassName("shopping-cart__total")[0];
+                let shoppingCart = ajaxDocument.getElementsByClassName("shopping-cart")[0];
+                let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
                 for (let i = 0; i < numberOfCartItems; i++) {
                     document.getElementsByClassName("product__quantity")[i].innerHTML = "";
                 }
                 $(".item-table").eq(0).html(itemTable.innerHTML);
-                $(".shopping-cart__total").eq(0).html(shoppingCartTotal.innerHTML);
+                $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
+                $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
 
                 reAddEventListeners();
             }

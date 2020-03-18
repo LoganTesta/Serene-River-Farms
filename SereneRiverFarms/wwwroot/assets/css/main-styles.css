@@ -1103,7 +1103,7 @@ li {
     .shopping-cart__image.show {
         display: block;
         position: absolute;
-        top: 215px;
+        top: -95px;
         right: 120px;
         width: 57px;
         height: 50px;
@@ -1310,7 +1310,7 @@ li {
     padding-bottom: 30px;
 }
 
-.shopping-cart__total {
+.estimate-cart__total {
     padding: 10px 0;
     font-size: 19px;
     font-weight: bold;
@@ -2139,7 +2139,7 @@ li {
 
     /*Products*/
     .shopping-cart__image.show {
-        top: 25px;
+        top: -95px;
         right: 15px;
     }
 
@@ -2285,7 +2285,7 @@ li {
     }
 
 
-    .shopping-cart__total {
+    .estimate-cart__total {
         text-align: left;
     }
 
