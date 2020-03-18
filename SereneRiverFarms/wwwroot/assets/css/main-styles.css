@@ -1093,6 +1093,38 @@ li {
 
 
 /*Products*/
+.shopping-cart {
+}
+
+.shopping-cart__image {
+    display: none;
+}
+
+    .shopping-cart__image.show {
+        display: block;
+        position: absolute;
+        top: 215px;
+        right: 120px;
+        width: 57px;
+        height: 50px;
+        background: url('../images/shopping-cart.png') 0% 0%/cover no-repeat;
+    }
+
+.shopping-cart__link {
+    display: block;
+    width: auto;
+    height: 100%;
+}
+
+.shopping-cart__number-of-items {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
 .product {
     padding-bottom: 60px;
     font-size: 0;
@@ -2106,6 +2138,11 @@ li {
 
 
     /*Products*/
+    .shopping-cart__image.show {
+        top: 25px;
+        right: 15px;
+    }
+
     .product {
     }
 
