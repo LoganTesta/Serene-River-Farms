@@ -113,7 +113,7 @@ namespace SereneRiverFarms.Pages
 
 
                 var emailMessage = new MimeMessage();
-                emailMessage.From.Add(new MailboxAddress(FromName, FromEmail));
+                emailMessage.From.Add(new MailboxAddress(FromName, ToEmail));
                 emailMessage.To.Add(new MailboxAddress("Serene River Farms", ToEmail));
 
                 emailMessage.Subject = EmailSubject;
