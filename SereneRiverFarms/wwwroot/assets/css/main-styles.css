@@ -1359,28 +1359,13 @@ li {
         display: none;
     }
 
-.item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__add, .item__minus {
+.item__name, .item__approximate-price, .item__quantity, .item__approximate-subtotal, .item__minus, .item__add {
     padding: 5px 5px;
 }
 
 
 .item-table .item__name {
     margin-top: 60px;
-}
-
-.item__add__item {
-    width: 50px;
-    height: 50px;
-    padding-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--color-1);
-    color: #f9f9f9;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 24px;
-    cursor: pointer;
-    font-weight: bold;
 }
 
 .item__minus__item {
@@ -1390,6 +1375,21 @@ li {
     margin-left: auto;
     margin-right: auto;
     background-color: var(--color-4);
+    color: #f9f9f9;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.item__add__item {
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-1);
     color: #f9f9f9;
     text-align: center;
     border-radius: 5px;
@@ -2239,24 +2239,24 @@ li {
     }
 
     .item-table .item__approximate-prices {
-        width: 98px;
+        width: 95px;
         padding-left: 15px;
     }
 
     .item-table .item__quantities {
-        width: 92px;
+        width: 90px;
     }
 
     .item-table .item__approximate-subtotals {
-        width: 85px;
-    }
-
-    .item-table .item__add-icons {
-        width: 60px;
+        width: 90px;
     }
 
     .item-table .item__minus-icons {
         width: 80px;
+    }
+
+    .item-table .item__add-icons {
+        width: 60px;
     }
 
 
@@ -2270,24 +2270,24 @@ li {
     }
 
     .item-table .item__approximate-price {
-        width: 98px;
+        width: 95px;
         padding-left: 15px;
     }
 
     .item-table .item__quantity {
-        width: 92px;
+        width: 90px;
     }
 
     .item-table .item__approximate-subtotal {
-        width: 85px;
-    }
-
-    .item-table .item__add {
-        width: 60px;
+        width: 90px;
     }
 
     .item-table .item__minus {
         width: 80px;
+    }
+
+    .item-table .item__add {
+        width: 60px;
     }
 
 
