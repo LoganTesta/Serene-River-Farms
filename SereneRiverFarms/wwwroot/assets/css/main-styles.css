@@ -1103,10 +1103,10 @@ li {
     .shopping-cart__image.show {
         display: block;
         position: absolute;
-        top: -105px;
+        top: -120px;
         right: 110px;
-        width: 57px;
-        height: 50px;
+        width: 64px;
+        height: 55px;
         background: url('../images/shopping-cart.png') 0% 0%/cover no-repeat;
     }
 
