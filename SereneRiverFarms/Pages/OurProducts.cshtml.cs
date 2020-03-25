@@ -401,8 +401,8 @@ namespace SereneRiverFarms.Pages
                     destinationSmtp.Dispose();
 
                     contactFormResponse = "Thank you " + userName + ", we will look over your request and send you an " +
-                        "estimate soon.  Our reply will be sent to your email at: " + userEmail + ".";
-                    contactFormResponse += " Your Order Request: ";
+                        "estimate soon.  Our reply will be sent to your email at: " + userEmail + ".<br /><br />";
+                    contactFormResponse += " Your Order Request: <br /><br/>";
                     for (int i = 0; i < theSessionVariables.Count; i++)
                     {
                         int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
@@ -410,7 +410,7 @@ namespace SereneRiverFarms.Pages
 
                         if (quantityOfEachItem > 0)
                         {
-                            contactFormResponse += " " + Convert.ToString(productNames[i]) + ": " + quantityOfEachItem + " (Sub: $" + productSubtotal + "), ";
+                            contactFormResponse += " " + Convert.ToString(productNames[i]) + ": " + quantityOfEachItem + " (Sub: $" + productSubtotal + "), <br />";
                         }
                     }
                     contactFormResponse += " Estimate of Order Total: $" + HttpContext.Session.GetString("Cart Total") + ". ";

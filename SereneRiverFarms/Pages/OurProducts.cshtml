@@ -3,6 +3,8 @@
 @using System.Collections;   @*For ArrayLists*@
 
 @{
+    @using Microsoft.AspNetCore.Html;
+
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
 
@@ -331,7 +333,7 @@
 
         @{
             <div class="form-response">
-                @contactResponse
+                @(new HtmlString("" + @contactResponse))
             </div>
         }
 
