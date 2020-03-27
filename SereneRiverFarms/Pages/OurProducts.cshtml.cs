@@ -31,9 +31,9 @@ namespace SereneRiverFarms.Pages
         List<product> products = new List<product>();
         product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
         product apple = new product("Apple", "Apples", "one", 1.50M, "", "Assorted varieties!");
-        product blueberries = new product("Blueberries", "two", "Blueberries", 3.00M, "", "Delicious summer blueberries.");
-        product strawberries = new product("Strawberries", "three", "Strawberries", 2.75M, "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
-        product raspberries = new product("Raspberries", "four", "Raspberries", 4.50M, "", "Sweet and tart and a favorite in late summer.");
+        product blueberries = new product("Blueberries", "Blueberries", "two", 3.00M, "", "Delicious summer blueberries.");
+        product strawberries = new product("Strawberries", "Strawberries", "three", 2.75M, "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
+        product raspberries = new product("Raspberries", "Raspberries", "four", 4.50M, "", "Sweet and tart and a favorite in late summer.");
         product cherries = new product("Cherries", "Cherries", "five", 3.50M, "", "Very filling and tasty.");
         product pumpkin = new product("Pumpkin", "Pumpkins", "six", 1.79M, "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
         product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", 2.50M, "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
@@ -82,6 +82,7 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetInt32("numberOfPumpkins", 0);
             HttpContext.Session.SetInt32("numberOfMilkGallons", 0);
             HttpContext.Session.SetInt32("numberOf12OunceJamJars", 0);
+
             HttpContext.Session.SetString("Number of Items", "" + 0);
             HttpContext.Session.SetString("Cart Total", "" + 0);
 
