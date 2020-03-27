@@ -29,16 +29,15 @@ namespace SereneRiverFarms.Pages
         //These products are used for the .cs part of the page, 
         //the products on the .cshtml page are used for that part of the page.
         List<product> products = new List<product>();
-        product pear = new product("Pear", "Pears", 2.50M, "", "");
-        product apple = new product("Apple", "Apples", 1.50M, "", "");
-        product blueberries = new product("Blueberries", "Blueberries", 3.00M, "", "");
-        product strawberries = new product("Strawberries", "Strawberries", 2.75M, "", "");
-        product raspberries = new product("Raspberries", "Raspberries", 4.50M, "", "");
-        product cherries = new product("Cherries", "Cherries", 3.50M, "", "");
-        product pumpkin = new product("Pumpkin", "Pumpkins", 1.79M, "", "");
-        product milkGallon = new product("Milk Gallon", "Milk Gallons", 2.50M, "", "");
-        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", 6.00M, "", "");
-
+        product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
+        product apple = new product("Apple", "Apples", "one", 1.50M, "", "Assorted varieties!");
+        product blueberries = new product("Blueberries", "two", "Blueberries", 3.00M, "", "Delicious summer blueberries.");
+        product strawberries = new product("Strawberries", "three", "Strawberries", 2.75M, "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
+        product raspberries = new product("Raspberries", "four", "Raspberries", 4.50M, "", "Sweet and tart and a favorite in late summer.");
+        product cherries = new product("Cherries", "Cherries", "five", 3.50M, "", "Very filling and tasty.");
+        product pumpkin = new product("Pumpkin", "Pumpkins", "six", 1.79M, "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
+        product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", 2.50M, "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
+        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", "eight", 6.00M, "", "Nothing like fresh produce to make your day in a jam.");
 
 
         public OurProductsModel()

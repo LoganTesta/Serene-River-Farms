@@ -9,16 +9,18 @@
     var contactResponse = ViewData["Message"];
 
 
-    product pear = new product("Pear", "Pears", 2.50M, "", "");
-    product apple = new product("Apple", "Apples", 1.50M, "", "");
-    product blueberries = new product("Blueberries", "Blueberries", 3.00M, "", "");
-    product strawberries = new product("Strawberries", "Strawberries", 2.75M, "", "");
-    product raspberries = new product("Raspberries", "Raspberries", 4.50M, "", "");
-    product cherries = new product("Cherries", "Cherries", 3.50M, "", "");
-    product pumpkin = new product("Pumpkin", "Pumpkins", 1.79M, "", "");
-    product milkGallon = new product("Milk Gallon", "Milk Gallons", 2.50M, "", "");
-    product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", 6.00M, "", "");
+    product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
+    product apple = new product("Apple", "Apples", "one", 1.50M, "", "Assorted varieties!");
+    product blueberries = new product("Blueberries", "Blueberries", "two", 3.00M, "", "Delicious summer blueberries.");
+    product strawberries = new product("Strawberries", "Strawberries", "three", 2.75M, "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
+    product raspberries = new product("Raspberries", "Raspberries", "four", 4.50M, "", "Sweet and tart and a favorite in late summer.");
+    product cherries = new product("Cherries", "Cherries", "five", 3.50M, "", "Very filling and tasty.");
+    product pumpkin = new product("Pumpkin", "Pumpkins", "six", 1.79M, "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
+    product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", 2.50M, "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
+    product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", "eight", 6.00M, "", "Nothing like fresh produce to make your day in a jam.");
+   
     List<product> products = new List<product>();
+   
     products.Add(pear);
     products.Add(apple);
     products.Add(blueberries);
@@ -39,6 +41,19 @@
     int numberOfPumpkins = Convert.ToInt32(ViewData["numberOfPumpkins"]);
     int numberOfMilkGallons = Convert.ToInt32(ViewData["numberOfMilkGallons"]);
     int numberOf12OunceJamJars = Convert.ToInt32(ViewData["numberOf12OunceJamJars"]);
+
+    List<int> numberOfEachProduct = new List<int>();
+
+    numberOfEachProduct.Add(numberOfPears);
+    numberOfEachProduct.Add(numberOfApples);
+    numberOfEachProduct.Add(numberOfBlueberries);
+    numberOfEachProduct.Add(numberOfStrawberries);
+    numberOfEachProduct.Add(numberOfRaspberries);
+    numberOfEachProduct.Add(numberOfCherries);
+    numberOfEachProduct.Add(numberOfPumpkins);
+    numberOfEachProduct.Add(numberOfMilkGallons);
+    numberOfEachProduct.Add(numberOf12OunceJamJars);
+
 
     var subtotalPears = ViewData["subtotalPears"];
     var subtotalApples = ViewData["subtotalApples"];
@@ -77,246 +92,35 @@
     </div>
 </div>
 <div class="content-row small-content-row-padding-top ">
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product one">
-        <div class="product__header">
-            <h3 class="product__name">Fresh @products[0].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Fun to eat or bake in cakes.</div>
-        <div class="product__price">$@products[0].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfPears > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfPears
-                    </a>
+    @for (var i = 0; i < products.Count; i++)
+    {
+        <div class="col-vsm-6 col-sma-4 col-lar-3 product @products[i].classCSS">
+            <div class="product__header">
+                <h3 class="product__name">Fresh @products[i].namePlural</h3>
+            </div>
+            <div class="product__bg-image"></div>
+            <div class="product__description">@products[i].description</div>
+            <div class="product__price">$@products[i].price/lb</div>
+            <div class="product__quantity">
+                @{
+                    if (@numberOfEachProduct[i] > 0)
+                    {
+                        <a href="#estimateCartContentRow" class="product__quantity-link">
+                            @numberOfEachProduct[i]
+                        </a>
+                    }
                 }
-            }
+            </div>
+            <div class="product__add-container">
+                <div class="product__minus-quantity">-</div>
+                <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
+                <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
+                <div class="product__add-quantity">+</div>
+                <div class="product__add">Add to Cart</div>
+                <div class="clear-both"></div>
+            </div>
         </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product two">
-        <div class="product__header">
-            <h3 class="product__name">Fresh @products[1].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Assorted varieties!</div>
-        <div class="product__price">$@products[1].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfApples > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfApples
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product three">
-        <div class="product__header">
-            <h3 class="product__name">@products[2].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Delicious summer blueberries.</div>
-        <div class="product__price">$@products[2].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfBlueberries > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfBlueberries
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product four">
-        <div class="product__header">
-            <h3 class="product__name">@products[3].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!</div>
-        <div class="product__price">$@products[3].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfStrawberries > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfStrawberries
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product five">
-        <div class="product__header">
-            <h3 class="product__name">@products[4].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Sweet and tart and a favorite in late summer.</div>
-        <div class="product__price">$@products[4].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfRaspberries > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfRaspberries
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product six">
-        <div class="product__header">
-            <h3 class="product__name">@products[5].namePlural</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Very filling and tasty.</div>
-        <div class="product__price">$@products[5].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfCherries > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfCherries
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product seven">
-        <div class="product__header">
-            <h3 class="product__name">@products[6].name</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">
-            Our pumpkin patch is ready to provide you with your next jack-o'-latern.
-            Also, rumor has it pumpkin goes well in pies.
-        </div>
-        <div class="product__price">$@products[6].price/lb</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfPumpkins > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfPumpkins
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product eight">
-        <div class="product__header">
-            <h3 class="product__name">@products[7].name</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">
-            We love our cows and give them plenty of room to roam.  The result is happier
-            cows and better tasting milk.
-        </div>
-        <div class="product__price">$@products[7].price/gallon</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOfMilkGallons > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOfMilkGallons
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
-    <div class="col-vsm-6 col-sma-4 col-lar-3 product nine">
-        <div class="product__header">
-            <h3 class="product__name">Assorted Jams</h3>
-        </div>
-        <div class="product__bg-image"></div>
-        <div class="product__description">Nothing like fresh produce to make your day in a jam.</div>
-        <div class="product__price">$@products[8].price, $4-8/jar</div>
-        <div class="product__quantity">
-            @{
-                if (@numberOf12OunceJamJars > 0)
-                {
-                    <a href="#estimateCartContentRow" class="product__quantity-link">
-                        @numberOf12OunceJamJars
-                    </a>
-                }
-            }
-        </div>
-        <div class="product__add-container">
-            <div class="product__minus-quantity">-</div>
-            <label class="sr-only" for="product__input-quantity">Product Input Quantity</label>
-            <input id="productInputQuantity" class="product__input-quantity" name="product__input-quantity" type="number" min="0" max="100" value="0" />
-            <div class="product__add-quantity">+</div>
-            <div class="product__add">Add to Cart</div>
-            <div class="clear-both"></div>
-        </div>
-    </div>
+    }
 </div>
 
 <div class="content-row" id="estimateCartContentRow">

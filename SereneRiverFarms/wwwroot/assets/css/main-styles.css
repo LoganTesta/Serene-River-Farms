@@ -1258,39 +1258,39 @@ li {
     }
 
 
-.product.one .product__bg-image {
+.product.zero .product__bg-image {
     background: url('/assets/images/pear-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.two .product__bg-image {
+.product.one .product__bg-image {
     background: url('/assets/images/apple-harvesting-barrel-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.three .product__bg-image {
+.product.two .product__bg-image {
     background: url('/assets/images/blueberries-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.four .product__bg-image {
+.product.three .product__bg-image {
     background: url('/assets/images/strawberries-in-wooden-basket-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.five .product__bg-image {
+.product.four .product__bg-image {
     background: url('/assets/images/raspberries-in-pint-cartons-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.six .product__bg-image {
+.product.five .product__bg-image {
     background: url('/assets/images/cherries-in-bowl-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.seven .product__bg-image {
+.product.six .product__bg-image {
     background: url('/assets/images/pumpkins-bunch-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.eight .product__bg-image {
+.product.seven .product__bg-image {
     background: url('/assets/images/milk-glass-and-jug-small.jpg') 50% 30%/cover no-repeat;
 }
 
-.product.nine .product__bg-image {
+.product.eight .product__bg-image {
     background: url('/assets/images/jars-of-jams-on-table-small.jpg') 50% 30%/cover no-repeat;
 }
 
