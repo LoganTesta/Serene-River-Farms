@@ -644,6 +644,10 @@ li {
     text-align: right;
 }
 
+.nav__nav-list {
+    font-size: 0;
+}
+
 .nav__nav-list-container {
     padding: 10px 15px 10px 10px;
 }
@@ -691,6 +695,7 @@ li {
     position: absolute;
     top: 275px;
     left: 10px;
+    font-size: 0;
 }
 
     .register-login a {
@@ -705,7 +710,7 @@ li {
 
 .register-login__register {
     display: inline-block;
-    padding-right: 15px;
+    padding-right: 20px;
 }
 
 .register-login__login {
@@ -2027,7 +2032,7 @@ li {
     .nav__nav-item {
         display: inline-block;
         padding-bottom: 0;
-        padding-right: 30px;
+        padding-right: 32px;
     }
 
         .nav__nav-item:last-of-type {
@@ -2070,7 +2075,7 @@ li {
 
     .register-login__register {
         display: inline-block;
-        padding-right: 30px;
+        padding-right: 32px;
     }
 
     .register-login a {
