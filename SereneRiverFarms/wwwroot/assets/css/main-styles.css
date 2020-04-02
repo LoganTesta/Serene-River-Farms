@@ -603,20 +603,23 @@ li {
     top: 65px;
     left: 15px;
     width: 165px;
-    padding: 5px;
     border-radius: 10px;
     border: 2px solid var(--color-2-semi-opacity);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.7);
     transition: 0.4s ease-in;
 }
 
     .main-title-container:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.15);
         transition: 0.4s ease-in;
     }
 
 
     .main-title-container .main-title__title {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
         font-size: 26px;
         font-weight: bold;
         color: var(--color-1);
@@ -1789,10 +1792,10 @@ li {
     /* General sitewide sections */
     .main-title-container {
         width: 335px;
-        padding: 15px;
     }
 
         .main-title-container .main-title__title {
+            padding: 15px;
             font-size: 32px;
         }
 
