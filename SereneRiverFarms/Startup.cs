@@ -54,7 +54,7 @@ namespace SereneRiverFarms
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Error500");
                 app.UseHsts();
             }
 
