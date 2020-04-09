@@ -788,11 +788,17 @@ li {
 
 .footer__social-item {
     display: inline-block;
-    padding-right: 40px;
+    padding-right: 38px;
 }
 
     .footer__social-item:last-of-type {
         padding-right: 0;
+    }
+
+    .footer__social-item .footer__social-link {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
     }
 
     .footer__social-item i {
@@ -800,11 +806,14 @@ li {
     }
 
         .footer__social-item i::before {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
             color: #ffffff;
             transition: 0.4s ease-in;
         }
 
-    .footer__social-item a:hover i::before {
+    .footer__social-item .footer__social-link:hover i::before {
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.8);
         color: var(--color-4);
