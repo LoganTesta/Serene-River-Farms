@@ -1832,6 +1832,11 @@ li {
     }
 
     /*Footer*/
+    .footer__background {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
     .footer__locations, .footer__phone, .footer__hours {
         padding-bottom: 0px;
     }
@@ -2059,6 +2064,15 @@ li {
         .nav .nav__nav-link:hover {
             color: #ffffff;
         }
+
+    .footer {
+        background: url("../images/hillside-farm.jpg") 0% 67%/cover no-repeat;
+    }
+
+    .footer__background {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
 
     .footer__subheading {
         font-size: 20px;
