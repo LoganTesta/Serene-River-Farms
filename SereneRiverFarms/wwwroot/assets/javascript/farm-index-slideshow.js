@@ -2,6 +2,7 @@
 let currentSlide;
 let slideshowCounter = 0;
 let paused = false;
+let updateSlideSettings = true;
 let currentSlideNumber = 0;
 const maxSlideNumber = 4;
 let pausePlayButton;
@@ -73,6 +74,21 @@ function runSlideShow() {
     }
     if (paused === false) {
         if (slideshowCounter === 0) {
+            updateSlideSettings = true;
+        }
+        if (slideshowCounter === 600) {
+            currentSlide.fadeTo(1000, 0);
+        }
+        if (slideshowCounter >= 700) {
+            slideshowCounter = -1;
+            currentSlideNumber++;
+        }
+
+        if (currentSlideNumber > maxSlideNumber) {
+            currentSlideNumber = 0;
+        }
+        if (updateSlideSettings) {
+            updateSlideSettings = false;
             currentSlide.fadeTo(1000, 1);
 
             if (currentSlideNumber === 0) {
@@ -127,17 +143,6 @@ function runSlideShow() {
                 slideButton4.css("opacity", 1.0);
             }
         }
-        if (slideshowCounter === 600) {
-            currentSlide.fadeTo(1000, 0);
-        }
-        if (slideshowCounter >= 700) {
-            slideshowCounter = -1;
-            currentSlideNumber++;
-        }
-
-        if (currentSlideNumber > maxSlideNumber) {
-            currentSlideNumber = 0;
-        }
 
         slideshowCounter++;
     }
@@ -151,4 +156,5 @@ function setSlide(slideNumber) {
     slideshowCounter = 0;
     currentSlideNumber = slideNumber;
     paused = false;
+    updateSlideSettings = true;
 }
