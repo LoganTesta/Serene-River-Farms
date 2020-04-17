@@ -68,11 +68,6 @@ function runFunctions() {
 function runSlideShow() {
 
     if (paused === false) {
-        pausePlayButton.css("background", "url(assets/images/index/pause-button.png)");
-    } else if (paused) {
-        pausePlayButton.css("background", "url(assets/images/index/play-button.png)");
-    }
-    if (paused === false) {
         if (slideshowCounter === 0) {
             updateSlideSettings = true;
         }
@@ -150,11 +145,16 @@ function runSlideShow() {
 
 function togglePausePlay() {
     paused = !paused;
+    if (paused === false) {
+        pausePlayButton.removeClass("paused");
+    } else if (paused) {
+        pausePlayButton.addClass("paused");
+    }
 }
 
 function setSlide(slideNumber) {
     slideshowCounter = 0;
     currentSlideNumber = slideNumber;
-    paused = false;
     updateSlideSettings = true;
+    togglePausePlay();
 }
