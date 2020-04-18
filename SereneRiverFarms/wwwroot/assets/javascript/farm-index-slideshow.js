@@ -69,13 +69,13 @@ function runSlideShow() {
 
     if (paused === false) {
         if (slideshowCounter === 0) {
-            updateSlideSettings = true;
         }
         if (slideshowCounter === 600) {
             currentSlide.fadeTo(1000, 0);
         }
         if (slideshowCounter >= 700) {
             slideshowCounter = -1;
+            updateSlideSettings = true;
             currentSlideNumber++;
         }
 
@@ -155,6 +155,7 @@ function togglePausePlay() {
 function setSlide(slideNumber) {
     slideshowCounter = 0;
     currentSlideNumber = slideNumber;
+    paused = false;
+    pausePlayButton.removeClass("paused");
     updateSlideSettings = true;
-    togglePausePlay();
 }
