@@ -79,9 +79,13 @@ function runSlideShow() {
             currentSlideNumber++;
         }
 
-        if (currentSlideNumber > maxSlideNumber) {
+        if (currentSlideNumber < 0) {
+            currentSlideNumber = maxSlideNumber;
+        } else if (currentSlideNumber > maxSlideNumber) {
             currentSlideNumber = 0;
         }
+
+
         if (updateSlideSettings) {
             updateSlideSettings = false;
             currentSlide.fadeTo(1000, 1);
