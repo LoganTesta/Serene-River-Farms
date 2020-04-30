@@ -20,8 +20,6 @@
         <link rel="stylesheet" href="~/assets/css/main-styles.css?mod=04172020" />
         <link rel="stylesheet" href="~/assets/css/print-styles.css?mod=10012019" media="print" />
     </environment>
-    <environment exclude="Development">
-    </environment>
 </head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114894181-2"></script>
@@ -145,11 +143,6 @@
 
     <environment include="Development, Production">
         <script src="~/assets/javascript/javascript-jquery-functions.js"></script>
-    </environment>
-    <environment include="Development">
-        
-    </environment>
-    <environment exclude="Development">
     </environment>
 
     @RenderSection("Scripts", required: false)
