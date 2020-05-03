@@ -766,8 +766,8 @@ li {
 }
 
 .footer__additional-wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .footer__copyright, .footer__locations, .footer__phone, .footer__hours {
