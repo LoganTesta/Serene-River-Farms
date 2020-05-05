@@ -1,6 +1,5 @@
 ﻿/*Start of Slideshow */
 let currentSlide;
-let slideshowCounter = 0;
 let paused = false;
 let updateSlideSettings = true;
 let currentSlideNumber = 0;
@@ -68,17 +67,6 @@ function runFunctions() {
 function runSlideShow() {
 
     if (paused === false) {
-        if (slideshowCounter === 0) {
-        }
-        if (slideshowCounter === 600) {
-            currentSlide.fadeTo(1000, 0);
-        }
-        if (slideshowCounter >= 700) {
-            slideshowCounter = -1;
-            updateSlideSettings = true;
-            currentSlideNumber++;
-        }
-
         if (currentSlideNumber < 0) {
             currentSlideNumber = maxSlideNumber;
         } else if (currentSlideNumber > maxSlideNumber) {
@@ -88,7 +76,8 @@ function runSlideShow() {
 
         if (updateSlideSettings) {
             updateSlideSettings = false;
-            currentSlide.fadeTo(1000, 1);
+            currentSlide.fadeTo(800, 1);
+            setTimeout(setToFadeOut, 7000);
 
             if (currentSlideNumber === 0) {
                 slideshowHeader.html("Summer Fresh Berries");
@@ -142,9 +131,17 @@ function runSlideShow() {
                 slideButton4.css("opacity", 1.0);
             }
         }
-
-        slideshowCounter++;
     }
+}
+
+function setToFadeOut() {
+    currentSlide.fadeTo(3200, 0);
+    setTimeout(setToFadeIn, 4500);
+}
+
+function setToFadeIn() {
+    updateSlideSettings = true;
+    currentSlideNumber++;
 }
 
 function togglePausePlay() {
@@ -157,7 +154,6 @@ function togglePausePlay() {
 }
 
 function setSlide(slideNumber) {
-    slideshowCounter = 0;
     currentSlideNumber = slideNumber;
     paused = false;
     pausePlayButton.removeClass("paused");
