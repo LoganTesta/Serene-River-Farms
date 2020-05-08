@@ -419,7 +419,7 @@
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "",
+            url: "/OurProducts?handler=EstimateSection",
             data: '' + $('form').serialize(),
             success: function (response) {
                 let parser = new DOMParser();

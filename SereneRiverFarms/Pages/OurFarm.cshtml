@@ -102,7 +102,7 @@
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "",
+            url: "/OurFarm?handler=SetUpTourSection",
             data: '' + $('form').serialize(),
             success: function (response) {
                 let parser = new DOMParser();

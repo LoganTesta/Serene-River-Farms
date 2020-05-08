@@ -70,7 +70,7 @@
         event.preventDefault();
         $.ajax({
             method: "POST",
-            url: "",
+            url: "/Contact?handler=ContactSection",
             data: '' + $('form').serialize(),
             success: function (response) {
                 let parser = new DOMParser();
