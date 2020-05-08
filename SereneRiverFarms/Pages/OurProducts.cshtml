@@ -412,4 +412,23 @@
         }
     }
 
+
+    $("#submitEstimateButton").on("click", submitEstimateButtonUpdatePage);
+
+    function submitEstimateButtonUpdatePage() {
+        event.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: "",
+            data: '' + $('form').serialize(),
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
+
+                $(".form-response").eq(0).html(formResponse.innerHTML);
+            }
+        });
+    }
 </script>

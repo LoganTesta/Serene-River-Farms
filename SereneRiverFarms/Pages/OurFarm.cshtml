@@ -94,3 +94,24 @@
 </script>
 
 <script type="text/javascript" src="assets/javascript/our-farm-validation.js?mod=11212019"></script>
+
+<script type="text/javascript">
+    $("#setUpTourButton").on("click", setUpTourButtonUpdatePage);
+
+    function setUpTourButtonUpdatePage() {
+        event.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: "",
+            data: '' + $('form').serialize(),
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
+
+                $(".form-response").eq(0).html(formResponse.innerHTML);
+            }
+        });
+    }
+</script>
