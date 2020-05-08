@@ -1,6 +1,6 @@
 ﻿
 /* JavaScript Form Validation. */
-let clickedSubmitNameEmail = false;
+let clickedSubmitChangeName = false;
 let clickedSubmitChangeEmail = false;
 let clickedSubmitChangePassword = false;
 

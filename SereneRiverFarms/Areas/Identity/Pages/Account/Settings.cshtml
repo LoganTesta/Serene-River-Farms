@@ -22,9 +22,11 @@
             <h2 class="subtitle-container__subtitle">Settings</h2>
             <div class="subheader-divider"></div>
         </div>
-        <div class="settings-form-container">
-            <div><p><strong>User Name: @currentUser</strong></p></div>
-            <div><p><strong>Email: @currentUserEmail</strong></p></div>
+        <div class="settings-form-container name-container">
+            <div class="name-container__user-info">
+                <div><p><strong>User Name: @currentUser</strong></p></div>
+                <div><p><strong>Email: @currentUserEmail</strong></p></div>
+            </div>
             <div><h3>Update Name</h3></div>
             <p>@updateNameResponse</p>
             <form class="form settings-change-name-form" id="changeNameForm" onsubmit="return validateChangeNameForm();" name="changeNameForm" method="post">
@@ -40,7 +42,7 @@
                 </div>
             </form>
         </div>
-        <div class="settings-form-container">
+        <div class="settings-form-container email-container">
             <div><h3>Update Email</h3></div>
             <p>@updateEmailResponse</p>
             <form class="form settings-change-email-form" id="changeEmailForm" name="changeEmailForm" onsubmit="return validateChangeEmailForm();" method="post">
@@ -56,7 +58,7 @@
                 </div>
             </form>
         </div>
-        <div class="settings-form-container">
+        <div class="settings-form-container password-container">
             <div><h3>Change Password</h3></div>
             <p>@Html.Partial("_SettingsMessage", Model.updatePasswordResponse)</p>
             <form class="form settings-form" id="changePasswordForm" name="changePasswordForm" onsubmit="return validateChangePasswordForm();" method="post">
@@ -103,3 +105,32 @@
 </script>
 
 <script type="text/javascript" src="/assets/javascript/settings-change-password-validation.js?mod=11262019V2"></script>
+
+<script type="text/javascript">
+
+    $("#changeNameButton").on("click", function () {
+        updatePage(event, "changeNameForm", "ChangeNameSection");
+    });
+
+    $("#changeEmailButton").on("click", function () {
+        updatePage(event, "changeEmailForm", "ChangeEmailSection");
+    });
+
+    function updatePage(event, formName, handler) {
+        event.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: "/Identity/Account/Settings?handler=" + handler,
+            data: '' + $('#' + formName).serialize(),
+            success: function (response) {
+       
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let formResponse = ajaxDocument.getElementsByClassName("name-container__user-info")[0];
+
+                $(".name-container__user-info").eq(0).html(formResponse.innerHTML);
+            }
+        });
+    }
+</script>
