@@ -630,7 +630,7 @@ li {
 }
 
 .subtitle-container__note {
-    padding-bottom: 10px;
+
 }
 
 .subheader-divider {
@@ -1817,13 +1817,6 @@ li {
             padding: 15px;
             font-size: 32px;
         }
-
-    .subtitle-container__note {
-        position: absolute;
-        top: 12px;
-        right: 0;
-        padding-bottom: 0;
-    }
 
     #mobileNav {
         display: none;

@@ -7,6 +7,7 @@
 
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
+    var searchResponse = "";
 
 
     product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
@@ -73,11 +74,40 @@
 </div>
 
 <div class="content-row no-content-row-padding">
-    <div class="col-sma-12 page-content">
+    <div class="col-sma-5 page-content">
         <div class="subtitle-container">
-            <h2 class="subtitle-container__subtitle">Our Products</h2><div class="subtitle-container__note"> *** All products while available, some are seasonal.</div>
+            <h2 class="subtitle-container__subtitle">Our Products</h2>
             <div class="subheader-divider"></div>
+            <div class="subtitle-container__note"> *** All products while available, some are seasonal.</div>
         </div>
+    </div>
+    <div class="col-sma-7 page-content">
+        <h3>Search Products</h3>
+        @{
+            <div class="form-response">
+                @searchResponse
+            </div>
+        }
+        <form class="form search-form" id="searchForm" name="searchForm" method="post">
+            <div class="form__input-container">
+                <label class="form__label" for="searchCategory">Category</label>
+                <select id="searchCategory" class="form__input" type="text" name="searchCategory">
+                    <option value=""></option>
+                    <option value="">Fruits</option>
+                    <option value="">Veggies</option>
+                    <option value="">Baked Goods</option>
+                    <option value="">Dairy</option>
+                    <option value="">Jams</option>
+                    <option value="">Other</option>
+                </select>
+                <div class="clear-both"></div>
+            </div>
+    
+            <div class="form__input-container">
+                <input asp-page-handler="SearchSection" id="searchButton" class="form__submit-button button-container" type="submit" name="searchButton" value="Search" />
+                <div class="form__errors"></div>
+            </div>
+        </form>
     </div>
 </div>
 <div class="content-row small-content-row-padding-top ">
