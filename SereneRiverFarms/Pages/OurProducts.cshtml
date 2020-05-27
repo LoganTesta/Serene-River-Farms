@@ -7,7 +7,7 @@
 
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
-    var searchResponse = "";
+    var searchResponse = ViewData["SearchProductsMessage"];
 
 
     product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
@@ -93,18 +93,18 @@
                 <label class="form__label" for="searchCategory">Category</label>
                 <select id="searchCategory" class="form__input" type="text" name="searchCategory">
                     <option value=""></option>
-                    <option value="">Fruits</option>
-                    <option value="">Veggies</option>
-                    <option value="">Baked Goods</option>
-                    <option value="">Dairy</option>
-                    <option value="">Jams</option>
-                    <option value="">Other</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="veggies">Veggies</option>
+                    <option value="baked goods">Baked Goods</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="jams">Jams</option>
+                    <option value="other">Other</option>
                 </select>
                 <div class="clear-both"></div>
             </div>
     
             <div class="form__input-container">
-                <input asp-page-handler="SearchSection" id="searchButton" class="form__submit-button button-container" type="submit" name="searchButton" value="Search" />
+                <input asp-page-handler="SearchProductsSection" id="searchButton" class="form__submit-button button-container" type="submit" name="searchButton" value="Search" />
                 <div class="form__errors"></div>
             </div>
         </form>

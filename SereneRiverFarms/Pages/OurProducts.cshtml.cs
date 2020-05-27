@@ -19,6 +19,7 @@ namespace SereneRiverFarms.Pages
     public class OurProductsModel : PageModel
     {
 
+        public string SearchProductsMessage { get; set; }
         public string Message { get; set; }
 
         ArrayList theSessionVariables = new ArrayList();
@@ -241,6 +242,43 @@ namespace SereneRiverFarms.Pages
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
         }
 
+
+        public void OnPostSearchProductsSection()
+        {
+            bool emptyForm = false;
+            string searchProductsResponse = "";
+
+            string searchCategory = "";
+
+            try
+            {
+                searchCategory = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCategory"]);
+            } catch ( Exception)
+            {
+                searchCategory = "";
+            }
+
+
+            if(searchCategory == "")
+            {
+                emptyForm = true;
+            } 
+
+
+            if(searchCategory != "")
+            {
+                searchProductsResponse += "Showing " + searchCategory;
+            }
+
+
+            if (emptyForm)
+            {
+                searchProductsResponse += "Showing all products.";
+            }
+
+            ViewData["SearchProductsMessage"] = "" + searchProductsResponse;
+
+        }
 
 
         public void OnPostEstimateSection()
