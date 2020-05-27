@@ -82,35 +82,37 @@
         </div>
     </div>
     <div class="col-sma-7 page-content">
-        <h3>Search Products</h3>
-        @{
-            <div class="form-response">
-                @searchResponse
-            </div>
-        }
-        <form class="form search-form" id="searchForm" name="searchForm" method="post">
-            <div class="form__input-container">
-                <label class="form__label" for="searchCategory">Category</label>
-                <select id="searchCategory" class="form__input" type="text" name="searchCategory">
-                    <option value=""></option>
-                    <option value="fruits">Fruits</option>
-                    <option value="veggies">Veggies</option>
-                    <option value="baked goods">Baked Goods</option>
-                    <option value="dairy">Dairy</option>
-                    <option value="jams">Jams</option>
-                    <option value="other">Other</option>
-                </select>
-                <div class="clear-both"></div>
-            </div>
-    
-            <div class="form__input-container">
-                <input asp-page-handler="SearchProductsSection" id="searchButton" class="form__submit-button button-container" type="submit" name="searchButton" value="Search" />
-                <div class="form__errors"></div>
-            </div>
-        </form>
+        <div class="product-search">
+            <h3>Search Products</h3>
+            @{
+                <div class="form-response">
+                    @searchResponse
+                </div>
+            }
+            <form class="form search-form" id="searchForm" name="searchForm" method="get">
+                <div class="form__input-container">
+                    <label class="form__label" for="searchCategory">Category</label>
+                    <select id="searchCategory" class="form__input" type="text" name="searchCategory">
+                        <option value=""></option>
+                        <option value="fruits">Fruits</option>
+                        <option value="veggies">Veggies</option>
+                        <option value="baked goods">Baked Goods</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="jams">Jams</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="clear-both"></div>
+                </div>
+
+                <div class="form__input-container">
+                    <input asp-page-handler="SearchProductsSection" id="searchButton" class="form__submit-button button-container" name="searchButton" value="Search" />
+                    <div class="form__errors"></div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<div class="content-row small-content-row-padding-top ">
+<div class="content-row small-content-row-padding-top products">
     @for (var i = 0; i < products.Count; i++)
     {
         <div class="col-vsm-6 col-sma-4 col-lar-3 product @products[i].classCSS">
@@ -307,8 +309,16 @@
 <script type="text/javascript" src="assets/javascript/our-products-validation.js?mod=11212019"></script>
 
 <script type="text/javascript">
-    let numberOfCartItems = 9;
+    let numberOfCartItems = $(".product").length;
 
+    //Add search products event listeners.
+    $("#searchButton").on("click", function () {
+        let searchCategory = $("#searchCategory").val();
+        updateProductsShown("SearchCategory=" + searchCategory);
+    });
+
+
+    //Add product event listeners
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".product__minus-quantity").eq(i).on("click", function () {
             adjustProductSetQuantity(i, "decrease");
@@ -325,6 +335,7 @@
     }
 
 
+    //Add cart event listeners
     for (let i = 0; i < numberOfCartItems; i++) {
         $(".item__minus__item").eq(i).on("click", function () {
             updateCart("MinusItem", i);
@@ -338,7 +349,8 @@
 
     $(".reset-all").eq(0).on("click", function () {
         resetCart("ResetCart", -1);
-    })
+    });
+
 
 
     function adjustProductSetQuantity(itemNumber, change) {
@@ -355,6 +367,25 @@
         }
     }
 
+    function updateProductsShown(searchByCategoryString) {
+        $.ajax({
+            method: "GET",
+            url: "/OurProducts?handler=SearchProductsSection&" + searchByCategoryString,
+            data: '',
+            success: function (response) {
+                let parser = new DOMParser();
+                let ajaxDocument = parser.parseFromString(response, "text/html");
+
+                let productSearch = ajaxDocument.getElementsByClassName("product-search")[0];
+                let products = ajaxDocument.getElementsByClassName("products")[0];
+
+                document.getElementsByClassName("product-search")[0].innerHTML = productSearch.innerHTML;
+                document.getElementsByClassName("products")[0].innerHTML = products.innerHTML;
+
+                reAddEventListenersAfterSearching();
+            }
+        });
+    }
 
     function setCartQuantity(actionString, itemID, itemQuantity) {
         $.ajax({
@@ -429,8 +460,35 @@
         });
     }
 
+    function reAddEventListenersAfterSearching() {
+        //Add search products event listeners.
+        $("#searchButton").on("click", function () {
+            let searchCategory = $("#searchCategory").val();
+            updateProductsShown("SearchCategory=" + searchCategory);
+        });
+
+
+        //Add product event listeners
+        for (let i = 0; i < numberOfCartItems; i++) {
+            $(".product__minus-quantity").eq(i).on("click", function () {
+                adjustProductSetQuantity(i, "decrease");
+            });
+
+            $(".product__add-quantity").eq(i).on("click", function () {
+                adjustProductSetQuantity(i, "increase");
+            });
+
+            $(".product__add").eq(i).on("click", function () {
+                let itemQuantity = $(".product__input-quantity").eq(i).val();
+                setCartQuantity("SetItemQuantity", i, itemQuantity);
+            });
+        }
+    }
+
     //Recreate event listeners for - and + buttons.
     function reAddEventListeners() {
+
+        //Add cart event listeners.
         for (let i = 0; i < numberOfCartItems; i++) {
             $(".item__minus__item").eq(i).on("click", function () {
                 updateCart("MinusItem", i);

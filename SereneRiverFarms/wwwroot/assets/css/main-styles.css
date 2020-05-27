@@ -1120,6 +1120,10 @@ li {
 
 
 /*Products*/
+#searchButton {
+    width: 95px;
+}
+
 .shopping-cart {
 }
 

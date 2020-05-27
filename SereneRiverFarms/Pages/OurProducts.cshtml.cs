@@ -243,7 +243,7 @@ namespace SereneRiverFarms.Pages
         }
 
 
-        public void OnPostSearchProductsSection()
+        public void OnGetSearchProductsSection()
         {
             bool emptyForm = false;
             string searchProductsResponse = "";
