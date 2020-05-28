@@ -30,15 +30,15 @@ namespace SereneRiverFarms.Pages
         //These products are used for the .cs part of the page, 
         //the products on the .cshtml page are used for that part of the page.
         List<product> products = new List<product>();
-        product pear = new product("Pear", "Pears", "zero", 2.50M, "", "Fun to eat or bake in cakes.");
-        product apple = new product("Apple", "Apples", "one", 1.50M, "", "Assorted varieties!");
-        product blueberries = new product("Blueberries", "Blueberries", "two", 3.00M, "", "Delicious summer blueberries.");
-        product strawberries = new product("Strawberries", "Strawberries", "three", 2.75M, "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
-        product raspberries = new product("Raspberries", "Raspberries", "four", 4.50M, "", "Sweet and tart and a favorite in late summer.");
-        product cherries = new product("Cherries", "Cherries", "five", 3.50M, "", "Very filling and tasty.");
-        product pumpkin = new product("Pumpkin", "Pumpkins", "six", 1.79M, "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
-        product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", 2.50M, "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
-        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", "eight", 6.00M, "", "Nothing like fresh produce to make your day in a jam.");
+        product pear = new product("Pear", "Pears", "zero", 2.50M, "fruits", "", "Fun to eat or bake in cakes.");
+        product apple = new product("Apple", "Apples", "one", 1.50M, "fruits", "", "Assorted varieties!");
+        product blueberries = new product("Blueberries", "Blueberries", "two", 3.00M, "fruits", "", "Delicious summer blueberries.");
+        product strawberries = new product("Strawberries", "Strawberries", "three", 2.75M, "fruits", "", "We use plants and other natural bug prevention methods so you don't have to worry about pesticides in your food!");
+        product raspberries = new product("Raspberries", "Raspberries", "four", 4.50M, "fruits", "", "Sweet and tart and a favorite in late summer.");
+        product cherries = new product("Cherries", "Cherries", "five", 3.50M, "fruits", "", "Very filling and tasty.");
+        product pumpkin = new product("Pumpkin", "Pumpkins", "six", 1.79M, "squashes", "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
+        product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", 2.50M, "dairy", "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
+        product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", "eight", 6.00M, "jams", "", "Nothing like fresh produce to make your day in a jam.");
 
 
         public OurProductsModel()
@@ -252,7 +252,7 @@ namespace SereneRiverFarms.Pages
 
             try
             {
-                searchCategory = System.Web.HttpUtility.HtmlEncode(Request.Form["searchCategory"]);
+                searchCategory = System.Web.HttpUtility.HtmlEncode(Request.Query["searchCategory"]);
             } catch ( Exception)
             {
                 searchCategory = "";
@@ -267,7 +267,7 @@ namespace SereneRiverFarms.Pages
 
             if(searchCategory != "")
             {
-                searchProductsResponse += "Showing " + searchCategory;
+                searchProductsResponse += "Showing " + searchCategory + ".";
             }
 
 
