@@ -1161,6 +1161,10 @@ li {
     font-size: 0;
 }
 
+.products .product.hide {
+    display: none;
+}
+
 .product__header {
 }
 

@@ -20,6 +20,7 @@ public class product
         this.namePlural = namePlural;
         this.classCSS = classCSS;
         this.classInt = classInt;
+        this.displayCSS = displayCSS;
         this.price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
         this.category = category;
         this.image = image;
