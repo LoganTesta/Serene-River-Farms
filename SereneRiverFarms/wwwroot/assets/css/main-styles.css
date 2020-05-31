@@ -1156,6 +1156,20 @@ li {
 }
 
 
+.product-search {
+    padding-bottom: 15px;
+}
+
+.product-search__text {
+    padding-top: 10px;
+}
+
+
+.product-quantities {
+    display: none;
+}
+
+
 .product {
     padding-bottom: 60px;
     font-size: 0;

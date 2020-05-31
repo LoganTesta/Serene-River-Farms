@@ -30,6 +30,7 @@ namespace SereneRiverFarms.Pages
 
         List<product> products = SereneRiverFarms.Program.products;
 
+
         public OurProductsModel()
         {
 
@@ -91,45 +92,14 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetString("Cart Total", "0");
             ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+
+
         }
 
 
         public void OnGetSetItemQuantity()
         {
-            int numberOfItems = 0;
-
-            int productName = Convert.ToInt32(Request.Query["item"]);
-            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
-            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]);
-            if (numberOfItem < 0)
-            {
-                numberOfItem = 0;
-            }
-            if (numberOfItem > 100)
-            {
-                numberOfItem = 100;
-            }
-
-            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
-            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
-
-            decimal newCartTotal = 0;
-            for (int i = 0; i < theSessionVariables.Count; i++)
-            {
-                int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
-                ViewData["numberOf" + Convert.ToString(productNames[i]).Replace(" ", "")] = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
-                decimal priceOfEachItem = productPrices[i];
-                productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
-
-                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];  //Remove any spaces in a product name to prevent failed product matching.
-
-                numberOfItems += quantityOfEachItem;
-                newCartTotal += quantityOfEachItem * priceOfEachItem;
-            }
-            HttpContext.Session.SetString("Number of Items", Convert.ToString(numberOfItems));
-            ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
-            HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
-            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+            updateProducts();
         }
 
 
@@ -234,31 +204,34 @@ namespace SereneRiverFarms.Pages
             try
             {
                 searchCategory = System.Web.HttpUtility.HtmlEncode(Request.Query["searchCategory"]);
-            } catch ( Exception)
+            }
+            catch (Exception)
             {
                 searchCategory = "";
             }
 
 
-     
-            if(searchCategory == "")
+
+            if (searchCategory == "")
             {
                 emptyForm = true;
             }
-            
-                for(int i = 0; i < theSessionVariables.Count; i++) { 
-                    if(products[i].category == searchCategory || searchCategory == "")
-                    {
-                        products[i].displayCSS = "";
-                    } else 
-                    {
-                        products[i].displayCSS = "hide";
-                    }
+
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                if (products[i].category == searchCategory || searchCategory == "")
+                {
+                    products[i].displayCSS = "";
                 }
-            
+                else
+                {
+                    products[i].displayCSS = "hide";
+                }
+            }
 
 
-            if(searchCategory != "")
+
+            if (searchCategory != "")
             {
                 searchProductsResponse += "Showing " + searchCategory + ".";
             }
@@ -269,9 +242,51 @@ namespace SereneRiverFarms.Pages
                 searchProductsResponse += "Showing all products.";
             }
 
+            updateProducts();
             ViewData["SearchProductsMessage"] = "" + searchProductsResponse;
 
         }
+
+
+        public void updateProducts()
+        {
+            int numberOfItems = 0;
+
+            int productName = Convert.ToInt32(Request.Query["item"]);
+            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
+            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]);
+            if (numberOfItem < 0)
+            {
+                numberOfItem = 0;
+            }
+            if (numberOfItem > 100)
+            {
+                numberOfItem = 100;
+            }
+
+            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
+            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+
+            decimal newCartTotal = 0;
+            for (int i = 0; i < theSessionVariables.Count; i++)
+            {
+                int quantityOfEachItem = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                ViewData["numberOf" + Convert.ToString(productNames[i]).Replace(" ", "")] = Convert.ToInt32(HttpContext.Session.GetInt32("" + Convert.ToString(theSessionVariables[i])));
+                decimal priceOfEachItem = productPrices[i];
+                productSubtotals[i] = priceOfEachItem * quantityOfEachItem;
+
+                ViewData["subtotal" + Convert.ToString(productNames[i]).Replace(" ", "")] = "$" + productSubtotals[i];  //Remove any spaces in a product name to prevent failed product matching.
+
+                numberOfItems += quantityOfEachItem;
+                newCartTotal += quantityOfEachItem * priceOfEachItem;
+            }
+            HttpContext.Session.SetString("Number of Items", Convert.ToString(numberOfItems));
+            ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
+            HttpContext.Session.SetString("Cart Total", Convert.ToString(newCartTotal));
+            ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+        }
+
+
 
 
         public void OnPostEstimateSection()
@@ -361,7 +376,7 @@ namespace SereneRiverFarms.Pages
 
             Int64 userPhoneInteger;
             bool userPhoneIsNumeric = Int64.TryParse(userPhone, out userPhoneInteger);
-            if (userPhone.Length !=10 || !userPhoneIsNumeric)
+            if (userPhone.Length != 10 || !userPhoneIsNumeric)
             {
                 validForm = false;
                 contactFormResponse += "Phone must be exactly 10 digits in length, no dashes. ";
@@ -370,7 +385,7 @@ namespace SereneRiverFarms.Pages
 
             Int64 userZipCodeInteger;
             bool userZipCodeIsNumeric = Int64.TryParse(userZipCode, out userZipCodeInteger);
-            if(userZipCode.Length != 5 || !userZipCodeIsNumeric)
+            if (userZipCode.Length != 5 || !userZipCodeIsNumeric)
             {
                 validForm = false;
                 contactFormResponse += "Zip code must be a number exactly 5 digits in length. ";
