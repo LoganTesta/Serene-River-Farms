@@ -244,6 +244,7 @@ namespace SereneRiverFarms.Pages
 
             updateProducts();
             ViewData["SearchProductsMessage"] = "" + searchProductsResponse;
+            ViewData["searchCategory"] = searchCategory;
 
         }
 

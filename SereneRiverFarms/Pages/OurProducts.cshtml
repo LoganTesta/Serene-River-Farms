@@ -8,6 +8,7 @@
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
     var searchResponse = ViewData["SearchProductsMessage"];
+    var searchCategory = "" + ViewData["searchCategory"];
 
     List<product> products = SereneRiverFarms.Program.products;
 
@@ -69,13 +70,13 @@
                     <label class="search-form__label" for="searchCategory">Category</label>
                     <select id="searchCategory" class="search-form__input" type="text" name="searchCategory">
                         <option value=""></option>
-                        <option value="fruits">Fruits</option>
-                        <option value="veggies">Veggies</option>
-                        <option value="squashes">Squash</option>
-                        <option value="baked goods">Baked Goods</option>
-                        <option value="dairy">Dairy</option>
-                        <option value="jams">Jams</option>
-                        <option value="other">Other</option>
+                        <!option value="fruits" @(@searchCategory == "fruits" ? "selected" : "")>Fruits</!option>
+                        <!option value="veggies" @(@searchCategory == "veggies" ? "selected" : "")>Veggies</!option>
+                        <!option value="squashes" @(@searchCategory == "squashes" ? "selected" : "")>Squash</!option>
+                        <!option value="baked goods" @(@searchCategory == "baked goods" ? "selected" : "")>Baked Goods</!option>
+                        <!option value="dairy" @(@searchCategory == "dairy" ? "selected" : "")>Dairy</!option>
+                        <!option value="jams" @(@searchCategory == "jams" ? "selected" : "")>Jams</!option>
+                        <!option value="other" @(@searchCategory == "other" ? "selected" : "")>Other</!option>
                     </select>
                     <div class="clear-both"></div>
                 </div>
