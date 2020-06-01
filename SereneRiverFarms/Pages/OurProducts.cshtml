@@ -65,9 +65,9 @@
         <div class="product-search">
             <h3>Search Products</h3>
             <form class="form search-form" id="searchForm" name="searchForm" method="get">
-                <div class="form__input-container">
-                    <label class="form__label" for="searchCategory">Category</label>
-                    <select id="searchCategory" class="form__input" type="text" name="searchCategory">
+                <div class="search-form__input-container">
+                    <label class="search-form__label" for="searchCategory">Category</label>
+                    <select id="searchCategory" class="search-form__input" type="text" name="searchCategory">
                         <option value=""></option>
                         <option value="fruits">Fruits</option>
                         <option value="veggies">Veggies</option>
@@ -80,7 +80,7 @@
                     <div class="clear-both"></div>
                 </div>
 
-                <div class="form__input-container">
+                <div class="search-form__input-container">
                     <input asp-page-handler="SearchProductsSection" id="searchButton" class="form__submit-button button-container" name="searchButton" value="Search" />
                     <div class="form__errors"></div>
                 </div>

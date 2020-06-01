@@ -1120,10 +1120,6 @@ li {
 
 
 /*Products*/
-#searchButton {
-    width: 95px;
-}
-
 .shopping-cart {
 }
 
@@ -1160,9 +1156,33 @@ li {
     padding-bottom: 15px;
 }
 
+.search-form {
+     font-size: 0;
+}
+
+.search-form__input-container {
+    display: inline-block;
+    padding-right: 20px;
+}
+
+.search-form__label {
+    display: block;
+    padding-bottom: 5px;
+}
+
+.search-form__input {
+    display: block;
+    border-radius: 10px;
+}
+
 .product-search__text {
     padding-top: 10px;
 }
+
+#searchButton {
+    width: 95px;
+}
+
 
 
 .product-quantities {
@@ -2203,6 +2223,10 @@ li {
     .shopping-cart__image.show {
         top: -95px;
         right: 15px;
+    }
+
+    .search-form__input-container {
+        padding-right: 30px;
     }
 
     .product {

@@ -93,7 +93,7 @@ namespace SereneRiverFarms.Pages
             ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
 
-
+            ViewData["SearchProductsMessage"] = "Showing all products";
         }
 
 
