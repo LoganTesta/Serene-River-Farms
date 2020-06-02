@@ -9,6 +9,7 @@
     var contactResponse = ViewData["Message"];
     var searchResponse = ViewData["SearchProductsMessage"];
     var searchCategory = "" + ViewData["searchCategory"];
+    var orderBy = "" + ViewData["orderBy"];
 
     List<product> products = SereneRiverFarms.Program.products;
 
@@ -80,7 +81,17 @@
                     </select>
                     <div class="clear-both"></div>
                 </div>
-
+                <div class="search-form__input-container">
+                    <label class="search-form__label" for="orderBy">Order By</label>
+                    <select id="orderBy" class="search-form__input" type="text" name="orderBy">
+                        <option value=""></option>
+                        <!option value="name" @(@orderBy == "name" ? "selected" : "")>Name</!option>
+                        <!option value="name (reverse)" @(@orderBy == "name (reverse)" ? "selected" : "")>Name (reverse)</!option>
+                        <!option value="price" @(@orderBy == "price" ? "selected" : "")>Price</!option>
+                        <!option value="price (reverse)" @(@orderBy == "price (reverse)" ? "selected" : "")>Price (reverse)</!option>
+                    </select>
+                    <div class="clear-both"></div>
+                </div>
                 <div class="search-form__input-container">
                     <input asp-page-handler="SearchProductsSection" id="searchButton" class="form__submit-button button-container" name="searchButton" value="Search" />
                     <div class="form__errors"></div>
@@ -306,7 +317,8 @@
     //Add search products event listeners.
     $("#searchButton").on("click", function () {
         let searchCategory = $("#searchCategory").val();
-        updateProductsShown("SearchCategory=" + searchCategory);
+        let orderBy = $("#orderBy").val();
+        updateProductsShown("SearchCategory=" + searchCategory, "OrderBy=" + orderBy);
     });
 
 
@@ -359,10 +371,10 @@
         }
     }
 
-    function updateProductsShown(searchByCategoryString) {
+    function updateProductsShown(searchByCategoryString, orderByString) {
         $.ajax({
             method: "GET",
-            url: "/OurProducts?handler=SearchProductsSection&" + searchByCategoryString,
+            url: "/OurProducts?handler=SearchProductsSection&" + searchByCategoryString + "&" + orderByString,
             data: '',
             success: function (response) {
                 let parser = new DOMParser();
@@ -471,7 +483,8 @@
         //Add search products event listeners.
         $("#searchButton").on("click", function () {
             let searchCategory = $("#searchCategory").val();
-            updateProductsShown("SearchCategory=" + searchCategory);
+            let orderBy = $("#orderBy").val();
+            updateProductsShown("SearchCategory=" + searchCategory, "OrderBy=" + orderBy);
         });
 
 

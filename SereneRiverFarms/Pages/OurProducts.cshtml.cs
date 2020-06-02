@@ -93,7 +93,7 @@ namespace SereneRiverFarms.Pages
             ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
 
-            ViewData["SearchProductsMessage"] = "Showing all products";
+            ViewData["SearchProductsMessage"] = "Showing all products.";
         }
 
 
@@ -200,21 +200,36 @@ namespace SereneRiverFarms.Pages
             string searchProductsResponse = "";
 
             string searchCategory = "";
+            string orderBy = "";
+
+            string searchCategoryText = "";
+            string orderByText = "";
 
             try
             {
                 searchCategory = System.Web.HttpUtility.HtmlEncode(Request.Query["searchCategory"]);
+                orderBy = "" + System.Web.HttpUtility.HtmlEncode(Request.Query["orderBy"]);
             }
             catch (Exception)
             {
                 searchCategory = "";
+                orderBy = "";
             }
 
 
 
-            if (searchCategory == "")
+            if (searchCategory == "" && orderBy == "")
             {
                 emptyForm = true;
+            }
+
+
+            if(searchCategory == "")
+            {
+                searchCategoryText = "all products";
+            } else
+            {
+                searchCategoryText = searchCategory;
             }
 
             for (int i = 0; i < theSessionVariables.Count; i++)
@@ -230,10 +245,18 @@ namespace SereneRiverFarms.Pages
             }
 
 
-
-            if (searchCategory != "")
+            if(orderBy == "")
             {
-                searchProductsResponse += "Showing " + searchCategory + ".";
+                orderByText = ""; 
+            } else
+            {
+                orderByText = " ordered by " + orderBy;
+            }
+
+
+            if (emptyForm == false)
+            {
+                searchProductsResponse += "Showing " + searchCategoryText + orderByText + ".";
             }
 
 
@@ -245,7 +268,7 @@ namespace SereneRiverFarms.Pages
             updateProducts();
             ViewData["SearchProductsMessage"] = "" + searchProductsResponse;
             ViewData["searchCategory"] = searchCategory;
-
+            ViewData["orderBy"] = orderBy;
         }
 
 
