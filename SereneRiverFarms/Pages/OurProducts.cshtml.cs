@@ -99,6 +99,21 @@ namespace SereneRiverFarms.Pages
 
         public void OnGetSetItemQuantity()
         {
+            int productName = Convert.ToInt32(Request.Query["item"]);
+            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
+            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]);
+            if (numberOfItem < 0)
+            {
+                numberOfItem = 0;
+            }
+            if (numberOfItem > 100)
+            {
+                numberOfItem = 100;
+            }
+
+            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
+            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
+
             updateProducts();
         }
 
@@ -275,21 +290,6 @@ namespace SereneRiverFarms.Pages
         public void updateProducts()
         {
             int numberOfItems = 0;
-
-            int productName = Convert.ToInt32(Request.Query["item"]);
-            string sessionVariable = Convert.ToString(theSessionVariables[productName]);
-            int numberOfItem = Convert.ToInt32(Request.Query["itemQuantity"]);
-            if (numberOfItem < 0)
-            {
-                numberOfItem = 0;
-            }
-            if (numberOfItem > 100)
-            {
-                numberOfItem = 100;
-            }
-
-            HttpContext.Session.SetInt32("" + sessionVariable, numberOfItem);
-            ViewData["" + sessionVariable] = HttpContext.Session.GetInt32("" + sessionVariable);
 
             decimal newCartTotal = 0;
             for (int i = 0; i < theSessionVariables.Count; i++)
