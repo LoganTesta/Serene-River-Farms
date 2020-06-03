@@ -245,7 +245,7 @@ namespace SereneRiverFarms.Pages
             }
 
 
-            if(orderBy == "")
+            if (orderBy == "")
             {
                 orderByText = ""; 
             } else

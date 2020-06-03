@@ -12,7 +12,8 @@
     var orderBy = "" + ViewData["orderBy"];
 
     List<product> products = SereneRiverFarms.Program.products;
-
+    List<product> reorderedProducts = new List<product>();
+    List<product> finalProducts = new List<product>();
 
 
     List<int> numberOfEachProduct = new List<int>();
@@ -40,6 +41,38 @@
 
     int numberOfItems = Convert.ToInt32(ViewData["numberOfItems"]);
     var cartTotal = ViewData["cartTotal"];
+}
+
+@{
+    //If requested order listings.
+    if (orderBy == "name")
+    {
+        reorderedProducts = products.OrderBy(product => product.name).ToList();
+    }
+    else if (orderBy == "name (reverse)")
+    {
+        reorderedProducts = products.OrderByDescending(product => product.name).ToList();
+    }
+    else if (orderBy == "price")
+    {
+        reorderedProducts = products.OrderBy(product => product.price).ToList();
+    }
+    else if (orderBy == "price (reverse)")
+    {
+        reorderedProducts = products.OrderByDescending(product => product.price).ToList();
+    }
+    else
+    {
+        reorderedProducts = products;
+    }
+
+    for (var i = 0; i < reorderedProducts.Count; i++)
+    {
+        if(reorderedProducts[i].displayCSS == "")
+        {
+            finalProducts.Add(reorderedProducts[i]);
+        }
+    }
 }
 
 <div class="shopping-cart">
@@ -116,15 +149,15 @@
 </div>
 
 <div class="content-row small-content-row-padding-top products">
-    @for (var i = 0; i < products.Count; i++)
+    @for (var i = 0; i < finalProducts.Count; i++)
     {
-        <div class="col-vsm-6 col-sma-4 col-lar-3 product @products[i].classCSS @products[i].classInt @products[i].displayCSS">
+        <div class="col-vsm-6 col-sma-4 col-lar-3 product @finalProducts[i].classCSS @finalProducts[i].classInt @finalProducts[i].displayCSS">
             <div class="product__header">
-                <h3 class="product__name">Fresh @products[i].namePlural</h3>
+                <h3 class="product__name">@finalProducts[i].namePlural</h3>
             </div>
             <div class="product__bg-image"></div>
-            <div class="product__description">@products[i].description</div>
-            <div class="product__price">$@products[i].price/lb</div>
+            <div class="product__description">@finalProducts[i].description</div>
+            <div class="product__price">$@finalProducts[i].price/lb</div>
             <div class="product__quantity">
                 @{
                     if (@numberOfEachProduct[i] > 0)
