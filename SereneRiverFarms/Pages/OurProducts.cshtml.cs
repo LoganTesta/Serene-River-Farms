@@ -206,6 +206,9 @@ namespace SereneRiverFarms.Pages
             ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");
             HttpContext.Session.SetString("Cart Total", "0");
             ViewData["cartTotal"] = "$" + HttpContext.Session.GetString("Cart Total");
+
+            HttpContext.Session.SetString("searchCategory", "");
+            HttpContext.Session.SetString("orderBy", "");
         }
 
 
@@ -282,8 +285,8 @@ namespace SereneRiverFarms.Pages
 
             updateProducts();
             ViewData["SearchProductsMessage"] = "" + searchProductsResponse;
-            ViewData["searchCategory"] = searchCategory;
-            ViewData["orderBy"] = orderBy;
+            HttpContext.Session.SetString("searchCategory", searchCategory);
+            HttpContext.Session.SetString("orderBy", orderBy);
         }
 
 

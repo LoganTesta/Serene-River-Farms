@@ -1,6 +1,7 @@
 ﻿@page
 @model SereneRiverFarms.Pages.OurProductsModel
 @using System.Collections;   @*For ArrayLists*@
+@using Microsoft.AspNetCore.Http;   @*For Sessions*@
 
 @{
     @using Microsoft.AspNetCore.Html;
@@ -8,8 +9,8 @@
     ViewData["Title"] = "Our Products";
     var contactResponse = ViewData["Message"];
     var searchResponse = ViewData["SearchProductsMessage"];
-    var searchCategory = "" + ViewData["searchCategory"];
-    var orderBy = "" + ViewData["orderBy"];
+    var searchCategory = "" + HttpContext.Session.GetString("searchCategory");
+    var orderBy = "" + HttpContext.Session.GetString("orderBy");
 
     List<product> products = SereneRiverFarms.Program.products;
     List<product> reorderedProducts = new List<product>();
@@ -26,6 +27,8 @@
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfPumpkins"]));
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfMilkGallons"]));
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOf12OunceJamJars"]));
+
+    List<int> numberOfEachProductReordered = new List<int>();
 
     List<string> subtotalOfEachProduct = new List<string>();
     subtotalOfEachProduct.Add("" + ViewData["subtotalPears"]);
@@ -68,11 +71,25 @@
 
     for (var i = 0; i < reorderedProducts.Count; i++)
     {
-        if(reorderedProducts[i].displayCSS == "")
+        if (reorderedProducts[i].displayCSS == "")
         {
             finalProducts.Add(reorderedProducts[i]);
         }
     }
+
+
+    for (var i = 0; i < finalProducts.Count; i++)
+    {
+        if (orderBy == "")
+        {
+            numberOfEachProductReordered.Add(numberOfEachProduct[i]);
+        }
+        else
+        {
+            numberOfEachProductReordered.Add(numberOfEachProduct[Convert.ToInt32(finalProducts[i].classInt)]);
+        }
+    }
+
 }
 
 <div class="shopping-cart">
@@ -160,10 +177,10 @@
             <div class="product__price">$@finalProducts[i].price/lb</div>
             <div class="product__quantity">
                 @{
-                    if (@numberOfEachProduct[i] > 0)
+                    if (@numberOfEachProductReordered[i] > 0)
                     {
                         <a href="#estimateCartContentRow" class="product__quantity-link">
-                            @numberOfEachProduct[i]
+                            @numberOfEachProductReordered[i]
                         </a>
                     }
                 }
@@ -366,8 +383,9 @@
         });
 
         $(".product__add").eq(i).on("click", function () {
+            let itemNumber = $(".product").eq(i).attr("class").split(" ")[5];
             let itemQuantity = $(".product__input-quantity").eq(i).val();
-            setCartQuantity("SetItemQuantity", i, itemQuantity);
+            setCartQuantity("SetItemQuantity", itemNumber, itemQuantity);
         });
     }
 
@@ -442,17 +460,21 @@
                 let parser = new DOMParser();
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
-                let productQuantities = ajaxDocument.getElementsByClassName("product-quantities")[0];
-                let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
+                let productQuantities = ajaxDocument.getElementsByClassName("product-quantities")[0];         
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
                 let shoppingCart = ajaxDocument.getElementsByClassName("shopping-cart")[0];
                 let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
+
                 $(".product-quantities").eq(0).html(productQuantities.innerHTML);
-                $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
                 $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
                 $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
+
+                for (let i = 0; i < numberOfCartItems; i++) {
+                    let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[i];
+                    $(".product__quantity").eq(i).html(productQuantity.innerHTML);
+                }
 
                 reAddEventListeners();
             }
@@ -469,16 +491,19 @@
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
                 let productQuantities = ajaxDocument.getElementsByClassName("product-quantities")[0];
-                let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[itemID];
                 let itemTable = ajaxDocument.getElementsByClassName("item-table")[0];
                 let shoppingCart = ajaxDocument.getElementsByClassName("shopping-cart")[0];
                 let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
                 $(".product-quantities").eq(0).html(productQuantities.innerHTML);
-                $(".product__quantity").eq(itemID).html(productQuantity.innerHTML);
                 $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
                 $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
+
+                for (let i = 0; i < numberOfCartItems; i++) {
+                    let productQuantity = ajaxDocument.getElementsByClassName("product__quantity")[i];
+                    $(".product__quantity").eq(i).html(productQuantity.innerHTML);
+                }
 
                 reAddEventListeners();
             }
@@ -532,8 +557,9 @@
             });
 
             $(".product__add").eq(i).on("click", function () {
+                let itemNumber = $(".product").eq(i).attr("class").split(" ")[5];
                 let itemQuantity = $(".product__input-quantity").eq(i).val();
-                setCartQuantity("SetItemQuantity", i, itemQuantity);
+                setCartQuantity("SetItemQuantity", itemNumber, itemQuantity);
             });
         }
 
