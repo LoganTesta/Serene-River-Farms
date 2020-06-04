@@ -527,12 +527,14 @@
                 let estimateCartTotal = ajaxDocument.getElementsByClassName("estimate-cart__total")[0];
 
                 $(".product-quantities").eq(0).html(productQuantities.innerHTML);
-                for (let i = 0; i < numberOfProducts; i++) {
-                    document.getElementsByClassName("product__quantity")[i].innerHTML = "";
-                }
                 $(".item-table").eq(0).html(itemTable.innerHTML);
                 $(".shopping-cart").eq(0).html(shoppingCart.innerHTML);
                 $(".estimate-cart__total").eq(0).html(estimateCartTotal.innerHTML);
+
+                let numberOfProductsShown = $(".product").length;
+                for (let i = 0; i < numberOfProductsShown; i++) {
+                    document.getElementsByClassName("product__quantity")[i].innerHTML = "";
+                }
 
                 reAddEventListeners();
             }
