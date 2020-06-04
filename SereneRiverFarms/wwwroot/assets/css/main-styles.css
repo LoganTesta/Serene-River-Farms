@@ -1162,6 +1162,7 @@ li {
 
 .search-form__input-container {
     display: inline-block;
+    padding-bottom: 20px;
     padding-right: 20px;
 }
 
@@ -1173,10 +1174,6 @@ li {
 .search-form__input {
     display: block;
     border-radius: 10px;
-}
-
-.product-search__text {
-    padding-top: 10px;
 }
 
 #searchButton {
@@ -2226,8 +2223,10 @@ li {
     }
 
     .search-form__input-container {
+        padding-bottom: 10px;
         padding-right: 30px;
     }
+
 
     .product {
     }
