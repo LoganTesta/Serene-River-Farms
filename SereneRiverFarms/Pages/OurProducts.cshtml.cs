@@ -50,7 +50,7 @@ namespace SereneRiverFarms.Pages
             theSessionVariables.Add("numberOfCherries");
             theSessionVariables.Add("numberOfPumpkins");
             theSessionVariables.Add("numberOfMilkGallons");
-            theSessionVariables.Add("numberOf12OunceJamJars");
+            theSessionVariables.Add("numberOfJamJars");
         }
 
 
@@ -64,7 +64,7 @@ namespace SereneRiverFarms.Pages
             HttpContext.Session.SetInt32("numberOfCherries", 0);
             HttpContext.Session.SetInt32("numberOfPumpkins", 0);
             HttpContext.Session.SetInt32("numberOfMilkGallons", 0);
-            HttpContext.Session.SetInt32("numberOf12OunceJamJars", 0);
+            HttpContext.Session.SetInt32("numberOfJamJars", 0);
 
             HttpContext.Session.SetString("Number of Items", "" + 0);
             HttpContext.Session.SetString("Cart Total", "" + 0);
@@ -77,7 +77,7 @@ namespace SereneRiverFarms.Pages
             ViewData["numberOfCherries"] = "0";
             ViewData["numberOfPumpkins"] = "0";
             ViewData["numberOfMilkGallons"] = "0";
-            ViewData["numberOf12OunceJamJars"] = "0";
+            ViewData["numberOfJamJars"] = "0";
 
             ViewData["subtotalPears"] = "$0";
             ViewData["subtotalApples"] = "$0";
@@ -87,7 +87,7 @@ namespace SereneRiverFarms.Pages
             ViewData["subtotalCherries"] = "$0";
             ViewData["subtotalPumpkins"] = "$0";
             ViewData["subtotalMilkGallons"] = "$0";
-            ViewData["subtotal12OunceJamJars"] = "$0";
+            ViewData["subtotalJamJars"] = "$0";
 
             HttpContext.Session.SetString("Cart Total", "0");
             ViewData["numberOfItems"] = "" + HttpContext.Session.GetString("Number of Items");

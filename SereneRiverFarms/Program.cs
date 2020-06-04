@@ -24,7 +24,7 @@ namespace SereneRiverFarms
         public static product cherries = new product("Cherries", "Cherries", "five", "5", "", 3.50M, "fruits", "", "Very filling and tasty.");
         public static product pumpkin = new product("Pumpkin", "Pumpkins", "six", "6", "", 1.79M, "squashes", "", "Our pumpkin patch is ready to provide you with your next jack-o'-latern.  Also, rumor has it pumpkin goes well in pies.");
         public static product milkGallon = new product("Milk Gallon", "Milk Gallons", "seven", "7", "", 2.50M, "dairy", "", "We love our cows and give them plenty of room to roam.  The result is happier cows and better tasting milk.");
-        public static product jamJar12Ounce = new product("12 Ounce Jam Jar", "12 Ounce Jam Jars", "eight", "8", "", 6.00M, "jams", "", "Nothing like fresh produce to make your day in a jam.");
+        public static product jamJar = new product("Jam Jar", "Jam Jars", "eight", "8", "", 6.00M, "jams", "", "Nothing like fresh produce to make your day in a jam.");
 
         public static List<product> products = new List<product>();
 
@@ -40,7 +40,7 @@ namespace SereneRiverFarms
             products.Add(cherries);
             products.Add(pumpkin);
             products.Add(milkGallon);
-            products.Add(jamJar12Ounce);
+            products.Add(jamJar);
 
             CreateWebHostBuilder(args).Build().Run();
         }

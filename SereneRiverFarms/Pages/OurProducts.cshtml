@@ -26,7 +26,7 @@
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfCherries"]));
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfPumpkins"]));
     numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfMilkGallons"]));
-    numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOf12OunceJamJars"]));
+    numberOfEachProduct.Add(Convert.ToInt32(ViewData["numberOfJamJars"]));
 
     List<int> numberOfEachProductReordered = new List<int>();
 
@@ -39,7 +39,7 @@
     subtotalOfEachProduct.Add("" + ViewData["subtotalCherries"]);
     subtotalOfEachProduct.Add("" + ViewData["subtotalPumpkins"]);
     subtotalOfEachProduct.Add("" + ViewData["subtotalMilkGallons"]);
-    subtotalOfEachProduct.Add("" + ViewData["subtotal12OunceJamJars"]);
+    subtotalOfEachProduct.Add("" + ViewData["subtotalJamJars"]);
 
 
     int numberOfItems = Convert.ToInt32(ViewData["numberOfItems"]);
