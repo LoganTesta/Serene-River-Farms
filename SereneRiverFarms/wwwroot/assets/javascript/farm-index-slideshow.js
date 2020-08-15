@@ -133,12 +133,14 @@ function togglePausePlay() {
     }
 }
 
-let pausePlay = document.getElementById("pausePlayButton");
-pausePlay.addEventListener("click", togglePausePlay, false);
+let pausePlay = $("#pausePlayButton");
+pausePlay.on("click", function () {
+    togglePausePlay();
+});
 
 function setSlide(slideNumber) {
-    slideshowCounter = 0;
-    currentSlide.css("opacity", "0.00");
+    slideshowCounter = 20;
+    currentSlide.css("opacity", "0.10");
     currentSlideNumber = slideNumber;
     paused = false;
     pausePlayButton.removeClass("paused");

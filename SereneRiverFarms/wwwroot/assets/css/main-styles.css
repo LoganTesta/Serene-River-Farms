@@ -903,7 +903,7 @@ li {
     margin-right: auto;
     border-radius: 15px;
     background: 50% 50%/cover no-repeat;
-   /* transition: 1.2s ease-in;*/
+    transition: transform 1.2s ease-in;
     transform: scale(1.10);
     cursor: pointer;
 }
