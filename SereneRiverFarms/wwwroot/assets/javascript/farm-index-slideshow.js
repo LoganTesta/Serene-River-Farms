@@ -1,5 +1,6 @@
 ﻿/*Start of Slideshow */
 let currentSlide;
+let slideshowCounter = 0;
 let paused = false;
 let updateSlideSettings = true;
 let currentSlideNumber = 0;
@@ -17,34 +18,22 @@ slide3.src = "../assets/images/oregon-farm-grassland.jpg";
 let slide4 = new Image(600, 400);
 slide4.src = "../assets/images/apple-trees-harvesting-apples.jpg";
 
-let slideButton0 = $("#slideButton0");
-let slideButton1 = $("#slideButton1");
-let slideButton2 = $("#slideButton2");
-let slideButton3 = $("#slideButton3");
-let slideButton4 = $("#slideButton4");
+let slideButton0 = document.getElementById('slideButton0');
+let slideButton1 = document.getElementById('slideButton1');
+let slideButton2 = document.getElementById('slideButton2');
+let slideButton3 = document.getElementById('slideButton3');
+let slideButton4 = document.getElementById('slideButton4');
+
+slideButtons = new Array(slideButton0, slideButton1, slideButton2, slideButton3, slideButton4);
+
+for (let i = 0; i < maxSlideNumber + 1; i++) {
+    slideButtons[i].addEventListener('click', function () {
+        setSlide(i);
+    }, false);
+}
 
 let slideshowImageLink = $(".slideshow__image-link").eq(0);
 let slideshowImageLinkText = $(".slideshow__image-link-text").eq();
-
-$("#slideButton0").on("click", function () {
-    setSlide(0);
-});
-$("#slideButton1").on("click", function () {
-    setSlide(1);
-});
-$("#slideButton2").on("click", function () {
-    setSlide(2);
-});
-$("#slideButton3").on("click", function () {
-    setSlide(3);
-});
-$("#slideButton4").on("click", function () {
-    setSlide(4);
-});
-
-$("#pausePlayButton").on("click", function () {
-    togglePausePlay();
-});
 
 
 
@@ -67,81 +56,72 @@ function runFunctions() {
 function runSlideShow() {
 
     if (paused === false) {
+        if (slideshowCounter === 0) {
+            currentSlide.css("opacity", 0.1);
+        }
+        if (slideshowCounter < 180) {
+            let newOpacity = (parseFloat(currentSlide.css("opacity")) + 0.005);
+            currentSlide.css("opacity", "" + newOpacity);
+        }
+        if (180 <= slideshowCounter && slideshowCounter < 680) {
+            currentSlide.css("opacity", 1);
+        }
+        if (slideshowCounter >= 680) {
+            let newOpacity = (parseFloat(currentSlide.css("opacity")) - 0.005);
+            currentSlide.css("opacity", "" + newOpacity);
+        }
+        if (slideshowCounter >= 860) {
+            slideshowCounter = 0;
+            updateSlideSettings = true;
+            currentSlide.css("opacity", 0.1);
+            currentSlideNumber++;
+        }
+
         if (currentSlideNumber < 0) {
             currentSlideNumber = maxSlideNumber;
         } else if (currentSlideNumber > maxSlideNumber) {
             currentSlideNumber = 0;
         }
 
-
         if (updateSlideSettings) {
             updateSlideSettings = false;
-            currentSlide.fadeTo(800, 1);
-            setTimeout(setToFadeOut, 7000);
-
+            for (let i = 0; i < maxSlideNumber + 1; i++) {
+                slideButtons[i].classList.remove("active");
+            }
             if (currentSlideNumber === 0) {
                 slideshowHeader.html("Summer Fresh Berries");
                 slideshowImageLink.attr("href", "/OurProducts");
                 slideshowImageLinkText.html("Our Products");
                 currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
-                slideButton0.css("opacity", 1.0);
-                slideButton1.css("opacity", 0.40);
-                slideButton2.css("opacity", 0.40);
-                slideButton3.css("opacity", 0.40);
-                slideButton4.css("opacity", 0.40);
+                slideButton0.classList.add("active");
             } else if (currentSlideNumber === 1) {
                 slideshowHeader.html("Some of our Cherry Trees");
                 slideshowImageLink.attr("href", "/OurFarm");
                 slideshowImageLinkText.html("Our Farm");
                 currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
-                slideButton0.css("opacity", 0.40);
-                slideButton1.css("opacity", 1.0);
-                slideButton2.css("opacity", 0.40);
-                slideButton3.css("opacity", 0.40);
-                slideButton4.css("opacity", 0.40);
+                slideButton1.classList.add("active");
             } else if (currentSlideNumber === 2) {
                 slideshowHeader.html("One of our Tractors at Work");
                 slideshowImageLink.attr("href", "/OurFarm");
                 slideshowImageLinkText.html("Our Farm");
                 currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
-                slideButton0.css("opacity", 0.40);
-                slideButton1.css("opacity", 0.40);
-                slideButton2.css("opacity", 1.0);
-                slideButton3.css("opacity", 0.40);
-                slideButton4.css("opacity", 0.40);
+                slideButton2.classList.add("active");
             } else if (currentSlideNumber === 3) {
                 slideshowHeader.html("Some of our Farmland");
                 slideshowImageLink.attr("href", "/About");
                 slideshowImageLinkText.html("About Us");
                 currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
-                slideButton0.css("opacity", 0.40);
-                slideButton1.css("opacity", 0.40);
-                slideButton2.css("opacity", 0.40);
-                slideButton3.css("opacity", 1.0);
-                slideButton4.css("opacity", 0.40);
+                slideButton3.classList.add("active");
             } else if (currentSlideNumber === 4) {
                 slideshowImageLink.attr("href", "/Events");
                 slideshowHeader.html("Apples Galore!");
                 slideshowImageLinkText.html("Events");
                 currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
-                slideButton0.css("opacity", 0.40);
-                slideButton1.css("opacity", 0.40);
-                slideButton2.css("opacity", 0.40);
-                slideButton3.css("opacity", 0.40);
-                slideButton4.css("opacity", 1.0);
+                slideButton4.classList.add("active");
             }
         }
+        slideshowCounter++;
     }
-}
-
-function setToFadeOut() {
-    currentSlide.fadeTo(3200, 0);
-    setTimeout(setToFadeIn, 4500);
-}
-
-function setToFadeIn() {
-    updateSlideSettings = true;
-    currentSlideNumber++;
 }
 
 function togglePausePlay() {
@@ -153,7 +133,12 @@ function togglePausePlay() {
     }
 }
 
+let pausePlay = document.getElementById("pausePlayButton");
+pausePlay.addEventListener("click", togglePausePlay, false);
+
 function setSlide(slideNumber) {
+    slideshowCounter = 0;
+    currentSlide.css("opacity", "0.00");
     currentSlideNumber = slideNumber;
     paused = false;
     pausePlayButton.removeClass("paused");

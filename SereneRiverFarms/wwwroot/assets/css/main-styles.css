@@ -903,7 +903,7 @@ li {
     margin-right: auto;
     border-radius: 15px;
     background: 50% 50%/cover no-repeat;
-    transition: 1.2s ease-in;
+   /* transition: 1.2s ease-in;*/
     transform: scale(1.10);
     cursor: pointer;
 }
@@ -932,6 +932,7 @@ li {
 
 .slideshow__slide-button {
     display: block;
+    opacity: 0.4;
     float: left;
     width: 18px;
     height: 18px;
@@ -949,7 +950,12 @@ li {
         transition: 0.2s ease-in;
     }
 
+    .slideshow__slide-button.active {
+        opacity: 1;
+    }
+
 #pausePlayButton {
+    opacity: 1;
     margin-left: 0;
     background: url(../images/index/pause-button.png) 50% 50%/cover no-repeat;
     border-radius: 1px;
