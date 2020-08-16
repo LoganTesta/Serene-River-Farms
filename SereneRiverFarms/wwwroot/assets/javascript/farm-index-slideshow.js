@@ -18,18 +18,17 @@ slide3.src = "../assets/images/oregon-farm-grassland.jpg";
 let slide4 = new Image(600, 400);
 slide4.src = "../assets/images/apple-trees-harvesting-apples.jpg";
 
-let slideButton0 = document.getElementById('slideButton0');
-let slideButton1 = document.getElementById('slideButton1');
-let slideButton2 = document.getElementById('slideButton2');
-let slideButton3 = document.getElementById('slideButton3');
-let slideButton4 = document.getElementById('slideButton4');
-
-slideButtons = new Array(slideButton0, slideButton1, slideButton2, slideButton3, slideButton4);
+let slideButton0 = $("#slideButton0");
+let slideButton1 = $("#slideButton1");
+let slideButton2 = $("#slideButton2");
+let slideButton3 = $("#slideButton3");
+let slideButton4 = $("#slideButton4");
+let slideButtons = new Array(slideButton0, slideButton1, slideButton2, slideButton3, slideButton4);
 
 for (let i = 0; i < maxSlideNumber + 1; i++) {
-    slideButtons[i].addEventListener('click', function () {
+    slideButtons[i].on('click', function () {
         setSlide(i);
-    }, false);
+    });
 }
 
 let slideshowImageLink = $(".slideshow__image-link").eq(0);
@@ -86,38 +85,38 @@ function runSlideShow() {
         if (updateSlideSettings) {
             updateSlideSettings = false;
             for (let i = 0; i < maxSlideNumber + 1; i++) {
-                slideButtons[i].classList.remove("active");
+                slideButtons[i].removeClass("active");
             }
             if (currentSlideNumber === 0) {
                 slideshowHeader.html("Summer Fresh Berries");
                 slideshowImageLink.attr("href", "/OurProducts");
                 slideshowImageLinkText.html("Our Products");
                 currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
-                slideButton0.classList.add("active");
+                slideButton0.addClass("active");
             } else if (currentSlideNumber === 1) {
                 slideshowHeader.html("Some of our Cherry Trees");
                 slideshowImageLink.attr("href", "/OurFarm");
                 slideshowImageLinkText.html("Our Farm");
                 currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
-                slideButton1.classList.add("active");
+                slideButton1.addClass("active");
             } else if (currentSlideNumber === 2) {
                 slideshowHeader.html("One of our Tractors at Work");
                 slideshowImageLink.attr("href", "/OurFarm");
                 slideshowImageLinkText.html("Our Farm");
                 currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
-                slideButton2.classList.add("active");
+                slideButton2.addClass("active");
             } else if (currentSlideNumber === 3) {
                 slideshowHeader.html("Some of our Farmland");
                 slideshowImageLink.attr("href", "/About");
                 slideshowImageLinkText.html("About Us");
                 currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
-                slideButton3.classList.add("active");
+                slideButton3.addClass("active");
             } else if (currentSlideNumber === 4) {
                 slideshowImageLink.attr("href", "/Events");
                 slideshowHeader.html("Apples Galore!");
                 slideshowImageLinkText.html("Events");
                 currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
-                slideButton4.classList.add("active");
+                slideButton4.addClass("active");
             }
         }
         slideshowCounter++;
