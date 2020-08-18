@@ -909,7 +909,7 @@ li {
 }
 
     .slideshow__image:hover {
-        transform: scale(1.30) translateX(-30px);
+        transform: scale(1.30) translateX(-30px) translateY(-8px);
         transition: transform 1.5s ease-in;
     }
 
@@ -2190,7 +2190,7 @@ li {
     }
 
         .slideshow__image:hover {
-            transform: scale(1.30) translateX(-60px);
+            transform: scale(1.30) translateX(-60px) translateY(-15px);
         }
 
     .slideshow__header {
