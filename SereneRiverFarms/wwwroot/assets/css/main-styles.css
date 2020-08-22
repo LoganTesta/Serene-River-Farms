@@ -28,7 +28,7 @@ columns display at their designated widths at all device sizes, small (sma) abov
 
 .content-row {
     width: 100%;
-    padding: 0;
+    padding: 20px 0 20px 0;
 }
 
     .content-row:after {
@@ -39,6 +39,14 @@ columns display at their designated widths at all device sizes, small (sma) abov
 
     .content-row.no-content-row-padding {
         padding: 0;
+    }
+
+    .content-row:first-of-type {
+        padding-top: 0;
+    }
+
+    .content-row:last-of-type {
+        padding-bottom: 0;
     }
 
 .col-sma-1, .col-sma-2, .col-sma-3, .col-sma-4, .col-sma-5, .col-sma-6, .col-sma-7, .col-sma-8, .col-sma-9, .col-sma-10, .col-sma-11, .col-sma-12,
@@ -103,21 +111,8 @@ columns display at their designated widths at all device sizes, small (sma) abov
     width: 100%;
 }
 
-
 /* Switch to 12 columns at 700px for small columns and 1200px for large columns. */
 @media only screen and (min-width: 700px) {
-    .content-row {
-        padding: 10px 0 10px 0;
-    }
-
-        .content-row:first-of-type {
-            padding-top: 0;
-        }
-
-        .content-row:last-of-type {
-            padding-bottom: 0;
-        }
-
     .col-sma-1, .col-sma-2, .col-sma-3, .col-sma-4, .col-sma-5, .col-sma-6, .col-sma-7, .col-sma-8, .col-sma-9, .col-sma-10, .col-sma-11, .col-sma-12 {
         float: left;
         padding-left: 15px;
