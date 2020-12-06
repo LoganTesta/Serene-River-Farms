@@ -9,7 +9,7 @@ function validateForgotPasswordForm() {
         let validForm = true;
 
 
-        /*If the @ position is at the start (or less) position of value 0, validForm = false. */
+        /* If the @ position is at the start (or less) position of value 0, validForm = false. */
         /* There must be at least 1 character after the @ position and the last dot position. */
         /* There must be at least two characters after the last "." symbol.  */
         let validEmail = true;
