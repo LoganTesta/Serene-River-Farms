@@ -3,7 +3,6 @@
 }
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="farm, serene, river, Willamette Valley, Carlton, Oregon, fresh, dairy, produce, berries, pears, apples, jams, pies, tours, pumpkins" />
     <meta name="description" content="Buy fresh produce, dairy, and more at Serene River Farms.  We also provide tours and are located near Carlton, Oregon near McMinnville." />
-
-
-
-    <title>@ViewData["Title"] - SereneRiverFarms</title>
+    <title>@ViewData["Title"] - Serene River Farms</title>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
@@ -22,8 +18,6 @@
     <link rel="stylesheet" href="~/assets/css/print-styles.css?mod=10302021" media="print" />
 </head>
 <body class="body-wrapper">
-
-
     <header class="header">
         <div class="header__background"></div>
         <div class="inner-wrapper">
@@ -134,15 +128,8 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="~/assets/javascript/javascript-jquery-functions.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-
-    <environment include="Development, Production">
-        <script src="~/assets/javascript/javascript-jquery-functions.js"></script>
-    </environment>
-   
+    @await RenderSectionAsync("Scripts", required: false)   
 </body>
 </html>
