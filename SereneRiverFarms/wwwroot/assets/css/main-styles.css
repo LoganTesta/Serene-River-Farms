@@ -759,8 +759,8 @@ li {
     }
 
 .footer__background {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     background-color: var(--color-2-medium-opacity);
 }
 
@@ -1880,8 +1880,8 @@ li {
 
     /*Footer*/
     .footer__background {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
     .footer__locations, .footer__phone, .footer__hours {
@@ -2117,8 +2117,8 @@ li {
     }
 
     .footer__background {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 120px;
+        padding-bottom: 120px;
     }
 
     .footer__subheading {
