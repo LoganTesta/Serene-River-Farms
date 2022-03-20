@@ -1044,11 +1044,12 @@ li {
         transition: 0.8s ease-in;
     }
 
-.index-section__title h3 {
+.index-section__title {
     text-align: center;
 }
 
 .index-section__description {
+    padding-bottom: 0;
 }
 
 .index-section__bg-image-link {
