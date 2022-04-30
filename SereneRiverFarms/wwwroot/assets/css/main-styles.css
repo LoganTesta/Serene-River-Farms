@@ -644,24 +644,64 @@ li {
 /*Nav*/
 .nav {
     position: absolute;
-    top: 32px;
+    top: 15px;
     right: 0px;
     text-align: right;
 }
+
+.dropdown-button-wrapper {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 20px;
+}
+
+#dropdownButton {
+    width: 25px;
+    height: 20px;
+    background: url("../images/hamburger-nav.png") 50% 0%/cover no-repeat;
+    cursor: pointer;
+}
+
+#dropdownContent {
+    position: relative;
+    top: 30px;
+    transition: 0.6s all ease-in;
+}
+
+    #dropdownContent .nav__nav-list .nav__nav-item {
+        display: block;
+        height: 0;
+        opacity: 0;
+        transition: 0.6s all ease-in;
+    }
+
+    #dropdownContent.show {
+        transition: 0.6s all ease-in;
+    }
+
+        #dropdownContent.show .nav__nav-list .nav__nav-item {
+            height: 21px;
+            margin-bottom: 14px;
+            opacity: 1;
+            transition: 0.6s all ease-in;
+        }
+
+            #dropdownContent.show .nav__nav-list .nav__nav-item:last-of-type {
+                margin-bottom: 0;
+            } 
 
 .nav__nav-list {
     font-size: 0;
 }
 
 .nav__nav-list-container {
-    padding: 10px 15px 10px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .nav .nav__nav-link {
     display: inline-block;
-    padding-bottom: 18px;
-    font-size: 18px;
-    font-weight: bold;
     color: #ffffff;
 }
 
@@ -1866,6 +1906,8 @@ li {
             font-size: 32px;
         }
 
+
+    /*Nav*/
     #mobileNav {
         display: none;
     }
@@ -1873,6 +1915,16 @@ li {
     #desktopNav {
         display: block;
     }
+
+    .nav {
+        top: 32px;
+    }
+
+        .nav .nav__nav-link {
+            padding-bottom: 18px;
+            font-size: 18px;
+        }
+
 
     /*General Use */
     .background-hero-image {
