@@ -21,7 +21,7 @@ $(document).ready(function () {
     });
 
     function toggleHamburgerMenu() {
-        $("#dropdownContent").toggleClass("show");
+        $("#mobileNav").toggleClass("show");
     }
 
 });

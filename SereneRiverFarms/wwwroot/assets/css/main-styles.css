@@ -658,10 +658,34 @@ li {
 }
 
 #dropdownButton {
-    width: 25px;
-    height: 20px;
-    background: url("../images/hamburger-nav.png") 50% 0%/cover no-repeat;
     cursor: pointer;
+}
+
+.dropdown-part-1, .dropdown-part-2, .dropdown-part-3 {
+    opacity: 1;
+    height: 2px;
+    margin-bottom: 8px;
+    background-color: var(--color-1);
+    transition: 0.3s all ease-in;
+}
+
+#mobileNav.show .dropdown-part-1 {
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.3s all ease-in;
+}
+
+#mobileNav.show .dropdown-part-2 {
+    opacity: 0;
+    transition: 0.3s all ease-in;
+}
+
+#mobileNav.show .dropdown-part-3 {
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.3s all ease-in;
+}
+
+.mobile-nav .dropdown-part-3 {
+    margin-bottom: 0;
 }
 
 #dropdownContent {
@@ -677,20 +701,20 @@ li {
         transition: 0.6s all ease-in;
     }
 
-    #dropdownContent.show {
+#mobileNav.show {
+    transition: 0.6s all ease-in;
+}
+
+    #mobileNav.show .nav__nav-list .nav__nav-item {
+        height: 21px;
+        margin-bottom: 14px;
+        opacity: 1;
         transition: 0.6s all ease-in;
     }
 
-        #dropdownContent.show .nav__nav-list .nav__nav-item {
-            height: 21px;
-            margin-bottom: 14px;
-            opacity: 1;
-            transition: 0.6s all ease-in;
-        }
-
-            #dropdownContent.show .nav__nav-list .nav__nav-item:last-of-type {
-                margin-bottom: 0;
-            } 
+        #mobileNav.show .nav__nav-list .nav__nav-item:last-of-type {
+            margin-bottom: 0;
+        } 
 
 .nav__nav-list {
     font-size: 0;
