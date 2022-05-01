@@ -1,27 +1,27 @@
 ﻿
 $(document).ready(function () {
-   
-});
 
-function setCurrentPage(linkNumber, navBarName, navBarLinkName) {
+    /* Navbar */
+    function setCurrentPage(linkNumber, navBarName, navBarLinkName) {
+        let navBar = $("" + navBarName);
+        let navBarItems = $("" + navBarName + " " + navBarLinkName);
 
-    let navBar = $("" + navBarName);
-    let navBarItems = $("" + navBarName + " " + navBarLinkName);
-
-    for (let i = 0; i < navBarItems.length; i++) {
-        $(navBarItems[i]).removeClass("current-page");
+        for (let i = 0; i < navBarItems.length; i++) {
+            $(navBarItems[i]).removeClass("current-page");
+        }
+        $(navBarItems[linkNumber]).addClass("current-page");
     }
-    $(navBarItems[linkNumber]).addClass("current-page");
-}
 
 
-window.addEventListener("load", function () {
+    /* Hamburger menue toggle */
+    let dropdownButton = $("#dropdownButton");
 
-    let dropdownButton = document.getElementById("dropdownButton");
-    dropdownButton.addEventListener("click", toggleHamburgerMenu, "false");
+    dropdownButton.click(function () {
+        toggleHamburgerMenu();
+    });
 
     function toggleHamburgerMenu() {
-        document.getElementById("dropdownContent").classList.toggle("show");
+        $("#dropdownContent").toggleClass("show");
     }
 
-}, "false");
+});
