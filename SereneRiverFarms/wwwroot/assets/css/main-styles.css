@@ -603,16 +603,16 @@ li {
 .main-title-container {
     position: absolute;
     top: 65px;
-    left: 15px;
+    left: 10px;
     width: 165px;
     border-radius: 10px;
     border: 2px solid var(--color-2-semi-opacity);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     transition: 0.4s ease-in;
 }
 
     .main-title-container:hover {
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(255, 255, 255, 0.55);
         transition: 0.4s ease-in;
     }
 
@@ -666,22 +666,22 @@ li {
     height: 2px;
     margin-bottom: 8px;
     background-color: var(--color-1);
-    transition: 0.3s all ease-in;
+    transition: 0.7s all ease-in;
 }
 
 #mobileNav.show .dropdown-part-1 {
-    transform: translateY(10px) rotate(-45deg);
-    transition: 0.3s all ease-in;
+    transform: translateY(10px) rotate(-405deg);
+    transition: 0.7s all ease-in;
 }
 
 #mobileNav.show .dropdown-part-2 {
     opacity: 0;
-    transition: 0.3s all ease-in;
+    transition: 0.7s all ease-in;
 }
 
 #mobileNav.show .dropdown-part-3 {
-    transform: translateY(-10px) rotate(45deg);
-    transition: 0.3s all ease-in;
+    transform: translateY(-10px) rotate(405deg);
+    transition: 0.7s all ease-in;
 }
 
 .mobile-nav .dropdown-part-3 {
@@ -691,25 +691,32 @@ li {
 #dropdownContent {
     position: relative;
     top: 30px;
-    transition: 0.6s all ease-in;
+    padding: 0 10px;
+    border-radius: 4px 0 0 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: 0.7s all ease-in;
 }
 
     #dropdownContent .nav__nav-list .nav__nav-item {
         display: block;
         height: 0;
         opacity: 0;
-        transition: 0.6s all ease-in;
+        transition: 0.7s all ease-in;
     }
 
 #mobileNav.show {
-    transition: 0.6s all ease-in;
+    transition: 0.7s all ease-in;
 }
+
+    #mobileNav.show #dropdownContent {
+        padding: 10px 10px 10px 10px;
+    }
 
     #mobileNav.show .nav__nav-list .nav__nav-item {
         height: 21px;
         margin-bottom: 14px;
         opacity: 1;
-        transition: 0.6s all ease-in;
+        transition: 0.7s all ease-in;
     }
 
         #mobileNav.show .nav__nav-list .nav__nav-item:last-of-type {
@@ -720,13 +727,13 @@ li {
     font-size: 0;
 }
 
-.nav__nav-list-container {
+.desktop-nav .nav__nav-list-container {
     padding: 10px 10px 10px 10px;
 }
 
 .nav .nav__nav-link {
     display: inline-block;
-    color: #ffffff;
+    color: var(--color-1);
 }
 
     .nav .nav__nav-link:hover {
@@ -741,7 +748,7 @@ li {
 .logo-container {
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 10px;
     width: 40px;
     height: 40px;
 }
