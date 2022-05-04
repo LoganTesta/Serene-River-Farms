@@ -738,8 +738,7 @@ li {
 }
 
     .nav .nav__nav-link:hover {
-        color: var(--color-3);
-        border-bottom: 3px solid var(--color-3);
+        border-bottom: 3px solid var(--color-1);
     }
 
 .nav .nav__nav-list-container .nav__nav-link.current-page {
@@ -747,7 +746,7 @@ li {
 }
 
 .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
-    border-bottom: 3px solid var(--color-3);
+    border-bottom: 3px solid var(--color-1);
 }
 
 
@@ -1965,7 +1964,7 @@ li {
         }
 
             .nav .nav__nav-link:hover {
-                border-bottom: 3px solid var(--color-3);
+                border-bottom: 3px solid #ffffff;
             }
 
         .nav .nav__nav-list-container .nav__nav-link.current-page {
@@ -1973,7 +1972,7 @@ li {
         }
 
             .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
-                border-bottom: 3px solid var(--color-3);
+                border-bottom: 3px solid #ffffff;
             }
 
 
@@ -2216,16 +2215,15 @@ li {
     }
 
         .nav .nav__nav-link:hover {
-            border-bottom: 3px solid #ffffff;
-            color: #ffffff;
+            border-bottom: 3px solid var(--color-4);
         }
 
     .nav .nav__nav-list-container .nav__nav-link.current-page {
-        border-bottom: 3px solid var(--color-3);
+        border-bottom: 3px solid var(--color-4);
     }
 
         .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
-            border-bottom: 3px solid #ffffff;
+            border-bottom: 3px solid var(--color-4);
         }
 
 
