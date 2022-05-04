@@ -739,6 +739,7 @@ li {
 
     .nav .nav__nav-link:hover {
         color: var(--color-3);
+        border-bottom: 3px solid var(--color-3);
     }
 
 .nav .nav__nav-list-container .nav__nav-link.current-page {
@@ -1958,10 +1959,14 @@ li {
     }
 
         .nav .nav__nav-link {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             font-size: 18px;
             color: #ffffff;
         }
+
+            .nav .nav__nav-link:hover {
+                border-bottom: 3px solid var(--color-3);
+            }
 
         .nav .nav__nav-list-container .nav__nav-link.current-page {
             border-bottom: 3px solid #ffffff;
@@ -2211,9 +2216,9 @@ li {
     }
 
         .nav .nav__nav-link:hover {
+            border-bottom: 3px solid #ffffff;
             color: #ffffff;
         }
-
 
     .nav .nav__nav-list-container .nav__nav-link.current-page {
         border-bottom: 3px solid var(--color-3);
