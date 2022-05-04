@@ -733,6 +733,7 @@ li {
 
 .nav .nav__nav-link {
     display: inline-block;
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
     color: var(--color-1);
 }
 
@@ -740,9 +741,14 @@ li {
         color: var(--color-3);
     }
 
-.nav .nav__nav-list-container .current-page {
-    text-decoration: underline;
+.nav .nav__nav-list-container .nav__nav-link.current-page {
+    border-bottom: 3px solid var(--color-1);
 }
+
+.nav .nav__nav-list-container .nav__nav-link.current-page:hover {
+    border-bottom: 3px solid var(--color-3);
+}
+
 
 /*Logo*/
 .logo-container {
@@ -1952,10 +1958,18 @@ li {
     }
 
         .nav .nav__nav-link {
-            padding-bottom: 18px;
+            margin-bottom: 18px;
             font-size: 18px;
             color: #ffffff;
         }
+
+        .nav .nav__nav-list-container .nav__nav-link.current-page {
+            border-bottom: 3px solid #ffffff;
+        }
+
+            .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
+                border-bottom: 3px solid var(--color-3);
+            }
 
 
     /*General Use */
@@ -2192,13 +2206,23 @@ li {
         }
 
     .nav .nav__nav-link {
-        padding-bottom: 0;
+        margin-bottom: 0;
         color: var(--color-4);
     }
 
         .nav .nav__nav-link:hover {
             color: #ffffff;
         }
+
+
+    .nav .nav__nav-list-container .nav__nav-link.current-page {
+        border-bottom: 3px solid var(--color-3);
+    }
+
+        .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
+            border-bottom: 3px solid #ffffff;
+        }
+
 
     .footer {
         background: url("../images/hillside-farm.jpg") 0% 67%/cover no-repeat;
