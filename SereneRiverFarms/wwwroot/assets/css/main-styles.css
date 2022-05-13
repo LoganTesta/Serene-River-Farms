@@ -691,10 +691,11 @@ li {
 #dropdownContent {
     position: relative;
     top: 30px;
-    padding: 0 10px;
-    border-top: 0;
-    border-bottom: 0;
-    border-left: 0;
+    right: -125px;
+    padding: 10px 10px;
+    border-top: 2px solid var(--color-2-semi-opacity);
+    border-bottom: 2px solid var(--color-2-semi-opacity);
+    border-left: 2px solid var(--color-2-semi-opacity);
     border-radius: 4px 0 0 4px;
     background-color: rgba(255, 255, 255, 0.8);
     transition: 0.7s all ease-in;
@@ -702,32 +703,24 @@ li {
 
     #dropdownContent .nav__nav-list .nav__nav-item {
         display: block;
-        height: 0;
-        opacity: 0;
+        opacity: 1;
+        height: 21px;
+        margin-bottom: 14px;
         transition: 0.7s all ease-in;
     }
+
+#mobileNav .nav__nav-list .nav__nav-item:last-of-type {
+    margin-bottom: 0;
+} 
 
 #mobileNav.show {
     transition: 0.7s all ease-in;
 }
 
     #mobileNav.show #dropdownContent {
-        padding: 10px 10px 10px 10px;
-        border-top: 2px solid var(--color-2-semi-opacity);
-        border-bottom: 2px solid var(--color-2-semi-opacity);
-        border-left: 2px solid var(--color-2-semi-opacity);
-    }
-
-    #mobileNav.show .nav__nav-list .nav__nav-item {
-        height: 21px;
-        margin-bottom: 14px;
-        opacity: 1;
+        right: 0;
         transition: 0.7s all ease-in;
     }
-
-        #mobileNav.show .nav__nav-list .nav__nav-item:last-of-type {
-            margin-bottom: 0;
-        } 
 
 .nav__nav-list {
     font-size: 0;
