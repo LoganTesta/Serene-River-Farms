@@ -281,6 +281,7 @@ img {
     max-width: 100%;
     font-size: 0px;
 }
+
 /*Don't allow images to go offscreen horizontally */
 a:link, a:visited {
     color: #000000;

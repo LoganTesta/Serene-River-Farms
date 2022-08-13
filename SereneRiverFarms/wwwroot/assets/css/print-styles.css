@@ -14,3 +14,44 @@
 
 
 /***############### Website Specific Styles. ***/
+
+/* Prevent mid-item splitting onto two pages if possible */
+.slideshow-image-wrapper,
+.index-section__bg-image {
+    break-inside: avoid;
+    page-break-inside: avoid; /*Older version*/
+}
+
+
+
+@media only print and (max-width: 699px) {
+    /*Index*/
+    .index-section:nth-of-type(2n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    /*Products*/
+    .product:nth-of-type(2n + 1) {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+
+@media only print and (min-width: 500px) {
+    /*Index*/
+    .index-section__bg-image {
+        height: 200px;
+        transition: 0.4s ease-in;
+        cursor: pointer;
+    }
+
+    /*Products*/
+    .product__bg-image {
+        height: 180px;
+    }
+}
