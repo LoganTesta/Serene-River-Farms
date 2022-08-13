@@ -17,7 +17,9 @@
 
 /* Prevent mid-item splitting onto two pages if possible */
 .slideshow-image-wrapper,
-.index-section__bg-image {
+.index-section__bg-image,
+.background-hero-image,
+.our-farm-tour-image {
     break-inside: avoid;
     page-break-inside: avoid; /*Older version*/
 }
