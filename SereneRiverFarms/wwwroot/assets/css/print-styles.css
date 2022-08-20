@@ -19,7 +19,8 @@
 .slideshow-image-wrapper,
 .index-section__bg-image,
 .background-hero-image,
-.our-farm-tour-image {
+.our-farm-tour-image,
+.blog-post__photo {
     break-inside: avoid;
     page-break-inside: avoid; /*Older version*/
 }
