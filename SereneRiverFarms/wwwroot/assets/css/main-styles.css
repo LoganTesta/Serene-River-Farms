@@ -2174,8 +2174,8 @@ li {
     }
 
     .header {
-        min-height: 380px;
-        background: url("../images/hillside-farm.jpg") 0% 28%/cover no-repeat;
+        min-height: 280px;
+        background: url("../images/hillside-farm.jpg") 0% 24%/cover no-repeat;
     }
 
     .main-title-container {
@@ -2302,6 +2302,10 @@ li {
         padding-bottom: 0;
         margin-left: auto;
         margin-right: 0px;
+    }
+
+    .slideshow__image-link {
+        height: 210px;
     }
 
     .slideshow__image {
@@ -2538,6 +2542,11 @@ li {
     .cookie-policy {
         left: 15%;
         width: 70%;
+    }
+
+    /*Slideshow*/
+    .slideshow__image-link {
+        height: auto;
     }
 
 }
