@@ -154,9 +154,13 @@ window.addEventListener("load", function () {
     // Allow touch events to interact with slideshow.
     let initialTouchX = 0;
 
-    let slideshowImage = document.getElementsByClassName("slideshow")[0];
-    slideshowImage.addEventListener("touchstart", getTouchCoords, false);
-    slideshowImage.addEventListener("touchend", getFinalTouchCoords, false);
+    let slideshowImage = $(".slideshow").eq(0);
+    $(slideshowImage).on('touchstart', function () {
+        getTouchCoords(event);
+    });
+    $(slideshowImage).on('touchend', function () {
+        getFinalTouchCoords(event);
+    });
 
     function getTouchCoords(event) {
         let touchX = event.touches[0].clientX;
@@ -169,33 +173,38 @@ window.addEventListener("load", function () {
         let finalTouchX = event.changedTouches[0].clientX;
         let finalTouchY = event.changedTouches[0].clientY;
 
-        if (finalTouchX - initialTouchX > 80) {
+        if (finalTouchX - initialTouchX > 60) {
             setSlide(currentSlideNumber - 1);
-        } else if (initialTouchX - finalTouchX > 80) {
+        } else if (initialTouchX - finalTouchX > 60) {
             setSlide(currentSlideNumber + 1);
         }
     }
 
 
     // Allow mouse dragging events to interact with slideshow.
-    slideshowImage.addEventListener("mousedown", getMouseDownCoords, false);
-    slideshowImage.addEventListener("mouseup", getMouseUpsCoords, false);
+    $(slideshowImage).on('mousedown', function () {
+        getMouseDownCoords(event);
+    });
+    $(slideshowImage).on('mouseup', function () {
+        getMouseUpsCoords(event);
+    });
     let mouseDown = false;
 
     let initialMouseDownX = 0;
 
     function getMouseDownCoords(event) {
-        let mouseX = event.offsetX;
+        let mouseX = event.offsetX;      
         initialMouseDownX = mouseX;
-        slideshowImage.style.cursor = "grabbing";
+        $(slideshowImage).css("cursor", "grabbing");
     }
 
-    function getMouseUpsCoords(event) {
+    function getMouseUpsCoords(event) { 
         let mouseFinalX = event.offsetX;
-        slideshowImage.style.cursor = "default";
-        if (mouseFinalX - initialMouseDownX > 100) {
+       
+        $(slideshowImage).css("cursor", "default");
+        if (mouseFinalX - initialMouseDownX > 60) {
             setSlide(currentSlideNumber - 1);
-        } else if (initialMouseDownX - mouseFinalX > 100) {
+        } else if (initialMouseDownX - mouseFinalX > 60) {
             setSlide(currentSlideNumber + 1);
         }
     }
