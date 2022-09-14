@@ -92,30 +92,25 @@ window.addEventListener("load", function () {
                 }
                 if (currentSlideNumber === 0) {
                     slideshowHeader.html("Summer Fresh Berries");
-                    slideshowImageLink.attr("href", "/OurProducts");
                     slideshowImageLinkText.html("Our Products");
                     currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
                     slideButton0.addClass("active");
                 } else if (currentSlideNumber === 1) {
                     slideshowHeader.html("Some of our Cherry Trees");
-                    slideshowImageLink.attr("href", "/OurFarm");
                     slideshowImageLinkText.html("Our Farm");
                     currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
                     slideButton1.addClass("active");
                 } else if (currentSlideNumber === 2) {
                     slideshowHeader.html("One of our Tractors at Work");
-                    slideshowImageLink.attr("href", "/OurFarm");
                     slideshowImageLinkText.html("Our Farm");
                     currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
                     slideButton2.addClass("active");
                 } else if (currentSlideNumber === 3) {
                     slideshowHeader.html("Some of our Farmland");
-                    slideshowImageLink.attr("href", "/About");
                     slideshowImageLinkText.html("About Us");
                     currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
                     slideButton3.addClass("active");
                 } else if (currentSlideNumber === 4) {
-                    slideshowImageLink.attr("href", "/Events");
                     slideshowHeader.html("Apples Galore!");
                     slideshowImageLinkText.html("Events");
                     currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
@@ -154,7 +149,7 @@ window.addEventListener("load", function () {
     // Allow touch events to interact with slideshow.
     let initialTouchX = 0;
 
-    let slideshowImage = $(".slideshow").eq(0);
+    let slideshowImage = $(".slideshow__image-link").eq(0);
     $(slideshowImage).on('touchstart', function () {
         getTouchCoords(event);
     });
@@ -200,12 +195,25 @@ window.addEventListener("load", function () {
 
     function getMouseUpsCoords(event) { 
         let mouseFinalX = event.offsetX;
+        let mouseMoveValue = Math.abs(mouseFinalX - initialMouseDownX);
        
         $(slideshowImage).css("cursor", "default");
         if (mouseFinalX - initialMouseDownX > 60) {
             setSlide(currentSlideNumber - 1);
         } else if (initialMouseDownX - mouseFinalX > 60) {
             setSlide(currentSlideNumber + 1);
+        } else if (mouseMoveValue < 5) {
+            if (currentSlideNumber === 0) {
+                window.location = "/OurProducts";
+            } else if (currentSlideNumber === 1) {
+                window.location = "/OurFarm";
+            } else if (currentSlideNumber === 2) {
+                window.location = "/OurFarm";
+            } else if (currentSlideNumber === 3) {
+                window.location = "/About";
+            } else if (currentSlideNumber === 4) {
+                window.location = "/Events";
+            }
         }
     }
     
