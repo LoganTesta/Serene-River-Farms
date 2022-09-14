@@ -167,11 +167,24 @@ window.addEventListener("load", function () {
     function getFinalTouchCoords(event) {
         let finalTouchX = event.changedTouches[0].clientX;
         let finalTouchY = event.changedTouches[0].clientY;
+        let mouseMoveValue = Math.abs(finalTouchX - initialTouchX);
 
         if (finalTouchX - initialTouchX > 60) {
             setSlide(currentSlideNumber - 1);
         } else if (initialTouchX - finalTouchX > 60) {
             setSlide(currentSlideNumber + 1);
+        } else if (mouseMoveValue < 5) {
+            if (currentSlideNumber === 0) {
+                window.location = "/OurProducts";
+            } else if (currentSlideNumber === 1) {
+                window.location = "/OurFarm";
+            } else if (currentSlideNumber === 2) {
+                window.location = "/OurFarm";
+            } else if (currentSlideNumber === 3) {
+                window.location = "/About";
+            } else if (currentSlideNumber === 4) {
+                window.location = "/Events";
+            }
         }
     }
 
