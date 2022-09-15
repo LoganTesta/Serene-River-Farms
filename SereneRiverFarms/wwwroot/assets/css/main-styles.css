@@ -979,6 +979,11 @@ li {
     overflow: hidden;
     border: 2px solid var(--color-1);
     border-radius: 15px;
+    cursor: pointer;
+}
+
+.slideshow__image-link.grabbing {
+    cursor: grabbing;
 }
 
 .slideshow__image {
@@ -990,7 +995,6 @@ li {
     background: 50% 50%/cover no-repeat;
     transition: transform 1.2s ease-in;
     transform: scale(1.10);
-    cursor: pointer;
 }
 
     .slideshow__image:hover {

@@ -201,14 +201,14 @@ let initialMouseDownX = 0;
 function getMouseDownCoords(event) {
     let mouseX = event.offsetX;      
     initialMouseDownX = mouseX;
-    $(slideshowImage).css("cursor", "grabbing");
+    $(slideshowImage).addClass("grabbing");
 }
 
 function getMouseUpsCoords(event) { 
     let mouseFinalX = event.offsetX;
     let mouseMoveValue = Math.abs(mouseFinalX - initialMouseDownX);
        
-    $(slideshowImage).css("cursor", "default");
+    $(slideshowImage).removeClass("grabbing");
     if (mouseFinalX - initialMouseDownX > 60) {
         setSlide(currentSlideNumber - 1);
     } else if (initialMouseDownX - mouseFinalX > 60) {
