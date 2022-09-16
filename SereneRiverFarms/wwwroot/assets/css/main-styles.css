@@ -1012,7 +1012,7 @@ li {
 }
 
 .slideshow__buttons {
-    width: 168px;
+    width: 208px;
     margin-left: auto;
     margin-right: 25px;
     border-radius: 0 0 12px 12px;
@@ -1026,7 +1026,7 @@ li {
     width: 18px;
     height: 18px;
     margin-top: 10px;
-    margin-left: 12px;
+    margin-left: 20px;
     background-color: var(--color-1);
     border-radius: 8px;
     cursor: pointer;
@@ -2309,7 +2309,7 @@ li {
     }
 
     .slideshow__image-link {
-        height: 210px;
+        height: 230px;
     }
 
     .slideshow__image {
