@@ -2010,7 +2010,7 @@ li {
 
     /*Slideshow*/
     .slideshow__image {
-        min-height: 240px;
+        min-height: 250px;
     }
 
     .slideshow__buttons {
@@ -2178,19 +2178,19 @@ li {
     }
 
     .header {
-        min-height: 280px;
-        background: url("../images/hillside-farm.jpg") 0% 24%/cover no-repeat;
+        min-height: 260px;
+        background: url("../images/hillside-farm.jpg") 0% 22%/cover no-repeat;
     }
 
     .main-title-container {
         position: absolute;
         top: 90px;
         left: 40px;
-        width: 504px;
+        width: 429px;
     }
 
         .main-title-container .main-title__title {
-            font-size: 50px;
+            font-size: 42px;
         }
 
     /*Logo*/
@@ -2309,7 +2309,7 @@ li {
     }
 
     .slideshow__image-link {
-        height: 230px;
+        height: 250px;
     }
 
     .slideshow__image {
@@ -2540,6 +2540,14 @@ li {
     .header {
         min-height: 460px;
         background: url("../images/hillside-farm.jpg") 0% 22%/cover no-repeat;
+    }
+
+    .main-title-container {
+        width: 504px;
+    }
+
+    .main-title-container .main-title__title {
+        font-size: 50px;
     }
 
     /*Cookie policy*/
