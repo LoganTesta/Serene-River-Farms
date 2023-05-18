@@ -460,6 +460,11 @@ a, a:link, a:visited, a:hover {
             color: var(--color-3);
         }
 
+        a[href^="tel"]{
+            color: inherit;
+            text-decoration: none;
+        }
+
 button {
     padding: 10px;
     cursor: pointer;
