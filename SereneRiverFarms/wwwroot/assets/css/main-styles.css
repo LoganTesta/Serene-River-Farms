@@ -460,6 +460,12 @@ a, a:link, a:visited, a:hover {
             color: var(--color-3);
         }
 
+        a:focus,
+        a:focus-visible {
+            outline: 2px solid var(--color-1);
+            outline-offset: 2px;
+        }
+
         a[href^="tel"]{
             color: inherit;
             text-decoration: none;
@@ -633,6 +639,9 @@ li {
         color: var(--color-1);
     }
 
+    .main-title-container .main-title__title:focus,
+    .main-title-container .main-title__title:focus-visible { outline-offset: 6px; }
+
 .subtitle-container {
     position: relative;
 }
@@ -772,6 +781,10 @@ li {
     left: 10px;
     width: 40px;
     height: 40px;
+}
+
+.logo-container__logo {
+    display: block;
 }
 
 
