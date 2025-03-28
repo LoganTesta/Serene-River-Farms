@@ -1168,7 +1168,14 @@ li {
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: 2px;
 }
+
+.index-section__bg-image-link:focus,
+.index-section__bg-image-link:focus-visible {
+    outline-offset: 4px;
+}
+
 
 
 .index-section.one .index-section__bg-image {
