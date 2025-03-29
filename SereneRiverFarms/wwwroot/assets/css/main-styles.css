@@ -452,24 +452,26 @@ a, a:link, a:visited, a:hover {
     font-weight: bold;
 }
 
-    a, a:link, a:visited {
-        color: var(--color-4);
-    }
+a, a:link, a:visited {
+    color: var(--color-4);
+}
 
-        a:hover {
-            color: var(--color-3);
-        }
+a:hover {
+    color: var(--color-3);
+}
 
-        a:focus,
-        a:focus-visible {
-            outline: 2px solid var(--color-1);
-            outline-offset: 2px;
-        }
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+    outline: 2px solid var(--color-1);
+    outline-offset: 2px;
+}
 
-        a[href^="tel"]{
-            color: inherit;
-            text-decoration: none;
-        }
+a[href^="tel"]{
+    color: inherit;
+    text-decoration: none;
+}
 
 button {
     padding: 10px;
@@ -1056,6 +1058,7 @@ li {
     display: block;
     opacity: 0.4;
     float: left;
+    padding: 0;
     width: 18px;
     height: 18px;
     margin-top: 10px;
@@ -1066,15 +1069,20 @@ li {
     transition: 0.4s ease-in;
 }
 
-    .slideshow__slide-button:hover {
-        background-color: #ffffff;
-        box-shadow: 0px 0px 2px 4px var(--color-1) inset;
-        transition: 0.2s ease-in;
-    }
+.slideshow__slide-button:hover {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 4px var(--color-1) inset;
+    transition: 0.2s ease-in;
+}
 
-    .slideshow__slide-button.active {
-        opacity: 1;
-    }
+.slideshow__slide-button.active {
+    opacity: 1;
+}
+
+.slideshow__slide-button:focus,
+.slideshow__slide-button:focus-visible {
+    outline: 2px solid var(--color-1);
+}
 
 #pausePlayButton {
     opacity: 1;
