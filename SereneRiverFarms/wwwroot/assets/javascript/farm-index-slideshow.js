@@ -33,7 +33,7 @@ for (let i = 0; i < maxSlideNumber + 1; i++) {
 }
 
 let slideshowImageLink = $(".slideshow__image-link").eq(0);
-let slideshowImageLinkText = $(".slideshow__image-link-text").eq();
+let slideshowImageLinkText = $(".slideshow__image-link-text").eq(0);
 
 
 
@@ -91,26 +91,31 @@ function runSlideShow() {
             if (currentSlideNumber === 0) {
                 slideshowHeader.html("Summer Fresh Berries");
                 slideshowImageLinkText.html("Our Products");
+                slideshowImageLink.attr("href", "/OurProducts");
                 currentSlide.css("backgroundImage", "url(" + slide0.src + ")");
                 slideButton0.addClass("active");
             } else if (currentSlideNumber === 1) {
                 slideshowHeader.html("Some of our Cherry Trees");
                 slideshowImageLinkText.html("Our Farm");
+                slideshowImageLink.attr("href", "/OurFarm");
                 currentSlide.css("backgroundImage", "url(" + slide1.src + ")");
                 slideButton1.addClass("active");
             } else if (currentSlideNumber === 2) {
                 slideshowHeader.html("One of our Tractors at Work");
                 slideshowImageLinkText.html("Our Farm");
+                slideshowImageLink.attr("href", "/OurFarm");
                 currentSlide.css("backgroundImage", "url(" + slide2.src + ")");
                 slideButton2.addClass("active");
             } else if (currentSlideNumber === 3) {
                 slideshowHeader.html("Some of our Farmland");
                 slideshowImageLinkText.html("About Us");
+                slideshowImageLink.attr("href", "/About");
                 currentSlide.css("backgroundImage", "url(" + slide3.src + ")");
                 slideButton3.addClass("active");
             } else if (currentSlideNumber === 4) {
                 slideshowHeader.html("Apples Galore!");
                 slideshowImageLinkText.html("Events");
+                slideshowImageLink.attr("href", "/Events");
                 currentSlide.css("backgroundImage", "url(" + slide4.src + ")");
                 slideButton4.addClass("active");
             }
@@ -171,18 +176,6 @@ function getFinalTouchCoords(event) {
         setSlide(currentSlideNumber - 1);
     } else if (initialTouchX - finalTouchX > 60) {
         setSlide(currentSlideNumber + 1);
-    } else if (mouseMoveValue < 5) {
-        if (currentSlideNumber === 0) {
-            window.location = "/OurProducts";
-        } else if (currentSlideNumber === 1) {
-            window.location = "/OurFarm";
-        } else if (currentSlideNumber === 2) {
-            window.location = "/OurFarm";
-        } else if (currentSlideNumber === 3) {
-            window.location = "/About";
-        } else if (currentSlideNumber === 4) {
-            window.location = "/Events";
-        }
     }
 }
 
@@ -213,17 +206,5 @@ function getMouseUpsCoords(event) {
         setSlide(currentSlideNumber - 1);
     } else if (initialMouseDownX - mouseFinalX > 60) {
         setSlide(currentSlideNumber + 1);
-    } else if (mouseMoveValue < 5) {
-        if (currentSlideNumber === 0) {
-            window.location = "/OurProducts";
-        } else if (currentSlideNumber === 1) {
-            window.location = "/OurFarm";
-        } else if (currentSlideNumber === 2) {
-            window.location = "/OurFarm";
-        } else if (currentSlideNumber === 3) {
-            window.location = "/About";
-        } else if (currentSlideNumber === 4) {
-            window.location = "/Events";
-        }
     }
 }

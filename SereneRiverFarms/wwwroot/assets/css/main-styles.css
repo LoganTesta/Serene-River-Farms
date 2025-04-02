@@ -1017,6 +1017,11 @@ li {
     cursor: pointer;
 }
 
+.slideshow__image-link:focus,
+.slideshow__image-link:focus-visible {
+    outline-offset: 4px;
+}
+
 .slideshow__image-link.grabbing {
     cursor: grabbing;
 }
