@@ -613,6 +613,7 @@ li {
 
 #mobileNav {
     display: block;
+    z-index: 11;
 }
 
 .header {
@@ -769,9 +770,9 @@ li {
     color: var(--color-1);
 }
 
-    .nav .nav__nav-link:hover {
-        border-bottom: 2px solid var(--color-1);
-    }
+.nav .nav__nav-link:hover {
+    border-bottom: 2px solid var(--color-1);
+}
 
 .nav .nav__nav-list-container .nav__nav-link.current-page {
     border-bottom: 2px solid var(--color-1);
@@ -2025,23 +2026,27 @@ li {
         top: 32px;
     }
 
-        .nav .nav__nav-link {
-            margin-bottom: 15px;
-            font-size: 18px;
-            color: #ffffff;
-        }
+    .nav .nav__nav-link {
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: #ffffff;
+    }
 
-            .nav .nav__nav-link:hover {
-                border-bottom: 2px solid #ffffff;
-            }
+    .nav .nav__nav-link:hover {
+        border-bottom: 2px solid #ffffff;
+    }
 
-        .nav .nav__nav-list-container .nav__nav-link.current-page {
-            border-bottom: 2px solid #ffffff;
-        }
+    .nav .nav__nav-link:focus-visible {
+        outline-color: #ffffff;
+    }
 
-            .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
-                border-bottom: 2px solid #ffffff;
-            }
+    .nav .nav__nav-list-container .nav__nav-link.current-page {
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
+        border-bottom: 2px solid #ffffff;
+    }
 
 
     /*General Use */
@@ -2273,26 +2278,30 @@ li {
         padding-right: 32px;
     }
 
-        .nav__nav-item:last-of-type {
-            padding-right: 0;
-        }
+    .nav__nav-item:last-of-type {
+        padding-right: 0;
+    }
 
     .nav .nav__nav-link {
         margin-bottom: 0;
         color: var(--color-4);
     }
 
-        .nav .nav__nav-link:hover {
-            border-bottom: 2px solid var(--color-4);
-        }
+    .nav .nav__nav-link:hover {
+        border-bottom: 2px solid var(--color-4);
+    }
+
+    .nav .nav__nav-link:focus-visible {
+        outline-color: var(--color-1);
+    }
 
     .nav .nav__nav-list-container .nav__nav-link.current-page {
         border-bottom: 2px solid var(--color-4);
     }
 
-        .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
-            border-bottom: 2px solid var(--color-4);
-        }
+    .nav .nav__nav-list-container .nav__nav-link.current-page:hover {
+        border-bottom: 2px solid var(--color-4);
+    }
 
 
     .footer {
