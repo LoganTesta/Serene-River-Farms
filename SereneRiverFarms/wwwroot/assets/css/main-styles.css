@@ -442,10 +442,12 @@ input, textarea, select {
     transition: box-shadow 0.4s ease-in;
 }
 
-    input:focus, textarea:focus, select:focus {
-        box-shadow: 0 0 3px 5px var(--color-1-semi-opacity);
-        transition: box-shadow 0.4s ease-in;
-    }
+input:focus, input:focus-visible,
+textarea:focus, textarea:focus-visible,
+select:focus, select:focus-visible {
+    box-shadow: 0 0 3px 5px var(--color-1-semi-opacity);
+    transition: box-shadow 0.4s ease-in;
+}
 
 a, a:link, a:visited, a:hover {
     transition: 0.4s ease-in;
