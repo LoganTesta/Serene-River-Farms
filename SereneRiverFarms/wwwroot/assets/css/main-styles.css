@@ -462,9 +462,7 @@ a:hover {
     color: var(--color-3);
 }
 
-a:focus,
 a:focus-visible,
-button:focus,
 button:focus-visible {
     outline: 2px solid var(--color-1);
     outline-offset: 2px;
@@ -559,6 +557,7 @@ li {
 
 
 .button-container {
+    display: block;
     border: 2px solid var(--color-1);
     border-radius: 15px;
     font-size: 18px;
