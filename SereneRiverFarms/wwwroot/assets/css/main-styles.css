@@ -569,11 +569,15 @@ li {
     transition: 0.4s ease-in;
 }
 
-    .button-container:hover {
-        background-color: var(--color-1-lighter-green);
-        box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
-        transition: 0.4s ease-in;
-    }
+.button-container:hover {
+    background-color: var(--color-1-lighter-green);
+    box-shadow: 0 0 4px 6px var(--color-3-semi-opacity);
+    transition: 0.4s ease-in;
+}
+
+.button-container::selection { 
+    background-color: transparent; 
+}
 
 .sign-up-container {
     width: 150px;
@@ -1539,6 +1543,7 @@ li {
 }
 
 .reset-all {
+    display: block;
     width: 100px;
     padding: 10px 5px;
     margin-left: auto;
