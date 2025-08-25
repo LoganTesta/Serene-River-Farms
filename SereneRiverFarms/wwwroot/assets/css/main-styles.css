@@ -721,6 +721,7 @@ li {
     top: 50px;
     right: 0;
     width: 0;
+    border-radius: 4px 0 0 4px;
     background-color: rgba(255, 255, 255, 0.8);
     transition: 0.7s all ease-in;
 }
