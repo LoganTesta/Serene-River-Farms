@@ -893,6 +893,7 @@ li {
 
 .footer__copyright, .footer__locations, .footer__phone, .footer__hours {
     padding-bottom: 15px;
+    font-style: normal;
 }
 
 .footer__subheading {
