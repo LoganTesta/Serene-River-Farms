@@ -1004,7 +1004,7 @@ li {
 
 /*Slideshow*/
 .slideshow {
-    position: static;
+    position: relative;
     width: 100%;
     max-width: 560px;
     height: 100%;
@@ -1073,13 +1073,13 @@ li {
 
 .slideshow__icon.left {
     position: absolute;
-    top: 66px;
+    top: 132px;
     left: 3%;
 }
 
 .slideshow__icon.right {
     position: absolute;
-    top: 66px;
+    top: 132px;
     right: 3%;
 }
 
@@ -2132,12 +2132,12 @@ li {
 
     .slideshow__icon.left {
         position: absolute;
-        top: 114px;
+        top: 153px;
     }
 
     .slideshow__icon.right {
         position: absolute;
-        top: 114px;
+        top: 153px;
     }
 
     .slideshow__icon__button {
@@ -2469,13 +2469,13 @@ li {
 
     .slideshow__icon.left {
         position: absolute;
-        top: 170px;
+        top: 158px;
         left: 3%;
     }
 
     .slideshow__icon.right {
         position: absolute;
-        top: 170px;
+        top: 158px;
         right: 3%;
     }
 
@@ -2716,6 +2716,18 @@ li {
     }
 
     /*Slideshow*/
+    .slideshow__icon.left {
+        position: absolute;
+        top: 191px;
+        left: 3%;
+    }
+
+    .slideshow__icon.right {
+        position: absolute;
+        top: 191px;
+        right: 3%;
+    }
+
     .slideshow__image-link {
         height: auto;
     }

@@ -26,6 +26,17 @@ let slideButton3 = $("#slideButton3");
 let slideButton4 = $("#slideButton4");
 let slideButtons = new Array(slideButton0, slideButton1, slideButton2, slideButton3, slideButton4);
 
+let backIcon = $(".slideshow__icon").eq(0);
+let forwardIcon = $(".slideshow__icon").eq(1);
+
+backIcon.on('click', function () {
+    setSlide(currentSlideNumber - 1);
+});
+
+forwardIcon.on('click', function () {
+    setSlide(currentSlideNumber + 1);
+});
+
 for (let i = 0; i < maxSlideNumber + 1; i++) {
     slideButtons[i].on('click', function () {
         setSlide(i);
