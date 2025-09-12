@@ -1091,13 +1091,13 @@ li {
     font-size: 20px;
     line-height: 27px;
     color: var(--color-1-semi-opacity);
-    background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.95);
     text-align: center;
     transition: 0.2s;
 }
 
 .slideshow__icon__button:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.7);
     transition: 0.2s;
 }
 
@@ -1138,7 +1138,6 @@ li {
     opacity: 1;
 }
 
-.slideshow__slide-button:focus,
 .slideshow__slide-button:focus-visible {
     outline: 2px solid var(--color-1);
 }
@@ -1146,6 +1145,7 @@ li {
 #pausePlayButton {
     opacity: 1;
     margin-left: 0;
+    box-shadow: none;
     background: url(../images/index/pause-button.png) 50% 50%/cover no-repeat;
     border-radius: 1px;
 }
@@ -1155,7 +1155,7 @@ li {
     }
 
     #pausePlayButton:hover {
-        box-shadow: 0px 0px 3px 4px var(--color-4);
+        box-shadow: none;
     }
 
 #slideButton3 {
