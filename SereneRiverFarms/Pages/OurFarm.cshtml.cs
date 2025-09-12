@@ -192,7 +192,9 @@ namespace SereneRiverFarms.Pages
                 }
             }
 
-
+            //Reformat for the form output.
+            visitDate = Convert.ToDateTime(visitDate).ToString("MMMM d, yyyy");
+            visitTime = Convert.ToDateTime(visitTime).ToString("h:mm tt");
 
             if (!validForm)
             {
