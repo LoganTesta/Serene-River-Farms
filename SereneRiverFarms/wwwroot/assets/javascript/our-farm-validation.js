@@ -1,5 +1,4 @@
-﻿
-/* JavaScript Contact Form Validation. */
+﻿/* JavaScript Contact Form Validation. */
 let clickedSubmitContact = false;
 
 
@@ -89,7 +88,7 @@ function validateSetUpTourForm() {
         }
         if (partySizeToNumber < 1 || partySizeToNumber > 99) {
             validPartySize = false;
-        }   
+        }
 
         if (validPartySize) {
             $("#partySize").removeClass("required-field-needed");
@@ -126,13 +125,14 @@ function validateSetUpTourForm() {
         }
 
         let year = parseInt(yearString);
-        let month = parseInt(monthString); 
+        let month = parseInt(monthString);
         let day = parseInt(dayString);
 
         let currentDate = new Date();
         let currentYear = currentDate.getFullYear();
         let currentMonth = 1 + currentDate.getMonth();
         let currentDay = currentDate.getDate();
+
 
         if (year < currentYear) {
             validVisitDate = false;
@@ -147,7 +147,7 @@ function validateSetUpTourForm() {
         } else if (year > (currentYear + 1)) {
             validVisitDate = false;
             dateFeedback = " Please provide a date ranging from tomorrow to later this or next year.";
-        }
+        } 
 
         if (validVisitDate) {
             $("#visitDate").removeClass("required-field-needed");
@@ -172,12 +172,12 @@ function validateSetUpTourForm() {
 
 
         if (validContactForm === false) {
-            $(".javascript-validation-results-contact-us").eq(0).addClass("show");
-            $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format." + dateFeedback);
+            $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format.<br/>" + dateFeedback);
+            $(".form-response").eq(0).removeClass("show");
             return false;
         } else if (validContactForm) {
-            $("javascript-validation-results-contact-us").eq(0).removeClass("show");
-            $("javascript-validation-results-contact-us").eq(0).html("");
+            $(".javascript-validation-results-contact-us").eq(0).html("<br/>" + dateFeedback);
+            $(".form-response").eq(0).addClass("show");
             return true;
         }
     } else {

@@ -108,8 +108,10 @@
                 let parser = new DOMParser();
                 let ajaxDocument = parser.parseFromString(response, "text/html");
 
+                let javascriptValidationResultsContactUs = ajaxDocument.getElementsByClassName("javascript-validation-results-contact-us")[0];
                 let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
 
+                $(".javascript-validation-results-contact-us").eq(0).html(javascriptValidationResultsContactUs.innerHTML);
                 $(".form-response").eq(0).html(formResponse.innerHTML);
             }
         });

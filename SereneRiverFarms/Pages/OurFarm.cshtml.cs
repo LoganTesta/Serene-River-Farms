@@ -187,6 +187,7 @@ namespace SereneRiverFarms.Pages
                     }
                     else if (year > (currentDate.Year + 1))
                     {
+                        validForm = false;
                         contactFormResponse += " Please schedule a date either later this or next year.";
                     }
                 }
@@ -234,7 +235,7 @@ namespace SereneRiverFarms.Pages
                     destinationSmtp.Disconnect(true);
                     destinationSmtp.Dispose();
 
-                    contactFormResponse = "Thank you " + userName + ", we will review your tour request for " + visitDate + " at " + visitTime + " for " + partySize +" and get back to you soon.  " +
+                    contactFormResponse = "Thank you " + userName + ", we will review your tour request for " + visitDate + " at " + visitTime + " for " + partySize + " and get back to you soon.  " +
                         "Our reply will be sent to your email at: " + userEmail + ".";
                 }
             }
