@@ -3,7 +3,8 @@ let clickedSubmitContact = false;
 
 
 function validateSetUpTourForm() {
-    if (clickedSubmitContact) {
+
+        $(".form-response").html("");   //Clear the server side form response at the start of client side validation
         let userName = $("#userName").val().trim();
         let userEmail = $("#userEmail").val().trim();
         let userPhone = $("#userPhone").val().trim();
@@ -171,18 +172,16 @@ function validateSetUpTourForm() {
 
 
 
-        if (validContactForm === false) {
+    if (validContactForm === false) {
             $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format.<br/>" + dateFeedback);
             $(".form-response").eq(0).removeClass("show");
             return false;
-        } else if (validContactForm) {
-            $(".javascript-validation-results-contact-us").eq(0).html("<br/>" + dateFeedback);
+    } else if (validContactForm) {
+            $(".javascript-validation-results-contact-us").eq(0).html("" + dateFeedback);
             $(".form-response").eq(0).addClass("show");
             return true;
         }
-    } else {
-        return false;
-    }
+
 }
 
 

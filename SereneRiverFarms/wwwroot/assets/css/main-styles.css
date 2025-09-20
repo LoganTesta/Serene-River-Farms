@@ -548,6 +548,11 @@ li {
     padding: 15px;
 }
 
+    .form__submit-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
     .form__submit-button:hover {
     }
 
