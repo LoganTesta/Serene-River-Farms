@@ -4,6 +4,8 @@ let clickedSubmitContact = false;
 
 function validateSetUpTourForm() {
 
+    //Make sure user has clicked the submit button at least once before showing client side validation feedback.
+    if (clickedSubmitContact) {
         $(".form-response").html("");   //Clear the server side form response at the start of client side validation
         let userName = $("#userName").val().trim();
         let userEmail = $("#userEmail").val().trim();
@@ -148,7 +150,7 @@ function validateSetUpTourForm() {
         } else if (year > (currentYear + 1)) {
             validVisitDate = false;
             dateFeedback = " Please provide a date ranging from tomorrow to later this or next year.";
-        } 
+        }
 
         if (validVisitDate) {
             $("#visitDate").removeClass("required-field-needed");
@@ -172,15 +174,20 @@ function validateSetUpTourForm() {
 
 
 
-    if (validContactForm === false) {
+        if (validContactForm === false) {
             $(".javascript-validation-results-contact-us").eq(0).html("Please fill all required fields in the correct format.<br/>" + dateFeedback);
             $(".form-response").eq(0).removeClass("show");
+
+            $("#setUpTourButton").prop("disabled", true);
             return false;
-    } else if (validContactForm) {
+        } else if (validContactForm) {
             $(".javascript-validation-results-contact-us").eq(0).html("" + dateFeedback);
             $(".form-response").eq(0).addClass("show");
+
+            $("#setUpTourButton").prop("disabled", false);
             return true;
         }
+    }
 
 }
 
