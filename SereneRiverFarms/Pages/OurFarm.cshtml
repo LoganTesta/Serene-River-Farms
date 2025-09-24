@@ -1,9 +1,14 @@
 ﻿
 @page
 @model SereneRiverFarms.Pages.OurFarmModel
+@using System.Collections;   @*For ArrayLists*@
+@using Microsoft.AspNetCore.Http;   @*For Sessions*@
 @{
+    @using Microsoft.AspNetCore.Html;
     ViewData["Title"] = "Our Farm";
     var contactResponse = ViewData["Message"];
+    var messageSent = "" + ViewData["MessageSent"];
+
 }
 
 
@@ -65,8 +70,17 @@
                 <textarea id="userComments" class="form__input form__textarea" name="userComments"></textarea>
                 <div class="clear-both"></div>
             </div>
-            <div class="form__input-container">
-                <input asp-page-handler="SetUpTourSection" id="setUpTourButton" class="form__submit-button button-container" type="submit" name="submitButton" value="Request Tour!" />
+            <div class="form__input-container submit-button-input-container">
+
+                @{
+                    if (@messageSent == "disabled") {
+                        <input asp-page-handler="SetUpTourSection" id="setUpTourButton" class="form__submit-button button-container" type="submit" name="submitButton" value="Request Tour!" disabled />
+                    } else
+                    {
+                        <input asp-page-handler="SetUpTourSection" id="setUpTourButton" class="form__submit-button button-container" type="submit" name="submitButton" value="Request Tour!" />
+                    }
+
+                }
                 <div class="form__errors"></div>
             </div>
         </form>
@@ -113,11 +127,11 @@
 
                 let javascriptValidationResultsContactUs = ajaxDocument.getElementsByClassName("javascript-validation-results-contact-us")[0];
                 let formResponse = ajaxDocument.getElementsByClassName("form-response")[0];
+                let submitBbuttonInputContainer = ajaxDocument.getElementsByClassName("submit-button-input-container")[0];
 
                 $(".javascript-validation-results-contact-us").eq(0).html(javascriptValidationResultsContactUs.innerHTML);
                 $(".form-response").eq(0).html(formResponse.innerHTML);
-
-             //   $("#setUpTourButton").attr("disabled", "disabled");
+                $(".submit-button-input-container").eq(0).html(submitBbuttonInputContainer.innerHTML);
             }
         });
     }

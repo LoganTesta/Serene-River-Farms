@@ -16,6 +16,7 @@ namespace SereneRiverFarms.Pages
     {
 
         public string Message { get; set; }
+        public string MessageSent { get; set; }
 
         public void OnGet()
         {
@@ -237,6 +238,7 @@ namespace SereneRiverFarms.Pages
 
                     contactFormResponse = "Thank you " + userName + ", we will review your tour request for " + visitDate + " at " + visitTime + " for " + partySize + " and get back to you soon.  " +
                         "Our reply will be sent to your email at: " + userEmail + ".";
+                    ViewData["MessageSent"] = "disabled";
                 }
             }
 
