@@ -45,7 +45,7 @@ for (let i = 0; i < maxSlideNumber + 1; i++) {
 
 let slideshowImageLink = $(".slideshow__image-link").eq(0);
 let slideshowImageLinkText = $(".slideshow__image-link-text").eq(0);
-
+let slideshowImage = $(".slideshow").eq(0);
 
 
 function init() {
@@ -163,11 +163,11 @@ function setSlide(slideNumber) {
 // Allow touch events to interact with slideshow.
 let initialTouchX = 0;
 
-let slideshowImage = $(".slideshow__image-link").eq(0);
-$(slideshowImage).on('touchstart', function () {
+
+$(slideshowImageLink).on('touchstart', function () {
     getTouchCoords(event);
 });
-$(slideshowImage).on('touchend', function () {
+$(slideshowImageLink).on('touchend', function () {
     getFinalTouchCoords(event);
 });
 
@@ -192,10 +192,10 @@ function getFinalTouchCoords(event) {
 
 
 // Allow mouse dragging events to interact with slideshow.
-$(slideshowImage).on('mousedown', function () {
+$(slideshowImageLink).on('mousedown', function () {
     getMouseDownCoords(event);
 });
-$(slideshowImage).on('mouseup', function () {
+$(slideshowImageLink).on('mouseup', function () {
     getMouseUpsCoords(event);
 });
 let mouseDown = false;
