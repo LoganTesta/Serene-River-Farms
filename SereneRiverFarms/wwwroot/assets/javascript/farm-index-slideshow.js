@@ -192,18 +192,18 @@ function getFinalTouchCoords(event) {
 
 
 // Allow mouse dragging events to interact with slideshow.
-document.getElementsByClassName("slideshow__image-link")[0].addEventListener('mousedown', function(event) {
+$(".slideshow__image-link").eq(0).on('mousedown', function(event) {
     getMouseDownCoords(event);
     event.preventDefault();
 });
 
 
-document.getElementsByClassName("slideshow__image-link")[0].addEventListener('mouseup', function (event) {
+$(".slideshow__image-link").eq(0).on('mouseup', function (event) {
     getMouseUpsCoords(event);
 });
 
 
-document.getElementsByClassName("slideshow__image-link")[0].addEventListener('click', function (event) {
+$(".slideshow__image-link").eq(0).on('click', function (event) {
     if ($(slideshowSlide).hasClass("movedSlideSubstantially")) {
         event.preventDefault();
     }
