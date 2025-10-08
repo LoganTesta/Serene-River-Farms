@@ -43,9 +43,9 @@ for (let i = 0; i < maxSlideNumber + 1; i++) {
     });
 }
 
+let slideshowSlide = $(".slideshow").eq(0);
 let slideshowImageLink = $(".slideshow__image-link").eq(0);
 let slideshowImageLinkText = $(".slideshow__image-link-text").eq(0);
-let slideshowImage = $(".slideshow").eq(0);
 
 
 function init() {
@@ -192,12 +192,25 @@ function getFinalTouchCoords(event) {
 
 
 // Allow mouse dragging events to interact with slideshow.
-$(slideshowImageLink).on('mousedown', function () {
+document.getElementsByClassName("slideshow__image-link")[0].addEventListener('mousedown', function(event) {
     getMouseDownCoords(event);
+    event.preventDefault();
 });
-$(slideshowImageLink).on('mouseup', function () {
+
+
+document.getElementsByClassName("slideshow__image-link")[0].addEventListener('mouseup', function (event) {
     getMouseUpsCoords(event);
 });
+
+
+document.getElementsByClassName("slideshow__image-link")[0].addEventListener('click', function (event) {
+    if ($(slideshowSlide).hasClass("movedSlideSubstantially")) {
+        event.preventDefault();
+    }
+});
+
+
+
 let mouseDown = false;
 
 let initialMouseDownX = 0;
@@ -205,17 +218,25 @@ let initialMouseDownX = 0;
 function getMouseDownCoords(event) {
     let mouseX = event.offsetX;      
     initialMouseDownX = mouseX;
-    $(slideshowImage).addClass("grabbing");
+    $(slideshowSlide).addClass("grabbing");
+    setTimeout(removeGrabbingClass, 2000);
+}
+
+function removeGrabbingClass() {
+    $(slideshowSlide).removeClass("grabbing");
 }
 
 function getMouseUpsCoords(event) { 
     let mouseFinalX = event.offsetX;
     let mouseMoveValue = Math.abs(mouseFinalX - initialMouseDownX);
        
-    $(slideshowImage).removeClass("grabbing");
+    $(slideshowSlide).removeClass("grabbing");
+    $(slideshowSlide).removeClass("movedSlideSubstantially");
     if (mouseFinalX - initialMouseDownX > 60) {
         setSlide(currentSlideNumber - 1);
+        $(slideshowSlide).addClass("movedSlideSubstantially");
     } else if (initialMouseDownX - mouseFinalX > 60) {
         setSlide(currentSlideNumber + 1);
+        $(slideshowSlide).addClass("movedSlideSubstantially");
     }
 }

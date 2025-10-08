@@ -1037,9 +1037,9 @@ li {
         outline-offset: 4px;
     }
 
-    .slideshow__image-link.grabbing {
-        cursor: grabbing;
-    }
+.slideshow.grabbing .slideshow__image-link {
+    cursor: grabbing;
+}
 
 .slideshow__image {
     min-height: 200px;
