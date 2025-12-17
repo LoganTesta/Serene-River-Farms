@@ -1,4 +1,5 @@
-﻿/***############### General Styling Reset and Setup: reset, grid, typography, general classes and divs.  Mobile-first styling setup. ***/
+﻿
+/***############### General Styling Reset and Setup: reset, grid, typography, general classes and divs.  Mobile-first styling setup. ***/
 /***########## Reset the styles, add box-sizing: border-box. ***/
 html, body, div, span, p, img, a, br, ul, li, ol, header, nav, footer, table, button, label, input, textarea, select, tr, td, th, h1, h2, h3, h4, h5, h6 {
     margin: 0px;
@@ -267,7 +268,8 @@ ul {
     list-style-type: none;
 }
 
-p {
+p,
+address {
     padding-bottom: 16px;
     line-height: 22.4px;
 }
@@ -280,8 +282,11 @@ img {
     max-width: 100%;
     font-size: 0px;
 }
-
 /*Don't allow images to go offscreen horizontally */
+address {
+    font-style: normal;
+}
+
 a:link, a:visited {
     color: #000000;
 }
@@ -361,11 +366,15 @@ input, textarea, select {
 }
 
 /* General Resuable Classes */
-.sr-only {
+.hidden-sr-only {
     display: block;
-    width: 0;
-    height: 0;
-    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 .width-100-percent {
@@ -392,10 +401,13 @@ input, textarea, select {
 
 /* Form Validation classes */
 .javascript-validation-results-contact-us {
-    display: block;
+    display: none;
     font-weight: bold;
 }
 
+    .javascript-validation-results-contact-us.show {
+        display: block;
+    }
 
 .required-field-needed {
     box-shadow: 0px 0px 3px 3px rgba(204, 0, 0, 1);
